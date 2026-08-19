@@ -8,6 +8,7 @@ suppressPackageStartupMessages({
   library(stringr)
   library(igraph)
   library(ggraph)
+  library(ggrepel)
   library(scales)
 })
 
