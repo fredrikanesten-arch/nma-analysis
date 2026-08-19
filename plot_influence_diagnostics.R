@@ -136,10 +136,10 @@ p2 <- ggplot(volcano_df, aes(x = log_n, y = max_abs_delta)) +
 loo_plot_df <- loo_fragility %>%
   separate(network_estimate, into = c("treat1", "treat2"), sep = ":", remove = FALSE) %>%
   mutate(
-    contrast_category = if_else(
-      is_pharmacological(treat1) & is_pharmacological(treat2),
-      "pharmacological",
-      "psychological"
+    contrast_category = case_when(
+      is_pharmacological(treat1) & is_pharmacological(treat2) ~ "pharmacological",
+      !is_pharmacological(treat1) & !is_pharmacological(treat2) ~ "psychological",
+      TRUE ~ "mixed"
     ),
     network_estimate = reorder(network_estimate, max_abs_change)
   )
@@ -147,7 +147,11 @@ loo_plot_df <- loo_fragility %>%
 p3 <- ggplot(loo_plot_df, aes(x = network_estimate, y = max_abs_change, fill = contrast_category)) +
   geom_col() +
   coord_flip() +
-  scale_fill_manual(values = c(pharmacological = "#3182bd", psychological = "#f16913")) +
+  scale_fill_manual(values = c(
+    pharmacological = "#3182bd",
+    psychological = "#f16913",
+    mixed = "#636363"
+  )) +
   labs(
     title = "LOO fragility by network contrast",
     x = "Network contrast",
