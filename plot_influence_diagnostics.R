@@ -103,7 +103,7 @@ study_categories <- collapsed %>%
     study_category = case_when(
       any(active_non_control & !pharm) ~ "psychological/behavioural",
       any(active_non_control & pharm) ~ "pharmacological",
-      TRUE ~ "pharmacological"
+      TRUE ~ "control only"
     ),
     .groups = "drop"
   )
@@ -128,7 +128,7 @@ p2 <- ggplot(volcano_df, aes(x = log_n, y = max_abs_delta)) +
   labs(
     title = "LOSO volcano plot",
     x = "Study size (log n participants)",
-    y = "max_abs_delta"
+    y = "Max. absolute change in treatment effect"
   ) +
   theme_minimal(base_size = 11)
 
@@ -151,7 +151,7 @@ p3 <- ggplot(loo_plot_df, aes(x = network_estimate, y = max_abs_change, fill = c
   labs(
     title = "LOO fragility by network contrast",
     x = "Network contrast",
-    y = "max_abs_delta",
+    y = "Max. absolute change in treatment effect",
     fill = "Category"
   ) +
   theme_minimal(base_size = 11)
@@ -215,12 +215,13 @@ p5 <- ggplot(loso_rank_df, aes(x = rank, y = max_abs_delta, colour = study_categ
   geom_point(size = 1.8, alpha = 0.85) +
   scale_colour_manual(values = c(
     pharmacological = "#3182bd",
-    `psychological/behavioural` = "#f16913"
+    `psychological/behavioural` = "#f16913",
+    `control only` = "#636363"
   )) +
   labs(
     title = "LOSO ranked max_abs_delta (caterpillar)",
     x = "Study rank (1 = most influential)",
-    y = "max_abs_delta",
+    y = "Max. absolute change in treatment effect",
     colour = "Study category"
   ) +
   theme_minimal(base_size = 11)
