@@ -179,7 +179,12 @@ node_influence <- loto_summary %>%
 node_tier <- treatment_legend %>%
   mutate(
     tier_num = ntile(n_studies, 3),
-    evidence_tier = recode(tier_num, `1` = "low", `2` = "medium", `3` = "high")
+    evidence_tier = case_match(
+      tier_num,
+      1 ~ "low",
+      2 ~ "medium",
+      3 ~ "high"
+    )
   ) %>%
   select(class, evidence_tier)
 
