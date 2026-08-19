@@ -1,0 +1,51 @@
+treatment_id,class
+trt_001,Acupuncture
+trt_002,Acupuncture + AD
+trt_003,Any AD
+trt_004,Any psychotherapy
+trt_005,Attention placebo
+trt_006,Behavioural therapies individual
+trt_007,Behavioural therapies individual + AD
+trt_008,Cognitive and cognitive behavioural therapies group
+trt_009,Cognitive and cognitive behavioural therapies group + AD
+trt_010,Cognitive and cognitive behavioural therapies individual
+trt_011,Cognitive and cognitive behavioural therapies individual + AD
+trt_012,Cognitive and cognitive behavioural therapies individual + placebo
+trt_013,Counselling individual
+trt_014,Counselling individual + AD
+trt_015,Counselling individual + placebo
+trt_016,Exercise group
+trt_017,Exercise group + AD
+trt_018,Exercise individual
+trt_019,Exercise individual + AD
+trt_020,Interpersonal psychotherapy (IPT) individual
+trt_021,Interpersonal psychotherapy (IPT) individual + AD
+trt_022,Interpersonal psychotherapy (IPT) individual + placebo
+trt_023,Light therapy
+trt_024,Light therapy + AD
+trt_025,Mindfulness or meditation group
+trt_026,Mirtazapine
+trt_027,Music therapy group
+trt_028,No treatment
+trt_029,Peer support group
+trt_030,Peer support group + AD
+trt_031,Placebo
+trt_032,Problem solving group
+trt_033,Problem solving individual
+trt_034,Psychoeducation group
+trt_035,Psychoeducation group + AD
+trt_036,Relaxation individual + AD
+trt_037,Relaxation individual + placebo
+trt_038,SNRIs
+trt_039,SSRIs
+trt_040,Self-help
+trt_041,Self-help with support
+trt_042,Sham acupuncture
+trt_043,Short-term psychodynamic psychotherapies individual
+trt_044,Short-term psychodynamic psychotherapies individual + AD
+trt_045,TAU
+trt_046,TCAs
+trt_047,Trazodone
+trt_048,Waitlist
+trt_049,Yoga group
+trt_050,Yoga group + AD

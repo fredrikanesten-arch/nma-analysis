@@ -1,0 +1,4 @@
+comparison,n_overlap,pct_overlap_of_10
+main vs sens_exclude_binary_response_converted,9,90
+main vs sens_exclude_baseline_followup,4,40
+intersection_all_three,3,30

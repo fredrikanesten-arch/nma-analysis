@@ -1,0 +1,51 @@
+treatment_id,SUCRA_direction_corrected,rank_orientation_reversed,assumption_lower_is_better,class,rank_direction_corrected
+trt_025,0.9932286352040816,TRUE,TRUE,Mindfulness or meditation group,1
+trt_017,0.9769024234693877,TRUE,TRUE,Exercise group + AD,2
+trt_032,0.9609770408163265,TRUE,TRUE,Problem solving group,3
+trt_002,0.8857040816326531,TRUE,TRUE,Acupuncture + AD,4
+trt_011,0.8406170280612245,TRUE,TRUE,Cognitive and cognitive behavioural therapies individual + AD,5
+trt_050,0.7988179209183673,TRUE,TRUE,Yoga group + AD,6
+trt_012,0.7897066326530612,TRUE,TRUE,Cognitive and cognitive behavioural therapies individual + placebo,7
+trt_019,0.7827822066326532,TRUE,TRUE,Exercise individual + AD,8
+trt_034,0.7208109056122449,TRUE,TRUE,Psychoeducation group,9
+trt_024,0.7138147321428572,TRUE,TRUE,Light therapy + AD,10
+trt_030,0.7039830994897959,TRUE,TRUE,Peer support group + AD,11
+trt_001,0.6831511479591837,TRUE,TRUE,Acupuncture,12
+trt_009,0.6780051020408164,TRUE,TRUE,Cognitive and cognitive behavioural therapies group + AD,13
+trt_029,0.6627110969387756,TRUE,TRUE,Peer support group,14
+trt_008,0.653204081632653,TRUE,TRUE,Cognitive and cognitive behavioural therapies group,15
+trt_033,0.6241183035714285,TRUE,TRUE,Problem solving individual,16
+trt_016,0.6096447704081632,TRUE,TRUE,Exercise group,17
+trt_023,0.5782694515306123,TRUE,TRUE,Light therapy,18
+trt_010,0.577827487244898,TRUE,TRUE,Cognitive and cognitive behavioural therapies individual,19
+trt_049,0.552610331632653,TRUE,TRUE,Yoga group,20
+trt_018,0.5397528698979591,TRUE,TRUE,Exercise individual,21
+trt_036,0.5384072066326531,TRUE,TRUE,Relaxation individual + AD,22
+trt_027,0.5133504464285714,TRUE,TRUE,Music therapy group,23
+trt_007,0.5055411352040816,TRUE,TRUE,Behavioural therapies individual + AD,24
+trt_021,0.4856584821428572,TRUE,TRUE,Interpersonal psychotherapy (IPT) individual + AD,25
+trt_026,0.48266932397959184,TRUE,TRUE,Mirtazapine,26
+trt_046,0.47911607142857143,TRUE,TRUE,TCAs,27
+trt_013,0.4640414540816326,TRUE,TRUE,Counselling individual,28
+trt_038,0.45675223214285715,TRUE,TRUE,SNRIs,29
+trt_043,0.4468998724489796,TRUE,TRUE,Short-term psychodynamic psychotherapies individual,30
+trt_040,0.4275650510204082,TRUE,TRUE,Self-help,31
+trt_041,0.4127850765306122,TRUE,TRUE,Self-help with support,32
+trt_039,0.40981664540816326,TRUE,TRUE,SSRIs,33
+trt_020,0.3761508290816326,TRUE,TRUE,Interpersonal psychotherapy (IPT) individual,34
+trt_022,0.36474521683673466,TRUE,TRUE,Interpersonal psychotherapy (IPT) individual + placebo,35
+trt_003,0.36148947704081635,TRUE,TRUE,Any AD,36
+trt_044,0.3547002551020408,TRUE,TRUE,Short-term psychodynamic psychotherapies individual + AD,37
+trt_047,0.3309384566326531,TRUE,TRUE,Trazodone,38
+trt_035,0.32649617346938775,TRUE,TRUE,Psychoeducation group + AD,39
+trt_045,0.2948080357142857,TRUE,TRUE,TAU,40
+trt_037,0.28822289540816326,TRUE,TRUE,Relaxation individual + placebo,41
+trt_014,0.2741629464285714,TRUE,TRUE,Counselling individual + AD,42
+trt_042,0.26988233418367347,TRUE,TRUE,Sham acupuncture,43
+trt_015,0.2136935586734694,TRUE,TRUE,Counselling individual + placebo,44
+trt_028,0.19094674744897958,TRUE,TRUE,No treatment,45
+trt_031,0.16848022959183676,TRUE,TRUE,Placebo,46
+trt_004,0.09326498724489796,TRUE,TRUE,Any psychotherapy,47
+trt_005,0.07362085459183673,TRUE,TRUE,Attention placebo,48
+trt_048,0.03944355867346939,TRUE,TRUE,Waitlist,49
+trt_006,0.02971109693877551,TRUE,TRUE,Behavioural therapies individual,50

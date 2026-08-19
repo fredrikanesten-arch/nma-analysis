@@ -1,0 +1,51 @@
+treatment_id,class,N_total,n_studies
+trt_001,Acupuncture,264,9
+trt_002,Acupuncture + AD,584,6
+trt_003,Any AD,452,13
+trt_004,Any psychotherapy,37,2
+trt_005,Attention placebo,61,2
+trt_006,Behavioural therapies individual,87,3
+trt_007,Behavioural therapies individual + AD,22,2
+trt_008,Cognitive and cognitive behavioural therapies group,165,5
+trt_009,Cognitive and cognitive behavioural therapies group + AD,63,2
+trt_010,Cognitive and cognitive behavioural therapies individual,996,26
+trt_011,Cognitive and cognitive behavioural therapies individual + AD,192,6
+trt_012,Cognitive and cognitive behavioural therapies individual + placebo,61,2
+trt_013,Counselling individual,404,5
+trt_014,Counselling individual + AD,57,3
+trt_015,Counselling individual + placebo,26,1
+trt_016,Exercise group,106,3
+trt_017,Exercise group + AD,79,1
+trt_018,Exercise individual,78,3
+trt_019,Exercise individual + AD,40,2
+trt_020,Interpersonal psychotherapy (IPT) individual,146,3
+trt_021,Interpersonal psychotherapy (IPT) individual + AD,99,3
+trt_022,Interpersonal psychotherapy (IPT) individual + placebo,69,2
+trt_023,Light therapy,32,1
+trt_024,Light therapy + AD,54,2
+trt_025,Mindfulness or meditation group,15,1
+trt_026,Mirtazapine,1601,20
+trt_027,Music therapy group,12,1
+trt_028,No treatment,504,13
+trt_029,Peer support group,39,1
+trt_030,Peer support group + AD,42,1
+trt_031,Placebo,11602,124
+trt_032,Problem solving group,47,2
+trt_033,Problem solving individual,367,5
+trt_034,Psychoeducation group,44,1
+trt_035,Psychoeducation group + AD,27,1
+trt_036,Relaxation individual + AD,10,1
+trt_037,Relaxation individual + placebo,11,1
+trt_038,SNRIs,5883,61
+trt_039,SSRIs,16007,163
+trt_040,Self-help,344,8
+trt_041,Self-help with support,230,7
+trt_042,Sham acupuncture,108,4
+trt_043,Short-term psychodynamic psychotherapies individual,233,4
+trt_044,Short-term psychodynamic psychotherapies individual + AD,41,2
+trt_045,TAU,220,5
+trt_046,TCAs,4182,77
+trt_047,Trazodone,1072,12
+trt_048,Waitlist,526,15
+trt_049,Yoga group,35,2
+trt_050,Yoga group + AD,15,1

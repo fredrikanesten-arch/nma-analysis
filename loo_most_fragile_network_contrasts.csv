@@ -1,0 +1,130 @@
+network_estimate;n_times;mean_abs_change;median_abs_change;p95_abs_change;max_abs_change;worst_removed_comp
+Cognitive and cognitive behavioural therapies group:Waitlist;128;0.05310921093750008;2.1500000000029829e-4;0.46156584999999417;1.0577410000000005;Self-help:Waitlist
+Cognitive and cognitive behavioural therapies individual:Waitlist;128;0.021513000000000004;4.139999999999144e-4;0.021008049999999907;0.737357;Cognitive and cognitive behavioural therapies group:Waitlist
+Exercise individual:No treatment;128;0.02759067187500001;1.0449999999995185e-4;0.008213949999999876;0.693943;Exercise individual:SSRIs
+Cognitive and cognitive behavioural therapies individual:Self-help;128;0.017442101562500006;1.0100000000001774e-4;0.005237549999999991;0.592835;Cognitive and cognitive behavioural therapies individual:Counselling individual
+Any AD:Interpersonal psychotherapy (IPT) individual;128;0.030775859375;3.550000000000775e-5;0.35074824999999554;0.569177;Interpersonal psychotherapy (IPT) individual:Interpersonal psychotherapy (IPT) individual + AD
+Any AD:Interpersonal psychotherapy (IPT) individual + AD;128;0.026976796875;1.899999999999125e-5;0.3128203499999959;0.4966;Any AD:Interpersonal psychotherapy (IPT) individual
+Cognitive and cognitive behavioural therapies individual + AD:Cognitive and cognitive behavioural therapies individual + placebo;128;0.013074164062500001;5.4499999999998994e-5;0.004578299999999979;0.327956;Cognitive and cognitive behavioural therapies individual:TCAs
+SNRIs:SSRIs;128;0.0044286718750000086;7.00000000000145e-5;6.762000000000204e-4;0.27376;Placebo:SSRIs
+Acupuncture:Sham acupuncture;128;0.004004187499999993;1.2099999999992672e-4;0.002654300000000004;0.21802699999999997;Acupuncture:Waitlist
+Cognitive and cognitive behavioural therapies individual:Short-term psychodynamic psychotherapies individual;128;0.0034885312500000007;3.0000000000002247e-5;6.553499999999992e-4;0.213434;Cognitive and cognitive behavioural therapies individual:Self-help with support
+Cognitive and cognitive behavioural therapies individual:Interpersonal psychotherapy (IPT) individual;128;0.01107771875;1.2000000000005062e-5;0.12628054999999838;0.204916;Placebo:TCAs
+Mirtazapine:Placebo;128;0.002894031249999981;2.9500000000015625e-5;3.927000000000123e-4;0.1765850000000001;Mirtazapine:TCAs
+Cognitive and cognitive behavioural therapies individual + AD:SSRIs;128;0.006837804687499996;1.0999999999983244e-5;9.870000000000109e-4;0.17359800000000003;Cognitive and cognitive behavioural therapies individual:SSRIs
+Placebo:SNRIs;128;0.002948250000000009;2.0900000000001473e-4;0.002439500000000025;0.16287200000000002;Placebo:SSRIs
+Cognitive and cognitive behavioural therapies individual:Cognitive and cognitive behavioural therapies individual + AD;128;0.006023140625000003;3.0000000000030003e-6;0.05882709999999961;0.153674;Cognitive and cognitive behavioural therapies individual:TCAs
+Self-help with support:Waitlist;128;0.002543085937500007;1.8000000000073513e-5;0.00263100000000005;0.15057699999999996;Cognitive and cognitive behavioural therapies individual:Waitlist
+Cognitive and cognitive behavioural therapies individual + AD:TCAs;126;0.003288444444444439;1.8999999999991246e-5;7.692499999999991e-4;0.13412400000000002;Cognitive and cognitive behavioural therapies individual + AD:Cognitive and cognitive behavioural therapies individual + placebo
+Cognitive and cognitive behavioural therapies individual:TAU;128;0.004492031250000001;1.4000000000014e-5;0.010101299999999997;0.13104899999999997;TAU:TCAs
+Cognitive and cognitive behavioural therapies individual:Counselling individual;128;0.003984304687500002;3.0000000000030003e-6;1.6075000000000364e-4;0.128427;Cognitive and cognitive behavioural therapies individual:Self-help
+Cognitive and cognitive behavioural therapies individual:No treatment;128;0.0017644531249999967;1.6999999999933735e-5;3.7434999999998815e-4;0.10747000000000008;Cognitive and cognitive behavioural therapies individual:Self-help
+SNRIs:Trazodone;128;0.0016799531250000033;8.000000000008e-6;1.713500000000137e-4;0.104972;SNRIs:TCAs
+Cognitive and cognitive behavioural therapies individual:TCAs;128;0.006139625000000003;2.8000000000000247e-5;0.0714979999999999;0.09840600000000002;Cognitive and cognitive behavioural therapies individual:Cognitive and cognitive behavioural therapies individual + AD
+TCAs:Trazodone;128;0.0015215624999999943;1.6000000000016e-5;3.555499999999971e-4;0.09223899999999996;SNRIs:TCAs
+Cognitive and cognitive behavioural therapies individual:Self-help with support;128;0.0016500312499999994;1.9500000000005624e-5;0.0010039999999999919;0.079859;Self-help with support:Short-term psychodynamic psychotherapies individual
+Self-help:Waitlist;128;0.003135023437499978;8.199999999991547e-5;0.006983149999999928;0.06997600000000004;Self-help with support:Waitlist
+Placebo:SSRIs;128;0.0015263906250000034;1.7000000000044757e-5;0.00603900000000001;0.06601199999999996;Placebo:SNRIs
+Exercise individual:SSRIs;128;0.004610343750000001;1.2999999999999123e-5;0.051862;0.065091;Placebo:SSRIs
+SNRIs:TCAs;128;9.739218750000017e-4;1.899999999999125e-5;2.494999999999955e-4;0.058604;Placebo:TCAs
+Acupuncture:SSRIs;128;0.0012793750000000047;2.630000000000132e-4;0.0031584499999999967;0.04913999999999996;Placebo:SSRIs
+Behavioural therapies individual:Cognitive and cognitive behavioural therapies individual;128;9.291796875000791e-4;1.9000000000035655e-4;0.002278050000000106;0.03559899999999993;Placebo:SSRIs
+Placebo:TCAs;128;0.0018977343749999934;4.899999999996574e-5;0.01351899999999994;0.03331799999999996;SSRIs:TCAs
+Problem solving group:Waitlist;128;8.798515625000435e-4;1.8300000000026628e-4;0.002208950000000046;0.03202899999999964;Placebo:SSRIs
+Mirtazapine:TCAs;128;4.566484374999992e-4;3.9999999999901226e-6;4.93000000000028e-5;0.02812400000000001;Mirtazapine:Placebo
+Counselling individual:Problem solving individual;128;4.695312499999819e-4;9.399999999992747e-5;0.0011220999999999393;0.01832100000000003;Placebo:SSRIs
+Acupuncture + AD:SSRIs;128;3.101484375000132e-4;6.20000000000065e-5;5.930500000000276e-4;0.01280799999999993;Placebo:SSRIs
+Cognitive and cognitive behavioural therapies individual:SSRIs;128;4.8282031249999936e-4;0;1.619999999998838e-5;0.012340999999999991;Cognitive and cognitive behavioural therapies individual + AD:TAU
+Any AD:Cognitive and cognitive behavioural therapies individual;128;3.7647656249999785e-4;3.700000000000925e-5;8.025999999999828e-4;0.01223000000000001;Any AD:Interpersonal psychotherapy (IPT) individual
+SSRIs:TCAs;128;1.699374999999997e-4;1.2500000000000358e-5;1.20399999999998e-4;0.009795;Placebo:TCAs
+No treatment:SSRIs;128;3.707265624999993e-4;2.999999999996062e-6;2.3454999999999966e-4;0.00914299999999999;Exercise individual:SSRIs
+SSRIs:Trazodone;128;1.2270312499999966e-4;2.4999999999997247e-5;2.9644999999999645e-4;0.004823;Placebo:SSRIs
+Any AD:Cognitive and cognitive behavioural therapies group + AD;128;1.0280468749999842e-4;2.000000000002e-5;2.4335000000003055e-4;0.004058;Placebo:SSRIs
+Mirtazapine:SNRIs;128;9.521874999999774e-5;1.899999999999125e-5;2.230999999999923e-4;0.00384600000000001;Placebo:SSRIs
+Mirtazapine:SSRIs;128;9.007812500001853e-6;2.000000000002e-6;1.7299999999989528e-5;3.610000000000002e-4;Placebo:SSRIs
+Placebo:Trazodone;128;2.0859374999897262e-6;9.999999999732443e-7;4.649999999986601e-6;7.899999999999574e-5;Placebo:SSRIs
+Acupuncture:TCAs;128;0;0;0;0;Mirtazapine:Placebo
+Acupuncture:Waitlist;126;0;0;0;0;Mirtazapine:Placebo
+Any AD:Cognitive and cognitive behavioural therapies group;126;0;0;0;0;Mirtazapine:Placebo
+Any AD:Cognitive and cognitive behavioural therapies individual + AD;128;0;0;0;0;Mirtazapine:Placebo
+Any AD:Exercise individual + AD;128;0;0;0;0;Mirtazapine:Placebo
+Any AD:Interpersonal psychotherapy (IPT) individual + placebo;123;0;0;0;0;Mirtazapine:Placebo
+Any AD:Peer support group;126;0;0;0;0;Mirtazapine:Placebo
+Any AD:Peer support group + AD;126;0;0;0;0;Mirtazapine:Placebo
+Any AD:Psychoeducation group + AD;126;0;0;0;0;Mirtazapine:Placebo
+Any AD:Short-term psychodynamic psychotherapies individual + AD;128;0;0;0;0;Mirtazapine:Placebo
+Any AD:TAU;126;0;0;0;0;Mirtazapine:Placebo
+Any AD:Yoga group + AD;128;0;0;0;0;Mirtazapine:Placebo
+Any psychotherapy:Behavioural therapies individual;128;0;0;0;0;Mirtazapine:Placebo
+Any psychotherapy:Short-term psychodynamic psychotherapies individual;128;0;0;0;0;Mirtazapine:Placebo
+Attention placebo:Problem solving individual;128;0;0;0;0;Mirtazapine:Placebo
+Attention placebo:Self-help;128;0;0;0;0;Mirtazapine:Placebo
+Behavioural therapies individual + AD:Counselling individual + AD;128;0;0;0;0;Mirtazapine:Placebo
+Behavioural therapies individual + AD:Placebo;119;0;0;0;0;Mirtazapine:Placebo
+Behavioural therapies individual + AD:Relaxation individual + AD;119;0;0;0;0;Mirtazapine:Placebo
+Behavioural therapies individual + AD:Relaxation individual + placebo;119;0;0;0;0;Mirtazapine:Placebo
+Behavioural therapies individual + AD:TCAs;119;0;0;0;0;Mirtazapine:Placebo
+Behavioural therapies individual:SSRIs;128;0;0;0;0;Mirtazapine:Placebo
+Cognitive and cognitive behavioural therapies group:Cognitive and cognitive behavioural therapies individual;126;0;0;0;0;Mirtazapine:Placebo
+Cognitive and cognitive behavioural therapies group:No treatment;128;0;0;0;0;Mirtazapine:Placebo
+Cognitive and cognitive behavioural therapies group:SSRIs;128;0;0;0;0;Mirtazapine:Placebo
+Cognitive and cognitive behavioural therapies group:Self-help;123;0;0;0;0;Mirtazapine:Placebo
+Cognitive and cognitive behavioural therapies group:Self-help with support;123;0;0;0;0;Mirtazapine:Placebo
+Cognitive and cognitive behavioural therapies group:TAU;126;0;0;0;0;Mirtazapine:Placebo
+Cognitive and cognitive behavioural therapies individual + AD:TAU;123;0;0;0;0;Mirtazapine:Placebo
+Cognitive and cognitive behavioural therapies individual + placebo:TCAs;123;0;0;0;0;Mirtazapine:Placebo
+Cognitive and cognitive behavioural therapies individual:Cognitive and cognitive behavioural therapies individual + placebo;123;0;0;0;0;Mirtazapine:Placebo
+Cognitive and cognitive behavioural therapies individual:Placebo;123;0;0;0;0;Mirtazapine:Placebo
+Cognitive and cognitive behavioural therapies individual:SNRIs;128;0;0;0;0;Mirtazapine:Placebo
+Counselling individual + AD:Counselling individual + placebo;128;0;0;0;0;Mirtazapine:Placebo
+Counselling individual + AD:Short-term psychodynamic psychotherapies individual + AD;128;0;0;0;0;Mirtazapine:Placebo
+Counselling individual:No treatment;128;0;0;0;0;Mirtazapine:Placebo
+Counselling individual:Self-help;126;0;0;0;0;Mirtazapine:Placebo
+Counselling individual:TAU;126;0;0;0;0;Mirtazapine:Placebo
+Exercise group + AD:SSRIs;128;0;0;0;0;Mirtazapine:Placebo
+Exercise group:Exercise individual;123;0;0;0;0;Mirtazapine:Placebo
+Exercise group:No treatment;128;0;0;0;0;Mirtazapine:Placebo
+Exercise group:Placebo;123;0;0;0;0;Mirtazapine:Placebo
+Exercise group:SSRIs;123;0;0;0;0;Mirtazapine:Placebo
+Exercise group:TAU;128;0;0;0;0;Mirtazapine:Placebo
+Exercise individual + AD:No treatment;123;0;0;0;0;Mirtazapine:Placebo
+Exercise individual + AD:SSRIs;123;0;0;0;0;Mirtazapine:Placebo
+Exercise individual:Exercise individual + AD;123;0;0;0;0;Mirtazapine:Placebo
+Exercise individual:Placebo;123;0;0;0;0;Mirtazapine:Placebo
+Interpersonal psychotherapy (IPT) individual + AD:Interpersonal psychotherapy (IPT) individual + placebo;123;0;0;0;0;Mirtazapine:Placebo
+Interpersonal psychotherapy (IPT) individual + AD:Psychoeducation group + AD;126;0;0;0;0;Mirtazapine:Placebo
+Interpersonal psychotherapy (IPT) individual + AD:SNRIs;128;0;0;0;0;Mirtazapine:Placebo
+Interpersonal psychotherapy (IPT) individual + placebo:TCAs;128;0;0;0;0;Mirtazapine:Placebo
+Interpersonal psychotherapy (IPT) individual:Interpersonal psychotherapy (IPT) individual + AD;123;0;0;0;0;Mirtazapine:Placebo
+Interpersonal psychotherapy (IPT) individual:Interpersonal psychotherapy (IPT) individual + placebo;123;0;0;0;0;Mirtazapine:Placebo
+Interpersonal psychotherapy (IPT) individual:Placebo;123;0;0;0;0;Mirtazapine:Placebo
+Interpersonal psychotherapy (IPT) individual:TCAs;123;0;0;0;0;Mirtazapine:Placebo
+Light therapy + AD:Placebo;123;0;0;0;0;Mirtazapine:Placebo
+Light therapy + AD:SNRIs;128;0;0;0;0;Mirtazapine:Placebo
+Light therapy + AD:SSRIs;123;0;0;0;0;Mirtazapine:Placebo
+Light therapy:Light therapy + AD;123;0;0;0;0;Mirtazapine:Placebo
+Light therapy:Placebo;123;0;0;0;0;Mirtazapine:Placebo
+Light therapy:SSRIs;123;0;0;0;0;Mirtazapine:Placebo
+Mindfulness or meditation group:No treatment;128;0;0;0;0;Mirtazapine:Placebo
+Mirtazapine:Trazodone;128;0;0;0;0;Mirtazapine:Placebo
+Music therapy group:No treatment;128;0;0;0;0;Mirtazapine:Placebo
+No treatment:Psychoeducation group;128;0;0;0;0;Mirtazapine:Placebo
+No treatment:Self-help;126;0;0;0;0;Mirtazapine:Placebo
+No treatment:Self-help with support;128;0;0;0;0;Mirtazapine:Placebo
+Peer support group:Peer support group + AD;126;0;0;0;0;Mirtazapine:Placebo
+Placebo:Problem solving individual;126;0;0;0;0;Mirtazapine:Placebo
+Placebo:Relaxation individual + AD;119;0;0;0;0;Mirtazapine:Placebo
+Placebo:Relaxation individual + placebo;119;0;0;0;0;Mirtazapine:Placebo
+Problem solving individual:TCAs;126;0;0;0;0;Mirtazapine:Placebo
+Problem solving individual:Waitlist;128;0;0;0;0;Mirtazapine:Placebo
+Relaxation individual + AD:Relaxation individual + placebo;119;0;0;0;0;Mirtazapine:Placebo
+Relaxation individual + AD:TCAs;119;0;0;0;0;Mirtazapine:Placebo
+Relaxation individual + placebo:TCAs;119;0;0;0;0;Mirtazapine:Placebo
+SSRIs:TAU;123;0;0;0;0;Mirtazapine:Placebo
+Self-help with support:Short-term psychodynamic psychotherapies individual;126;0;0;0;0;Mirtazapine:Placebo
+Self-help:Self-help with support;123;0;0;0;0;Mirtazapine:Placebo
+Sham acupuncture:Waitlist;126;0;0;0;0;Mirtazapine:Placebo
+Short-term psychodynamic psychotherapies individual:SSRIs;128;0;0;0;0;Mirtazapine:Placebo
+TAU:TCAs;126;0;0;0;0;Mirtazapine:Placebo
+TCAs:Yoga group;128;0;0;0;0;Mirtazapine:Placebo
+Waitlist:Yoga group;128;0;0;0;0;Mirtazapine:Placebo

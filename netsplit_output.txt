@@ -1,0 +1,132 @@
+Separate indirect from direct evidence (SIDE) using back-calculation method
+
+Random effects model: 
+
+                                                                                                                       comparison  k prop     nma  direct  indir.    Diff     z  p-value
+                                                                                                     Acupuncture:Sham acupuncture  4 0.94 -0.7656 -0.5318 -4.5777  4.0459  2.98   0.0029
+                                                                                                                Acupuncture:SSRIs  4 0.65 -0.3945 -0.9195  0.5944 -1.5139 -2.73   0.0063
+                                                                                                                 Acupuncture:TCAs  1 0.17 -0.2889 -0.0589 -0.3373  0.2783  0.39   0.6949
+                                                                                                             Acupuncture:Waitlist  1 0.28 -1.5900  0.0000 -2.2198  2.2198  3.10   0.0019
+                                                                       Any AD:Cognitive and cognitive behavioural therapies group  1 0.34  0.2867 -0.7098  0.7927 -1.5025 -2.06   0.0393
+                                                                  Any AD:Cognitive and cognitive behavioural therapies individual  3 0.48  0.1880 -0.4522  0.7744 -1.2266 -2.47   0.0137
+                                                             Any AD:Cognitive and cognitive behavioural therapies individual + AD  1 0.15  0.6711  4.7154 -0.0247  4.7401  4.92 < 0.0001
+                                                                                                  Any AD:Exercise individual + AD  1 0.43  0.7842  1.8669 -0.0439  1.9107  2.00   0.0459
+                                                                              Any AD:Interpersonal psychotherapy (IPT) individual  2 0.60 -0.1100 -0.1739 -0.0161 -0.1578 -0.23   0.8183
+                                                                         Any AD:Interpersonal psychotherapy (IPT) individual + AD  2 0.70  0.1448  0.1828  0.0544  0.1283  0.16   0.8725
+                                                                    Any AD:Interpersonal psychotherapy (IPT) individual + placebo  1 0.52 -0.1512  0.4862 -0.8398  1.3260  1.51   0.1319
+                                                                                                Any AD:Psychoeducation group + AD  1 0.84 -0.2077 -0.4393  0.9883 -1.4277 -0.91   0.3611
+                                                                  Any AD:Short-term psychodynamic psychotherapies individual + AD  1 0.77 -0.1640 -0.0713 -0.4702  0.3989  0.30   0.7674
+                                                                                                                       Any AD:TAU  1 0.30 -0.3207 -0.8873 -0.0722 -0.8150 -1.14   0.2529
+                                                                               Any psychotherapy:Behavioural therapies individual  1 0.63 -0.1671  0.2515 -0.8766  1.1280  1.06   0.2908
+                                                            Any psychotherapy:Short-term psychodynamic psychotherapies individual  1 0.60  0.8583  0.4022  1.5303 -1.1280 -1.06   0.2908
+                                                                                     Attention placebo:Problem solving individual  1 0.59  1.5483  2.2352  0.5502  1.6850  1.72   0.0847
+                                                                                                      Attention placebo:Self-help  1 0.57  1.2215  0.4980  2.1830 -1.6850 -1.72   0.0847
+                                        Behavioural therapies individual:Cognitive and cognitive behavioural therapies individual  2 0.56  1.1697  2.1089 -0.0133  2.1222  2.95   0.0031
+                                                                                           Behavioural therapies individual:SSRIs  1 0.36  0.8374 -0.3166  1.4918 -1.8084 -2.38   0.0175
+                                                                Behavioural therapies individual + AD:Counselling individual + AD  1 0.72 -0.5374 -0.6480 -0.2491 -0.3989 -0.30   0.7674
+                                                                                    Behavioural therapies individual + AD:Placebo  1 0.60 -0.7311 -0.3945 -1.2446  0.8502  0.76   0.4481
+                                                                 Behavioural therapies individual + AD:Relaxation individual + AD  1 0.93  0.0572  0.1114 -0.7129  0.8243  0.30   0.7678
+                                                            Behavioural therapies individual + AD:Relaxation individual + placebo  1 0.93 -0.5753 -0.5200 -1.3360  0.8159  0.30   0.7653
+                                                                                       Behavioural therapies individual + AD:TCAs  1 0.59 -0.1038 -0.2914  0.1611 -0.4525 -0.41   0.6842
+                     Cognitive and cognitive behavioural therapies group:Cognitive and cognitive behavioural therapies individual  1 0.16 -0.0988  0.4725 -0.2091  0.6816  0.85   0.3927
+                                                                 Cognitive and cognitive behavioural therapies group:No treatment  1 0.20 -0.8380 -1.2033 -0.7495 -0.4538 -0.55   0.5846
+                                                                    Cognitive and cognitive behavioural therapies group:Self-help  1 0.26 -0.3031 -1.0270 -0.0425 -0.9846 -1.23   0.2169
+                                                       Cognitive and cognitive behavioural therapies group:Self-help with support  1 0.26 -0.3238 -0.9029 -0.1165 -0.7864 -0.99   0.3225
+                                                                        Cognitive and cognitive behavioural therapies group:SSRIs  1 0.23 -0.4310  0.0000 -0.5585  0.5585  0.79   0.4320
+                                                                          Cognitive and cognitive behavioural therapies group:TAU  1 0.35 -0.6074 -0.1775 -0.8418  0.6644  0.90   0.3674
+                                                                     Cognitive and cognitive behavioural therapies group:Waitlist  2 0.34 -1.6265 -2.9585 -0.9295 -2.0290 -2.93   0.0034
+           Cognitive and cognitive behavioural therapies individual:Cognitive and cognitive behavioural therapies individual + AD  3 0.54  0.4832  0.1897  0.8328 -0.6431 -1.15   0.2497
+      Cognitive and cognitive behavioural therapies individual:Cognitive and cognitive behavioural therapies individual + placebo  1 0.46  0.4561  0.6884  0.2618  0.4266  0.47   0.6366
+                                                  Cognitive and cognitive behavioural therapies individual:Counselling individual  2 0.49 -0.1765 -0.2085 -0.1462 -0.0623 -0.11   0.9158
+                            Cognitive and cognitive behavioural therapies individual:Interpersonal psychotherapy (IPT) individual  2 0.56 -0.2979 -0.0610 -0.6014  0.5404  0.83   0.4077
+                                                            Cognitive and cognitive behavioural therapies individual:No treatment  3 0.40 -0.7392 -0.8912 -0.6390 -0.2522 -0.54   0.5862
+                                                                 Cognitive and cognitive behavioural therapies individual:Placebo  1 0.07 -0.8540 -0.3810 -0.8923  0.5113  0.82   0.4141
+                                                               Cognitive and cognitive behavioural therapies individual:Self-help  2 0.37 -0.2043 -0.3984 -0.0895 -0.3089 -0.56   0.5762
+                                                  Cognitive and cognitive behavioural therapies individual:Self-help with support  3 0.49 -0.2251 -0.0820 -0.3633  0.2813  0.55   0.5831
+                     Cognitive and cognitive behavioural therapies individual:Short-term psychodynamic psychotherapies individual  2 0.58 -0.1443  0.0487 -0.4072  0.4558  0.69   0.4895
+                                                                   Cognitive and cognitive behavioural therapies individual:SNRIs  1 0.06 -0.1427  0.3518 -0.1739  0.5257  0.72   0.4702
+                                                                   Cognitive and cognitive behavioural therapies individual:SSRIs  3 0.16 -0.3322 -0.4632 -0.3067 -0.1565 -0.36   0.7186
+                                                                     Cognitive and cognitive behavioural therapies individual:TAU  3 0.54 -0.5087 -0.2989 -0.7512  0.4523  0.84   0.4025
+                                                                    Cognitive and cognitive behavioural therapies individual:TCAs  6 0.39 -0.2267 -0.2164 -0.2332  0.0168  0.05   0.9597
+                                                                Cognitive and cognitive behavioural therapies individual:Waitlist  3 0.30 -1.5277 -1.8275 -1.4006 -0.4269 -0.83   0.4089
+ Cognitive and cognitive behavioural therapies individual + AD:Cognitive and cognitive behavioural therapies individual + placebo  2 0.86 -0.0271  0.0522 -0.5308  0.5830  0.48   0.6345
+                                                              Cognitive and cognitive behavioural therapies individual + AD:SSRIs  2 0.39 -0.8154 -0.3374 -1.1196  0.7822  1.40   0.1615
+                                                                Cognitive and cognitive behavioural therapies individual + AD:TAU  1 0.30 -0.9918 -0.3602 -1.2607  0.9005  1.17   0.2421
+                                                               Cognitive and cognitive behavioural therapies individual + AD:TCAs  2 0.36 -0.7098 -0.2812 -0.9507  0.6695  1.18   0.2398
+                                                          Cognitive and cognitive behavioural therapies individual + placebo:TCAs  1 0.44 -0.6828 -0.5640 -0.7773  0.2133  0.24   0.8130
+                                                                                              Counselling individual:No treatment  1 0.30 -0.5627 -1.3727 -0.2158 -1.1569 -1.64   0.1010
+                                                                                Counselling individual:Problem solving individual  2 0.54  0.2990  0.6135 -0.0773  0.6908  1.03   0.3048
+                                                                                                 Counselling individual:Self-help  1 0.33 -0.0278  0.4268 -0.2553  0.6822  0.94   0.3473
+                                                                                                       Counselling individual:TAU  1 0.36 -0.3321 -0.4302 -0.2776 -0.1525 -0.20   0.8384
+                                             Counselling individual + AD:Short-term psychodynamic psychotherapies individual + AD  1 0.76  0.3083  0.2109  0.6098 -0.3989 -0.30   0.7674
+                                                                                               Exercise group:Exercise individual  1 0.55 -0.1436 -0.0144 -0.2997  0.2853  0.32   0.7515
+                                                                                                      Exercise group:No treatment  1 0.33 -0.7845 -0.3677 -0.9921  0.6244  0.78   0.4371
+                                                                                                           Exercise group:Placebo  1 0.36 -0.8993 -0.1582 -1.3186  1.1604  1.53   0.1270
+                                                                                                             Exercise group:SSRIs  1 0.36 -0.3774 -0.1582 -0.5001  0.3418  0.45   0.6524
+                                                                                                               Exercise group:TAU  1 0.36 -0.5539 -1.6151  0.0502 -1.6653 -2.02   0.0437
+                                                                                     Exercise individual:Exercise individual + AD  1 0.59  0.6947  0.3074  1.2528 -0.9455 -0.89   0.3740
+                                                                                                 Exercise individual:No treatment  2 0.53 -0.6408 -0.6330 -0.6496  0.0166  0.02   0.9820
+                                                                                                      Exercise individual:Placebo  1 0.35 -0.7556 -0.1438 -1.0786  0.9348  1.25   0.2129
+                                                                                                        Exercise individual:SSRIs  2 0.61 -0.2338 -0.0920 -0.4602  0.3682  0.50   0.6138
+                                                                                            Exercise individual + AD:No treatment  1 0.50 -1.3355 -0.3804 -2.2740  1.8937  1.97   0.0483
+                                                                                                   Exercise individual + AD:SSRIs  1 0.47 -0.9285 -0.3343 -1.4500  1.1157  1.20   0.2317
+                                   Interpersonal psychotherapy (IPT) individual:Interpersonal psychotherapy (IPT) individual + AD  1 0.49  0.2547  0.3000  0.2120  0.0880  0.10   0.9173
+                              Interpersonal psychotherapy (IPT) individual:Interpersonal psychotherapy (IPT) individual + placebo  1 0.58 -0.0412  0.1241 -0.2740  0.3981  0.42   0.6734
+                                                                             Interpersonal psychotherapy (IPT) individual:Placebo  1 0.30 -0.5561 -0.5129 -0.5743  0.0615  0.09   0.9317
+                                                                                Interpersonal psychotherapy (IPT) individual:TCAs  1 0.29  0.0713 -0.0147  0.1072 -0.1218 -0.17   0.8652
+                         Interpersonal psychotherapy (IPT) individual + AD:Interpersonal psychotherapy (IPT) individual + placebo  1 0.63 -0.2960 -0.1759 -0.5031  0.3272  0.33   0.7448
+                                                     Interpersonal psychotherapy (IPT) individual + AD:Psychoeducation group + AD  1 0.84 -0.3524 -0.1255 -1.5684  1.4429  0.91   0.3611
+                                                                          Interpersonal psychotherapy (IPT) individual + AD:SNRIs  1 0.31 -0.0995 -0.3789  0.0283 -0.4072 -0.49   0.6218
+                                                                      Interpersonal psychotherapy (IPT) individual + placebo:TCAs  1 0.41  0.1125  0.6726 -0.2758  0.9484  1.08   0.2785
+                                                                                                 Light therapy:Light therapy + AD  1 0.86  0.3362  0.3855  0.0378  0.3477  0.21   0.8351
+                                                                                                            Light therapy:Placebo  1 0.71 -0.8700 -0.7600 -1.1442  0.3842  0.33   0.7439
+                                                                                                              Light therapy:SSRIs  1 0.72 -0.3482 -0.5067  0.0550 -0.5616 -0.48   0.6345
+                                                                                                       Light therapy + AD:Placebo  1 0.44 -1.2062 -1.1455 -1.2533  0.1078  0.13   0.8985
+                                                                                                         Light therapy + AD:SNRIs  1 0.43 -0.4949 -0.3934 -0.5708  0.1774  0.21   0.8342
+                                                                                                         Light therapy + AD:SSRIs  1 0.44 -0.6844 -0.8922 -0.5210 -0.3711 -0.44   0.6603
+                                                                                                              Mirtazapine:Placebo  6 0.27 -0.6954 -0.8410 -0.6418 -0.1993 -0.68   0.4984
+                                                                                                                Mirtazapine:SNRIs  3 0.16  0.0159 -0.1793  0.0525 -0.2318 -0.61   0.5434
+                                                                                                                Mirtazapine:SSRIs  9 0.41 -0.1736 -0.1423 -0.1954  0.0530  0.20   0.8378
+                                                                                                                 Mirtazapine:TCAs  6 0.30 -0.0681  0.1158 -0.1484  0.2642  0.90   0.3693
+                                                                                                            Mirtazapine:Trazodone  1 0.12 -0.2952  0.0000 -0.3364  0.3364  0.53   0.5938
+                                                                                                           No treatment:Self-help  1 0.23  0.5349  0.1498  0.6493 -0.4995 -0.68   0.4988
+                                                                                              No treatment:Self-help with support  1 0.22  0.5142  0.3234  0.5676 -0.2442 -0.33   0.7395
+                                                                                                               No treatment:SSRIs  2 0.28  0.4070  0.0581  0.5406 -0.4824 -0.92   0.3586
+                                                                                               Problem solving individual:Placebo  1 0.27 -0.9765 -0.9200 -0.9976  0.0777  0.10   0.9172
+                                                                                               Relaxation individual + AD:Placebo  1 0.75 -0.7883 -0.5058 -1.6410  1.1352  0.79   0.4300
+                                                                                          Relaxation individual + placebo:Placebo  1 0.75 -0.1558  0.1256 -0.9880  1.1136  0.79   0.4302
+                                                                                                                    SNRIs:Placebo 33 0.55 -0.7113 -0.7409 -0.6756 -0.0653 -0.42   0.6747
+                                                                                                                    SSRIs:Placebo 83 0.74 -0.5218 -0.5104 -0.5537  0.0433  0.34   0.7355
+                                                                                                                     TCAs:Placebo 28 0.45 -0.6273 -0.5857 -0.6607  0.0750  0.47   0.6362
+                                                                                                                Trazodone:Placebo  2 0.19 -0.4002 -0.3441 -0.4130  0.0689  0.15   0.8802
+                                                                                                  Problem solving individual:TCAs  1 0.28 -0.3492 -0.2098 -0.4021  0.1923  0.26   0.7960
+                                                                                              Problem solving individual:Waitlist  1 0.33 -1.6503 -0.6279 -2.1649  1.5370  2.13   0.0329
+                                                                                                  Relaxation individual + AD:TCAs  1 0.73 -0.1609 -0.4028  0.4899 -0.8926 -0.64   0.5236
+                                                                                             Relaxation individual + placebo:TCAs  1 0.72  0.4715  0.2286  1.1061 -0.8775 -0.64   0.5223
+                                                                                                 Self-help:Self-help with support  1 0.20 -0.0207  0.1241 -0.0567  0.1809  0.23   0.8182
+                                                                                                               Self-help:Waitlist  5 0.68 -1.3234 -1.5933 -0.7531 -0.8401 -1.61   0.1072
+                                                       Self-help with support:Short-term psychodynamic psychotherapies individual  1 0.39  0.0808  0.5313 -0.2106  0.7419  0.96   0.3369
+                                                                                                  Self-help with support:Waitlist  4 0.62 -1.3027 -1.3750 -1.1851 -0.1899 -0.34   0.7303
+                                                                                                        Sham acupuncture:Waitlist  1 0.46 -0.8244  0.0000 -1.5187  1.5187  1.85   0.0650
+                                                                        Short-term psychodynamic psychotherapies individual:SSRIs  1 0.28 -0.1880  0.0356 -0.2754  0.3111  0.41   0.6796
+                                                                                                                      SNRIs:SSRIs 35 0.56 -0.1895 -0.3214 -0.0241 -0.2973 -1.95   0.0516
+                                                                                                                       SNRIs:TCAs  7 0.17 -0.0840  0.0758 -0.1174  0.1932  0.77   0.4424
+                                                                                                                  SNRIs:Trazodone  2 0.19 -0.3112 -0.3738 -0.2965 -0.0773 -0.17   0.8686
+                                                                                                                        SSRIs:TAU  1 0.18 -0.1764  0.1621 -0.2493  0.4114  0.57   0.5701
+                                                                                                                       SSRIs:TCAs 37 0.53  0.1055  0.0243  0.1984 -0.1741 -1.17   0.2419
+                                                                                                                  SSRIs:Trazodone  6 0.49 -0.1216 -0.0334 -0.2059  0.1725  0.49   0.6212
+                                                                                                                         TAU:TCAs  1 0.19  0.2820 -0.1631  0.3878 -0.5508 -0.78   0.4350
+                                                                                                                   TCAs:Trazodone  2 0.17 -0.2272 -0.6387 -0.1448 -0.4939 -1.00   0.3150
+                                                                                                                  TCAs:Yoga group  1 0.53  0.2571  0.0539  0.4888 -0.4349 -0.44   0.6620
+                                                                                                              Waitlist:Yoga group  1 0.54  1.5582  1.7597  1.3248  0.4349  0.44   0.6620
+
+Legend:
+ comparison - Treatment comparison
+ k          - Number of studies providing direct evidence
+ prop       - Direct evidence proportion
+ nma        - Estimated treatment effect (SMD) in network meta-analysis
+ direct     - Estimated treatment effect (SMD) derived from direct evidence
+ indir.     - Estimated treatment effect (SMD) derived from indirect evidence
+ Diff       - Difference between direct and indirect treatment estimates
+ z          - z-value of test for disagreement (direct versus indirect)
+ p-value    - p-value of test for disagreement (direct versus indirect)

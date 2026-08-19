@@ -1,0 +1,131 @@
+Q statistics to assess homogeneity / consistency
+
+                      Q  df  p-value
+Total           3979.80 315        0
+Within designs  3360.31 232        0
+Between designs  619.49  83 < 0.0001
+
+Design-specific decomposition of within-designs Q statistic
+
+                                                                                    Design       Q df p-value
+                                                                             Placebo:SSRIs 1358.71 64 < 0.0001
+                                                                       Placebo:SNRIs:SSRIs  877.67 20 < 0.0001
+                                                                             Placebo:SNRIs  374.89 20 < 0.0001
+                                                                    Acupuncture + AD:SSRIs  154.74  5 < 0.0001
+                                                                              Placebo:TCAs  166.13 16 < 0.0001
+                                                                       Placebo:Mirtazapine   91.13  3 < 0.0001
+                                                                         Acupuncture:SSRIs   66.46  3 < 0.0001
+                                                                               SNRIs:SSRIs   80.59 23 < 0.0001
+                                                                         Mirtazapine:SSRIs   34.79  8 < 0.0001
+                                                                                SSRIs:TCAs   66.60 31   0.0002
+                           Any AD:Cognitive and cognitive behavioural therapies individual   10.95  1   0.0009
+                                                                        Self-help:Waitlist   13.78  3   0.0032
+                                                              Acupuncture:Sham acupuncture   10.80  2   0.0045
+                                                            Problem solving group:Waitlist    5.67  1   0.0173
+                                                                           SSRIs:Trazodone   12.88  5   0.0246
+                             Cognitive and cognitive behavioural therapies individual:TCAs    4.20  1   0.0403
+                                                                         Mirtazapine:SNRIs    6.36  2   0.0416
+ Behavioural therapies individual:Cognitive and cognitive behavioural therapies individual    3.14  1   0.0766
+                                                                                SNRIs:TCAs    6.40  4   0.1714
+                                         Counselling individual:Problem solving individual    1.58  1   0.2082
+                                                                         Placebo:Trazodone    1.31  1   0.2519
+                     Cognitive and cognitive behavioural therapies individual:No treatment    0.98  1   0.3226
+                                                                  Placebo:Mirtazapine:TCAs    2.05  2   0.3597
+                           Any AD:Cognitive and cognitive behavioural therapies group + AD    0.53  1   0.4673
+                                                                        Placebo:SSRIs:TCAs    6.99  8   0.5373
+                                                           Self-help with support:Waitlist    0.06  1   0.7992
+                                                                          Mirtazapine:TCAs    0.88  3   0.8311
+                            Cognitive and cognitive behavioural therapies individual:SSRIs    0.03  1   0.8667
+ 
+
+Between-designs Q statistic after detaching of single designs
+(influential designs have p-value markedly different from < 0.0001)
+
+                                                                                                                                                                                Detached design      Q df  p-value
+                                                                                                                                                                            Placebo:SNRIs:SSRIs 495.97 81 < 0.0001
+                                                                                                                                                                                  Placebo:SSRIs 507.87 82 < 0.0001
+                                                                                                      Behavioural therapies individual:Cognitive and cognitive behavioural therapies individual 570.00 82 < 0.0001
+                                                                                                                           Any AD:Cognitive and cognitive behavioural therapies individual + AD 570.76 82 < 0.0001
+                                                                                                                                                         Behavioural therapies individual:SSRIs 580.77 82 < 0.0001
+                                                                                                                                                            Counselling individual:No treatment 581.83 82 < 0.0001
+                                                                                                                                                            Problem solving individual:Waitlist 586.19 82 < 0.0001
+                                                                                                                                                          Acupuncture:Sham acupuncture:Waitlist 588.05 81 < 0.0001
+                                                                                                                                                                            Placebo:Mirtazapine 590.68 82 < 0.0001
+                                                                                                                                                   Attention placebo:Problem solving individual 595.66 82 < 0.0001
+                                                                                                                                                                    Attention placebo:Self-help 595.66 82 < 0.0001
+                                                                                                                                                                              Acupuncture:SSRIs 597.06 82 < 0.0001
+                                                                          Cognitive and cognitive behavioural therapies group:Cognitive and cognitive behavioural therapies individual:Waitlist 594.89 81 < 0.0001
+                                   Any AD:Interpersonal psychotherapy (IPT) individual:Interpersonal psychotherapy (IPT) individual + AD:Interpersonal psychotherapy (IPT) individual + placebo 593.46 80 < 0.0001
+                                                                                                                                                                             Exercise group:TAU 600.23 82 < 0.0001
+                                                                                                                                                                Any AD:Exercise individual + AD 602.72 82 < 0.0001
+                                                                                                                                 Any AD:Cognitive and cognitive behavioural therapies group:TAU 600.64 81 < 0.0001
+                                                                                                                                                                             Self-help:Waitlist 603.96 82 < 0.0001
+                                                                                                  Cognitive and cognitive behavioural therapies group:Self-help:Self-help with support:Waitlist 599.51 80 < 0.0001
+                                                                                                                                Exercise individual:Exercise individual + AD:No treatment:SSRIs 600.57 80 < 0.0001
+                                                                                                                                                                                  Placebo:SNRIs 605.83 82 < 0.0001
+                                                                                                                                              Counselling individual:Problem solving individual 606.49 82 < 0.0001
+                                                                                                                Cognitive and cognitive behavioural therapies individual:No treatment:Self-help 605.37 81 < 0.0001
+                                                                                                                                                                             No treatment:SSRIs 608.04 82 < 0.0001
+                                                                                                                                                                Self-help with support:Waitlist 608.46 82 < 0.0001
+                                                                                                                                               Placebo:Exercise group:Exercise individual:SSRIs 603.96 80 < 0.0001
+                                                            Cognitive and cognitive behavioural therapies individual:Self-help with support:Short-term psychodynamic psychotherapies individual 607.59 81 < 0.0001
+                                                                                                                                    Interpersonal psychotherapy (IPT) individual + placebo:TCAs 610.18 82 < 0.0001
+                                                                                                                                                                                   Placebo:TCAs 610.87 82 < 0.0001
+                                                                                                                                                                               Mirtazapine:TCAs 612.54 82 < 0.0001
+                                                                             Placebo:Cognitive and cognitive behavioural therapies individual:Interpersonal psychotherapy (IPT) individual:TCAs 608.60 80 < 0.0001
+                                                                                                                                                                             Placebo:SSRIs:TCAs 611.53 81 < 0.0001
+                                                                                                                                                                          Mirtazapine:Trazodone 613.99 82 < 0.0001
+                                                                                                      Cognitive and cognitive behavioural therapies individual:Counselling individual:Self-help 612.47 81 < 0.0001
+                                                                                                                            Cognitive and cognitive behavioural therapies individual + AD:SSRIs 615.04 82 < 0.0001
+                                                                                                                                                                                TCAs:Yoga group 615.80 82 < 0.0001
+                                                                                                                                                                            Waitlist:Yoga group 615.80 82 < 0.0001
+                                                               Cognitive and cognitive behavioural therapies individual + AD:Cognitive and cognitive behavioural therapies individual + placebo 616.21 82 < 0.0001
+                                                                                                                                             Any psychotherapy:Behavioural therapies individual 616.49 82 < 0.0001
+                                                                                                                          Any psychotherapy:Short-term psychodynamic psychotherapies individual 616.49 82 < 0.0001
+                                                                                                                                 Cognitive and cognitive behavioural therapies individual:SNRIs 616.65 82 < 0.0001
+                                                                                                                                                               Exercise individual:No treatment 616.72 82 < 0.0001
+                                                                                   Any AD:Cognitive and cognitive behavioural therapies individual:Interpersonal psychotherapy (IPT) individual 614.54 81 < 0.0001
+                                                                                                                Cognitive and cognitive behavioural therapies individual:Self-help with support 616.93 82 < 0.0001
+                                                                                                                                                                                 TCAs:Trazodone 617.10 82 < 0.0001
+                                                                                                                              Cognitive and cognitive behavioural therapies individual:TAU:TCAs 614.85 81 < 0.0001
+                                                                                                                                                            No treatment:Self-help with support 617.35 82 < 0.0001
+                                                                                                                                                                           SNRIs:TCAs:Trazodone 615.03 81 < 0.0001
+                                                                                   Cognitive and cognitive behavioural therapies individual:Short-term psychodynamic psychotherapies individual 617.40 82 < 0.0001
+                                                                                                                                Any AD:Cognitive and cognitive behavioural therapies individual 617.44 82 < 0.0001
+                                                                                                                                      Short-term psychodynamic psychotherapies individual:SSRIs 617.60 82 < 0.0001
+                                                                                                                                                                              Mirtazapine:SNRIs 617.78 82 < 0.0001
+                                                                                                                                                                       Placebo:Mirtazapine:TCAs 615.53 81 < 0.0001
+                                                                                                                                  Cognitive and cognitive behavioural therapies individual:TCAs 617.88 82 < 0.0001
+                                                                                                                               Cognitive and cognitive behavioural therapies group:No treatment 617.97 82 < 0.0001
+                                                                                                                                                                                SSRIs:Trazodone 618.05 82 < 0.0001
+                                                                                                                                                                    Exercise group:No treatment 618.31 82 < 0.0001
+                                                                                                                                                                             Placebo:SNRIs:TCAs 615.99 81 < 0.0001
+                                                                                                                              Behavioural therapies individual + AD:Counselling individual + AD 618.39 82 < 0.0001
+                                                                                                                                Any AD:Short-term psychodynamic psychotherapies individual + AD 618.39 82 < 0.0001
+                                                                                                           Counselling individual + AD:Short-term psychodynamic psychotherapies individual + AD 618.39 82 < 0.0001
+                                                                                                                                                                       Light therapy + AD:SNRIs 618.64 82 < 0.0001
+                                                                                                                                                                                     SNRIs:TCAs 618.74 82 < 0.0001
+                                                                                                                                                                   Acupuncture:Sham acupuncture 618.75 82 < 0.0001
+                                                                                                                                                                                SNRIs:Trazodone 618.90 82 < 0.0001
+                                                                                                                                      Cognitive and cognitive behavioural therapies group:SSRIs 618.96 82 < 0.0001
+ Cognitive and cognitive behavioural therapies individual:Cognitive and cognitive behavioural therapies individual + AD:Cognitive and cognitive behavioural therapies individual + placebo:TCAs 614.33 80 < 0.0001
+                                                                                                                                                                              Placebo:Trazodone 619.24 82 < 0.0001
+                                                                                                                                                                                     SSRIs:TCAs 619.25 82 < 0.0001
+                                                                                                                                                                                    SNRIs:SSRIs 619.32 82 < 0.0001
+                                                                                                                                 Cognitive and cognitive behavioural therapies individual:SSRIs 619.38 82 < 0.0001
+                                                                                                                          Cognitive and cognitive behavioural therapies individual:No treatment 619.41 82 < 0.0001
+                                                                                                                                        Interpersonal psychotherapy (IPT) individual + AD:SNRIs 619.42 82 < 0.0001
+                                                                                                                              Cognitive and cognitive behavioural therapies individual:Waitlist 619.44 82 < 0.0001
+                                                                                                                                                                               Acupuncture:TCAs 619.47 82 < 0.0001
+                                                                                                                                                                              Mirtazapine:SSRIs 619.49 82 < 0.0001
+                                                                    Cognitive and cognitive behavioural therapies individual:Cognitive and cognitive behavioural therapies individual + AD:TCAs 618.86 81 < 0.0001
+                                                                                                                                                        Placebo:Problem solving individual:TCAs 619.09 81 < 0.0001
+                                                                                                            Cognitive and cognitive behavioural therapies individual:Counselling individual:TAU 619.44 81 < 0.0001
+                                                                                                       Cognitive and cognitive behavioural therapies individual:Self-help with support:Waitlist 619.48 81 < 0.0001
+                                                               Cognitive and cognitive behavioural therapies individual:Cognitive and cognitive behavioural therapies individual + AD:SSRIs:TAU 617.59 80 < 0.0001
+
+Q statistic to assess consistency under the assumption of
+a full design-by-treatment interaction random effects model
+
+                     Q df p-value tau.within tau2.within
+Between designs 112.44 83  0.0174     0.5816      0.3383

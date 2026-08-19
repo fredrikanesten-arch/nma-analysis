@@ -1,0 +1,676 @@
+studyid,class,n,mean_change,sd_change,source
+003-008 (FDA),Mirtazapine,58,-14.899999999999999,10.889444430272832,change_from_baseline
+003-008 (FDA),Placebo,28,-9.6,7.7,change_from_baseline
+29060 07 001,Placebo,11,-10.91,9.38604815670578,change_from_baseline
+29060 07 001,SSRIs,12,-13.08,10.2190997646564,change_from_baseline
+29060 07 001,TCAs,13,-13.31,11.1050979284291,change_from_baseline
+29060/299,SSRIs,102,-14.3,9.35,change_from_baseline
+29060/299,TCAs,100,-14.39,8.39,change_from_baseline
+Ai 2018,Acupuncture + AD,50,-21.71,4.70927807630851,baseline_followup
+Ai 2018,SSRIs,50,-18.57,5.33011256916775,baseline_followup
+Akhondzadeh 2003,SSRIs,17,-16.82,11.08,change_from_baseline
+Akhondzadeh 2003,TCAs,20,-20.3,8.12,change_from_baseline
+Albornoz 2011,Music therapy group,12,-7.830000000000001,4.61788912816235,baseline_followup
+Albornoz 2011,No treatment,12,-3.84,7.16134065660893,baseline_followup
+Alexopoulos 2003b,Counselling individual,13,-11.43,5.93854359249808,baseline_followup
+Alexopoulos 2003b,Problem solving individual,12,-16.81,5.41866219652047,baseline_followup
+Allard 2004,SNRIs,73,-18,6.85054742338158,baseline_followup
+Allard 2004,SSRIs,75,-17.4,7.20902212508743,baseline_followup
+Allen 2006,Acupuncture,53,-14.0073233346625,4.8,binary_response_converted
+Allen 2006,Sham acupuncture,52,-14.0073233346625,5,binary_response_converted
+Allen 2006,Waitlist,52,-14.0073233346625,4.2,binary_response_converted
+Alves 1999,SNRIs,40,-14.007323334662498,5.2,binary_response_converted
+Alves 1999,SSRIs,47,-14.0073233346625,3.9,binary_response_converted
+Amsterdam 1986,Placebo,54,-5.7,7.46371891217776,baseline_followup
+Amsterdam 1986,TCAs,55,-12.4,7.43976478122797,baseline_followup
+Andreescu 2011,Acupuncture,23,-7.4,6.2,change_from_baseline
+Andreescu 2011,Sham acupuncture,22,-7.9,7.4,change_from_baseline
+Andreoli 2002/Dubini 1997/Massana 1998_study 1,Placebo,128,-8.6,4.47,change_from_baseline
+Andreoli 2002/Dubini 1997/Massana 1998_study 1,SSRIs,127,-13.3,4.6,change_from_baseline
+Arean 1993,Problem solving group,19,-16.4,6.02245796996542,baseline_followup
+Arean 1993,Waitlist,20,-0.399999999999999,5.07444578254611,baseline_followup
+Arean 2010,Counselling individual,111,-8.62,6.55057249406493,baseline_followup
+Arean 2010,Problem solving individual,110,-11.27,7.14825153446631,baseline_followup
+Ashouri 2013,Any AD,13,-8.75,5.67072305795302,baseline_followup
+Ashouri 2013,Cognitive and cognitive behavioural therapies individual + AD,20,-37.1,6.218174973414625,baseline_followup
+Bakish 1992b,Placebo,56,-14.0073233346625,3.56,binary_response_converted
+Bakish 1992b,TCAs,59,-14.0073233346625,3.43,binary_response_converted
+Baldwin 2012,Placebo,145,-14.8,9.63,change_from_baseline
+Baldwin 2012,SNRIs,149,-16.8,9.77,change_from_baseline
+Basterzi 2009,SNRIs,21,-15.3,7.06611633077181,baseline_followup
+Basterzi 2009,SSRIs,22,-13.6,7.03633427290091,baseline_followup
+Baune 2018,Placebo,48,-8,8.38,change_from_baseline
+Baune 2018,SSRIs,52,-15.96,8.58,change_from_baseline
+Beach 1992,Cognitive and cognitive behavioural therapies individual,15,-17.4,7.36643740216395,baseline_followup
+Beach 1992,Waitlist,15,-7.86,9.251535007770332,baseline_followup
+Beasley 1991a,SSRIs,63,-12.2,7.2,change_from_baseline
+Beasley 1991a,Trazodone,57,-13.9,7.7,change_from_baseline
+Beasley 1993b,SSRIs,65,-12.9,9.9,change_from_baseline
+Beasley 1993b,TCAs,71,-11.6,10.3,change_from_baseline
+Benkert 1996,SNRIs,85,-14.007323334662502,6.2,binary_response_converted
+Benkert 1996,TCAs,82,-14.007323334662498,5.7,binary_response_converted
+Benkert 2000,Mirtazapine,139,-14.0073233346625,3.3,binary_response_converted
+Benkert 2000,SSRIs,136,-14.0073233346625,3.2,binary_response_converted
+Bersani 1994,SSRIs,31,-17,6.02577795807313,baseline_followup
+Bersani 1994,TCAs,30,-16,5.56506963119061,baseline_followup
+Bhargava 2012,SSRIs,30,-11.7,3.0882195517806,baseline_followup
+Bhargava 2012,TCAs,30,-13.33,4.11519136857571,baseline_followup
+Bielski 2004,SNRIs,98,-13.6,9.600000000000001,change_from_baseline
+Bielski 2004,SSRIs,97,-15.9,10.3,change_from_baseline
+Binnemann 2008,Placebo,31,-10.18,7.57,change_from_baseline
+Binnemann 2008,SSRIs,30,-13.42,7.61,change_from_baseline
+Bjerkenstedt 2005,Placebo,55,-9.7,7,change_from_baseline
+Bjerkenstedt 2005,SSRIs,54,-8.9,8,change_from_baseline
+Blackburn 1997,Any AD,38,-17.5,8.577295611088614,baseline_followup
+Blackburn 1997,Cognitive and cognitive behavioural therapies individual,24,-9.5,6.2745517768204,baseline_followup
+Blashki 1971,Placebo,18,-7.5,8.31384387633061,baseline_followup
+Blashki 1971,TCAs,27,-23.6,7.094363960215177,baseline_followup
+Blom 2007,Any AD,47,-6.4,8.67582849069759,baseline_followup
+Blom 2007,Interpersonal psychotherapy (IPT) individual,50,-9.9,9.7923439482077,baseline_followup
+Blom 2007,Interpersonal psychotherapy (IPT) individual + AD,49,-12.8,9.439809320108111,baseline_followup
+Blom 2007,Interpersonal psychotherapy (IPT) individual + placebo,47,-11.099999999999998,10.6531685427388,baseline_followup
+Blumenthal 2007/Hoffman 2011,Exercise group,51,-7.2,6.9,change_from_baseline
+Blumenthal 2007/Hoffman 2011,Exercise individual,53,-7.099999999999999,6.9,change_from_baseline
+Blumenthal 2007/Hoffman 2011,Placebo,49,-6.1,7.3,change_from_baseline
+Blumenthal 2007/Hoffman 2011,SSRIs,49,-6.1,6.7,change_from_baseline
+Bose 2008,Placebo,134,-10.6,10.42,change_from_baseline
+Bose 2008,SSRIs,129,-12.1,10.22,change_from_baseline
+Boulenger 2014,Placebo,158,-11.7,9.55,change_from_baseline
+Boulenger 2014,SNRIs,146,-21.15,9.3,change_from_baseline
+Bowman 1995,Self-help,20,-18.1,7.838367176906172,baseline_followup
+Bowman 1995,Waitlist,10,-0.199999999999999,7.19652694012883,baseline_followup
+Brannan 2005,Placebo,136,-10.27,7.809999999999999,change_from_baseline
+Brannan 2005,SNRIs,132,-10.85,7.93,change_from_baseline
+Burke 2002,Placebo,119,-9.4,9.82,change_from_baseline
+Burke 2002,SSRIs,366,-38.7,15.981132625693338,change_from_baseline
+Carman 1991,Placebo,48,-7.5,7.76,change_from_baseline
+Carman 1991,TCAs,48,-13.5,7.76,change_from_baseline
+Chang 2015,SNRIs,54,-17.2,7.4222638056054,baseline_followup
+Chang 2015,SSRIs,58,-16.3,6.92026011071838,baseline_followup
+Chiu 1996,SSRIs,15,-20.2,9.1,change_from_baseline
+Chiu 1996,TCAs,15,-15.3,8.4,change_from_baseline
+Choi 2012,Self-help with support,25,-12.28,8.92865611388411,baseline_followup
+Choi 2012,Waitlist,30,0.440000000000001,7.72380735130026,baseline_followup
+Choi 2014a/Choi 2014b,Attention placebo,36,-5.71,6.74005934691973,baseline_followup
+Choi 2014a/Choi 2014b,Problem solving individual,85,-23.53,8.432858352895535,baseline_followup
+Claghorn 1992a,Placebo,27,-4.59,9.35,change_from_baseline
+Claghorn 1992a,SSRIs,32,-10.72,9.39,change_from_baseline
+Claghorn 1992b,Placebo,27,-5.490000000000001,8.31,change_from_baseline
+Claghorn 1992b,SSRIs,32,-11.44,8.32,change_from_baseline
+Clayton 2006_study 1,Placebo,130,-12.1,7.9799999999999995,change_from_baseline
+Clayton 2006_study 1,SSRIs,133,-14.2,8.07,change_from_baseline
+Clayton 2006_study 2,Placebo,126,-11.9,7.86,change_from_baseline
+Clayton 2006_study 2,SSRIs,133,-12.9,8.07,change_from_baseline
+Clerc 1994,SNRIs,33,-22.8,10.7140095202496,baseline_followup
+Clerc 1994,SSRIs,34,-15.7,13.228756555323,baseline_followup
+Cohn 1990b,SSRIs,121,-13.3,7.76,change_from_baseline
+Cohn 1990b,TCAs,64,-14.2,7.76,change_from_baseline
+Connolly Gibbons 2012,Any psychotherapy,15,-3.9,6.61183786855062,baseline_followup
+Connolly Gibbons 2012,Short-term psychodynamic psychotherapies individual,16,-6.4,5.82047248941183,baseline_followup
+Connolly Gibbons 2016,Cognitive and cognitive behavioural therapies individual,119,-5.02,5.11862286166895,baseline_followup
+Connolly Gibbons 2016,Short-term psychodynamic psychotherapies individual,118,-4.16,5.31901306634981,baseline_followup
+Cornelius 1997,Counselling individual + AD,25,-6,9.600000000000001,change_from_baseline
+Cornelius 1997,Counselling individual + placebo,26,-2,13.299999999999999,change_from_baseline
+Costa 1998,SNRIs,196,-21.4,7.54453444554401,baseline_followup
+Costa 1998,SSRIs,186,-20.6,6.89855057240287,baseline_followup
+Cutler 2009,Placebo,152,-71.78,6.3867060418544,baseline_followup
+Cutler 2009,SNRIs,141,-75.44,6.08313408589087,baseline_followup
+De Ronchi 1998,SSRIs,32,-11.38,7.40520762706894,baseline_followup
+De Ronchi 1998,TCAs,33,-12.56,8.19822541773523,baseline_followup
+DeJonghe 2001/Kool 2003,Any AD,20,-9.1,7.88500475586413,baseline_followup
+DeJonghe 2001/Kool 2003,Short-term psychodynamic psychotherapies individual + AD,23,-8.61,5.85272586065672,baseline_followup
+DeNayer 2002,SNRIs,64,-14.4,7.6,change_from_baseline
+DeNayer 2002,SSRIs,67,-10.4,8.6,change_from_baseline
+Demyttenaere 1998,SSRIs,35,-15,5.5380501984001596,baseline_followup
+Demyttenaere 1998,TCAs,31,-16.7,4.15812457725836,baseline_followup
+Detke 2002a,Placebo,139,-49.21,5.47221177482525,baseline_followup
+Detke 2002a,SNRIs,128,-51.12,5.47221177482525,baseline_followup
+Detke 2002b,Placebo,122,-48.33,5.64359939057329,baseline_followup
+Detke 2002b,SNRIs,123,-53.75,5.85772543588471,baseline_followup
+Detke 2004,Placebo,93,-8.8,4.82,change_from_baseline
+Detke 2004,SNRIs,186,-23.1,6.816509370638318,change_from_baseline
+Detke 2004,SSRIs,85,-11.7,4.61,change_from_baseline
+Deushle 2003,SSRIs,40,-10.9,7.11898869222307,baseline_followup
+Deushle 2003,TCAs,40,-13.5,6.48151216923952,baseline_followup
+Diaz-Martinez 1998,SNRIs,55,-23.1,7.10225959986558,baseline_followup
+Diaz-Martinez 1998,SSRIs,55,-24,7.17006451308452,baseline_followup
+Dierick 1996,SNRIs,153,-16.3,8.60639297266863,baseline_followup
+Dierick 1996,SSRIs,161,-14.2,7.69781787261819,baseline_followup
+Doogan 1994,Placebo,90,-66.7,5.47726438379317,baseline_followup
+Doogan 1994,SSRIs,83,-71.2,5.47726438379317,baseline_followup
+Duan 2009,Acupuncture + AD,46,-13.7,4.64865571966778,baseline_followup
+Duan 2009,SSRIs,44,-12.4,4.85695377783236,baseline_followup
+Dube 2010,Placebo,122,-13,8.84,change_from_baseline
+Dube 2010,SSRIs,54,-15,8.82,change_from_baseline
+Dubey 2012,SNRIs,30,-20.27,7.04,change_from_baseline
+Dubey 2012,TCAs,30,-25.530000000000005,7.82,change_from_baseline
+E-1569,Mirtazapine,72,-12.2,7.5,change_from_baseline
+E-1569,SSRIs,72,-15,6.6,change_from_baseline
+Eli Lilly HMAT-A,Placebo,89,-4.78,6.42,change_from_baseline
+Eli Lilly HMAT-A,SNRIs,81,-6.31,6.3,change_from_baseline
+Eli Lilly HMAT-A,SSRIs,87,-7.4,6.44,change_from_baseline
+Elkin 1989/Imber 1990,Cognitive and cognitive behavioural therapies individual,59,-8.9,6.84178339323893,baseline_followup
+Elkin 1989/Imber 1990,Interpersonal psychotherapy (IPT) individual,61,-9.8,6.87240860252066,baseline_followup
+Elkin 1989/Imber 1990,Placebo,62,-6.3,6.79117073853986,baseline_followup
+Elkin 1989/Imber 1990,TCAs,57,-9.7,6.79117073853986,baseline_followup
+Emsley 2018,Placebo,106,-9.5,5.97745765355138,baseline_followup
+Emsley 2018,SSRIs,98,-13.6,5.71664237118258,baseline_followup
+FDA 244 (EMD 68 843-009),Placebo,95,-9.3,7.8,change_from_baseline
+FDA 244 (EMD 68 843-009),SSRIs,89,-9.1,7.3999999999999995,change_from_baseline
+FDA 245 (EMD 68 843-010),Placebo,99,-10.2,7.96,change_from_baseline
+FDA 245 (EMD 68 843-010),SSRIs,92,-11.1,7.67,change_from_baseline
+Fabre 1992,Placebo,36,-3.06,8.1,change_from_baseline
+Fabre 1992,SSRIs,38,-9.13,8.13702648391905,change_from_baseline
+Fabre 1992,TCAs,37,-7.62,8.09007416529663,change_from_baseline
+Fabre 1995a,Placebo,86,-7.6000000000000005,7.5,change_from_baseline
+Fabre 1995a,SSRIs,261,-29.6,14.846211637990345,change_from_baseline
+Fagiolini 2020,SNRIs,152,-14.700000000000001,6.56,change_from_baseline
+Fagiolini 2020,Trazodone,165,-12.9,6.82,change_from_baseline
+Farabaugh 2015,Cognitive and cognitive behavioural therapies individual,15,-8.8,5.60853813395255,baseline_followup
+Farabaugh 2015,SSRIs,11,-5.45,8.02601395463526,baseline_followup
+Fava 1998a,Placebo,19,-11.6,8.9,change_from_baseline
+Fava 1998a,SSRIs,109,-21.9,13.364505228402585,change_from_baseline
+Fava 2005,Placebo,43,-7.3,5.55067563455117,baseline_followup
+Fava 2005,SSRIs,47,-6.299999999999999,6.34586479528204,baseline_followup
+Fawcett 1989,SSRIs,19,-10.8,5.63471383479232,baseline_followup
+Fawcett 1989,TCAs,19,-8.9,6.89420046125727,baseline_followup
+Feighner 1982,Placebo,45,-14.0073233346625,4.33796265544091,binary_response_converted
+Feighner 1982,TCAs,94,-28.014646669325,6.538339238675215,binary_response_converted
+Fonagy 2019,Cognitive and cognitive behavioural therapies individual,20,-5.92,6.63144780572086,baseline_followup
+Fonagy 2019,Self-help with support,54,-4.08,8.84218864309058,baseline_followup
+Fonagy 2019,Short-term psychodynamic psychotherapies individual,73,-8.15,6.94283083475321,baseline_followup
+Forest Laboratories 2000,Placebo,125,-11.2,10.35,change_from_baseline
+Forest Laboratories 2000,SSRIs,243,-25.900000000000002,14.015883846550668,change_from_baseline
+Forest Laboratories 2010,Placebo,215,-8.5,8.8,change_from_baseline
+Forest Laboratories 2010,SSRIs,637,-23.1,13.936818144755996,change_from_baseline
+Forest Research Institute 2003,Placebo,151,-10,10.57,change_from_baseline
+Forest Research Institute 2003,SSRIs,143,-13.3,10.62,change_from_baseline
+Forest Research Institute 2005,Placebo,132,-12.4,10.34,change_from_baseline
+Forest Research Institute 2005,SSRIs,266,-32.5,14.67997275201831,change_from_baseline
+Forlenza 2001,SSRIs,27,-15.85,11.89,change_from_baseline
+Forlenza 2001,TCAs,28,-15.03,10.46,change_from_baseline
+Freed 1999,SSRIs,149,-17.7,9.0509281292031,baseline_followup
+Freed 1999,TCAs,157,-15.08,9.43473900009958,baseline_followup
+Fu 2003,Acupuncture,32,-23.9,6.39296488336984,baseline_followup
+Fu 2003,SSRIs,30,-20.9,6.19919349593155,baseline_followup
+Fudge 1990,SSRIs,17,-14.8,7.97746827007165,baseline_followup
+Fudge 1990,Trazodone,15,-17.1,4.43959457608462,baseline_followup
+GSK_29060/103,SSRIs,45,-17.8,10.73,change_from_baseline
+GSK_29060/103,TCAs,36,-17.1,9.6,change_from_baseline
+Gater 2010,Any AD,42,-1,6.95053954740206,baseline_followup
+Gater 2010,Peer support group,39,-5,4.58257569495584,baseline_followup
+Gater 2010,Peer support group + AD,42,-5.7,5.502726596879041,baseline_followup
+Gentil 2000,SNRIs,57,-14.0073233346625,3,binary_response_converted
+Gentil 2000,TCAs,59,-14.0073233346625,3.2,binary_response_converted
+Georgotas 1982,Placebo,18,-11.2,8.82661883169314,baseline_followup
+Georgotas 1982,TCAs,15,-20,7.2538058975961,baseline_followup
+Godlewska 2012,Placebo,21,-3.3,4.4034077712608,baseline_followup
+Godlewska 2012,SSRIs,21,-4.4,6.99070811863863,baseline_followup
+Golden 2002_448,Placebo,101,-9.9,8.04,change_from_baseline
+Golden 2002_448,SSRIs,206,-23.799999999999997,11.55482583166012,change_from_baseline
+Golden 2002_449,Placebo,110,-10.2,8.18,change_from_baseline
+Golden 2002_449,SSRIs,218,-25.4,11.58949955778937,change_from_baseline
+Goldstein 2002,Placebo,70,-45.01,6.3867060418544,baseline_followup
+Goldstein 2002,SNRIs,70,-46.53,5.79613322668195,baseline_followup
+Goldstein 2002,SSRIs,33,-43.55,5.96620819925158,baseline_followup
+Goldstein 2004,Placebo,89,-14.0073233346625,5.08,binary_response_converted
+Goldstein 2004,SNRIs,91,-14.0073233346625,4.66,binary_response_converted
+Goldstein 2004,SSRIs,87,-14.0073233346625,5.19,binary_response_converted
+Gual 2003,Placebo,39,-14.0073233346625,8,binary_response_converted
+Gual 2003,SSRIs,44,-14.0073233346625,6.9,binary_response_converted
+Guelfi 1995,Placebo,47,-4.8,11,change_from_baseline
+Guelfi 1995,SNRIs,46,-14.2,9.6,change_from_baseline
+Guelfi 2001,Mirtazapine,78,-89.3,6.57585390345705,baseline_followup
+Guelfi 2001,SNRIs,79,-85.7,6.83532077998528,baseline_followup
+Hamamci 2006,Cognitive and cognitive behavioural therapies group,10,-16.8,7.7338024283013596,baseline_followup
+Hamamci 2006,No treatment,11,-6.69,8.9610044079891,baseline_followup
+Hamdan-Mansour 2009,No treatment,36,-3.1,8.81532756056177,baseline_followup
+Hamdan-Mansour 2009,Psychoeducation group,44,-13.3,7.7698133825723295,baseline_followup
+Hao 2014,SNRIs,127,-13.8,6.6,change_from_baseline
+Hao 2014,SSRIs,132,-12,7.1,change_from_baseline
+Hashemi 2012,SSRIs,48,-16.96,4.96,change_from_baseline
+Hashemi 2012,TCAs,49,-13.14,4.68,change_from_baseline
+Hatcher 2018,No treatment,22,-7.1,7.5,change_from_baseline
+Hatcher 2018,Self-help with support,22,-9.4,6.7,change_from_baseline
+Heller 2009,SNRIs,15,-15.07,3.18004716946148,baseline_followup
+Heller 2009,SSRIs,14,-14.03,4.26817291121154,baseline_followup
+Hemat-Far 2012,Exercise individual,10,-8.4,6.25539766921337,baseline_followup
+Hemat-Far 2012,No treatment,10,-1,4.80312398340913,baseline_followup
+Hermens 2007,No treatment,96,-56.9,10.5133145201482,baseline_followup
+Hermens 2007,SSRIs,85,-57.6,10.2781610451202,baseline_followup
+Hersen 1984,Interpersonal psychotherapy (IPT) individual + placebo,22,-12.590000000000002,6.72995542332934,baseline_followup
+Hersen 1984,TCAs,14,-17.29,7.38451758749345,baseline_followup
+Hewett 2009,Placebo,197,-14.007323334662498,4.77,binary_response_converted
+Hewett 2009,SNRIs,187,-14.0073233346625,4.65,binary_response_converted
+Hewett 2010,Placebo,186,-13.2,10.64,change_from_baseline
+Hewett 2010,SNRIs,193,-17,10.56,change_from_baseline
+Hieronymus 2016_PZ/109,Placebo,103,-7.9,6.95413546028548,baseline_followup
+Hieronymus 2016_PZ/109,SSRIs,104,-8.7,6.77347768875044,baseline_followup
+Higuchi 2009,Placebo,145,-8.3,5.8,change_from_baseline
+Higuchi 2009,SNRIs,74,-10,6.4,change_from_baseline
+Higuchi 2009,SSRIs,148,-9.4,6.9,change_from_baseline
+Higuchi 2011,Placebo,171,-10.4,8.11,change_from_baseline
+Higuchi 2011,SSRIs,241,-25.3,10.458537182608284,change_from_baseline
+Higuchi 2016,Placebo,182,-12.41,10.12,change_from_baseline
+Higuchi 2016,SNRIs,348,-30.35,14.269421852338656,change_from_baseline
+Hojatifar 2017,Mindfulness or meditation group,15,-36.8,10.6439278464296,baseline_followup
+Hojatifar 2017,No treatment,15,-3,4.53798413395199,baseline_followup
+Hollon 1992,Cognitive and cognitive behavioural therapies individual,25,-10.8,8.68849814409832,baseline_followup
+Hollon 1992,Cognitive and cognitive behavioural therapies individual + AD,25,-13.2,8.66256313108309,baseline_followup
+Hollon 1992,TCAs,57,-9.6,8.66025403784439,baseline_followup
+Hong 2003,Mirtazapine,66,-14.0073233346625,5.1,binary_response_converted
+Hong 2003,SSRIs,66,-14.0073233346625,5.2,binary_response_converted
+Hopko 2003,Behavioural therapies individual + AD,10,-16,11.3767306375777,baseline_followup
+Hopko 2003,Counselling individual + AD,15,-6.9,15.516442891333098,baseline_followup
+Hoyberg 1996,Mirtazapine,56,-15.3,10.1355808910984,baseline_followup
+Hoyberg 1996,TCAs,59,-17.3,8.28673639015988,baseline_followup
+Hunter 2011,Placebo,11,-8.64,7.1418975069655,baseline_followup
+Hunter 2011,SSRIs,12,-9.67,7.145984886633889,baseline_followup
+Husain 2014,Cognitive and cognitive behavioural therapies group,33,-14.0073233346625,4.1,binary_response_converted
+Husain 2014,SSRIs,33,-14.0073233346625,3.7,binary_response_converted
+Hwang 2004,SNRIs,52,-14.0073233346625,5.8,binary_response_converted
+Hwang 2004,SSRIs,53,-14.0073233346625,5.9,binary_response_converted
+Jacobson 1996,Behavioural therapies individual,56,-20.2,7.33689307541005,baseline_followup
+Jacobson 1996,Cognitive and cognitive behavioural therapies individual,93,-38.199999999999996,11.833849753989611,baseline_followup
+Jamison 1995,Self-help,33,-10.6,5.04083326445142,baseline_followup
+Jamison 1995,Waitlist,39,-0.600000000000001,4.15812457725836,baseline_followup
+Janakiramaiah 2000,TCAs,15,-16.4,7.06186944087754,baseline_followup
+Janakiramaiah 2000,Yoga group,15,-16.8,7.76595132614157,baseline_followup
+Jefferson 2000,Placebo,101,-12.1,11.05,change_from_baseline
+Jefferson 2000,SSRIs,296,-44.1,18.337047199590234,change_from_baseline
+Jiahui 2006,Acupuncture,30,-17.66,9.81803951917082,baseline_followup
+Jiahui 2006,SSRIs,30,-17.12,10.0426739467136,baseline_followup
+Judd 2001,Interpersonal psychotherapy (IPT) individual + AD,12,-23.8,9.88078944214479,baseline_followup
+Judd 2001,SNRIs,19,-19.7,11.3582569085225,baseline_followup
+Kang 2009,Mirtazapine,73,-12,10.9,change_from_baseline
+Kang 2009,SNRIs,53,-10.9,6,change_from_baseline
+Kanter 2015,Any psychotherapy,22,-7.99,8.40815675400976,baseline_followup
+Kanter 2015,Behavioural therapies individual,21,-10.05,7.957832619501371,baseline_followup
+Kasper 2005a,Placebo,180,-14.0073233346625,4.2,binary_response_converted
+Kasper 2005a,SSRIs,338,-28.014646669325003,5.374011537017761,binary_response_converted
+Kasper 2005b,SSRIs,53,-15,4.95,change_from_baseline
+Kasper 2005b,Trazodone,55,-14.6,4.89,change_from_baseline
+Kasper 2012,Placebo,71,-13.4,9.27,change_from_baseline
+Kasper 2012,SSRIs,139,-19,10.61,change_from_baseline
+Katona 2012,Placebo,145,-10.3,9.63,change_from_baseline
+Katona 2012,SNRIs,147,-15.799999999999999,9.7,change_from_baseline
+Katz 1990,Placebo,11,-2.5,5.09215082258961,baseline_followup
+Katz 1990,TCAs,12,-8.6,5.8642987645583,baseline_followup
+Katz 1993_Protocol 01,Placebo,104,-8,7.76,change_from_baseline
+Katz 1993_Protocol 01,TCAs,93,-13.7,7.76,change_from_baseline
+Katz 1993_Protocol 03,Placebo,94,-8.7,7.76,change_from_baseline
+Katz 1993_Protocol 03,TCAs,95,-12.9,7.76,change_from_baseline
+Kay-Lambkin 2009,Cognitive and cognitive behavioural therapies individual,23,-21.87,10.1293188319847,baseline_followup
+Kay-Lambkin 2009,No treatment,21,-9.91,10.053273098847,baseline_followup
+Kay-Lambkin 2009,Self-help,23,-11.48,11.1860225281375,baseline_followup
+Kay-Lambkin 2011/2017,Cognitive and cognitive behavioural therapies individual,88,-11.9,10.4747315001388,baseline_followup
+Kay-Lambkin 2011/2017,Counselling individual,89,-8.3,10.3711137299713,baseline_followup
+Kay-Lambkin 2011/2017,Self-help,97,-12.9,11.3960519479335,baseline_followup
+Keller 2006_Study 062,Placebo,154,-14,8.87,change_from_baseline
+Keller 2006_Study 062,SSRIs,161,-17.25,8.05,change_from_baseline
+Kennedy 2007,Cognitive and cognitive behavioural therapies individual,12,-11.5,6.59393660873381,baseline_followup
+Kennedy 2007,SNRIs,12,-14.089999999999998,8.05791536316931,baseline_followup
+Khan 1991,Placebo,26,-4,8.22860863086828,baseline_followup
+Khan 1991,SNRIs,67,-27.2,13.620939761998804,baseline_followup
+Khan 1995,Mirtazapine,26,-12,7.8,change_from_baseline
+Khan 1995,Placebo,26,-6.299999999999999,8.1,change_from_baseline
+Khan 2007,SNRIs,91,-19.3,9.1,change_from_baseline
+Khan 2007,SSRIs,110,-19.2,8.6,change_from_baseline
+Kheirabadi 2020,Cognitive and cognitive behavioural therapies individual,16,-24.2,17.3801611039714,baseline_followup
+Kheirabadi 2020,SSRIs,12,-18,11.9531753103516,baseline_followup
+Khoshnab 2017,Exercise individual,15,-2.13,6.19677335393187,change_from_baseline
+Khoshnab 2017,Exercise individual + AD,15,-4.53,12.548466041712,change_from_baseline
+Khoshnab 2017,No treatment,15,-1.56,3.09838667696593,change_from_baseline
+Khoshnab 2017,SSRIs,15,-1.9199999999999997,6.19677335393187,change_from_baseline
+Kim 2011,Mirtazapine,30,-14.0073233346625,2.9,binary_response_converted
+Kim 2011,SSRIs,30,-14.0073233346625,2.9,binary_response_converted
+Kinoshita 2009,Mirtazapine,200,-39,12.313001258832063,change_from_baseline
+Kinoshita 2009,Placebo,70,-10.4,7.5,change_from_baseline
+Komulainen 2018,Placebo,15,-2.2,4.5670012042915,baseline_followup
+Komulainen 2018,SSRIs,17,-1.9,4.27224765199772,baseline_followup
+Kramer 2014,Problem solving individual,131,-10.3,9.79385521640993,baseline_followup
+Kramer 2014,Waitlist,132,-4.49,8.68241901776227,baseline_followup
+Kranzler 2006_Group A,Placebo,100,-9.6,7.8,change_from_baseline
+Kranzler 2006_Group A,SSRIs,89,-10.8,6.5,change_from_baseline
+Krejtz 2018,Attention placebo,25,-8.19,9.97183533758957,baseline_followup
+Krejtz 2018,Self-help,26,-12.97,9.22388746678969,baseline_followup
+Lam 2013,Cognitive and cognitive behavioural therapies individual + AD,48,-15.699999999999998,8.8,change_from_baseline
+Lam 2013,SSRIs,51,-14.3,8.3,change_from_baseline
+Lam 2016,Light therapy,32,-13.4,7.5,change_from_baseline
+Lam 2016,Light therapy + AD,29,-16.9,9.2,change_from_baseline
+Lam 2016,Placebo,30,-6.5,9.6,change_from_baseline
+Lam 2016,SSRIs,31,-8.8,9.9,change_from_baseline
+Lee 2007,SNRIs,238,-56.39,5.863369624885,baseline_followup
+Lee 2007,SSRIs,240,-55.92,5.81842482553855,baseline_followup
+Legrand 2016,Any AD,10,-6.409999999999999,10,change_from_baseline
+Legrand 2016,Exercise individual + AD,25,-26.61,11.112178004333805,change_from_baseline
+Leinonen 1999,Mirtazapine,136,-20.5,6.32477862117093,baseline_followup
+Leinonen 1999,SSRIs,133,-20.2,6.08313408589087,baseline_followup
+Levin 2013,Placebo,52,-11.650000000000002,5.79613322668195,baseline_followup
+Levin 2013,SNRIs,51,-9.69,5.63294671249698,baseline_followup
+Lindegaard 2019,Self-help with support,25,-11.37,5.13532861655415,baseline_followup
+Lindegaard 2019,Waitlist,25,-2.48,5.63851930918038,baseline_followup
+Loo 2002,Placebo,139,-12.06,7.79678780011358,baseline_followup
+Loo 2002,SSRIs,147,-14.210000000000003,7.29101501850051,baseline_followup
+Luo 1985,Acupuncture,27,-15.7,9.13290753265355,baseline_followup
+Luo 1985,TCAs,20,-15.2,7.50266619276108,baseline_followup
+M/2020/0046 (Study 046),Placebo,247,-11.5,8.45,change_from_baseline
+M/2020/0046 (Study 046),SSRIs,243,-12.5,8.45,change_from_baseline
+M/2020/0046 (Study 047),Placebo,239,-10.1,7.27,change_from_baseline
+M/2020/0046 (Study 047),SSRIs,242,-11.8,7.64,change_from_baseline
+MDF/29060/III/070/88/MC,SSRIs,24,-20,8.59,change_from_baseline
+MDF/29060/III/070/88/MC,TCAs,20,-15,8.22,change_from_baseline
+MIR 003-003 (FDA),Mirtazapine,45,-10.4,8.7,change_from_baseline
+MIR 003-003 (FDA),Placebo,45,-8.8,8.1,change_from_baseline
+MIR 003-020 (FDA),Mirtazapine,40,-10.6,8.7,change_from_baseline
+MIR 003-020 (FDA),Placebo,39,-4.8,6.4,change_from_baseline
+MIR 003-020 (FDA),TCAs,40,-11.5,9.1,change_from_baseline
+MIR 003-021 (FDA),Mirtazapine,45,-11.7,7.6,change_from_baseline
+MIR 003-021 (FDA),Placebo,48,-9.5,8.9,change_from_baseline
+MIR 003-021 (FDA),TCAs,48,-13.6,7.2,change_from_baseline
+MY-1042/BRL-029060/CPMS-251,Placebo,123,-8.25,7.56,change_from_baseline
+MY-1042/BRL-029060/CPMS-251,SSRIs,120,-10.23,7.67,change_from_baseline
+MY-1045/BRL-029060/1 (PAR 128),Placebo,136,-9,8.63,change_from_baseline
+MY-1045/BRL-029060/1 (PAR 128),SSRIs,694,-24.8,12.381538676594278,change_from_baseline
+Macias-Cortes 2015,Placebo,43,-5.7,3.43947670438397,baseline_followup
+Macias-Cortes 2015,SSRIs,46,-8.9,3.37194306001747,baseline_followup
+Mahableshwarkar 2013,Placebo,149,-10.5,9.28,change_from_baseline
+Mahableshwarkar 2013,SNRIs,149,-13.47,9.15,change_from_baseline
+Mahableshwarkar 2015a,Placebo,161,-14.007323334662498,4.18,binary_response_converted
+Mahableshwarkar 2015a,SNRIs,152,-14.0073233346625,4.39,binary_response_converted
+Maina 2007,Counselling individual + AD,17,-10.06,3.46600043277551,baseline_followup
+Maina 2007,Short-term psychodynamic psychotherapies individual + AD,18,-10.84,3.90469883601796,baseline_followup
+Marchesi 1998,SSRIs,67,-16.6,6.02328813855024,baseline_followup
+Marchesi 1998,TCAs,75,-17.2,6.38513899613783,baseline_followup
+Markkula 2019,Counselling individual,124,-14.4,7.84655338349265,baseline_followup
+Markkula 2019,No treatment,134,-3.9000000000000004,7.46201045295435,baseline_followup
+Marshall 2008,Any AD,30,-13.83,4.69821242601907,baseline_followup
+Marshall 2008,Cognitive and cognitive behavioural therapies individual,37,-11.48,4.328128925991,baseline_followup
+Marshall 2008,Interpersonal psychotherapy (IPT) individual,35,-10.17,5.65575812778446,baseline_followup
+Mathews 2015,Placebo,281,-13.6,10.06,change_from_baseline
+Mathews 2015,SSRIs,280,-15.9,10.04,change_from_baseline
+McCallum 1975,Placebo,12,-5.5,6.9656299069072,baseline_followup
+McCallum 1975,TCAs,12,-12.6,7.10844568101916,baseline_followup
+McKnight 1992,Cognitive and cognitive behavioural therapies individual,22,-17.96,8.77571079742262,baseline_followup
+McKnight 1992,TCAs,21,-16.64,6.15754009325153,baseline_followup
+McNamara 1986,Behavioural therapies individual,10,-20.4,3.82266922450792,baseline_followup
+McNamara 1986,Cognitive and cognitive behavioural therapies individual,20,-35.61,6.248247754370821,baseline_followup
+Mehtonen 2000,SNRIs,75,-14.0073233346625,3.5,binary_response_converted
+Mehtonen 2000,SSRIs,72,-14.0073233346625,4.5,binary_response_converted
+Mendels 1993,Placebo,75,-10.53,8.98,change_from_baseline
+Mendels 1993,SNRIs,77,-14.800000000000002,9.64,change_from_baseline
+Mendels 1999,Placebo,91,-55.15,5.52828493193114,baseline_followup
+Mendels 1999,SSRIs,89,-57.22999999999999,5.37796828482576,baseline_followup
+Miller 1989a,Placebo,22,-6.2,7.2,change_from_baseline
+Miller 1989a,SSRIs,19,-6,5.9,change_from_baseline
+Miranda 2003/2006,Any AD,88,-8.1,4.4520893971258,baseline_followup
+Miranda 2003/2006,Cognitive and cognitive behavioural therapies group,90,-4.9,4.53679402221437,baseline_followup
+Miranda 2003/2006,TAU,89,-4.1,4.53441286166136,baseline_followup
+Miura 2000,SSRIs,102,-9.2,11.5,change_from_baseline
+Miura 2000,TCAs,114,-10.6,11.1,change_from_baseline
+Moak 2003,Cognitive and cognitive behavioural therapies individual + AD,38,-11.6,6.12862137841782,baseline_followup
+Moak 2003,Cognitive and cognitive behavioural therapies individual + placebo,44,-10,5.50726792520575,baseline_followup
+Mohr 2011,Cognitive and cognitive behavioural therapies individual,41,-5.4,4.92159526982868,baseline_followup
+Mohr 2011,No treatment,44,-2.23,4.9971191700819,baseline_followup
+Moises 1981,TCAs,20,-14.2,5.86600375042499,baseline_followup
+Moises 1981,Trazodone,16,-9,8.4338603260903,baseline_followup
+Moller 1993,SSRIs,81,-18.7,7.53193202306022,baseline_followup
+Moller 1993,TCAs,74,-20.4,6.35059052372297,baseline_followup
+Moller 1998,SSRIs,62,-13.6,9.3,change_from_baseline
+Moller 1998,TCAs,59,-16.5,9.4,change_from_baseline
+Moller 2000,SSRIs,100,-13.8,7.200000000000001,change_from_baseline
+Moller 2000,TCAs,105,-15.3,7.1,change_from_baseline
+Montgomery 1992,Placebo,64,-10.56,7.76,change_from_baseline
+Montgomery 1992,SSRIs,129,-24.819999999999997,12.515989773086266,change_from_baseline
+Montgomery 2004,SNRIs,142,-76.93,6.63997179444869,baseline_followup
+Montgomery 2004,SSRIs,146,-75.56,6.3867060418544,baseline_followup
+Moradveisi 2013,Behavioural therapies individual,50,-59.55,6.55035257905649,baseline_followup
+Moradveisi 2013,SSRIs,50,-57.46,6.65285690870948,baseline_followup
+Mowla 2016,SNRIs,26,-9.3,3.47706773014274,baseline_followup
+Mowla 2016,SSRIs,28,-9.97,3.56791255498225,baseline_followup
+Mullin 1996,Mirtazapine,71,-12.3,7.7,change_from_baseline
+Mullin 1996,TCAs,71,-13,7.3,change_from_baseline
+Mulsant 1999,SSRIs,29,-11.3,4.22255846614348,baseline_followup
+Mulsant 1999,TCAs,27,-13.6,3.53694783676548,baseline_followup
+Mundt 2012,Placebo,50,-10.7,6.6,change_from_baseline
+Mundt 2012,SSRIs,55,-13.4,5.7,change_from_baseline
+Munizza 2006,SSRIs,59,-11.5,8.3,change_from_baseline
+Munizza 2006,Trazodone,62,-12.9,9.06,change_from_baseline
+Murphy 1984,Cognitive and cognitive behavioural therapies individual,19,-12.05,5.340112358368499,baseline_followup
+Murphy 1984,Cognitive and cognitive behavioural therapies individual + AD,18,-13.34,5.63521073252811,baseline_followup
+Murphy 1984,Cognitive and cognitive behavioural therapies individual + placebo,17,-15.589999999999998,5.02023903813354,baseline_followup
+Murphy 1984,TCAs,16,-12.69,4.38794940718327,baseline_followup
+Murri 2015,Exercise group + AD,79,-24.299999999999997,5.43783044972901,baseline_followup
+Murri 2015,SSRIs,42,-8.7,5.129327441292861,baseline_followup
+Mynors-Wallis 1995,Placebo,26,-6.6,6.3221831672295,baseline_followup
+Mynors-Wallis 1995,Problem solving individual,29,-12.3,6.00583050043872,baseline_followup
+Mynors-Wallis 1995,TCAs,27,-11,6.2745517768204,baseline_followup
+NCT01020799,Placebo,94,-11.45,10.18,change_from_baseline
+NCT01020799,SSRIs,49,-11.7,10.99,change_from_baseline
+NKD20006 (NCT00048204),Placebo,118,-10.9,7.8,change_from_baseline
+NKD20006 (NCT00048204),SSRIs,117,-11.1,7.9,change_from_baseline
+Naeem 2014,Self-help,94,-6.799999999999999,3.50428309358705,baseline_followup
+Naeem 2014,Waitlist,89,-2.8999999999999995,3.4597687784012394,baseline_followup
+Naeem 2015,Cognitive and cognitive behavioural therapies individual,69,-10.9,3.61662826400502,baseline_followup
+Naeem 2015,No treatment,68,-7.5,3.7589892258425,baseline_followup
+Navarro 2001,SSRIs,29,-71.83000000000001,5.863369624885,baseline_followup
+Navarro 2001,TCAs,29,-73.53,5.84083742077874,baseline_followup
+Nemeroff 2007,Placebo,102,-14.007323334662502,3.3,binary_response_converted
+Nemeroff 2007,SNRIs,102,-14.007323334662502,3.2,binary_response_converted
+Nemeroff 2007,SSRIs,104,-14.0073233346625,3.2,binary_response_converted
+Nezu 1989,Problem solving group,28,-34.14,6.5951952207648885,baseline_followup
+Nezu 1989,Waitlist,11,-2.54,6.73285229304787,baseline_followup
+Nierenberg 2007,Placebo,137,-5.97,6.79,change_from_baseline
+Nierenberg 2007,SNRIs,273,-7.61,6.94,change_from_baseline
+Nierenberg 2007,SSRIs,274,-7.22,6.62,change_from_baseline
+Noguera 1991,SSRIs,60,-18.09,4.74361676360981,baseline_followup
+Noguera 1991,TCAs,60,-17.94,5.04359990482988,baseline_followup
+Nyth 1992,Placebo,45,-6.7,8.4504437753292,baseline_followup
+Nyth 1992,SSRIs,88,-13.1,10,baseline_followup
+Olie 1997,Placebo,129,-66.6,6.70459854546437,baseline_followup
+Olie 1997,SSRIs,129,-70.1,6.142599478392,baseline_followup
+Owens 2008,SNRIs,41,-17.3,8.99,change_from_baseline
+Owens 2008,SSRIs,40,-16.7,8.59,change_from_baseline
+Ozdemir 2015,Light therapy + AD,25,-24.16,5.34422117805766,baseline_followup
+Ozdemir 2015,SNRIs,25,-21.88,6.21505430386574,baseline_followup
+PAR 01 001 (GSK & FDA),Placebo,21,-11.33,7.93,change_from_baseline
+PAR 01 001 (GSK & FDA),SSRIs,22,-13.359999999999998,7.93,change_from_baseline
+Paslakis 2010,Mirtazapine,37,-13.1,4.4226688774992,baseline_followup
+Paslakis 2010,SNRIs,33,-13.9,6.47147587494537,baseline_followup
+Perahia 2006,Placebo,99,-51.3,5.63294671249698,baseline_followup
+Perahia 2006,SNRIs,196,-108.1,8.012327979036911,baseline_followup
+Perahia 2006,SSRIs,97,-52.1,5.47726438379317,baseline_followup
+Philipp 1999,Placebo,46,-12.1,7.4,change_from_baseline
+Philipp 1999,TCAs,105,-14.2,7.3,change_from_baseline
+Preskorn 1991,SSRIs,29,-10.1,7.8,change_from_baseline
+Preskorn 1991,TCAs,31,-7.9,6.1,change_from_baseline
+Qu 2013,Acupuncture + AD,100,-29.8,8.5,change_from_baseline
+Qu 2013,SSRIs,43,-11.3,4.6,change_from_baseline
+Quah-Smith 2005,Acupuncture,14,-16.1,4.07,change_from_baseline
+Quah-Smith 2005,Sham acupuncture,12,-6.8,7.71,change_from_baseline
+Quah-Smith 2013,Acupuncture,25,-11.74,5.67733211993098,baseline_followup
+Quah-Smith 2013,Sham acupuncture,22,-6.91,4.32711220099502,baseline_followup
+Quilty 2014,Any AD,50,-8.23,5.74185510092339,baseline_followup
+Quilty 2014,Cognitive and cognitive behavioural therapies individual,54,-8.77,5.7576818251793,baseline_followup
+Rapaport 2009,Placebo,178,-8.85,8,change_from_baseline
+Rapaport 2009,SSRIs,173,-12.109999999999998,8.02,change_from_baseline
+Raskin 2007,Placebo,104,-41.519999999999996,6.08313408589087,baseline_followup
+Raskin 2007,SNRIs,207,-44.09,6.26343998948569,baseline_followup
+Ratti 2011_study 096,Placebo,123,-14.0073233346625,5.9,binary_response_converted
+Ratti 2011_study 096,SSRIs,113,-14.0073233346625,5.5,binary_response_converted
+Reimherr 1990,Placebo,141,-8.16,7.85,change_from_baseline
+Reimherr 1990,SSRIs,142,-11.66,8.24,change_from_baseline
+Reimherr 1990,TCAs,144,-12.64,7.97,change_from_baseline
+Richou 1995,Mirtazapine,87,-14.0073233346625,5.7,binary_response_converted
+Richou 1995,TCAs,87,-14.0073233346625,5.4,binary_response_converted
+Rickels 1992,Placebo,56,-14.0073233346625,5.46,binary_response_converted
+Rickels 1992,SSRIs,55,-14.0073233346625,5.71,binary_response_converted
+Rickels 1994,Placebo,95,-14.0073233346625,2.14,binary_response_converted
+Rickels 1994,TCAs,92,-14.0073233346625,2.01,binary_response_converted
+Rickhi 2011,Self-help,39,-8.5,4.52118347338393,baseline_followup
+Rickhi 2011,Waitlist,45,-2.3,4.87670995651782,baseline_followup
+Robinson 2014,Placebo,95,-7.15,7.51,change_from_baseline
+Robinson 2014,SNRIs,201,-7.42,7.37,change_from_baseline
+Roose 2004,Placebo,90,-14.0073233346625,3.8999999999999995,binary_response_converted
+Roose 2004,SSRIs,84,-14.007323334662502,4.3,binary_response_converted
+Ropert 1989,SSRIs,54,-18.2,6.72011904656458,baseline_followup
+Ropert 1989,TCAs,46,-16.6,7,baseline_followup
+Roy 2018,Exercise group,20,-4.3,4.88076838213001,baseline_followup
+Roy 2018,No treatment,20,-2.7,3.74737241277138,baseline_followup
+Rush 1977/Kovacs 1981,Cognitive and cognitive behavioural therapies individual,19,-22.95,7.252833928886,baseline_followup
+Rush 1977/Kovacs 1981,TCAs,22,-12.640000000000002,10.7995972147113,baseline_followup
+SER 315 (FDA),Placebo,73,-7.8,8,change_from_baseline
+SER 315 (FDA),SSRIs,76,-8.9,4.52,change_from_baseline
+SER 315 (FDA),TCAs,70,-11.6,11.49,change_from_baseline
+Sahranavard 2018,Cognitive and cognitive behavioural therapies group,10,-16.3,2.62615688792578,baseline_followup
+Sahranavard 2018,Cognitive and cognitive behavioural therapies individual,10,-17.7,2.45293701509028,baseline_followup
+Sahranavard 2018,Waitlist,10,-4.4,3.66382313983631,baseline_followup
+Salminen 2008,SSRIs,25,-11.2,4.6,change_from_baseline
+Salminen 2008,Short-term psychodynamic psychotherapies individual,26,-11,6.44,change_from_baseline
+Saloheimo 2016,Any AD,34,-11.1,6.4,change_from_baseline
+Saloheimo 2016,Interpersonal psychotherapy (IPT) individual + AD,38,-9.1,6.4,change_from_baseline
+Saloheimo 2016,Psychoeducation group + AD,27,-8.3,6.300000000000001,change_from_baseline
+Samuelian 1998,SNRIs,52,-15.2,11.1432715124419,baseline_followup
+Samuelian 1998,TCAs,46,-16.3,11.1768555506457,baseline_followup
+Sauer 2003,SNRIs,76,-10.5,5.8,change_from_baseline
+Sauer 2003,TCAs,75,-10.37,6.49,change_from_baseline
+Schatzberg 2002,Mirtazapine,128,-14.0073233346625,3.5,binary_response_converted
+Schatzberg 2002,SSRIs,126,-14.0073233346625,3.5,binary_response_converted
+Schmidt 1983,Cognitive and cognitive behavioural therapies group,22,-24.4,10.56882207249228,baseline_followup
+Schmidt 1983,Self-help,12,-15.300000000000002,7.15821206726931,baseline_followup
+Schmidt 1983,Self-help with support,12,-16.4,7.13932769944061,baseline_followup
+Schmidt 1983,Waitlist,10,-4.3,8.24863625092051,baseline_followup
+Schweizer 1991,Placebo,16,-68.2,5.28250338650517,baseline_followup
+Schweizer 1991,SNRIs,44,-241.2,10.960796089422223,baseline_followup
+Schweizer 1994,Placebo,78,-10.2,9.6,change_from_baseline
+Schweizer 1994,SNRIs,64,-15.6,9.8,change_from_baseline
+Schweizer 1994,TCAs,71,-13.1,8.9,change_from_baseline
+Schweizer 1998,Placebo,60,-56.3,5.90878737912617,baseline_followup
+Schweizer 1998,TCAs,60,-60.6,5.79613322668195,baseline_followup
+Scott 1992,Cognitive and cognitive behavioural therapies individual,29,-11.6,5.78186821018951,baseline_followup
+Scott 1992,TAU,29,-11.3,6.7014923711066,baseline_followup
+Scott 1992,TCAs,26,-10.2,7.7272245987806,baseline_followup
+Serrano-Blanco 2006,SSRIs,49,-12.7,8.68504461704141,baseline_followup
+Serrano-Blanco 2006,TCAs,45,-12.9,8.74299719775776,baseline_followup
+Sharma 2005,Any AD,15,-7.94,4.12712975323045,baseline_followup
+Sharma 2005,Yoga group + AD,15,-13,4.36003440353399,baseline_followup
+Sheehan 2009a,Placebo,204,-9.3,7.9,change_from_baseline
+Sheehan 2009a,Trazodone,202,-11.4,8.2,change_from_baseline
+Sheehan 2009b,Placebo,95,-11.019999999999998,8.01588423070094,baseline_followup
+Sheehan 2009b,SNRIs,95,-14.3,8.54921633835523,baseline_followup
+Sheehan 2009b,SSRIs,99,-11.42,7.71239910793004,baseline_followup
+Shelton 2006,SNRIs,78,-12.7,5.550675634551169,baseline_followup
+Shelton 2006,SSRIs,82,-11.3,5.55067563455117,baseline_followup
+Silverstone 1994,Placebo,69,-10.6,4.34,change_from_baseline
+Silverstone 1994,TCAs,66,-11.8,4.25,change_from_baseline
+Singh 2005,Exercise group,35,-16.6,7.754998388136518,baseline_followup
+Singh 2005,TAU,19,-5.3,5.27351874937408,baseline_followup
+Sir 2005,SNRIs,79,-14.3,8.35,change_from_baseline
+Sir 2005,SSRIs,79,-15.900000000000002,8.44,change_from_baseline
+Smeraldi 1998b,SNRIs,55,-15.1,9.267685795278128,baseline_followup
+Smeraldi 1998b,TCAs,58,-15.9,10.4732993846256,baseline_followup
+Smeraldi 1998b,Trazodone,57,-10.1,11.0077245605075,baseline_followup
+Sneed 2014,SSRIs,58,-11.68,6.46177230187738,baseline_followup
+Sneed 2014,TCAs,52,-13.360000000000001,7.16326564571663,baseline_followup
+Solati 2016,Any AD,20,-5.56,4.21231527784899,baseline_followup
+Solati 2016,Cognitive and cognitive behavioural therapies group + AD,20,-8.72000000000001,3.4746078915469,baseline_followup
+Spring 1992,Placebo,15,-11.7,9,change_from_baseline
+Spring 1992,TCAs,10,-16.7,6,change_from_baseline
+Sramek 1995,Placebo,70,-6.4,6.7,change_from_baseline
+Sramek 1995,SSRIs,72,-8.6,6.3,change_from_baseline
+Staner 1995,SSRIs,21,-8.2,9.78723658649366,baseline_followup
+Staner 1995,TCAs,19,-13.3,6.84178339323893,baseline_followup
+Stark 1985,Placebo,169,-8.2,9,change_from_baseline
+Stark 1985,SSRIs,185,-11,10.1,change_from_baseline
+Stark 1985,TCAs,185,-12,10.1,change_from_baseline
+Study 62b (FDA),Placebo,48,-5.69,8.65,change_from_baseline
+Study 62b (FDA),SSRIs,200,-16.98,12.380702726420662,change_from_baseline
+Study 89306 (FDA),Placebo,88,-15.95,13.22,change_from_baseline
+Study 89306 (FDA),SSRIs,185,-33.98,18.70104275167564,change_from_baseline
+Study F1J-MC-HMAQ - Study Group B,Placebo,72,-7.1,6.96,change_from_baseline
+Study F1J-MC-HMAQ - Study Group B,SNRIs,81,-8,6.75,change_from_baseline
+Study F1J-MC-HMAQ - Study Group B,SSRIs,37,-7.63,7,change_from_baseline
+Suleman 1997,SSRIs,15,-18.2,2.36431808350738,baseline_followup
+Suleman 1997,TCAs,15,-15.9,3.14801524773944,baseline_followup
+Sun 2013,Acupuncture,36,-27.220000000000002,4.19232632317667,baseline_followup
+Sun 2013,SSRIs,25,-11.2,4.00977555481601,baseline_followup
+Thase 2018,Cognitive and cognitive behavioural therapies individual,77,-10.4,5.49454274712646,baseline_followup
+Thase 2018,Self-help with support,77,-10.9,4.9,baseline_followup
+Tollefson 1993/1995,Placebo,329,-6.3999999999999995,7.1,change_from_baseline
+Tollefson 1993/1995,SSRIs,326,-8.1,7.6,change_from_baseline
+Tollefson 1994,SSRIs,62,-10,6.7,change_from_baseline
+Tollefson 1994,TCAs,60,-9.1,8,change_from_baseline
+Tong 2020,Any AD,45,-16.66,4.41674087987964,baseline_followup
+Tong 2020,Cognitive and cognitive behavioural therapies group + AD,43,-19.04,4.53523979520378,baseline_followup
+Tsutsui 2000,SSRIs,106,-12.1,9.2,change_from_baseline
+Tsutsui 2000,Trazodone,105,-9.7,9.2,change_from_baseline
+Tylee 1997,SNRIs,171,-71.2,6.57585390345705,baseline_followup
+Tylee 1997,SSRIs,170,-75.5,6.51225990278757,baseline_followup
+Tzanakaki 2000,SNRIs,55,-14.0073233346625,5.6,binary_response_converted
+Tzanakaki 2000,SSRIs,54,-14.0073233346625,5.6,binary_response_converted
+Umadevi 2013,Waitlist,23,-2.31,5.08008858190485,baseline_followup
+Umadevi 2013,Yoga group,20,-10.55,4.1755119446602,baseline_followup
+VEN 600A-303 (FDA),Placebo,79,-9.89,8.45,change_from_baseline
+VEN 600A-303 (FDA),SNRIs,69,-10.14,8.45,change_from_baseline
+VEN 600A-313 (FDA),Placebo,75,-9.49,8.2,change_from_baseline
+VEN 600A-313 (FDA),SNRIs,149,-22.75,11.807192723081977,change_from_baseline
+VEN XR 367 (FDA),Placebo,81,-13.1,10.63,change_from_baseline
+VEN XR 367 (FDA),SNRIs,75,-14.63,10.619999999999997,change_from_baseline
+VEN XR 367 (FDA),SSRIs,80,-11.26,10.55,change_from_baseline
+Valle-Cabrera 2018,Placebo,38,-14.0073233346625,2.8,binary_response_converted
+Valle-Cabrera 2018,SSRIs,39,-14.0073233346625,2.3,binary_response_converted
+Van Moffaert 1995b,Mirtazapine,100,-14.007323334662498,4.900000000000001,binary_response_converted
+Van Moffaert 1995b,Trazodone,100,-14.007323334662498,5.1,binary_response_converted
+Versiani 1989,Placebo,162,-14.007323334662498,5,binary_response_converted
+Versiani 1989,TCAs,164,-14.007323334662498,5.1000000000000005,binary_response_converted
+Versiani 1999,SSRIs,77,-16.6,7.3,change_from_baseline
+Versiani 1999,TCAs,79,-18.1,7.5,change_from_baseline
+Versiani 2005,Mirtazapine,145,-94.3,7.03487050906253,baseline_followup
+Versiani 2005,SSRIs,147,-90.9,7.03487050906253,baseline_followup
+WELL AK1A4006,Placebo,148,-12.2,9.73,change_from_baseline
+WELL AK1A4006,SSRIs,146,-13.9,10.87,change_from_baseline
+Wade 2002,Placebo,189,-12,7.9265377057073305,baseline_followup
+Wade 2002,SSRIs,188,-14.900000000000002,7.888599368709249,baseline_followup
+Wade 2007,SNRIs,146,-21.52,6.02433047028623,baseline_followup
+Wade 2007,SSRIs,141,-23.61,5.96620819925158,baseline_followup
+Wang 2013,Acupuncture,24,-10.949999999999998,6.08092920531065,baseline_followup
+Wang 2013,SSRIs,24,-11.42,7.53442764913168,baseline_followup
+Wang 2014a,Acupuncture + AD,45,-15.85,3.71140135258907,baseline_followup
+Wang 2014a,SSRIs,26,-13.870000000000001,1.7359147444503098,baseline_followup
+Wang 2014c,Placebo,153,-78.81,6.63997179444869,baseline_followup
+Wang 2014c,SSRIs,152,-80.73,6.76971958310813,baseline_followup
+Ward 2000/King 2000,Cognitive and cognitive behavioural therapies individual,63,-13.3,9.82242332624694,baseline_followup
+Ward 2000/King 2000,Counselling individual,67,-12.5,8.97050723203543,baseline_followup
+Ward 2000/King 2000,TAU,67,-8.2,11.0729399890002,baseline_followup
+Wernicke 1987,Placebo,48,-5.7,8.6,change_from_baseline
+Wernicke 1987,SSRIs,297,-26.6,14.909728367747011,change_from_baseline
+Wernicke 1988,Placebo,77,-7,8.6,change_from_baseline
+Wernicke 1988,SSRIs,183,-21.2,11.73882447266335,change_from_baseline
+Wheatley 1998,Mirtazapine,60,-66.2,6.02433047028623,baseline_followup
+Wheatley 1998,SSRIs,63,-62.5,5.96620819925158,baseline_followup
+White 1984,Placebo,45,-17,8.8,change_from_baseline
+White 1984,TCAs,40,-11.7,8.2,change_from_baseline
+Wilson 1982,Behavioural therapies individual + AD,12,-13.660000000000002,8.63218975695043,baseline_followup
+Wilson 1982,Placebo,12,-10.33,9.63249188943339,baseline_followup
+Wilson 1982,Relaxation individual + AD,10,-14.6,5.5094555084872,baseline_followup
+Wilson 1982,Relaxation individual + placebo,11,-9.27,9.00007222193244,baseline_followup
+Wilson 1982,TCAs,10,-11.2,8.43028469270167,baseline_followup
+Wright 2005,Cognitive and cognitive behavioural therapies individual,15,-8.3,6.6,change_from_baseline
+Wright 2005,Self-help with support,15,-7.5,6.3,change_from_baseline
+Wright 2005,Waitlist,15,-1.9,5.5,change_from_baseline
+Zhang 2007a,Acupuncture + AD,22,-22,5.28488410468952,baseline_followup
+Zhang 2007a,SSRIs,20,-18.6,5.16430053347014,baseline_followup
+Zhang 2014,Placebo,180,-8.29,6.5,change_from_baseline
+Zhang 2014,Trazodone,183,-11.07,6.5,change_from_baseline
+Zhang 2019,Mirtazapine,79,-15.900000000000002,2.06639783197718,baseline_followup
+Zhang 2019,SSRIs,79,-14.8,2.16564078277077,baseline_followup
+Zhao 2006,SSRIs,58,-20.7,9.5,change_from_baseline
+Zhao 2006,Trazodone,55,-15.4,11.1,change_from_baseline
+Zhao 2019a,Acupuncture + AD,321,-30.38,7.465500653003792,baseline_followup
+Zhao 2019a,SSRIs,156,-12.88,5.34680278297227,baseline_followup
+Zivkov 1995,Mirtazapine,113,-15.2,8.74814266001647,baseline_followup
+Zivkov 1995,TCAs,111,-15.6,8.66256313108309,baseline_followup
+Zu 2014,Cognitive and cognitive behavioural therapies individual,12,-9.6,2.4,change_from_baseline
+Zu 2014,Cognitive and cognitive behavioural therapies individual + AD,43,-9.8,4.7,change_from_baseline
+Zu 2014,SSRIs,25,-6.9,6.799999999999999,change_from_baseline
+Zu 2014,TAU,16,-7.8,7,change_from_baseline

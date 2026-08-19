@@ -1,0 +1,6 @@
+"node","n_components_after_removal","giant_component_size","component_sizes"
+"Any AD",4,45,"45, 2, 1, 1"
+"Counselling individual + AD",2,48,"48, 1"
+"Waitlist",2,48,"48, 1"
+"No treatment",4,46,"46, 1, 1, 1"
+"SSRIs",3,47,"47, 1, 1"

@@ -1,0 +1,130 @@
+"from","to","is_bridge"
+"Placebo","Mirtazapine",FALSE
+"Placebo","SSRIs",FALSE
+"Placebo","TCAs",FALSE
+"SSRIs","TCAs",FALSE
+"SSRIs","Acupuncture + AD",TRUE
+"No treatment","Music therapy group",TRUE
+"Problem solving individual","Counselling individual",FALSE
+"SSRIs","SNRIs",FALSE
+"Waitlist","Acupuncture",FALSE
+"Waitlist","Sham acupuncture",FALSE
+"Sham acupuncture","Acupuncture",FALSE
+"Waitlist","Problem solving group",TRUE
+"Any AD","Cognitive and cognitive behavioural therapies individual + AD",FALSE
+"Placebo","SNRIs",FALSE
+"Waitlist","Cognitive and cognitive behavioural therapies individual",FALSE
+"SSRIs","Trazodone",FALSE
+"TCAs","SNRIs",FALSE
+"SSRIs","Mirtazapine",FALSE
+"Any AD","Cognitive and cognitive behavioural therapies individual",FALSE
+"Any AD","Interpersonal psychotherapy (IPT) individual",FALSE
+"Interpersonal psychotherapy (IPT) individual","Interpersonal psychotherapy (IPT) individual + AD",FALSE
+"Interpersonal psychotherapy (IPT) individual","Interpersonal psychotherapy (IPT) individual + placebo",FALSE
+"Any AD","Interpersonal psychotherapy (IPT) individual + placebo",FALSE
+"Interpersonal psychotherapy (IPT) individual + placebo","Interpersonal psychotherapy (IPT) individual + AD",FALSE
+"Any AD","Interpersonal psychotherapy (IPT) individual + AD",FALSE
+"Placebo","Exercise group",FALSE
+"Placebo","Exercise individual",FALSE
+"SSRIs","Exercise group",FALSE
+"SSRIs","Exercise individual",FALSE
+"Exercise individual","Exercise group",FALSE
+"Waitlist","Self-help",FALSE
+"Waitlist","Self-help with support",FALSE
+"Problem solving individual","Attention placebo",FALSE
+"Short-term psychodynamic psychotherapies individual","Any psychotherapy",FALSE
+"Cognitive and cognitive behavioural therapies individual","Short-term psychodynamic psychotherapies individual",FALSE
+"Counselling individual + placebo","Counselling individual + AD",TRUE
+"Any AD","Short-term psychodynamic psychotherapies individual + AD",FALSE
+"Placebo","Cognitive and cognitive behavioural therapies individual",FALSE
+"Placebo","Interpersonal psychotherapy (IPT) individual",FALSE
+"Cognitive and cognitive behavioural therapies individual","Interpersonal psychotherapy (IPT) individual",FALSE
+"TCAs","Cognitive and cognitive behavioural therapies individual",FALSE
+"TCAs","Interpersonal psychotherapy (IPT) individual",FALSE
+"Trazodone","SNRIs",FALSE
+"SSRIs","Cognitive and cognitive behavioural therapies individual",FALSE
+"Cognitive and cognitive behavioural therapies individual","Self-help with support",FALSE
+"Short-term psychodynamic psychotherapies individual","Self-help with support",FALSE
+"SSRIs","Acupuncture",FALSE
+"Any AD","Peer support group",FALSE
+"Peer support group","Peer support group + AD",FALSE
+"Any AD","Peer support group + AD",FALSE
+"Mirtazapine","SNRIs",FALSE
+"No treatment","Cognitive and cognitive behavioural therapies group",FALSE
+"No treatment","Psychoeducation group",TRUE
+"No treatment","Self-help with support",FALSE
+"No treatment","Exercise individual",FALSE
+"SSRIs","No treatment",FALSE
+"TCAs","Interpersonal psychotherapy (IPT) individual + placebo",FALSE
+"No treatment","Mindfulness or meditation group",TRUE
+"Cognitive and cognitive behavioural therapies individual","Cognitive and cognitive behavioural therapies individual + AD",FALSE
+"TCAs","Cognitive and cognitive behavioural therapies individual + AD",FALSE
+"Behavioural therapies individual + AD","Counselling individual + AD",FALSE
+"TCAs","Mirtazapine",FALSE
+"SSRIs","Cognitive and cognitive behavioural therapies group",FALSE
+"Cognitive and cognitive behavioural therapies individual","Behavioural therapies individual",FALSE
+"TCAs","Yoga group",FALSE
+"SNRIs","Interpersonal psychotherapy (IPT) individual + AD",FALSE
+"Behavioural therapies individual","Any psychotherapy",FALSE
+"No treatment","Cognitive and cognitive behavioural therapies individual",FALSE
+"No treatment","Self-help",FALSE
+"Cognitive and cognitive behavioural therapies individual","Self-help",FALSE
+"Cognitive and cognitive behavioural therapies individual","Counselling individual",FALSE
+"Counselling individual","Self-help",FALSE
+"Cognitive and cognitive behavioural therapies individual","SNRIs",FALSE
+"No treatment","Exercise individual + AD",FALSE
+"SSRIs","Exercise individual + AD",FALSE
+"Exercise individual","Exercise individual + AD",FALSE
+"Problem solving individual","Waitlist",FALSE
+"Attention placebo","Self-help",FALSE
+"SSRIs","Cognitive and cognitive behavioural therapies individual + AD",FALSE
+"Placebo","Light therapy",FALSE
+"Placebo","Light therapy + AD",FALSE
+"SSRIs","Light therapy",FALSE
+"SSRIs","Light therapy + AD",FALSE
+"Light therapy","Light therapy + AD",FALSE
+"Any AD","Exercise individual + AD",FALSE
+"TCAs","Acupuncture",FALSE
+"Counselling individual + AD","Short-term psychodynamic psychotherapies individual + AD",FALSE
+"No treatment","Counselling individual",FALSE
+"Any AD","TAU",FALSE
+"Cognitive and cognitive behavioural therapies group","TAU",FALSE
+"Any AD","Cognitive and cognitive behavioural therapies group",FALSE
+"Cognitive and cognitive behavioural therapies individual + placebo","Cognitive and cognitive behavioural therapies individual + AD",FALSE
+"Trazodone","TCAs",FALSE
+"SSRIs","Behavioural therapies individual",FALSE
+"Cognitive and cognitive behavioural therapies individual","Cognitive and cognitive behavioural therapies individual + placebo",FALSE
+"TCAs","Cognitive and cognitive behavioural therapies individual + placebo",FALSE
+"SSRIs","Exercise group + AD",TRUE
+"Placebo","Problem solving individual",FALSE
+"Problem solving individual","TCAs",FALSE
+"SNRIs","Light therapy + AD",FALSE
+"No treatment","Exercise group",FALSE
+"Waitlist","Cognitive and cognitive behavioural therapies group",FALSE
+"Cognitive and cognitive behavioural therapies individual","Cognitive and cognitive behavioural therapies group",FALSE
+"SSRIs","Short-term psychodynamic psychotherapies individual",FALSE
+"Any AD","Psychoeducation group + AD",FALSE
+"Interpersonal psychotherapy (IPT) individual + AD","Psychoeducation group + AD",FALSE
+"Cognitive and cognitive behavioural therapies group","Self-help",FALSE
+"Self-help with support","Cognitive and cognitive behavioural therapies group",FALSE
+"Self-help with support","Self-help",FALSE
+"Cognitive and cognitive behavioural therapies individual","TAU",FALSE
+"TCAs","TAU",FALSE
+"Any AD","Yoga group + AD",TRUE
+"Placebo","Trazodone",FALSE
+"TAU","Exercise group",FALSE
+"Any AD","Cognitive and cognitive behavioural therapies group + AD",TRUE
+"Waitlist","Yoga group",FALSE
+"Trazodone","Mirtazapine",FALSE
+"Counselling individual","TAU",FALSE
+"Placebo","Behavioural therapies individual + AD",FALSE
+"Placebo","Relaxation individual + AD",FALSE
+"Placebo","Relaxation individual + placebo",FALSE
+"Behavioural therapies individual + AD","Relaxation individual + placebo",FALSE
+"Relaxation individual + placebo","Relaxation individual + AD",FALSE
+"TCAs","Relaxation individual + placebo",FALSE
+"TCAs","Behavioural therapies individual + AD",FALSE
+"TCAs","Relaxation individual + AD",FALSE
+"Behavioural therapies individual + AD","Relaxation individual + AD",FALSE
+"TAU","Cognitive and cognitive behavioural therapies individual + AD",FALSE
+"SSRIs","TAU",FALSE

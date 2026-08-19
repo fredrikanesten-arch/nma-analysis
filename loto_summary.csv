@@ -1,0 +1,52 @@
+removed_treatment;component_id;component_reference;model_fit;reason;n_removed_studies;n_remaining_studies;frac_remaining_studies;n_estimable_treatments;max_abs_delta;median_abs_delta;p90_abs_delta
+Acupuncture;1;Placebo;TRUE;ok;9;303;0,9743;49;1,1476;0,0486;0,1776
+Cognitive and cognitive behavioural therapies individual;1;Placebo;TRUE;ok;26;297;0,9550;49;1,1124;0,0535;0,4094
+SSRIs;1;Placebo;TRUE;ok;174;157;0,5048;47;0,9952;0,0911;0,2517
+Self-help;1;Placebo;TRUE;ok;8;306;0,9839;49;0,8076;0,0014;0,0552
+Problem solving individual;1;Placebo;TRUE;ok;5;307;0,9871;49;0,7866;0,0079;0,0484
+Any AD;1;Placebo;TRUE;ok;13;303;0,9743;45;0,6596;0,0591;0,1945
+Waitlist;1;Placebo;TRUE;ok;15;300;0,9646;48;0,6048;0,0628;0,2232
+Short-term psychodynamic psychotherapies individual;1;Placebo;TRUE;ok;4;308;0,9904;49;0,5474;0,0104;0,0286
+Behavioural therapies individual;1;Placebo;TRUE;ok;4;307;0,9871;49;0,5108;0,0411;0,0538
+TAU;1;Placebo;TRUE;ok;5;310;0,9968;49;0,4163;0,0033;0,0472
+TCAs;1;Placebo;TRUE;ok;79;247;0,7942;49;0,3734;0,0252;0,1513
+Cognitive and cognitive behavioural therapies individual + AD;1;Placebo;TRUE;ok;6;308;0,9904;49;0,3346;0,0320;0,2775
+Interpersonal psychotherapy (IPT) individual + AD;1;Placebo;TRUE;ok;3;310;0,9968;49;0,2920;0,0096;0,0603
+No treatment;1;Placebo;TRUE;ok;13;300;0,9646;46;0,2684;0,0190;0,0950
+Placebo;1;TAU;TRUE;ok;133;202;0,6495;49;0,2309;0,0222;0,1159
+Counselling individual;1;Placebo;TRUE;ok;5;308;0,9904;49;0,2306;0,0044;0,1104
+Behavioural therapies individual + AD;1;Placebo;TRUE;ok;2;310;0,9968;49;0,2055;0,0029;0,0179
+Exercise group;1;Placebo;TRUE;ok;3;309;0,9936;49;0,1944;0,0155;0,0356
+Short-term psychodynamic psychotherapies individual + AD;1;Placebo;TRUE;ok;2;309;0,9936;49;0,1932;0,0029;0,0179
+Attention placebo;1;Placebo;TRUE;ok;2;309;0,9936;49;0,1671;0,0065;0,0244
+Exercise individual + AD;1;Placebo;TRUE;ok;2;310;0,9968;49;0,1404;0,0117;0,1166
+Any psychotherapy;1;Placebo;TRUE;ok;2;309;0,9936;49;0,1390;0,0011;0,0047
+Cognitive and cognitive behavioural therapies group;1;Placebo;TRUE;ok;5;309;0,9936;49;0,1243;0,0385;0,0886
+SNRIs;1;Placebo;TRUE;ok;70;254;0,8167;49;0,1103;0,0119;0,0262
+Counselling individual + AD;1;Placebo;TRUE;ok;3;308;0,9904;48;0,1081;0,0029;0,0154
+Interpersonal psychotherapy (IPT) individual + placebo;1;Placebo;TRUE;ok;2;310;0,9968;49;0,0978;0,0109;0,0599
+Self-help with support;1;Placebo;TRUE;ok;7;307;0,9871;49;0,0538;0,0006;0,0206
+Exercise individual;1;Placebo;TRUE;ok;3;310;0,9968;49;0,0533;0,0070;0,0191
+Mirtazapine;1;Placebo;TRUE;ok;23;290;0,9325;49;0,0324;0,0092;0,0129
+Cognitive and cognitive behavioural therapies individual + placebo;1;Placebo;TRUE;ok;2;310;0,9968;49;0,0307;0,0005;0,0019
+Yoga group;1;Placebo;TRUE;ok;2;309;0,9936;49;0,0288;0,0041;0,0131
+Light therapy + AD;1;Placebo;TRUE;ok;2;310;0,9968;49;0,0250;0,0002;0,0004
+Interpersonal psychotherapy (IPT) individual;1;Placebo;TRUE;ok;3;311;1,0000;49;0,0225;0,0075;0,0182
+Trazodone;1;Placebo;TRUE;ok;12;300;0,9646;49;0,0136;0,0024;0,0058
+Acupuncture + AD;1;Placebo;TRUE;ok;6;305;0,9807;49;0,0045;0,0010;0,0036
+Sham acupuncture;1;Placebo;TRUE;ok;4;308;0,9904;49;0,0031;0,0005;0,0015
+Cognitive and cognitive behavioural therapies group + AD;1;Placebo;TRUE;ok;2;309;0,9936;49;0,0002;0,0000;0,0001
+Problem solving group;1;Placebo;TRUE;ok;2;309;0,9936;49;0,0001;0,0000;0,0001
+Light therapy;1;Placebo;TRUE;ok;1;311;1,0000;49;0,0000;0,0000;0,0000
+Relaxation individual + AD;1;Placebo;TRUE;ok;1;311;1,0000;49;0,0000;0,0000;0,0000
+Peer support group + AD;1;Placebo;TRUE;ok;1;311;1,0000;49;0,0000;0,0000;0,0000
+Exercise group + AD;1;Placebo;TRUE;ok;1;310;0,9968;49;0,0000;0,0000;0,0000
+Peer support group;1;Placebo;TRUE;ok;1;311;1,0000;49;0,0000;0,0000;0,0000
+Counselling individual + placebo;1;Placebo;TRUE;ok;1;310;0,9968;49;0,0000;0,0000;0,0000
+Mindfulness or meditation group;1;Placebo;TRUE;ok;1;310;0,9968;49;0,0000;0,0000;0,0000
+Psychoeducation group + AD;1;Placebo;TRUE;ok;1;311;1,0000;49;0,0000;0,0000;0,0000
+Music therapy group;1;Placebo;TRUE;ok;1;310;0,9968;49;0,0000;0,0000;0,0000
+Yoga group + AD;1;Placebo;TRUE;ok;1;310;0,9968;49;0,0000;0,0000;0,0000
+Psychoeducation group;1;Placebo;TRUE;ok;1;310;0,9968;49;0,0000;0,0000;0,0000
+Relaxation individual + placebo;1;Placebo;TRUE;ok;1;311;1,0000;49;0,0000;0,0000;0,0000
+Any AD;2;Peer support group;TRUE;ok;13;303;0,9743;2;0,0000;0,0000;0,0000

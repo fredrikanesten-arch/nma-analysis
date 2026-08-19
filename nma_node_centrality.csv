@@ -1,0 +1,51 @@
+"treatment","degree","betweenness"
+"SSRIs",20,0.229414245995879
+"Cognitive and cognitive behavioural therapies individual",17,0.216058137582372
+"TCAs",17,0.166991813930589
+"Placebo",15,0.112053889987563
+"Any AD",14,0.253199022491114
+"No treatment",12,0.138762933023137
+"Waitlist",9,0.078662479810439
+"Cognitive and cognitive behavioural therapies group",8,0.0513379796224184
+"TAU",8,0.0293460460552297
+"SNRIs",8,0.0249679317281358
+"Self-help",7,0.0273229746444032
+"Interpersonal psychotherapy (IPT) individual",6,0.0237916443911342
+"Cognitive and cognitive behavioural therapies individual + AD",6,0.0167005554441779
+"Self-help with support",6,0.00955688774566326
+"Behavioural therapies individual + AD",5,0.0557477386559019
+"Problem solving individual",5,0.0280045964994945
+"Interpersonal psychotherapy (IPT) individual + AD",5,0.0121291890743421
+"Counselling individual",5,0.00724317490899123
+"Exercise individual",5,0.00507842025699169
+"Exercise group",5,0.00462490551776266
+"Mirtazapine",5,0
+"Trazodone",5,0
+"Acupuncture",4,0.0249251504353545
+"Short-term psychodynamic psychotherapies individual",4,0.0227712055518178
+"Exercise individual + AD",4,0.0222250691957325
+"Interpersonal psychotherapy (IPT) individual + placebo",4,0.00782881140023997
+"Light therapy + AD",4,0.000573335394763966
+"Relaxation individual + AD",4,0
+"Relaxation individual + placebo",4,0
+"Counselling individual + AD",3,0.0450958267922554
+"Behavioural therapies individual",3,0.0183872816525878
+"Cognitive and cognitive behavioural therapies individual + placebo",3,0
+"Light therapy",3,0
+"Short-term psychodynamic psychotherapies individual + AD",2,0.0259127139866936
+"Yoga group",2,0.00228377065111759
+"Any psychotherapy",2,0.000283446712018141
+"Attention placebo",2,0.000283446712018141
+"Peer support group",2,0
+"Peer support group + AD",2,0
+"Psychoeducation group + AD",2,0
+"Sham acupuncture",2,0
+"Acupuncture + AD",1,0
+"Cognitive and cognitive behavioural therapies group + AD",1,0
+"Counselling individual + placebo",1,0
+"Exercise group + AD",1,0
+"Mindfulness or meditation group",1,0
+"Music therapy group",1,0
+"Problem solving group",1,0
+"Psychoeducation group",1,0
+"Yoga group + AD",1,0

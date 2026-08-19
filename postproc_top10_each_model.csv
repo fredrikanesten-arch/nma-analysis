@@ -1,0 +1,31 @@
+treatment_id,SUCRA,model,class,rank
+trt_006,0.9702889030612245,main,Behavioural therapies individual,1
+trt_048,0.9605564413265305,main,Waitlist,2
+trt_005,0.9263791454081632,main,Attention placebo,3
+trt_004,0.9067350127551022,main,Any psychotherapy,4
+trt_031,0.8315197704081633,main,Placebo,5
+trt_028,0.8090532525510203,main,No treatment,6
+trt_015,0.7863064413265306,main,Counselling individual + placebo,7
+trt_042,0.7301176658163265,main,Sham acupuncture,8
+trt_014,0.7258370535714286,main,Counselling individual + AD,9
+trt_037,0.7117771045918366,main,Relaxation individual + placebo,10
+trt_035,0.9281579861111111,sens_exclude_baseline_followup,Psychoeducation group + AD,1
+trt_021,0.9085850694444444,sens_exclude_baseline_followup,Interpersonal psychotherapy (IPT) individual + AD,2
+trt_003,0.8763038194444444,sens_exclude_baseline_followup,Any AD,3
+trt_031,0.7675859374999999,sens_exclude_baseline_followup,Placebo,4
+trt_042,0.755935763888889,sens_exclude_baseline_followup,Sham acupuncture,5
+trt_048,0.7111276041666666,sens_exclude_baseline_followup,Waitlist,6
+trt_001,0.607359375,sens_exclude_baseline_followup,Acupuncture,7
+trt_047,0.5479592013888889,sens_exclude_baseline_followup,Trazodone,8
+trt_016,0.5107447916666666,sens_exclude_baseline_followup,Exercise group,9
+trt_028,0.5036597222222222,sens_exclude_baseline_followup,No treatment,10
+trt_048,0.9760127551020408,sens_exclude_binary_response_converted,Waitlist,1
+trt_006,0.9676964285714286,sens_exclude_binary_response_converted,Behavioural therapies individual,2
+trt_005,0.940047193877551,sens_exclude_binary_response_converted,Attention placebo,3
+trt_004,0.9109409013605442,sens_exclude_binary_response_converted,Any psychotherapy,4
+trt_031,0.8254991496598639,sens_exclude_binary_response_converted,Placebo,5
+trt_028,0.8243184523809524,sens_exclude_binary_response_converted,No treatment,6
+trt_015,0.7854260204081632,sens_exclude_binary_response_converted,Counselling individual + placebo,7
+trt_014,0.7251496598639456,sens_exclude_binary_response_converted,Counselling individual + AD,8
+trt_045,0.7163928571428572,sens_exclude_binary_response_converted,TAU,9
+trt_037,0.7061964285714286,sens_exclude_binary_response_converted,Relaxation individual + placebo,10

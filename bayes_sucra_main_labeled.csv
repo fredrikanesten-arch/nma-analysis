@@ -1,0 +1,51 @@
+treatment_id,SUCRA,class
+trt_006,0.9702889030612245,Behavioural therapies individual
+trt_048,0.9605564413265305,Waitlist
+trt_005,0.9263791454081632,Attention placebo
+trt_004,0.9067350127551022,Any psychotherapy
+trt_031,0.8315197704081633,Placebo
+trt_028,0.8090532525510203,No treatment
+trt_015,0.7863064413265306,Counselling individual + placebo
+trt_042,0.7301176658163265,Sham acupuncture
+trt_014,0.7258370535714286,Counselling individual + AD
+trt_037,0.7117771045918366,Relaxation individual + placebo
+trt_045,0.7051919642857143,TAU
+trt_035,0.6735038265306122,Psychoeducation group + AD
+trt_047,0.669061543367347,Trazodone
+trt_044,0.6452997448979592,Short-term psychodynamic psychotherapies individual + AD
+trt_003,0.6385105229591836,Any AD
+trt_022,0.6352547831632652,Interpersonal psychotherapy (IPT) individual + placebo
+trt_020,0.6238491709183673,Interpersonal psychotherapy (IPT) individual
+trt_039,0.5901833545918368,SSRIs
+trt_041,0.5872149234693878,Self-help with support
+trt_040,0.5724349489795918,Self-help
+trt_043,0.5531001275510203,Short-term psychodynamic psychotherapies individual
+trt_038,0.5432477678571429,SNRIs
+trt_013,0.5359585459183673,Counselling individual
+trt_046,0.5208839285714285,TCAs
+trt_026,0.5173306760204082,Mirtazapine
+trt_021,0.5143415178571429,Interpersonal psychotherapy (IPT) individual + AD
+trt_007,0.4944588647959184,Behavioural therapies individual + AD
+trt_027,0.4866495535714286,Music therapy group
+trt_036,0.46159279336734693,Relaxation individual + AD
+trt_018,0.4602471301020408,Exercise individual
+trt_049,0.447389668367347,Yoga group
+trt_010,0.42217251275510204,Cognitive and cognitive behavioural therapies individual
+trt_023,0.4217305484693878,Light therapy
+trt_016,0.3903552295918367,Exercise group
+trt_033,0.37588169642857144,Problem solving individual
+trt_008,0.3467959183673469,Cognitive and cognitive behavioural therapies group
+trt_029,0.3372889030612245,Peer support group
+trt_009,0.3219948979591837,Cognitive and cognitive behavioural therapies group + AD
+trt_001,0.31684885204081636,Acupuncture
+trt_030,0.2960169005102041,Peer support group + AD
+trt_024,0.2861852678571428,Light therapy + AD
+trt_034,0.27918909438775513,Psychoeducation group
+trt_019,0.21721779336734695,Exercise individual + AD
+trt_012,0.2102933673469388,Cognitive and cognitive behavioural therapies individual + placebo
+trt_050,0.20118207908163266,Yoga group + AD
+trt_011,0.15938297193877551,Cognitive and cognitive behavioural therapies individual + AD
+trt_002,0.11429591836734694,Acupuncture + AD
+trt_032,0.03902295918367347,Problem solving group
+trt_017,0.023097576530612243,Exercise group + AD
+trt_025,0.006771364795918367,Mindfulness or meditation group

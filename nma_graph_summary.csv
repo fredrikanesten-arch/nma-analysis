@@ -1,0 +1,2 @@
+"n_treatments","n_edges","density","avg_degree","n_components","giant_component_size","n_bridge_edges","bridge_edge_fraction","n_articulation_points"
+50,129,0.10530612244898,5.16,1,50,9,0.0697674418604651,5

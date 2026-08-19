@@ -1,0 +1,1226 @@
+comparison,TE,seTE,lower,upper,statistic,p,z
+Acupuncture:Acupuncture + AD,NA,NA,NA,NA,NA,NA,NA
+Acupuncture:Any AD,NA,NA,NA,NA,NA,NA,NA
+Acupuncture:Any psychotherapy,NA,NA,NA,NA,NA,NA,NA
+Acupuncture:Attention placebo,NA,NA,NA,NA,NA,NA,NA
+Acupuncture:Behavioural therapies individual,NA,NA,NA,NA,NA,NA,NA
+Acupuncture:Behavioural therapies individual + AD,NA,NA,NA,NA,NA,NA,NA
+Acupuncture:Cognitive and cognitive behavioural therapies group,NA,NA,NA,NA,NA,NA,NA
+Acupuncture:Cognitive and cognitive behavioural therapies group + AD,NA,NA,NA,NA,NA,NA,NA
+Acupuncture:Cognitive and cognitive behavioural therapies individual,NA,NA,NA,NA,NA,NA,NA
+Acupuncture:Cognitive and cognitive behavioural therapies individual + AD,NA,NA,NA,NA,NA,NA,NA
+Acupuncture:Cognitive and cognitive behavioural therapies individual + placebo,NA,NA,NA,NA,NA,NA,NA
+Acupuncture:Counselling individual,NA,NA,NA,NA,NA,NA,NA
+Acupuncture:Counselling individual + AD,NA,NA,NA,NA,NA,NA,NA
+Acupuncture:Counselling individual + placebo,NA,NA,NA,NA,NA,NA,NA
+Acupuncture:Exercise group,NA,NA,NA,NA,NA,NA,NA
+Acupuncture:Exercise group + AD,NA,NA,NA,NA,NA,NA,NA
+Acupuncture:Exercise individual,NA,NA,NA,NA,NA,NA,NA
+Acupuncture:Exercise individual + AD,NA,NA,NA,NA,NA,NA,NA
+Acupuncture:Interpersonal psychotherapy (IPT) individual,NA,NA,NA,NA,NA,NA,NA
+Acupuncture:Interpersonal psychotherapy (IPT) individual + AD,NA,NA,NA,NA,NA,NA,NA
+Acupuncture:Interpersonal psychotherapy (IPT) individual + placebo,NA,NA,NA,NA,NA,NA,NA
+Acupuncture:Light therapy,NA,NA,NA,NA,NA,NA,NA
+Acupuncture:Light therapy + AD,NA,NA,NA,NA,NA,NA,NA
+Acupuncture:Mindfulness or meditation group,NA,NA,NA,NA,NA,NA,NA
+Acupuncture:Mirtazapine,NA,NA,NA,NA,NA,NA,NA
+Acupuncture:Music therapy group,NA,NA,NA,NA,NA,NA,NA
+Acupuncture:No treatment,NA,NA,NA,NA,NA,NA,NA
+Acupuncture:Peer support group,NA,NA,NA,NA,NA,NA,NA
+Acupuncture:Peer support group + AD,NA,NA,NA,NA,NA,NA,NA
+Acupuncture:Placebo,NA,NA,NA,NA,NA,NA,NA
+Acupuncture:Problem solving group,NA,NA,NA,NA,NA,NA,NA
+Acupuncture:Problem solving individual,NA,NA,NA,NA,NA,NA,NA
+Acupuncture:Psychoeducation group,NA,NA,NA,NA,NA,NA,NA
+Acupuncture:Psychoeducation group + AD,NA,NA,NA,NA,NA,NA,NA
+Acupuncture:Relaxation individual + AD,NA,NA,NA,NA,NA,NA,NA
+Acupuncture:Relaxation individual + placebo,NA,NA,NA,NA,NA,NA,NA
+Acupuncture:Self-help,NA,NA,NA,NA,NA,NA,NA
+Acupuncture:Self-help with support,NA,NA,NA,NA,NA,NA,NA
+Acupuncture:Sham acupuncture,4.045931219004982,1.3597585445211156,1.3808534440729923,6.7110089939369715,2.9754776944092614,0.002925326234369624,2.9754776944092614
+Acupuncture:Short-term psychodynamic psychotherapies individual,NA,NA,NA,NA,NA,NA,NA
+Acupuncture:Short-term psychodynamic psychotherapies individual + AD,NA,NA,NA,NA,NA,NA,NA
+Acupuncture:SNRIs,NA,NA,NA,NA,NA,NA,NA
+Acupuncture:SSRIs,-1.5138880386707494,0.5539573302560366,-2.599624454944541,-0.4281516223969577,-2.7328603774789606,0.0062786942193875156,-2.7328603774789606
+Acupuncture:TAU,NA,NA,NA,NA,NA,NA,NA
+Acupuncture:TCAs,0.2783168341384927,0.7097254346387617,-1.112719456665516,1.6693531249425015,0.3921471889761866,0.6949494623407797,0.3921471889761866
+Acupuncture:Trazodone,NA,NA,NA,NA,NA,NA,NA
+Acupuncture:Waitlist,2.2197668919243823,0.7160763630888325,0.8162830100898439,3.6232507737589206,3.099902477368898,0.0019358437003406134,3.099902477368898
+Acupuncture:Yoga group,NA,NA,NA,NA,NA,NA,NA
+Acupuncture:Yoga group + AD,NA,NA,NA,NA,NA,NA,NA
+Acupuncture + AD:Any AD,NA,NA,NA,NA,NA,NA,NA
+Acupuncture + AD:Any psychotherapy,NA,NA,NA,NA,NA,NA,NA
+Acupuncture + AD:Attention placebo,NA,NA,NA,NA,NA,NA,NA
+Acupuncture + AD:Behavioural therapies individual,NA,NA,NA,NA,NA,NA,NA
+Acupuncture + AD:Behavioural therapies individual + AD,NA,NA,NA,NA,NA,NA,NA
+Acupuncture + AD:Cognitive and cognitive behavioural therapies group,NA,NA,NA,NA,NA,NA,NA
+Acupuncture + AD:Cognitive and cognitive behavioural therapies group + AD,NA,NA,NA,NA,NA,NA,NA
+Acupuncture + AD:Cognitive and cognitive behavioural therapies individual,NA,NA,NA,NA,NA,NA,NA
+Acupuncture + AD:Cognitive and cognitive behavioural therapies individual + AD,NA,NA,NA,NA,NA,NA,NA
+Acupuncture + AD:Cognitive and cognitive behavioural therapies individual + placebo,NA,NA,NA,NA,NA,NA,NA
+Acupuncture + AD:Counselling individual,NA,NA,NA,NA,NA,NA,NA
+Acupuncture + AD:Counselling individual + AD,NA,NA,NA,NA,NA,NA,NA
+Acupuncture + AD:Counselling individual + placebo,NA,NA,NA,NA,NA,NA,NA
+Acupuncture + AD:Exercise group,NA,NA,NA,NA,NA,NA,NA
+Acupuncture + AD:Exercise group + AD,NA,NA,NA,NA,NA,NA,NA
+Acupuncture + AD:Exercise individual,NA,NA,NA,NA,NA,NA,NA
+Acupuncture + AD:Exercise individual + AD,NA,NA,NA,NA,NA,NA,NA
+Acupuncture + AD:Interpersonal psychotherapy (IPT) individual,NA,NA,NA,NA,NA,NA,NA
+Acupuncture + AD:Interpersonal psychotherapy (IPT) individual + AD,NA,NA,NA,NA,NA,NA,NA
+Acupuncture + AD:Interpersonal psychotherapy (IPT) individual + placebo,NA,NA,NA,NA,NA,NA,NA
+Acupuncture + AD:Light therapy,NA,NA,NA,NA,NA,NA,NA
+Acupuncture + AD:Light therapy + AD,NA,NA,NA,NA,NA,NA,NA
+Acupuncture + AD:Mindfulness or meditation group,NA,NA,NA,NA,NA,NA,NA
+Acupuncture + AD:Mirtazapine,NA,NA,NA,NA,NA,NA,NA
+Acupuncture + AD:Music therapy group,NA,NA,NA,NA,NA,NA,NA
+Acupuncture + AD:No treatment,NA,NA,NA,NA,NA,NA,NA
+Acupuncture + AD:Peer support group,NA,NA,NA,NA,NA,NA,NA
+Acupuncture + AD:Peer support group + AD,NA,NA,NA,NA,NA,NA,NA
+Acupuncture + AD:Placebo,NA,NA,NA,NA,NA,NA,NA
+Acupuncture + AD:Problem solving group,NA,NA,NA,NA,NA,NA,NA
+Acupuncture + AD:Problem solving individual,NA,NA,NA,NA,NA,NA,NA
+Acupuncture + AD:Psychoeducation group,NA,NA,NA,NA,NA,NA,NA
+Acupuncture + AD:Psychoeducation group + AD,NA,NA,NA,NA,NA,NA,NA
+Acupuncture + AD:Relaxation individual + AD,NA,NA,NA,NA,NA,NA,NA
+Acupuncture + AD:Relaxation individual + placebo,NA,NA,NA,NA,NA,NA,NA
+Acupuncture + AD:Self-help,NA,NA,NA,NA,NA,NA,NA
+Acupuncture + AD:Self-help with support,NA,NA,NA,NA,NA,NA,NA
+Acupuncture + AD:Sham acupuncture,NA,NA,NA,NA,NA,NA,NA
+Acupuncture + AD:Short-term psychodynamic psychotherapies individual,NA,NA,NA,NA,NA,NA,NA
+Acupuncture + AD:Short-term psychodynamic psychotherapies individual + AD,NA,NA,NA,NA,NA,NA,NA
+Acupuncture + AD:SNRIs,NA,NA,NA,NA,NA,NA,NA
+Acupuncture + AD:SSRIs,NA,NA,NA,NA,NA,NA,NA
+Acupuncture + AD:TAU,NA,NA,NA,NA,NA,NA,NA
+Acupuncture + AD:TCAs,NA,NA,NA,NA,NA,NA,NA
+Acupuncture + AD:Trazodone,NA,NA,NA,NA,NA,NA,NA
+Acupuncture + AD:Waitlist,NA,NA,NA,NA,NA,NA,NA
+Acupuncture + AD:Yoga group,NA,NA,NA,NA,NA,NA,NA
+Acupuncture + AD:Yoga group + AD,NA,NA,NA,NA,NA,NA,NA
+Any AD:Any psychotherapy,NA,NA,NA,NA,NA,NA,NA
+Any AD:Attention placebo,NA,NA,NA,NA,NA,NA,NA
+Any AD:Behavioural therapies individual,NA,NA,NA,NA,NA,NA,NA
+Any AD:Behavioural therapies individual + AD,NA,NA,NA,NA,NA,NA,NA
+Any AD:Cognitive and cognitive behavioural therapies group,-1.5024926320938206,0.7291253762567633,-2.9315521097712924,-0.0734331544163489,-2.0606780137147687,0.03933376853358028,-2.0606780137147687
+Any AD:Cognitive and cognitive behavioural therapies group + AD,NA,NA,NA,NA,NA,NA,NA
+Any AD:Cognitive and cognitive behavioural therapies individual,-1.2265609881489374,0.49741403239998255,-2.2014745770577426,-0.25164739924013235,-2.46587532368333,0.013667889891423484,-2.46587532368333
+Any AD:Cognitive and cognitive behavioural therapies individual + AD,4.74013249140852,0.9640807365218393,2.8505689696368663,6.629696013180174,4.916738102775215,8.799815123043587e-7,4.916738102775215
+Any AD:Cognitive and cognitive behavioural therapies individual + placebo,NA,NA,NA,NA,NA,NA,NA
+Any AD:Counselling individual,NA,NA,NA,NA,NA,NA,NA
+Any AD:Counselling individual + AD,NA,NA,NA,NA,NA,NA,NA
+Any AD:Counselling individual + placebo,NA,NA,NA,NA,NA,NA,NA
+Any AD:Exercise group,NA,NA,NA,NA,NA,NA,NA
+Any AD:Exercise group + AD,NA,NA,NA,NA,NA,NA,NA
+Any AD:Exercise individual,NA,NA,NA,NA,NA,NA,NA
+Any AD:Exercise individual + AD,1.9107475494602009,0.9570448687274292,0.034974075165576046,3.7865210237548257,1.9965078042797495,0.045878677127693605,1.9965078042797495
+Any AD:Interpersonal psychotherapy (IPT) individual,-0.15779065916451004,0.6868687200151419,-1.5040286125013138,1.1884472941722939,-0.22972462505066701,0.8183057585688283,-0.22972462505066701
+Any AD:Interpersonal psychotherapy (IPT) individual + AD,0.12834145473463512,0.79944759913118,-1.4385470470894919,1.695229956558762,0.1605376698536758,0.872457550166427,0.1605376698536758
+Any AD:Interpersonal psychotherapy (IPT) individual + placebo,1.326013447860529,0.8801098274806701,-0.3989701164413444,3.0509970121624024,1.5066454281691932,0.1319015664982341,1.5066454281691932
+Any AD:Light therapy,NA,NA,NA,NA,NA,NA,NA
+Any AD:Light therapy + AD,NA,NA,NA,NA,NA,NA,NA
+Any AD:Mindfulness or meditation group,NA,NA,NA,NA,NA,NA,NA
+Any AD:Mirtazapine,NA,NA,NA,NA,NA,NA,NA
+Any AD:Music therapy group,NA,NA,NA,NA,NA,NA,NA
+Any AD:No treatment,NA,NA,NA,NA,NA,NA,NA
+Any AD:Peer support group,NA,NA,NA,NA,NA,NA,NA
+Any AD:Peer support group + AD,NA,NA,NA,NA,NA,NA,NA
+Any AD:Placebo,NA,NA,NA,NA,NA,NA,NA
+Any AD:Problem solving group,NA,NA,NA,NA,NA,NA,NA
+Any AD:Problem solving individual,NA,NA,NA,NA,NA,NA,NA
+Any AD:Psychoeducation group,NA,NA,NA,NA,NA,NA,NA
+Any AD:Psychoeducation group + AD,-1.4276647054202853,1.5633786509252336,-4.49183055543256,1.636501144591989,-0.9131918902534389,0.361141628399433,-0.9131918902534389
+Any AD:Relaxation individual + AD,NA,NA,NA,NA,NA,NA,NA
+Any AD:Relaxation individual + placebo,NA,NA,NA,NA,NA,NA,NA
+Any AD:Self-help,NA,NA,NA,NA,NA,NA,NA
+Any AD:Self-help with support,NA,NA,NA,NA,NA,NA,NA
+Any AD:Sham acupuncture,NA,NA,NA,NA,NA,NA,NA
+Any AD:Short-term psychodynamic psychotherapies individual,NA,NA,NA,NA,NA,NA,NA
+Any AD:Short-term psychodynamic psychotherapies individual + AD,0.3988784570644405,1.3485476579758073,-2.2442263840039804,3.041983298132861,0.2957837305232236,0.767395248523727,0.2957837305232236
+Any AD:SNRIs,NA,NA,NA,NA,NA,NA,NA
+Any AD:SSRIs,NA,NA,NA,NA,NA,NA,NA
+Any AD:TAU,-0.8150191460122702,0.7128603704287795,-2.2121997980585597,0.5821615060340191,-1.1433082547737128,0.2529106288985417,-1.1433082547737128
+Any AD:TCAs,NA,NA,NA,NA,NA,NA,NA
+Any AD:Trazodone,NA,NA,NA,NA,NA,NA,NA
+Any AD:Waitlist,NA,NA,NA,NA,NA,NA,NA
+Any AD:Yoga group,NA,NA,NA,NA,NA,NA,NA
+Any AD:Yoga group + AD,NA,NA,NA,NA,NA,NA,NA
+Any psychotherapy:Attention placebo,NA,NA,NA,NA,NA,NA,NA
+Any psychotherapy:Behavioural therapies individual,1.128039650881888,1.0677406017801336,-0.9646934734382973,3.2207727752020734,1.0564735002127146,0.29075194154343703,1.0564735002127146
+Any psychotherapy:Behavioural therapies individual + AD,NA,NA,NA,NA,NA,NA,NA
+Any psychotherapy:Cognitive and cognitive behavioural therapies group,NA,NA,NA,NA,NA,NA,NA
+Any psychotherapy:Cognitive and cognitive behavioural therapies group + AD,NA,NA,NA,NA,NA,NA,NA
+Any psychotherapy:Cognitive and cognitive behavioural therapies individual,NA,NA,NA,NA,NA,NA,NA
+Any psychotherapy:Cognitive and cognitive behavioural therapies individual + AD,NA,NA,NA,NA,NA,NA,NA
+Any psychotherapy:Cognitive and cognitive behavioural therapies individual + placebo,NA,NA,NA,NA,NA,NA,NA
+Any psychotherapy:Counselling individual,NA,NA,NA,NA,NA,NA,NA
+Any psychotherapy:Counselling individual + AD,NA,NA,NA,NA,NA,NA,NA
+Any psychotherapy:Counselling individual + placebo,NA,NA,NA,NA,NA,NA,NA
+Any psychotherapy:Exercise group,NA,NA,NA,NA,NA,NA,NA
+Any psychotherapy:Exercise group + AD,NA,NA,NA,NA,NA,NA,NA
+Any psychotherapy:Exercise individual,NA,NA,NA,NA,NA,NA,NA
+Any psychotherapy:Exercise individual + AD,NA,NA,NA,NA,NA,NA,NA
+Any psychotherapy:Interpersonal psychotherapy (IPT) individual,NA,NA,NA,NA,NA,NA,NA
+Any psychotherapy:Interpersonal psychotherapy (IPT) individual + AD,NA,NA,NA,NA,NA,NA,NA
+Any psychotherapy:Interpersonal psychotherapy (IPT) individual + placebo,NA,NA,NA,NA,NA,NA,NA
+Any psychotherapy:Light therapy,NA,NA,NA,NA,NA,NA,NA
+Any psychotherapy:Light therapy + AD,NA,NA,NA,NA,NA,NA,NA
+Any psychotherapy:Mindfulness or meditation group,NA,NA,NA,NA,NA,NA,NA
+Any psychotherapy:Mirtazapine,NA,NA,NA,NA,NA,NA,NA
+Any psychotherapy:Music therapy group,NA,NA,NA,NA,NA,NA,NA
+Any psychotherapy:No treatment,NA,NA,NA,NA,NA,NA,NA
+Any psychotherapy:Peer support group,NA,NA,NA,NA,NA,NA,NA
+Any psychotherapy:Peer support group + AD,NA,NA,NA,NA,NA,NA,NA
+Any psychotherapy:Placebo,NA,NA,NA,NA,NA,NA,NA
+Any psychotherapy:Problem solving group,NA,NA,NA,NA,NA,NA,NA
+Any psychotherapy:Problem solving individual,NA,NA,NA,NA,NA,NA,NA
+Any psychotherapy:Psychoeducation group,NA,NA,NA,NA,NA,NA,NA
+Any psychotherapy:Psychoeducation group + AD,NA,NA,NA,NA,NA,NA,NA
+Any psychotherapy:Relaxation individual + AD,NA,NA,NA,NA,NA,NA,NA
+Any psychotherapy:Relaxation individual + placebo,NA,NA,NA,NA,NA,NA,NA
+Any psychotherapy:Self-help,NA,NA,NA,NA,NA,NA,NA
+Any psychotherapy:Self-help with support,NA,NA,NA,NA,NA,NA,NA
+Any psychotherapy:Sham acupuncture,NA,NA,NA,NA,NA,NA,NA
+Any psychotherapy:Short-term psychodynamic psychotherapies individual,-1.1280396508818935,1.0677406017801332,-3.220772775202078,0.9646934734382908,-1.0564735002127201,0.2907519415434346,-1.0564735002127201
+Any psychotherapy:Short-term psychodynamic psychotherapies individual + AD,NA,NA,NA,NA,NA,NA,NA
+Any psychotherapy:SNRIs,NA,NA,NA,NA,NA,NA,NA
+Any psychotherapy:SSRIs,NA,NA,NA,NA,NA,NA,NA
+Any psychotherapy:TAU,NA,NA,NA,NA,NA,NA,NA
+Any psychotherapy:TCAs,NA,NA,NA,NA,NA,NA,NA
+Any psychotherapy:Trazodone,NA,NA,NA,NA,NA,NA,NA
+Any psychotherapy:Waitlist,NA,NA,NA,NA,NA,NA,NA
+Any psychotherapy:Yoga group,NA,NA,NA,NA,NA,NA,NA
+Any psychotherapy:Yoga group + AD,NA,NA,NA,NA,NA,NA,NA
+Attention placebo:Behavioural therapies individual,NA,NA,NA,NA,NA,NA,NA
+Attention placebo:Behavioural therapies individual + AD,NA,NA,NA,NA,NA,NA,NA
+Attention placebo:Cognitive and cognitive behavioural therapies group,NA,NA,NA,NA,NA,NA,NA
+Attention placebo:Cognitive and cognitive behavioural therapies group + AD,NA,NA,NA,NA,NA,NA,NA
+Attention placebo:Cognitive and cognitive behavioural therapies individual,NA,NA,NA,NA,NA,NA,NA
+Attention placebo:Cognitive and cognitive behavioural therapies individual + AD,NA,NA,NA,NA,NA,NA,NA
+Attention placebo:Cognitive and cognitive behavioural therapies individual + placebo,NA,NA,NA,NA,NA,NA,NA
+Attention placebo:Counselling individual,NA,NA,NA,NA,NA,NA,NA
+Attention placebo:Counselling individual + AD,NA,NA,NA,NA,NA,NA,NA
+Attention placebo:Counselling individual + placebo,NA,NA,NA,NA,NA,NA,NA
+Attention placebo:Exercise group,NA,NA,NA,NA,NA,NA,NA
+Attention placebo:Exercise group + AD,NA,NA,NA,NA,NA,NA,NA
+Attention placebo:Exercise individual,NA,NA,NA,NA,NA,NA,NA
+Attention placebo:Exercise individual + AD,NA,NA,NA,NA,NA,NA,NA
+Attention placebo:Interpersonal psychotherapy (IPT) individual,NA,NA,NA,NA,NA,NA,NA
+Attention placebo:Interpersonal psychotherapy (IPT) individual + AD,NA,NA,NA,NA,NA,NA,NA
+Attention placebo:Interpersonal psychotherapy (IPT) individual + placebo,NA,NA,NA,NA,NA,NA,NA
+Attention placebo:Light therapy,NA,NA,NA,NA,NA,NA,NA
+Attention placebo:Light therapy + AD,NA,NA,NA,NA,NA,NA,NA
+Attention placebo:Mindfulness or meditation group,NA,NA,NA,NA,NA,NA,NA
+Attention placebo:Mirtazapine,NA,NA,NA,NA,NA,NA,NA
+Attention placebo:Music therapy group,NA,NA,NA,NA,NA,NA,NA
+Attention placebo:No treatment,NA,NA,NA,NA,NA,NA,NA
+Attention placebo:Peer support group,NA,NA,NA,NA,NA,NA,NA
+Attention placebo:Peer support group + AD,NA,NA,NA,NA,NA,NA,NA
+Attention placebo:Placebo,NA,NA,NA,NA,NA,NA,NA
+Attention placebo:Problem solving group,NA,NA,NA,NA,NA,NA,NA
+Attention placebo:Problem solving individual,1.6849795940240713,0.9773160889622482,-0.23052474185347815,3.6004839299016207,1.7240886679899514,0.08469183749087446,1.7240886679899514
+Attention placebo:Psychoeducation group,NA,NA,NA,NA,NA,NA,NA
+Attention placebo:Psychoeducation group + AD,NA,NA,NA,NA,NA,NA,NA
+Attention placebo:Relaxation individual + AD,NA,NA,NA,NA,NA,NA,NA
+Attention placebo:Relaxation individual + placebo,NA,NA,NA,NA,NA,NA,NA
+Attention placebo:Self-help,-1.6849795940240924,0.977316088962248,-3.6004839299016416,0.23052474185345662,-1.7240886679899734,0.08469183749087052,-1.7240886679899734
+Attention placebo:Self-help with support,NA,NA,NA,NA,NA,NA,NA
+Attention placebo:Sham acupuncture,NA,NA,NA,NA,NA,NA,NA
+Attention placebo:Short-term psychodynamic psychotherapies individual,NA,NA,NA,NA,NA,NA,NA
+Attention placebo:Short-term psychodynamic psychotherapies individual + AD,NA,NA,NA,NA,NA,NA,NA
+Attention placebo:SNRIs,NA,NA,NA,NA,NA,NA,NA
+Attention placebo:SSRIs,NA,NA,NA,NA,NA,NA,NA
+Attention placebo:TAU,NA,NA,NA,NA,NA,NA,NA
+Attention placebo:TCAs,NA,NA,NA,NA,NA,NA,NA
+Attention placebo:Trazodone,NA,NA,NA,NA,NA,NA,NA
+Attention placebo:Waitlist,NA,NA,NA,NA,NA,NA,NA
+Attention placebo:Yoga group,NA,NA,NA,NA,NA,NA,NA
+Attention placebo:Yoga group + AD,NA,NA,NA,NA,NA,NA,NA
+Behavioural therapies individual:Behavioural therapies individual + AD,NA,NA,NA,NA,NA,NA,NA
+Behavioural therapies individual:Cognitive and cognitive behavioural therapies group,NA,NA,NA,NA,NA,NA,NA
+Behavioural therapies individual:Cognitive and cognitive behavioural therapies group + AD,NA,NA,NA,NA,NA,NA,NA
+Behavioural therapies individual:Cognitive and cognitive behavioural therapies individual,2.1221568365765324,0.7184770731469043,0.7139676494908502,3.5303460236622146,2.95368762051315,0.003140016718305283,2.95368762051315
+Behavioural therapies individual:Cognitive and cognitive behavioural therapies individual + AD,NA,NA,NA,NA,NA,NA,NA
+Behavioural therapies individual:Cognitive and cognitive behavioural therapies individual + placebo,NA,NA,NA,NA,NA,NA,NA
+Behavioural therapies individual:Counselling individual,NA,NA,NA,NA,NA,NA,NA
+Behavioural therapies individual:Counselling individual + AD,NA,NA,NA,NA,NA,NA,NA
+Behavioural therapies individual:Counselling individual + placebo,NA,NA,NA,NA,NA,NA,NA
+Behavioural therapies individual:Exercise group,NA,NA,NA,NA,NA,NA,NA
+Behavioural therapies individual:Exercise group + AD,NA,NA,NA,NA,NA,NA,NA
+Behavioural therapies individual:Exercise individual,NA,NA,NA,NA,NA,NA,NA
+Behavioural therapies individual:Exercise individual + AD,NA,NA,NA,NA,NA,NA,NA
+Behavioural therapies individual:Interpersonal psychotherapy (IPT) individual,NA,NA,NA,NA,NA,NA,NA
+Behavioural therapies individual:Interpersonal psychotherapy (IPT) individual + AD,NA,NA,NA,NA,NA,NA,NA
+Behavioural therapies individual:Interpersonal psychotherapy (IPT) individual + placebo,NA,NA,NA,NA,NA,NA,NA
+Behavioural therapies individual:Light therapy,NA,NA,NA,NA,NA,NA,NA
+Behavioural therapies individual:Light therapy + AD,NA,NA,NA,NA,NA,NA,NA
+Behavioural therapies individual:Mindfulness or meditation group,NA,NA,NA,NA,NA,NA,NA
+Behavioural therapies individual:Mirtazapine,NA,NA,NA,NA,NA,NA,NA
+Behavioural therapies individual:Music therapy group,NA,NA,NA,NA,NA,NA,NA
+Behavioural therapies individual:No treatment,NA,NA,NA,NA,NA,NA,NA
+Behavioural therapies individual:Peer support group,NA,NA,NA,NA,NA,NA,NA
+Behavioural therapies individual:Peer support group + AD,NA,NA,NA,NA,NA,NA,NA
+Behavioural therapies individual:Placebo,NA,NA,NA,NA,NA,NA,NA
+Behavioural therapies individual:Problem solving group,NA,NA,NA,NA,NA,NA,NA
+Behavioural therapies individual:Problem solving individual,NA,NA,NA,NA,NA,NA,NA
+Behavioural therapies individual:Psychoeducation group,NA,NA,NA,NA,NA,NA,NA
+Behavioural therapies individual:Psychoeducation group + AD,NA,NA,NA,NA,NA,NA,NA
+Behavioural therapies individual:Relaxation individual + AD,NA,NA,NA,NA,NA,NA,NA
+Behavioural therapies individual:Relaxation individual + placebo,NA,NA,NA,NA,NA,NA,NA
+Behavioural therapies individual:Self-help,NA,NA,NA,NA,NA,NA,NA
+Behavioural therapies individual:Self-help with support,NA,NA,NA,NA,NA,NA,NA
+Behavioural therapies individual:Sham acupuncture,NA,NA,NA,NA,NA,NA,NA
+Behavioural therapies individual:Short-term psychodynamic psychotherapies individual,NA,NA,NA,NA,NA,NA,NA
+Behavioural therapies individual:Short-term psychodynamic psychotherapies individual + AD,NA,NA,NA,NA,NA,NA,NA
+Behavioural therapies individual:SNRIs,NA,NA,NA,NA,NA,NA,NA
+Behavioural therapies individual:SSRIs,-1.8083645459666582,0.7611231617131036,-3.300138530723596,-0.3165905612097202,-2.375915800402747,0.01750545688153671,-2.375915800402747
+Behavioural therapies individual:TAU,NA,NA,NA,NA,NA,NA,NA
+Behavioural therapies individual:TCAs,NA,NA,NA,NA,NA,NA,NA
+Behavioural therapies individual:Trazodone,NA,NA,NA,NA,NA,NA,NA
+Behavioural therapies individual:Waitlist,NA,NA,NA,NA,NA,NA,NA
+Behavioural therapies individual:Yoga group,NA,NA,NA,NA,NA,NA,NA
+Behavioural therapies individual:Yoga group + AD,NA,NA,NA,NA,NA,NA,NA
+Behavioural therapies individual + AD:Cognitive and cognitive behavioural therapies group,NA,NA,NA,NA,NA,NA,NA
+Behavioural therapies individual + AD:Cognitive and cognitive behavioural therapies group + AD,NA,NA,NA,NA,NA,NA,NA
+Behavioural therapies individual + AD:Cognitive and cognitive behavioural therapies individual,NA,NA,NA,NA,NA,NA,NA
+Behavioural therapies individual + AD:Cognitive and cognitive behavioural therapies individual + AD,NA,NA,NA,NA,NA,NA,NA
+Behavioural therapies individual + AD:Cognitive and cognitive behavioural therapies individual + placebo,NA,NA,NA,NA,NA,NA,NA
+Behavioural therapies individual + AD:Counselling individual,NA,NA,NA,NA,NA,NA,NA
+Behavioural therapies individual + AD:Counselling individual + AD,-0.3988784570644476,1.3485476579758078,-3.041983298132869,2.2442263840039742,-0.29578373052322876,0.767395248523723,-0.29578373052322876
+Behavioural therapies individual + AD:Counselling individual + placebo,NA,NA,NA,NA,NA,NA,NA
+Behavioural therapies individual + AD:Exercise group,NA,NA,NA,NA,NA,NA,NA
+Behavioural therapies individual + AD:Exercise group + AD,NA,NA,NA,NA,NA,NA,NA
+Behavioural therapies individual + AD:Exercise individual,NA,NA,NA,NA,NA,NA,NA
+Behavioural therapies individual + AD:Exercise individual + AD,NA,NA,NA,NA,NA,NA,NA
+Behavioural therapies individual + AD:Interpersonal psychotherapy (IPT) individual,NA,NA,NA,NA,NA,NA,NA
+Behavioural therapies individual + AD:Interpersonal psychotherapy (IPT) individual + AD,NA,NA,NA,NA,NA,NA,NA
+Behavioural therapies individual + AD:Interpersonal psychotherapy (IPT) individual + placebo,NA,NA,NA,NA,NA,NA,NA
+Behavioural therapies individual + AD:Light therapy,NA,NA,NA,NA,NA,NA,NA
+Behavioural therapies individual + AD:Light therapy + AD,NA,NA,NA,NA,NA,NA,NA
+Behavioural therapies individual + AD:Mindfulness or meditation group,NA,NA,NA,NA,NA,NA,NA
+Behavioural therapies individual + AD:Mirtazapine,NA,NA,NA,NA,NA,NA,NA
+Behavioural therapies individual + AD:Music therapy group,NA,NA,NA,NA,NA,NA,NA
+Behavioural therapies individual + AD:No treatment,NA,NA,NA,NA,NA,NA,NA
+Behavioural therapies individual + AD:Peer support group,NA,NA,NA,NA,NA,NA,NA
+Behavioural therapies individual + AD:Peer support group + AD,NA,NA,NA,NA,NA,NA,NA
+Behavioural therapies individual + AD:Placebo,0.8501791123909093,1.1206532340065654,-1.3462608654202959,3.0466190902021144,0.7586460169764954,0.4480643375123252,0.7586460169764954
+Behavioural therapies individual + AD:Problem solving group,NA,NA,NA,NA,NA,NA,NA
+Behavioural therapies individual + AD:Problem solving individual,NA,NA,NA,NA,NA,NA,NA
+Behavioural therapies individual + AD:Psychoeducation group,NA,NA,NA,NA,NA,NA,NA
+Behavioural therapies individual + AD:Psychoeducation group + AD,NA,NA,NA,NA,NA,NA,NA
+Behavioural therapies individual + AD:Relaxation individual + AD,0.8242903978367335,2.7922891999544857,-4.648495868494218,6.297076664167686,0.29520237296701557,0.7678392893660473,0.29520237296701557
+Behavioural therapies individual + AD:Relaxation individual + placebo,0.8159404345074617,2.733699002110041,-4.542011154201303,6.173892023216226,0.29847486276933466,0.7653407588623037,0.29847486276933466
+Behavioural therapies individual + AD:Self-help,NA,NA,NA,NA,NA,NA,NA
+Behavioural therapies individual + AD:Self-help with support,NA,NA,NA,NA,NA,NA,NA
+Behavioural therapies individual + AD:Sham acupuncture,NA,NA,NA,NA,NA,NA,NA
+Behavioural therapies individual + AD:Short-term psychodynamic psychotherapies individual,NA,NA,NA,NA,NA,NA,NA
+Behavioural therapies individual + AD:Short-term psychodynamic psychotherapies individual + AD,NA,NA,NA,NA,NA,NA,NA
+Behavioural therapies individual + AD:SNRIs,NA,NA,NA,NA,NA,NA,NA
+Behavioural therapies individual + AD:SSRIs,NA,NA,NA,NA,NA,NA,NA
+Behavioural therapies individual + AD:TAU,NA,NA,NA,NA,NA,NA,NA
+Behavioural therapies individual + AD:TCAs,-0.45247283239863556,1.1125286098989486,-2.6329888395709857,1.7280431747737146,-0.4067066935381858,0.6842234237523017,-0.4067066935381858
+Behavioural therapies individual + AD:Trazodone,NA,NA,NA,NA,NA,NA,NA
+Behavioural therapies individual + AD:Waitlist,NA,NA,NA,NA,NA,NA,NA
+Behavioural therapies individual + AD:Yoga group,NA,NA,NA,NA,NA,NA,NA
+Behavioural therapies individual + AD:Yoga group + AD,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies group:Cognitive and cognitive behavioural therapies group + AD,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies group:Cognitive and cognitive behavioural therapies individual,0.6815917770494484,0.7973823947291805,-0.8812489985260461,2.244432552624943,0.8547865886616939,0.39266930411045936,0.8547865886616939
+Cognitive and cognitive behavioural therapies group:Cognitive and cognitive behavioural therapies individual + AD,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies group:Cognitive and cognitive behavioural therapies individual + placebo,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies group:Counselling individual,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies group:Counselling individual + AD,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies group:Counselling individual + placebo,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies group:Exercise group,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies group:Exercise group + AD,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies group:Exercise individual,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies group:Exercise individual + AD,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies group:Interpersonal psychotherapy (IPT) individual,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies group:Interpersonal psychotherapy (IPT) individual + AD,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies group:Interpersonal psychotherapy (IPT) individual + placebo,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies group:Light therapy,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies group:Light therapy + AD,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies group:Mindfulness or meditation group,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies group:Mirtazapine,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies group:Music therapy group,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies group:No treatment,-0.4537579774738353,0.8300178587304231,-2.0805630871105185,1.1730471321628482,-0.5466845956397774,0.58459543905398,-0.5466845956397774
+Cognitive and cognitive behavioural therapies group:Peer support group,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies group:Peer support group + AD,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies group:Placebo,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies group:Problem solving group,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies group:Problem solving individual,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies group:Psychoeducation group,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies group:Psychoeducation group + AD,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies group:Relaxation individual + AD,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies group:Relaxation individual + placebo,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies group:Self-help,-0.9845835421162004,0.7972896131834859,-2.5472424692037032,0.5780753849713027,-1.2349132935331633,0.2168627754353204,-1.2349132935331633
+Cognitive and cognitive behavioural therapies group:Self-help with support,-0.7863525292426006,0.794860881668727,-2.344251230033059,0.7715461715478578,-0.9892957967584666,0.3225184399574789,-0.9892957967584666
+Cognitive and cognitive behavioural therapies group:Sham acupuncture,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies group:Short-term psychodynamic psychotherapies individual,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies group:Short-term psychodynamic psychotherapies individual + AD,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies group:SNRIs,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies group:SSRIs,0.558526220498002,0.7107326964564268,-0.8344842671916327,1.951536708187637,0.7858456819036239,0.43195790007118895,0.7858456819036239
+Cognitive and cognitive behavioural therapies group:TAU,0.6643515858528672,0.737052236863771,-0.7802442531248086,2.108947424830543,0.9013629599439897,0.3673953685277262,0.9013629599439897
+Cognitive and cognitive behavioural therapies group:TCAs,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies group:Trazodone,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies group:Waitlist,-2.0289785153844284,0.6927613482946784,-3.386765807923406,-0.6711912228454506,-2.928827539785557,0.0034024314479315777,-2.928827539785557
+Cognitive and cognitive behavioural therapies group:Yoga group,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies group:Yoga group + AD,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies group + AD:Cognitive and cognitive behavioural therapies individual,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies group + AD:Cognitive and cognitive behavioural therapies individual + AD,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies group + AD:Cognitive and cognitive behavioural therapies individual + placebo,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies group + AD:Counselling individual,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies group + AD:Counselling individual + AD,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies group + AD:Counselling individual + placebo,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies group + AD:Exercise group,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies group + AD:Exercise group + AD,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies group + AD:Exercise individual,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies group + AD:Exercise individual + AD,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies group + AD:Interpersonal psychotherapy (IPT) individual,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies group + AD:Interpersonal psychotherapy (IPT) individual + AD,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies group + AD:Interpersonal psychotherapy (IPT) individual + placebo,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies group + AD:Light therapy,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies group + AD:Light therapy + AD,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies group + AD:Mindfulness or meditation group,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies group + AD:Mirtazapine,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies group + AD:Music therapy group,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies group + AD:No treatment,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies group + AD:Peer support group,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies group + AD:Peer support group + AD,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies group + AD:Placebo,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies group + AD:Problem solving group,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies group + AD:Problem solving individual,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies group + AD:Psychoeducation group,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies group + AD:Psychoeducation group + AD,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies group + AD:Relaxation individual + AD,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies group + AD:Relaxation individual + placebo,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies group + AD:Self-help,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies group + AD:Self-help with support,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies group + AD:Sham acupuncture,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies group + AD:Short-term psychodynamic psychotherapies individual,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies group + AD:Short-term psychodynamic psychotherapies individual + AD,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies group + AD:SNRIs,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies group + AD:SSRIs,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies group + AD:TAU,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies group + AD:TCAs,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies group + AD:Trazodone,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies group + AD:Waitlist,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies group + AD:Yoga group,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies group + AD:Yoga group + AD,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies individual:Cognitive and cognitive behavioural therapies individual + AD,-0.6431406332588925,0.5587244872701465,-1.7382205055889872,0.45193923907120226,-1.1510872494620596,0.2496963430065834,-1.1510872494620596
+Cognitive and cognitive behavioural therapies individual:Cognitive and cognitive behavioural therapies individual + placebo,0.42658990654819584,0.9029118603639654,-1.3430848209792345,2.196264634075626,0.47246018717290594,0.6365983528126338,0.47246018717290594
+Cognitive and cognitive behavioural therapies individual:Counselling individual,-0.062285458729792575,0.5892562151708192,-1.2172064181309825,1.0926355006713975,-0.10570182736509054,0.9158189304481408,-0.10570182736509054
+Cognitive and cognitive behavioural therapies individual:Counselling individual + AD,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies individual:Counselling individual + placebo,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies individual:Exercise group,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies individual:Exercise group + AD,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies individual:Exercise individual,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies individual:Exercise individual + AD,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies individual:Interpersonal psychotherapy (IPT) individual,0.5404073273033693,0.6526774803011837,-0.7388170276073011,1.8196316822140397,0.8279852509297451,0.40767885274481147,0.8279852509297451
+Cognitive and cognitive behavioural therapies individual:Interpersonal psychotherapy (IPT) individual + AD,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies individual:Interpersonal psychotherapy (IPT) individual + placebo,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies individual:Light therapy,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies individual:Light therapy + AD,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies individual:Mindfulness or meditation group,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies individual:Mirtazapine,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies individual:Music therapy group,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies individual:No treatment,-0.25217623027280256,0.46325015528607716,-1.160129850466101,0.6557773899204958,-0.5443629697589043,0.5861917225970441,-0.5443629697589043
+Cognitive and cognitive behavioural therapies individual:Peer support group,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies individual:Peer support group + AD,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies individual:Placebo,0.5113354195838172,0.6260343583344505,-0.7156693758363483,1.7383402150039826,0.8167849140807749,0.41405135491071715,0.8167849140807749
+Cognitive and cognitive behavioural therapies individual:Problem solving group,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies individual:Problem solving individual,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies individual:Psychoeducation group,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies individual:Psychoeducation group + AD,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies individual:Relaxation individual + AD,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies individual:Relaxation individual + placebo,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies individual:Self-help,-0.30887443929098346,0.5525932698043835,-1.3919373462067999,0.774188467624833,-0.5589543994995164,0.5761928417042221,-0.5589543994995164
+Cognitive and cognitive behavioural therapies individual:Self-help with support,0.28128101914686154,0.5124266093930305,-0.7230566799834521,1.2856187182771752,0.5489196189090161,0.5830606137491827,0.5489196189090161
+Cognitive and cognitive behavioural therapies individual:Sham acupuncture,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies individual:Short-term psychodynamic psychotherapies individual,0.4558244890364288,0.6594913295004612,-0.8367547649009125,1.7484037429737702,0.6911758633456151,0.4894550300951677,0.6911758633456151
+Cognitive and cognitive behavioural therapies individual:Short-term psychodynamic psychotherapies individual + AD,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies individual:SNRIs,0.5256503744717971,0.7279040249253769,-0.901015298583687,1.9523160475272812,0.7221424205281536,0.4702069197026688,0.7221424205281536
+Cognitive and cognitive behavioural therapies individual:SSRIs,-0.15653768190054917,0.43449728141490307,-1.0081367048543237,0.6950613410532253,-0.36027309858141726,0.7186429146938511,-0.36027309858141726
+Cognitive and cognitive behavioural therapies individual:TAU,0.45226984307545504,0.5402811363697881,-0.606661725735703,1.511201411886613,0.8371009325150768,0.40253583628796713,0.8371009325150768
+Cognitive and cognitive behavioural therapies individual:TCAs,0.016836532873186316,0.33349988964505795,-0.6368112396792096,0.6704843054255822,0.050484373146585874,0.9597364019475869,0.050484373146585874
+Cognitive and cognitive behavioural therapies individual:Trazodone,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies individual:Waitlist,-0.42694712541250057,0.5169968500847187,-1.4402423316992026,0.5863480808742014,-0.8258215216253987,0.408905343740592,-0.8258215216253987
+Cognitive and cognitive behavioural therapies individual:Yoga group,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies individual:Yoga group + AD,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies individual + AD:Cognitive and cognitive behavioural therapies individual + placebo,0.5830066645387334,1.2262627742934278,-1.8204242086585536,2.9864375377360206,0.47543371352413566,0.6344778694202315,0.47543371352413566
+Cognitive and cognitive behavioural therapies individual + AD:Counselling individual,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies individual + AD:Counselling individual + AD,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies individual + AD:Counselling individual + placebo,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies individual + AD:Exercise group,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies individual + AD:Exercise group + AD,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies individual + AD:Exercise individual,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies individual + AD:Exercise individual + AD,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies individual + AD:Interpersonal psychotherapy (IPT) individual,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies individual + AD:Interpersonal psychotherapy (IPT) individual + AD,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies individual + AD:Interpersonal psychotherapy (IPT) individual + placebo,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies individual + AD:Light therapy,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies individual + AD:Light therapy + AD,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies individual + AD:Mindfulness or meditation group,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies individual + AD:Mirtazapine,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies individual + AD:Music therapy group,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies individual + AD:No treatment,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies individual + AD:Peer support group,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies individual + AD:Peer support group + AD,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies individual + AD:Placebo,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies individual + AD:Problem solving group,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies individual + AD:Problem solving individual,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies individual + AD:Psychoeducation group,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies individual + AD:Psychoeducation group + AD,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies individual + AD:Relaxation individual + AD,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies individual + AD:Relaxation individual + placebo,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies individual + AD:Self-help,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies individual + AD:Self-help with support,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies individual + AD:Sham acupuncture,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies individual + AD:Short-term psychodynamic psychotherapies individual,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies individual + AD:Short-term psychodynamic psychotherapies individual + AD,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies individual + AD:SNRIs,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies individual + AD:SSRIs,0.7822120226985079,0.5586828349855352,-0.31278621265387496,1.8772102580508907,1.400100331915084,0.16148327569088064,1.400100331915084
+Cognitive and cognitive behavioural therapies individual + AD:TAU,0.9004753680376472,0.7697861329215075,-0.6082777282868701,2.4092284643621644,1.1697734338499257,0.24209215728238806,1.1697734338499257
+Cognitive and cognitive behavioural therapies individual + AD:TCAs,0.6694668474539229,0.5695116471678437,-0.44675546977113334,1.7856891646789792,1.1755103706537908,0.23979059060231606,1.1755103706537908
+Cognitive and cognitive behavioural therapies individual + AD:Trazodone,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies individual + AD:Waitlist,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies individual + AD:Yoga group,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies individual + AD:Yoga group + AD,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies individual + placebo:Counselling individual,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies individual + placebo:Counselling individual + AD,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies individual + placebo:Counselling individual + placebo,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies individual + placebo:Exercise group,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies individual + placebo:Exercise group + AD,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies individual + placebo:Exercise individual,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies individual + placebo:Exercise individual + AD,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies individual + placebo:Interpersonal psychotherapy (IPT) individual,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies individual + placebo:Interpersonal psychotherapy (IPT) individual + AD,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies individual + placebo:Interpersonal psychotherapy (IPT) individual + placebo,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies individual + placebo:Light therapy,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies individual + placebo:Light therapy + AD,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies individual + placebo:Mindfulness or meditation group,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies individual + placebo:Mirtazapine,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies individual + placebo:Music therapy group,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies individual + placebo:No treatment,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies individual + placebo:Peer support group,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies individual + placebo:Peer support group + AD,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies individual + placebo:Placebo,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies individual + placebo:Problem solving group,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies individual + placebo:Problem solving individual,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies individual + placebo:Psychoeducation group,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies individual + placebo:Psychoeducation group + AD,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies individual + placebo:Relaxation individual + AD,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies individual + placebo:Relaxation individual + placebo,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies individual + placebo:Self-help,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies individual + placebo:Self-help with support,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies individual + placebo:Sham acupuncture,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies individual + placebo:Short-term psychodynamic psychotherapies individual,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies individual + placebo:Short-term psychodynamic psychotherapies individual + AD,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies individual + placebo:SNRIs,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies individual + placebo:SSRIs,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies individual + placebo:TAU,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies individual + placebo:TCAs,0.2133373692986087,0.9017186093756155,-1.5539986292671388,1.9806733678643562,0.23658973773019018,0.8129750823126515,0.23658973773019018
+Cognitive and cognitive behavioural therapies individual + placebo:Trazodone,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies individual + placebo:Waitlist,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies individual + placebo:Yoga group,NA,NA,NA,NA,NA,NA,NA
+Cognitive and cognitive behavioural therapies individual + placebo:Yoga group + AD,NA,NA,NA,NA,NA,NA,NA
+Counselling individual:Counselling individual + AD,NA,NA,NA,NA,NA,NA,NA
+Counselling individual:Counselling individual + placebo,NA,NA,NA,NA,NA,NA,NA
+Counselling individual:Exercise group,NA,NA,NA,NA,NA,NA,NA
+Counselling individual:Exercise group + AD,NA,NA,NA,NA,NA,NA,NA
+Counselling individual:Exercise individual,NA,NA,NA,NA,NA,NA,NA
+Counselling individual:Exercise individual + AD,NA,NA,NA,NA,NA,NA,NA
+Counselling individual:Interpersonal psychotherapy (IPT) individual,NA,NA,NA,NA,NA,NA,NA
+Counselling individual:Interpersonal psychotherapy (IPT) individual + AD,NA,NA,NA,NA,NA,NA,NA
+Counselling individual:Interpersonal psychotherapy (IPT) individual + placebo,NA,NA,NA,NA,NA,NA,NA
+Counselling individual:Light therapy,NA,NA,NA,NA,NA,NA,NA
+Counselling individual:Light therapy + AD,NA,NA,NA,NA,NA,NA,NA
+Counselling individual:Mindfulness or meditation group,NA,NA,NA,NA,NA,NA,NA
+Counselling individual:Mirtazapine,NA,NA,NA,NA,NA,NA,NA
+Counselling individual:Music therapy group,NA,NA,NA,NA,NA,NA,NA
+Counselling individual:No treatment,-1.1568723703085164,0.7053792752316485,-2.5393903452035134,0.22564560458648053,-1.6400713926966404,0.10099032369130871,-1.6400713926966404
+Counselling individual:Peer support group,NA,NA,NA,NA,NA,NA,NA
+Counselling individual:Peer support group + AD,NA,NA,NA,NA,NA,NA,NA
+Counselling individual:Placebo,NA,NA,NA,NA,NA,NA,NA
+Counselling individual:Problem solving group,NA,NA,NA,NA,NA,NA,NA
+Counselling individual:Problem solving individual,0.6907567551574503,0.6731705514174087,-0.628633281073639,2.0101467913885394,1.0261244400887897,0.3048329315073637,1.0261244400887897
+Counselling individual:Psychoeducation group,NA,NA,NA,NA,NA,NA,NA
+Counselling individual:Psychoeducation group + AD,NA,NA,NA,NA,NA,NA,NA
+Counselling individual:Relaxation individual + AD,NA,NA,NA,NA,NA,NA,NA
+Counselling individual:Relaxation individual + placebo,NA,NA,NA,NA,NA,NA,NA
+Counselling individual:Self-help,0.682154050240577,0.7258106314586861,-0.7404086470147218,2.1047167474958757,0.9398512789343262,0.34729385137792324,0.9398512789343262
+Counselling individual:Self-help with support,NA,NA,NA,NA,NA,NA,NA
+Counselling individual:Sham acupuncture,NA,NA,NA,NA,NA,NA,NA
+Counselling individual:Short-term psychodynamic psychotherapies individual,NA,NA,NA,NA,NA,NA,NA
+Counselling individual:Short-term psychodynamic psychotherapies individual + AD,NA,NA,NA,NA,NA,NA,NA
+Counselling individual:SNRIs,NA,NA,NA,NA,NA,NA,NA
+Counselling individual:SSRIs,NA,NA,NA,NA,NA,NA,NA
+Counselling individual:TAU,-0.1525215317576708,0.7478543119322667,-1.6182890488278963,1.3132459853125549,-0.20394551361694188,0.8383960777334547,-0.20394551361694188
+Counselling individual:TCAs,NA,NA,NA,NA,NA,NA,NA
+Counselling individual:Trazodone,NA,NA,NA,NA,NA,NA,NA
+Counselling individual:Waitlist,NA,NA,NA,NA,NA,NA,NA
+Counselling individual:Yoga group,NA,NA,NA,NA,NA,NA,NA
+Counselling individual:Yoga group + AD,NA,NA,NA,NA,NA,NA,NA
+Counselling individual + AD:Counselling individual + placebo,NA,NA,NA,NA,NA,NA,NA
+Counselling individual + AD:Exercise group,NA,NA,NA,NA,NA,NA,NA
+Counselling individual + AD:Exercise group + AD,NA,NA,NA,NA,NA,NA,NA
+Counselling individual + AD:Exercise individual,NA,NA,NA,NA,NA,NA,NA
+Counselling individual + AD:Exercise individual + AD,NA,NA,NA,NA,NA,NA,NA
+Counselling individual + AD:Interpersonal psychotherapy (IPT) individual,NA,NA,NA,NA,NA,NA,NA
+Counselling individual + AD:Interpersonal psychotherapy (IPT) individual + AD,NA,NA,NA,NA,NA,NA,NA
+Counselling individual + AD:Interpersonal psychotherapy (IPT) individual + placebo,NA,NA,NA,NA,NA,NA,NA
+Counselling individual + AD:Light therapy,NA,NA,NA,NA,NA,NA,NA
+Counselling individual + AD:Light therapy + AD,NA,NA,NA,NA,NA,NA,NA
+Counselling individual + AD:Mindfulness or meditation group,NA,NA,NA,NA,NA,NA,NA
+Counselling individual + AD:Mirtazapine,NA,NA,NA,NA,NA,NA,NA
+Counselling individual + AD:Music therapy group,NA,NA,NA,NA,NA,NA,NA
+Counselling individual + AD:No treatment,NA,NA,NA,NA,NA,NA,NA
+Counselling individual + AD:Peer support group,NA,NA,NA,NA,NA,NA,NA
+Counselling individual + AD:Peer support group + AD,NA,NA,NA,NA,NA,NA,NA
+Counselling individual + AD:Placebo,NA,NA,NA,NA,NA,NA,NA
+Counselling individual + AD:Problem solving group,NA,NA,NA,NA,NA,NA,NA
+Counselling individual + AD:Problem solving individual,NA,NA,NA,NA,NA,NA,NA
+Counselling individual + AD:Psychoeducation group,NA,NA,NA,NA,NA,NA,NA
+Counselling individual + AD:Psychoeducation group + AD,NA,NA,NA,NA,NA,NA,NA
+Counselling individual + AD:Relaxation individual + AD,NA,NA,NA,NA,NA,NA,NA
+Counselling individual + AD:Relaxation individual + placebo,NA,NA,NA,NA,NA,NA,NA
+Counselling individual + AD:Self-help,NA,NA,NA,NA,NA,NA,NA
+Counselling individual + AD:Self-help with support,NA,NA,NA,NA,NA,NA,NA
+Counselling individual + AD:Sham acupuncture,NA,NA,NA,NA,NA,NA,NA
+Counselling individual + AD:Short-term psychodynamic psychotherapies individual,NA,NA,NA,NA,NA,NA,NA
+Counselling individual + AD:Short-term psychodynamic psychotherapies individual + AD,-0.39887845706444125,1.3485476579758093,-3.041983298132866,2.2442263840039836,-0.2957837305232237,0.7673952485237269,-0.2957837305232237
+Counselling individual + AD:SNRIs,NA,NA,NA,NA,NA,NA,NA
+Counselling individual + AD:SSRIs,NA,NA,NA,NA,NA,NA,NA
+Counselling individual + AD:TAU,NA,NA,NA,NA,NA,NA,NA
+Counselling individual + AD:TCAs,NA,NA,NA,NA,NA,NA,NA
+Counselling individual + AD:Trazodone,NA,NA,NA,NA,NA,NA,NA
+Counselling individual + AD:Waitlist,NA,NA,NA,NA,NA,NA,NA
+Counselling individual + AD:Yoga group,NA,NA,NA,NA,NA,NA,NA
+Counselling individual + AD:Yoga group + AD,NA,NA,NA,NA,NA,NA,NA
+Counselling individual + placebo:Exercise group,NA,NA,NA,NA,NA,NA,NA
+Counselling individual + placebo:Exercise group + AD,NA,NA,NA,NA,NA,NA,NA
+Counselling individual + placebo:Exercise individual,NA,NA,NA,NA,NA,NA,NA
+Counselling individual + placebo:Exercise individual + AD,NA,NA,NA,NA,NA,NA,NA
+Counselling individual + placebo:Interpersonal psychotherapy (IPT) individual,NA,NA,NA,NA,NA,NA,NA
+Counselling individual + placebo:Interpersonal psychotherapy (IPT) individual + AD,NA,NA,NA,NA,NA,NA,NA
+Counselling individual + placebo:Interpersonal psychotherapy (IPT) individual + placebo,NA,NA,NA,NA,NA,NA,NA
+Counselling individual + placebo:Light therapy,NA,NA,NA,NA,NA,NA,NA
+Counselling individual + placebo:Light therapy + AD,NA,NA,NA,NA,NA,NA,NA
+Counselling individual + placebo:Mindfulness or meditation group,NA,NA,NA,NA,NA,NA,NA
+Counselling individual + placebo:Mirtazapine,NA,NA,NA,NA,NA,NA,NA
+Counselling individual + placebo:Music therapy group,NA,NA,NA,NA,NA,NA,NA
+Counselling individual + placebo:No treatment,NA,NA,NA,NA,NA,NA,NA
+Counselling individual + placebo:Peer support group,NA,NA,NA,NA,NA,NA,NA
+Counselling individual + placebo:Peer support group + AD,NA,NA,NA,NA,NA,NA,NA
+Counselling individual + placebo:Placebo,NA,NA,NA,NA,NA,NA,NA
+Counselling individual + placebo:Problem solving group,NA,NA,NA,NA,NA,NA,NA
+Counselling individual + placebo:Problem solving individual,NA,NA,NA,NA,NA,NA,NA
+Counselling individual + placebo:Psychoeducation group,NA,NA,NA,NA,NA,NA,NA
+Counselling individual + placebo:Psychoeducation group + AD,NA,NA,NA,NA,NA,NA,NA
+Counselling individual + placebo:Relaxation individual + AD,NA,NA,NA,NA,NA,NA,NA
+Counselling individual + placebo:Relaxation individual + placebo,NA,NA,NA,NA,NA,NA,NA
+Counselling individual + placebo:Self-help,NA,NA,NA,NA,NA,NA,NA
+Counselling individual + placebo:Self-help with support,NA,NA,NA,NA,NA,NA,NA
+Counselling individual + placebo:Sham acupuncture,NA,NA,NA,NA,NA,NA,NA
+Counselling individual + placebo:Short-term psychodynamic psychotherapies individual,NA,NA,NA,NA,NA,NA,NA
+Counselling individual + placebo:Short-term psychodynamic psychotherapies individual + AD,NA,NA,NA,NA,NA,NA,NA
+Counselling individual + placebo:SNRIs,NA,NA,NA,NA,NA,NA,NA
+Counselling individual + placebo:SSRIs,NA,NA,NA,NA,NA,NA,NA
+Counselling individual + placebo:TAU,NA,NA,NA,NA,NA,NA,NA
+Counselling individual + placebo:TCAs,NA,NA,NA,NA,NA,NA,NA
+Counselling individual + placebo:Trazodone,NA,NA,NA,NA,NA,NA,NA
+Counselling individual + placebo:Waitlist,NA,NA,NA,NA,NA,NA,NA
+Counselling individual + placebo:Yoga group,NA,NA,NA,NA,NA,NA,NA
+Counselling individual + placebo:Yoga group + AD,NA,NA,NA,NA,NA,NA,NA
+Exercise group:Exercise group + AD,NA,NA,NA,NA,NA,NA,NA
+Exercise group:Exercise individual,0.28527334613858973,0.9008653476332538,-1.4803902901427428,2.0509369824199224,0.31666591115759707,0.7514971175180882,0.31666591115759707
+Exercise group:Exercise individual + AD,NA,NA,NA,NA,NA,NA,NA
+Exercise group:Interpersonal psychotherapy (IPT) individual,NA,NA,NA,NA,NA,NA,NA
+Exercise group:Interpersonal psychotherapy (IPT) individual + AD,NA,NA,NA,NA,NA,NA,NA
+Exercise group:Interpersonal psychotherapy (IPT) individual + placebo,NA,NA,NA,NA,NA,NA,NA
+Exercise group:Light therapy,NA,NA,NA,NA,NA,NA,NA
+Exercise group:Light therapy + AD,NA,NA,NA,NA,NA,NA,NA
+Exercise group:Mindfulness or meditation group,NA,NA,NA,NA,NA,NA,NA
+Exercise group:Mirtazapine,NA,NA,NA,NA,NA,NA,NA
+Exercise group:Music therapy group,NA,NA,NA,NA,NA,NA,NA
+Exercise group:No treatment,0.62437285821495625,0.8034687036464716,-0.9503968636372137,2.199142580067126,0.7770966751801225,0.4371017354347014,0.7770966751801225
+Exercise group:Peer support group,NA,NA,NA,NA,NA,NA,NA
+Exercise group:Peer support group + AD,NA,NA,NA,NA,NA,NA,NA
+Exercise group:Placebo,1.160412443844303,0.7604360838484744,-0.33001489304338705,2.6508397807319932,1.5259828781027815,0.127014128640749,1.5259828781027815
+Exercise group:Problem solving group,NA,NA,NA,NA,NA,NA,NA
+Exercise group:Problem solving individual,NA,NA,NA,NA,NA,NA,NA
+Exercise group:Psychoeducation group,NA,NA,NA,NA,NA,NA,NA
+Exercise group:Psychoeducation group + AD,NA,NA,NA,NA,NA,NA,NA
+Exercise group:Relaxation individual + AD,NA,NA,NA,NA,NA,NA,NA
+Exercise group:Relaxation individual + placebo,NA,NA,NA,NA,NA,NA,NA
+Exercise group:Self-help,NA,NA,NA,NA,NA,NA,NA
+Exercise group:Self-help with support,NA,NA,NA,NA,NA,NA,NA
+Exercise group:Sham acupuncture,NA,NA,NA,NA,NA,NA,NA
+Exercise group:Short-term psychodynamic psychotherapies individual,NA,NA,NA,NA,NA,NA,NA
+Exercise group:Short-term psychodynamic psychotherapies individual + AD,NA,NA,NA,NA,NA,NA,NA
+Exercise group:SNRIs,NA,NA,NA,NA,NA,NA,NA
+Exercise group:SSRIs,0.3418273870102717,0.758831514864412,-1.145455052457946,1.8291098264784895,0.4504654594786425,0.6523748543506198,0.4504654594786425
+Exercise group:TAU,-1.6653365019581272,0.8257740119327045,-3.283823824715377,-0.04684917920087783,-2.0166976411142397,0.04372707625711439,-2.0166976411142397
+Exercise group:TCAs,NA,NA,NA,NA,NA,NA,NA
+Exercise group:Trazodone,NA,NA,NA,NA,NA,NA,NA
+Exercise group:Waitlist,NA,NA,NA,NA,NA,NA,NA
+Exercise group:Yoga group,NA,NA,NA,NA,NA,NA,NA
+Exercise group:Yoga group + AD,NA,NA,NA,NA,NA,NA,NA
+Exercise group + AD:Exercise individual,NA,NA,NA,NA,NA,NA,NA
+Exercise group + AD:Exercise individual + AD,NA,NA,NA,NA,NA,NA,NA
+Exercise group + AD:Interpersonal psychotherapy (IPT) individual,NA,NA,NA,NA,NA,NA,NA
+Exercise group + AD:Interpersonal psychotherapy (IPT) individual + AD,NA,NA,NA,NA,NA,NA,NA
+Exercise group + AD:Interpersonal psychotherapy (IPT) individual + placebo,NA,NA,NA,NA,NA,NA,NA
+Exercise group + AD:Light therapy,NA,NA,NA,NA,NA,NA,NA
+Exercise group + AD:Light therapy + AD,NA,NA,NA,NA,NA,NA,NA
+Exercise group + AD:Mindfulness or meditation group,NA,NA,NA,NA,NA,NA,NA
+Exercise group + AD:Mirtazapine,NA,NA,NA,NA,NA,NA,NA
+Exercise group + AD:Music therapy group,NA,NA,NA,NA,NA,NA,NA
+Exercise group + AD:No treatment,NA,NA,NA,NA,NA,NA,NA
+Exercise group + AD:Peer support group,NA,NA,NA,NA,NA,NA,NA
+Exercise group + AD:Peer support group + AD,NA,NA,NA,NA,NA,NA,NA
+Exercise group + AD:Placebo,NA,NA,NA,NA,NA,NA,NA
+Exercise group + AD:Problem solving group,NA,NA,NA,NA,NA,NA,NA
+Exercise group + AD:Problem solving individual,NA,NA,NA,NA,NA,NA,NA
+Exercise group + AD:Psychoeducation group,NA,NA,NA,NA,NA,NA,NA
+Exercise group + AD:Psychoeducation group + AD,NA,NA,NA,NA,NA,NA,NA
+Exercise group + AD:Relaxation individual + AD,NA,NA,NA,NA,NA,NA,NA
+Exercise group + AD:Relaxation individual + placebo,NA,NA,NA,NA,NA,NA,NA
+Exercise group + AD:Self-help,NA,NA,NA,NA,NA,NA,NA
+Exercise group + AD:Self-help with support,NA,NA,NA,NA,NA,NA,NA
+Exercise group + AD:Sham acupuncture,NA,NA,NA,NA,NA,NA,NA
+Exercise group + AD:Short-term psychodynamic psychotherapies individual,NA,NA,NA,NA,NA,NA,NA
+Exercise group + AD:Short-term psychodynamic psychotherapies individual + AD,NA,NA,NA,NA,NA,NA,NA
+Exercise group + AD:SNRIs,NA,NA,NA,NA,NA,NA,NA
+Exercise group + AD:SSRIs,NA,NA,NA,NA,NA,NA,NA
+Exercise group + AD:TAU,NA,NA,NA,NA,NA,NA,NA
+Exercise group + AD:TCAs,NA,NA,NA,NA,NA,NA,NA
+Exercise group + AD:Trazodone,NA,NA,NA,NA,NA,NA,NA
+Exercise group + AD:Waitlist,NA,NA,NA,NA,NA,NA,NA
+Exercise group + AD:Yoga group,NA,NA,NA,NA,NA,NA,NA
+Exercise group + AD:Yoga group + AD,NA,NA,NA,NA,NA,NA,NA
+Exercise individual:Exercise individual + AD,-0.9454646762814083,1.063523196751532,-3.0299318386373164,1.1390024860744996,-0.8889929990895108,0.37400684233367426,-0.8889929990895108
+Exercise individual:Interpersonal psychotherapy (IPT) individual,NA,NA,NA,NA,NA,NA,NA
+Exercise individual:Interpersonal psychotherapy (IPT) individual + AD,NA,NA,NA,NA,NA,NA,NA
+Exercise individual:Interpersonal psychotherapy (IPT) individual + placebo,NA,NA,NA,NA,NA,NA,NA
+Exercise individual:Light therapy,NA,NA,NA,NA,NA,NA,NA
+Exercise individual:Light therapy + AD,NA,NA,NA,NA,NA,NA,NA
+Exercise individual:Mindfulness or meditation group,NA,NA,NA,NA,NA,NA,NA
+Exercise individual:Mirtazapine,NA,NA,NA,NA,NA,NA,NA
+Exercise individual:Music therapy group,NA,NA,NA,NA,NA,NA,NA
+Exercise individual:No treatment,0.01657686098486577,0.7358974353897175,-1.4257556086943717,1.4589093306641032,0.022526048043756228,0.9820283339351423,0.022526048043756228
+Exercise individual:Peer support group,NA,NA,NA,NA,NA,NA,NA
+Exercise individual:Peer support group + AD,NA,NA,NA,NA,NA,NA,NA
+Exercise individual:Placebo,0.9347824098433793,0.7503902811014835,-0.5359555154644152,2.405520335151174,1.245728300839971,0.21286415997508507,1.245728300839971
+Exercise individual:Problem solving group,NA,NA,NA,NA,NA,NA,NA
+Exercise individual:Problem solving individual,NA,NA,NA,NA,NA,NA,NA
+Exercise individual:Psychoeducation group,NA,NA,NA,NA,NA,NA,NA
+Exercise individual:Psychoeducation group + AD,NA,NA,NA,NA,NA,NA,NA
+Exercise individual:Relaxation individual + AD,NA,NA,NA,NA,NA,NA,NA
+Exercise individual:Relaxation individual + placebo,NA,NA,NA,NA,NA,NA,NA
+Exercise individual:Self-help,NA,NA,NA,NA,NA,NA,NA
+Exercise individual:Self-help with support,NA,NA,NA,NA,NA,NA,NA
+Exercise individual:Sham acupuncture,NA,NA,NA,NA,NA,NA,NA
+Exercise individual:Short-term psychodynamic psychotherapies individual,NA,NA,NA,NA,NA,NA,NA
+Exercise individual:Short-term psychodynamic psychotherapies individual + AD,NA,NA,NA,NA,NA,NA,NA
+Exercise individual:SNRIs,NA,NA,NA,NA,NA,NA,NA
+Exercise individual:SSRIs,0.36820049712275804,0.7296990104609162,-1.0619832829351536,1.7983842771806695,0.5045922933213014,0.6138452238413031,0.5045922933213014
+Exercise individual:TAU,NA,NA,NA,NA,NA,NA,NA
+Exercise individual:TCAs,NA,NA,NA,NA,NA,NA,NA
+Exercise individual:Trazodone,NA,NA,NA,NA,NA,NA,NA
+Exercise individual:Waitlist,NA,NA,NA,NA,NA,NA,NA
+Exercise individual:Yoga group,NA,NA,NA,NA,NA,NA,NA
+Exercise individual:Yoga group + AD,NA,NA,NA,NA,NA,NA,NA
+Exercise individual + AD:Interpersonal psychotherapy (IPT) individual,NA,NA,NA,NA,NA,NA,NA
+Exercise individual + AD:Interpersonal psychotherapy (IPT) individual + AD,NA,NA,NA,NA,NA,NA,NA
+Exercise individual + AD:Interpersonal psychotherapy (IPT) individual + placebo,NA,NA,NA,NA,NA,NA,NA
+Exercise individual + AD:Light therapy,NA,NA,NA,NA,NA,NA,NA
+Exercise individual + AD:Light therapy + AD,NA,NA,NA,NA,NA,NA,NA
+Exercise individual + AD:Mindfulness or meditation group,NA,NA,NA,NA,NA,NA,NA
+Exercise individual + AD:Mirtazapine,NA,NA,NA,NA,NA,NA,NA
+Exercise individual + AD:Music therapy group,NA,NA,NA,NA,NA,NA,NA
+Exercise individual + AD:No treatment,1.8936691702487933,0.9588648279445308,0.014328641435317868,3.7730096990622686,1.9749073227643092,0.04827866624572493,1.9749073227643092
+Exercise individual + AD:Peer support group,NA,NA,NA,NA,NA,NA,NA
+Exercise individual + AD:Peer support group + AD,NA,NA,NA,NA,NA,NA,NA
+Exercise individual + AD:Placebo,NA,NA,NA,NA,NA,NA,NA
+Exercise individual + AD:Problem solving group,NA,NA,NA,NA,NA,NA,NA
+Exercise individual + AD:Problem solving individual,NA,NA,NA,NA,NA,NA,NA
+Exercise individual + AD:Psychoeducation group,NA,NA,NA,NA,NA,NA,NA
+Exercise individual + AD:Psychoeducation group + AD,NA,NA,NA,NA,NA,NA,NA
+Exercise individual + AD:Relaxation individual + AD,NA,NA,NA,NA,NA,NA,NA
+Exercise individual + AD:Relaxation individual + placebo,NA,NA,NA,NA,NA,NA,NA
+Exercise individual + AD:Self-help,NA,NA,NA,NA,NA,NA,NA
+Exercise individual + AD:Self-help with support,NA,NA,NA,NA,NA,NA,NA
+Exercise individual + AD:Sham acupuncture,NA,NA,NA,NA,NA,NA,NA
+Exercise individual + AD:Short-term psychodynamic psychotherapies individual,NA,NA,NA,NA,NA,NA,NA
+Exercise individual + AD:Short-term psychodynamic psychotherapies individual + AD,NA,NA,NA,NA,NA,NA,NA
+Exercise individual + AD:SNRIs,NA,NA,NA,NA,NA,NA,NA
+Exercise individual + AD:SSRIs,1.1157411023517296,0.932865212589756,-0.7126411167544926,2.944123321457952,1.1960367771184073,0.23168220756970548,1.1960367771184073
+Exercise individual + AD:TAU,NA,NA,NA,NA,NA,NA,NA
+Exercise individual + AD:TCAs,NA,NA,NA,NA,NA,NA,NA
+Exercise individual + AD:Trazodone,NA,NA,NA,NA,NA,NA,NA
+Exercise individual + AD:Waitlist,NA,NA,NA,NA,NA,NA,NA
+Exercise individual + AD:Yoga group,NA,NA,NA,NA,NA,NA,NA
+Exercise individual + AD:Yoga group + AD,NA,NA,NA,NA,NA,NA,NA
+Interpersonal psychotherapy (IPT) individual:Interpersonal psychotherapy (IPT) individual + AD,0.08800831287537436,0.847892452879002,-1.573830357530794,1.7498469832815426,0.10379655176378076,0.9173308029833943,0.10379655176378076
+Interpersonal psychotherapy (IPT) individual:Interpersonal psychotherapy (IPT) individual + placebo,0.3981234669525843,0.9444705673725421,-1.4530048295557083,2.249251763460877,0.4215308350583532,0.6733674997568595,0.4215308350583532
+Interpersonal psychotherapy (IPT) individual:Light therapy,NA,NA,NA,NA,NA,NA,NA
+Interpersonal psychotherapy (IPT) individual:Light therapy + AD,NA,NA,NA,NA,NA,NA,NA
+Interpersonal psychotherapy (IPT) individual:Mindfulness or meditation group,NA,NA,NA,NA,NA,NA,NA
+Interpersonal psychotherapy (IPT) individual:Mirtazapine,NA,NA,NA,NA,NA,NA,NA
+Interpersonal psychotherapy (IPT) individual:Music therapy group,NA,NA,NA,NA,NA,NA,NA
+Interpersonal psychotherapy (IPT) individual:No treatment,NA,NA,NA,NA,NA,NA,NA
+Interpersonal psychotherapy (IPT) individual:Peer support group,NA,NA,NA,NA,NA,NA,NA
+Interpersonal psychotherapy (IPT) individual:Peer support group + AD,NA,NA,NA,NA,NA,NA,NA
+Interpersonal psychotherapy (IPT) individual:Placebo,0.06148618366812042,0.7178941526998439,-1.3455605003354714,1.4685328676717122,0.08564797949235865,0.9317462564399678,0.08564797949235865
+Interpersonal psychotherapy (IPT) individual:Problem solving group,NA,NA,NA,NA,NA,NA,NA
+Interpersonal psychotherapy (IPT) individual:Problem solving individual,NA,NA,NA,NA,NA,NA,NA
+Interpersonal psychotherapy (IPT) individual:Psychoeducation group,NA,NA,NA,NA,NA,NA,NA
+Interpersonal psychotherapy (IPT) individual:Psychoeducation group + AD,NA,NA,NA,NA,NA,NA,NA
+Interpersonal psychotherapy (IPT) individual:Relaxation individual + AD,NA,NA,NA,NA,NA,NA,NA
+Interpersonal psychotherapy (IPT) individual:Relaxation individual + placebo,NA,NA,NA,NA,NA,NA,NA
+Interpersonal psychotherapy (IPT) individual:Self-help,NA,NA,NA,NA,NA,NA,NA
+Interpersonal psychotherapy (IPT) individual:Self-help with support,NA,NA,NA,NA,NA,NA,NA
+Interpersonal psychotherapy (IPT) individual:Sham acupuncture,NA,NA,NA,NA,NA,NA,NA
+Interpersonal psychotherapy (IPT) individual:Short-term psychodynamic psychotherapies individual,NA,NA,NA,NA,NA,NA,NA
+Interpersonal psychotherapy (IPT) individual:Short-term psychodynamic psychotherapies individual + AD,NA,NA,NA,NA,NA,NA,NA
+Interpersonal psychotherapy (IPT) individual:SNRIs,NA,NA,NA,NA,NA,NA,NA
+Interpersonal psychotherapy (IPT) individual:SSRIs,NA,NA,NA,NA,NA,NA,NA
+Interpersonal psychotherapy (IPT) individual:TAU,NA,NA,NA,NA,NA,NA,NA
+Interpersonal psychotherapy (IPT) individual:TCAs,-0.12182905918102728,0.7175720877165274,-1.5282445074166373,1.2845863890545826,-0.16977954029498865,0.8651835177934413,-0.16977954029498865
+Interpersonal psychotherapy (IPT) individual:Trazodone,NA,NA,NA,NA,NA,NA,NA
+Interpersonal psychotherapy (IPT) individual:Waitlist,NA,NA,NA,NA,NA,NA,NA
+Interpersonal psychotherapy (IPT) individual:Yoga group,NA,NA,NA,NA,NA,NA,NA
+Interpersonal psychotherapy (IPT) individual:Yoga group + AD,NA,NA,NA,NA,NA,NA,NA
+Interpersonal psychotherapy (IPT) individual + AD:Interpersonal psychotherapy (IPT) individual + placebo,0.32724136044254565,1.0054107980716787,-1.6433275934456169,2.2978103143307083,0.3254802525198418,0.7448176259161372,0.3254802525198418
+Interpersonal psychotherapy (IPT) individual + AD:Light therapy,NA,NA,NA,NA,NA,NA,NA
+Interpersonal psychotherapy (IPT) individual + AD:Light therapy + AD,NA,NA,NA,NA,NA,NA,NA
+Interpersonal psychotherapy (IPT) individual + AD:Mindfulness or meditation group,NA,NA,NA,NA,NA,NA,NA
+Interpersonal psychotherapy (IPT) individual + AD:Mirtazapine,NA,NA,NA,NA,NA,NA,NA
+Interpersonal psychotherapy (IPT) individual + AD:Music therapy group,NA,NA,NA,NA,NA,NA,NA
+Interpersonal psychotherapy (IPT) individual + AD:No treatment,NA,NA,NA,NA,NA,NA,NA
+Interpersonal psychotherapy (IPT) individual + AD:Peer support group,NA,NA,NA,NA,NA,NA,NA
+Interpersonal psychotherapy (IPT) individual + AD:Peer support group + AD,NA,NA,NA,NA,NA,NA,NA
+Interpersonal psychotherapy (IPT) individual + AD:Placebo,NA,NA,NA,NA,NA,NA,NA
+Interpersonal psychotherapy (IPT) individual + AD:Problem solving group,NA,NA,NA,NA,NA,NA,NA
+Interpersonal psychotherapy (IPT) individual + AD:Problem solving individual,NA,NA,NA,NA,NA,NA,NA
+Interpersonal psychotherapy (IPT) individual + AD:Psychoeducation group,NA,NA,NA,NA,NA,NA,NA
+Interpersonal psychotherapy (IPT) individual + AD:Psychoeducation group + AD,1.4428754611532197,1.580035342574954,-1.6539369045940957,4.539687826900535,0.9131918902534121,0.36114162839944713,0.9131918902534121
+Interpersonal psychotherapy (IPT) individual + AD:Relaxation individual + AD,NA,NA,NA,NA,NA,NA,NA
+Interpersonal psychotherapy (IPT) individual + AD:Relaxation individual + placebo,NA,NA,NA,NA,NA,NA,NA
+Interpersonal psychotherapy (IPT) individual + AD:Self-help,NA,NA,NA,NA,NA,NA,NA
+Interpersonal psychotherapy (IPT) individual + AD:Self-help with support,NA,NA,NA,NA,NA,NA,NA
+Interpersonal psychotherapy (IPT) individual + AD:Sham acupuncture,NA,NA,NA,NA,NA,NA,NA
+Interpersonal psychotherapy (IPT) individual + AD:Short-term psychodynamic psychotherapies individual,NA,NA,NA,NA,NA,NA,NA
+Interpersonal psychotherapy (IPT) individual + AD:Short-term psychodynamic psychotherapies individual + AD,NA,NA,NA,NA,NA,NA,NA
+Interpersonal psychotherapy (IPT) individual + AD:SNRIs,-0.40718154615671986,0.825427021514993,-2.024988780192274,1.2106256878788344,-0.4932980573005434,0.6218020008579389,-0.4932980573005434
+Interpersonal psychotherapy (IPT) individual + AD:SSRIs,NA,NA,NA,NA,NA,NA,NA
+Interpersonal psychotherapy (IPT) individual + AD:TAU,NA,NA,NA,NA,NA,NA,NA
+Interpersonal psychotherapy (IPT) individual + AD:TCAs,NA,NA,NA,NA,NA,NA,NA
+Interpersonal psychotherapy (IPT) individual + AD:Trazodone,NA,NA,NA,NA,NA,NA,NA
+Interpersonal psychotherapy (IPT) individual + AD:Waitlist,NA,NA,NA,NA,NA,NA,NA
+Interpersonal psychotherapy (IPT) individual + AD:Yoga group,NA,NA,NA,NA,NA,NA,NA
+Interpersonal psychotherapy (IPT) individual + AD:Yoga group + AD,NA,NA,NA,NA,NA,NA,NA
+Interpersonal psychotherapy (IPT) individual + placebo:Light therapy,NA,NA,NA,NA,NA,NA,NA
+Interpersonal psychotherapy (IPT) individual + placebo:Light therapy + AD,NA,NA,NA,NA,NA,NA,NA
+Interpersonal psychotherapy (IPT) individual + placebo:Mindfulness or meditation group,NA,NA,NA,NA,NA,NA,NA
+Interpersonal psychotherapy (IPT) individual + placebo:Mirtazapine,NA,NA,NA,NA,NA,NA,NA
+Interpersonal psychotherapy (IPT) individual + placebo:Music therapy group,NA,NA,NA,NA,NA,NA,NA
+Interpersonal psychotherapy (IPT) individual + placebo:No treatment,NA,NA,NA,NA,NA,NA,NA
+Interpersonal psychotherapy (IPT) individual + placebo:Peer support group,NA,NA,NA,NA,NA,NA,NA
+Interpersonal psychotherapy (IPT) individual + placebo:Peer support group + AD,NA,NA,NA,NA,NA,NA,NA
+Interpersonal psychotherapy (IPT) individual + placebo:Placebo,NA,NA,NA,NA,NA,NA,NA
+Interpersonal psychotherapy (IPT) individual + placebo:Problem solving group,NA,NA,NA,NA,NA,NA,NA
+Interpersonal psychotherapy (IPT) individual + placebo:Problem solving individual,NA,NA,NA,NA,NA,NA,NA
+Interpersonal psychotherapy (IPT) individual + placebo:Psychoeducation group,NA,NA,NA,NA,NA,NA,NA
+Interpersonal psychotherapy (IPT) individual + placebo:Psychoeducation group + AD,NA,NA,NA,NA,NA,NA,NA
+Interpersonal psychotherapy (IPT) individual + placebo:Relaxation individual + AD,NA,NA,NA,NA,NA,NA,NA
+Interpersonal psychotherapy (IPT) individual + placebo:Relaxation individual + placebo,NA,NA,NA,NA,NA,NA,NA
+Interpersonal psychotherapy (IPT) individual + placebo:Self-help,NA,NA,NA,NA,NA,NA,NA
+Interpersonal psychotherapy (IPT) individual + placebo:Self-help with support,NA,NA,NA,NA,NA,NA,NA
+Interpersonal psychotherapy (IPT) individual + placebo:Sham acupuncture,NA,NA,NA,NA,NA,NA,NA
+Interpersonal psychotherapy (IPT) individual + placebo:Short-term psychodynamic psychotherapies individual,NA,NA,NA,NA,NA,NA,NA
+Interpersonal psychotherapy (IPT) individual + placebo:Short-term psychodynamic psychotherapies individual + AD,NA,NA,NA,NA,NA,NA,NA
+Interpersonal psychotherapy (IPT) individual + placebo:SNRIs,NA,NA,NA,NA,NA,NA,NA
+Interpersonal psychotherapy (IPT) individual + placebo:SSRIs,NA,NA,NA,NA,NA,NA,NA
+Interpersonal psychotherapy (IPT) individual + placebo:TAU,NA,NA,NA,NA,NA,NA,NA
+Interpersonal psychotherapy (IPT) individual + placebo:TCAs,0.9484221859197701,0.8751640119937378,-0.7668677581535355,2.6637121299930757,1.083707936937604,0.27849431539140723,1.083707936937604
+Interpersonal psychotherapy (IPT) individual + placebo:Trazodone,NA,NA,NA,NA,NA,NA,NA
+Interpersonal psychotherapy (IPT) individual + placebo:Waitlist,NA,NA,NA,NA,NA,NA,NA
+Interpersonal psychotherapy (IPT) individual + placebo:Yoga group,NA,NA,NA,NA,NA,NA,NA
+Interpersonal psychotherapy (IPT) individual + placebo:Yoga group + AD,NA,NA,NA,NA,NA,NA,NA
+Light therapy:Light therapy + AD,0.34769109661742437,1.6698943215740902,-2.925241631655739,3.620623824890588,0.20821143717027601,0.8350638787141839,0.20821143717027601
+Light therapy:Mindfulness or meditation group,NA,NA,NA,NA,NA,NA,NA
+Light therapy:Mirtazapine,NA,NA,NA,NA,NA,NA,NA
+Light therapy:Music therapy group,NA,NA,NA,NA,NA,NA,NA
+Light therapy:No treatment,NA,NA,NA,NA,NA,NA,NA
+Light therapy:Peer support group,NA,NA,NA,NA,NA,NA,NA
+Light therapy:Peer support group + AD,NA,NA,NA,NA,NA,NA,NA
+Light therapy:Placebo,0.3841674497124701,1.1761557389290003,-1.9210554387984642,2.6893903382234043,0.3266297455320759,0.7439479427815563,0.3266297455320759
+Light therapy:Problem solving group,NA,NA,NA,NA,NA,NA,NA
+Light therapy:Problem solving individual,NA,NA,NA,NA,NA,NA,NA
+Light therapy:Psychoeducation group,NA,NA,NA,NA,NA,NA,NA
+Light therapy:Psychoeducation group + AD,NA,NA,NA,NA,NA,NA,NA
+Light therapy:Relaxation individual + AD,NA,NA,NA,NA,NA,NA,NA
+Light therapy:Relaxation individual + placebo,NA,NA,NA,NA,NA,NA,NA
+Light therapy:Self-help,NA,NA,NA,NA,NA,NA,NA
+Light therapy:Self-help with support,NA,NA,NA,NA,NA,NA,NA
+Light therapy:Sham acupuncture,NA,NA,NA,NA,NA,NA,NA
+Light therapy:Short-term psychodynamic psychotherapies individual,NA,NA,NA,NA,NA,NA,NA
+Light therapy:Short-term psychodynamic psychotherapies individual + AD,NA,NA,NA,NA,NA,NA,NA
+Light therapy:SNRIs,NA,NA,NA,NA,NA,NA,NA
+Light therapy:SSRIs,-0.5616203777534485,1.181306507184239,-2.876938586537363,1.753697831030466,-0.47542307973239417,0.6344854472693193,-0.47542307973239417
+Light therapy:TAU,NA,NA,NA,NA,NA,NA,NA
+Light therapy:TCAs,NA,NA,NA,NA,NA,NA,NA
+Light therapy:Trazodone,NA,NA,NA,NA,NA,NA,NA
+Light therapy:Waitlist,NA,NA,NA,NA,NA,NA,NA
+Light therapy:Yoga group,NA,NA,NA,NA,NA,NA,NA
+Light therapy:Yoga group + AD,NA,NA,NA,NA,NA,NA,NA
+Light therapy + AD:Mindfulness or meditation group,NA,NA,NA,NA,NA,NA,NA
+Light therapy + AD:Mirtazapine,NA,NA,NA,NA,NA,NA,NA
+Light therapy + AD:Music therapy group,NA,NA,NA,NA,NA,NA,NA
+Light therapy + AD:No treatment,NA,NA,NA,NA,NA,NA,NA
+Light therapy + AD:Peer support group,NA,NA,NA,NA,NA,NA,NA
+Light therapy + AD:Peer support group + AD,NA,NA,NA,NA,NA,NA,NA
+Light therapy + AD:Placebo,0.10779339961333645,0.8453565862203892,-1.549075063472355,1.7646618626990278,0.12751234374985293,0.8985349040309872,0.12751234374985293
+Light therapy + AD:Problem solving group,NA,NA,NA,NA,NA,NA,NA
+Light therapy + AD:Problem solving individual,NA,NA,NA,NA,NA,NA,NA
+Light therapy + AD:Psychoeducation group,NA,NA,NA,NA,NA,NA,NA
+Light therapy + AD:Psychoeducation group + AD,NA,NA,NA,NA,NA,NA,NA
+Light therapy + AD:Relaxation individual + AD,NA,NA,NA,NA,NA,NA,NA
+Light therapy + AD:Relaxation individual + placebo,NA,NA,NA,NA,NA,NA,NA
+Light therapy + AD:Self-help,NA,NA,NA,NA,NA,NA,NA
+Light therapy + AD:Self-help with support,NA,NA,NA,NA,NA,NA,NA
+Light therapy + AD:Sham acupuncture,NA,NA,NA,NA,NA,NA,NA
+Light therapy + AD:Short-term psychodynamic psychotherapies individual,NA,NA,NA,NA,NA,NA,NA
+Light therapy + AD:Short-term psychodynamic psychotherapies individual + AD,NA,NA,NA,NA,NA,NA,NA
+Light therapy + AD:SNRIs,0.17738637692866338,0.8472772639000247,-1.4832465452350234,1.8380192990923503,0.20936048267382076,0.8341668394032365,0.20936048267382076
+Light therapy + AD:SSRIs,-0.3711284056414964,0.8443987819541625,-2.026119606861145,1.2838627955781519,-0.43951793106878595,0.6602862922906643,-0.43951793106878595
+Light therapy + AD:TAU,NA,NA,NA,NA,NA,NA,NA
+Light therapy + AD:TCAs,NA,NA,NA,NA,NA,NA,NA
+Light therapy + AD:Trazodone,NA,NA,NA,NA,NA,NA,NA
+Light therapy + AD:Waitlist,NA,NA,NA,NA,NA,NA,NA
+Light therapy + AD:Yoga group,NA,NA,NA,NA,NA,NA,NA
+Light therapy + AD:Yoga group + AD,NA,NA,NA,NA,NA,NA,NA
+Mindfulness or meditation group:Mirtazapine,NA,NA,NA,NA,NA,NA,NA
+Mindfulness or meditation group:Music therapy group,NA,NA,NA,NA,NA,NA,NA
+Mindfulness or meditation group:No treatment,NA,NA,NA,NA,NA,NA,NA
+Mindfulness or meditation group:Peer support group,NA,NA,NA,NA,NA,NA,NA
+Mindfulness or meditation group:Peer support group + AD,NA,NA,NA,NA,NA,NA,NA
+Mindfulness or meditation group:Placebo,NA,NA,NA,NA,NA,NA,NA
+Mindfulness or meditation group:Problem solving group,NA,NA,NA,NA,NA,NA,NA
+Mindfulness or meditation group:Problem solving individual,NA,NA,NA,NA,NA,NA,NA
+Mindfulness or meditation group:Psychoeducation group,NA,NA,NA,NA,NA,NA,NA
+Mindfulness or meditation group:Psychoeducation group + AD,NA,NA,NA,NA,NA,NA,NA
+Mindfulness or meditation group:Relaxation individual + AD,NA,NA,NA,NA,NA,NA,NA
+Mindfulness or meditation group:Relaxation individual + placebo,NA,NA,NA,NA,NA,NA,NA
+Mindfulness or meditation group:Self-help,NA,NA,NA,NA,NA,NA,NA
+Mindfulness or meditation group:Self-help with support,NA,NA,NA,NA,NA,NA,NA
+Mindfulness or meditation group:Sham acupuncture,NA,NA,NA,NA,NA,NA,NA
+Mindfulness or meditation group:Short-term psychodynamic psychotherapies individual,NA,NA,NA,NA,NA,NA,NA
+Mindfulness or meditation group:Short-term psychodynamic psychotherapies individual + AD,NA,NA,NA,NA,NA,NA,NA
+Mindfulness or meditation group:SNRIs,NA,NA,NA,NA,NA,NA,NA
+Mindfulness or meditation group:SSRIs,NA,NA,NA,NA,NA,NA,NA
+Mindfulness or meditation group:TAU,NA,NA,NA,NA,NA,NA,NA
+Mindfulness or meditation group:TCAs,NA,NA,NA,NA,NA,NA,NA
+Mindfulness or meditation group:Trazodone,NA,NA,NA,NA,NA,NA,NA
+Mindfulness or meditation group:Waitlist,NA,NA,NA,NA,NA,NA,NA
+Mindfulness or meditation group:Yoga group,NA,NA,NA,NA,NA,NA,NA
+Mindfulness or meditation group:Yoga group + AD,NA,NA,NA,NA,NA,NA,NA
+Mirtazapine:Music therapy group,NA,NA,NA,NA,NA,NA,NA
+Mirtazapine:No treatment,NA,NA,NA,NA,NA,NA,NA
+Mirtazapine:Peer support group,NA,NA,NA,NA,NA,NA,NA
+Mirtazapine:Peer support group + AD,NA,NA,NA,NA,NA,NA,NA
+Mirtazapine:Placebo,-0.19927757393773404,0.2943582275721312,-0.7762090985321561,0.37765395065668805,-0.6769899913495774,0.4984123046362886,-0.6769899913495774
+Mirtazapine:Problem solving group,NA,NA,NA,NA,NA,NA,NA
+Mirtazapine:Problem solving individual,NA,NA,NA,NA,NA,NA,NA
+Mirtazapine:Psychoeducation group,NA,NA,NA,NA,NA,NA,NA
+Mirtazapine:Psychoeducation group + AD,NA,NA,NA,NA,NA,NA,NA
+Mirtazapine:Relaxation individual + AD,NA,NA,NA,NA,NA,NA,NA
+Mirtazapine:Relaxation individual + placebo,NA,NA,NA,NA,NA,NA,NA
+Mirtazapine:Self-help,NA,NA,NA,NA,NA,NA,NA
+Mirtazapine:Self-help with support,NA,NA,NA,NA,NA,NA,NA
+Mirtazapine:Sham acupuncture,NA,NA,NA,NA,NA,NA,NA
+Mirtazapine:Short-term psychodynamic psychotherapies individual,NA,NA,NA,NA,NA,NA,NA
+Mirtazapine:Short-term psychodynamic psychotherapies individual + AD,NA,NA,NA,NA,NA,NA,NA
+Mirtazapine:SNRIs,-0.23176690333788066,0.3813618278570294,-0.979222351016022,0.5156885443402607,-0.607734928900039,0.5433632929398386,-0.607734928900039
+Mirtazapine:SSRIs,0.05304745397770913,0.2590767096551607,-0.4547335661795462,0.5608284741349645,0.20475578081996243,0.8377629367619344,0.20475578081996243
+Mirtazapine:TAU,NA,NA,NA,NA,NA,NA,NA
+Mirtazapine:TCAs,0.26422116284213865,0.2943320397648319,-0.31265903459314276,0.84110136027742,0.8976975902903689,0.3693467945003038,0.8976975902903689
+Mirtazapine:Trazodone,0.3363770035660125,0.6307591064591214,-0.8998881280145308,1.5726421351465558,0.5332891750930474,0.5938334198295159,0.5332891750930474
+Mirtazapine:Waitlist,NA,NA,NA,NA,NA,NA,NA
+Mirtazapine:Yoga group,NA,NA,NA,NA,NA,NA,NA
+Mirtazapine:Yoga group + AD,NA,NA,NA,NA,NA,NA,NA
+Music therapy group:No treatment,NA,NA,NA,NA,NA,NA,NA
+Music therapy group:Peer support group,NA,NA,NA,NA,NA,NA,NA
+Music therapy group:Peer support group + AD,NA,NA,NA,NA,NA,NA,NA
+Music therapy group:Placebo,NA,NA,NA,NA,NA,NA,NA
+Music therapy group:Problem solving group,NA,NA,NA,NA,NA,NA,NA
+Music therapy group:Problem solving individual,NA,NA,NA,NA,NA,NA,NA
+Music therapy group:Psychoeducation group,NA,NA,NA,NA,NA,NA,NA
+Music therapy group:Psychoeducation group + AD,NA,NA,NA,NA,NA,NA,NA
+Music therapy group:Relaxation individual + AD,NA,NA,NA,NA,NA,NA,NA
+Music therapy group:Relaxation individual + placebo,NA,NA,NA,NA,NA,NA,NA
+Music therapy group:Self-help,NA,NA,NA,NA,NA,NA,NA
+Music therapy group:Self-help with support,NA,NA,NA,NA,NA,NA,NA
+Music therapy group:Sham acupuncture,NA,NA,NA,NA,NA,NA,NA
+Music therapy group:Short-term psychodynamic psychotherapies individual,NA,NA,NA,NA,NA,NA,NA
+Music therapy group:Short-term psychodynamic psychotherapies individual + AD,NA,NA,NA,NA,NA,NA,NA
+Music therapy group:SNRIs,NA,NA,NA,NA,NA,NA,NA
+Music therapy group:SSRIs,NA,NA,NA,NA,NA,NA,NA
+Music therapy group:TAU,NA,NA,NA,NA,NA,NA,NA
+Music therapy group:TCAs,NA,NA,NA,NA,NA,NA,NA
+Music therapy group:Trazodone,NA,NA,NA,NA,NA,NA,NA
+Music therapy group:Waitlist,NA,NA,NA,NA,NA,NA,NA
+Music therapy group:Yoga group,NA,NA,NA,NA,NA,NA,NA
+Music therapy group:Yoga group + AD,NA,NA,NA,NA,NA,NA,NA
+No treatment:Peer support group,NA,NA,NA,NA,NA,NA,NA
+No treatment:Peer support group + AD,NA,NA,NA,NA,NA,NA,NA
+No treatment:Placebo,NA,NA,NA,NA,NA,NA,NA
+No treatment:Problem solving group,NA,NA,NA,NA,NA,NA,NA
+No treatment:Problem solving individual,NA,NA,NA,NA,NA,NA,NA
+No treatment:Psychoeducation group,NA,NA,NA,NA,NA,NA,NA
+No treatment:Psychoeducation group + AD,NA,NA,NA,NA,NA,NA,NA
+No treatment:Relaxation individual + AD,NA,NA,NA,NA,NA,NA,NA
+No treatment:Relaxation individual + placebo,NA,NA,NA,NA,NA,NA,NA
+No treatment:Self-help,-0.4994952581504307,0.7384501473524427,-1.9468309513395141,0.9478404350386528,-0.6764102626849837,0.49878020320924904,-0.6764102626849837
+No treatment:Self-help with support,-0.2442149708026306,0.7344112526098865,-1.6836345757589557,1.1952046341536944,-0.33253162983922263,0.7394878600620693,-0.33253162983922263
+No treatment:Sham acupuncture,NA,NA,NA,NA,NA,NA,NA
+No treatment:Short-term psychodynamic psychotherapies individual,NA,NA,NA,NA,NA,NA,NA
+No treatment:Short-term psychodynamic psychotherapies individual + AD,NA,NA,NA,NA,NA,NA,NA
+No treatment:SNRIs,NA,NA,NA,NA,NA,NA,NA
+No treatment:SSRIs,-0.482412709535375,0.5254703770600446,-1.5123157235157445,0.5474903044449946,-0.9180588109160919,0.35858807717813196,-0.9180588109160919
+No treatment:TAU,NA,NA,NA,NA,NA,NA,NA
+No treatment:TCAs,NA,NA,NA,NA,NA,NA,NA
+No treatment:Trazodone,NA,NA,NA,NA,NA,NA,NA
+No treatment:Waitlist,NA,NA,NA,NA,NA,NA,NA
+No treatment:Yoga group,NA,NA,NA,NA,NA,NA,NA
+No treatment:Yoga group + AD,NA,NA,NA,NA,NA,NA,NA
+Peer support group:Peer support group + AD,NA,NA,NA,NA,NA,NA,NA
+Peer support group:Placebo,NA,NA,NA,NA,NA,NA,NA
+Peer support group:Problem solving group,NA,NA,NA,NA,NA,NA,NA
+Peer support group:Problem solving individual,NA,NA,NA,NA,NA,NA,NA
+Peer support group:Psychoeducation group,NA,NA,NA,NA,NA,NA,NA
+Peer support group:Psychoeducation group + AD,NA,NA,NA,NA,NA,NA,NA
+Peer support group:Relaxation individual + AD,NA,NA,NA,NA,NA,NA,NA
+Peer support group:Relaxation individual + placebo,NA,NA,NA,NA,NA,NA,NA
+Peer support group:Self-help,NA,NA,NA,NA,NA,NA,NA
+Peer support group:Self-help with support,NA,NA,NA,NA,NA,NA,NA
+Peer support group:Sham acupuncture,NA,NA,NA,NA,NA,NA,NA
+Peer support group:Short-term psychodynamic psychotherapies individual,NA,NA,NA,NA,NA,NA,NA
+Peer support group:Short-term psychodynamic psychotherapies individual + AD,NA,NA,NA,NA,NA,NA,NA
+Peer support group:SNRIs,NA,NA,NA,NA,NA,NA,NA
+Peer support group:SSRIs,NA,NA,NA,NA,NA,NA,NA
+Peer support group:TAU,NA,NA,NA,NA,NA,NA,NA
+Peer support group:TCAs,NA,NA,NA,NA,NA,NA,NA
+Peer support group:Trazodone,NA,NA,NA,NA,NA,NA,NA
+Peer support group:Waitlist,NA,NA,NA,NA,NA,NA,NA
+Peer support group:Yoga group,NA,NA,NA,NA,NA,NA,NA
+Peer support group:Yoga group + AD,NA,NA,NA,NA,NA,NA,NA
+Peer support group + AD:Placebo,NA,NA,NA,NA,NA,NA,NA
+Peer support group + AD:Problem solving group,NA,NA,NA,NA,NA,NA,NA
+Peer support group + AD:Problem solving individual,NA,NA,NA,NA,NA,NA,NA
+Peer support group + AD:Psychoeducation group,NA,NA,NA,NA,NA,NA,NA
+Peer support group + AD:Psychoeducation group + AD,NA,NA,NA,NA,NA,NA,NA
+Peer support group + AD:Relaxation individual + AD,NA,NA,NA,NA,NA,NA,NA
+Peer support group + AD:Relaxation individual + placebo,NA,NA,NA,NA,NA,NA,NA
+Peer support group + AD:Self-help,NA,NA,NA,NA,NA,NA,NA
+Peer support group + AD:Self-help with support,NA,NA,NA,NA,NA,NA,NA
+Peer support group + AD:Sham acupuncture,NA,NA,NA,NA,NA,NA,NA
+Peer support group + AD:Short-term psychodynamic psychotherapies individual,NA,NA,NA,NA,NA,NA,NA
+Peer support group + AD:Short-term psychodynamic psychotherapies individual + AD,NA,NA,NA,NA,NA,NA,NA
+Peer support group + AD:SNRIs,NA,NA,NA,NA,NA,NA,NA
+Peer support group + AD:SSRIs,NA,NA,NA,NA,NA,NA,NA
+Peer support group + AD:TAU,NA,NA,NA,NA,NA,NA,NA
+Peer support group + AD:TCAs,NA,NA,NA,NA,NA,NA,NA
+Peer support group + AD:Trazodone,NA,NA,NA,NA,NA,NA,NA
+Peer support group + AD:Waitlist,NA,NA,NA,NA,NA,NA,NA
+Peer support group + AD:Yoga group,NA,NA,NA,NA,NA,NA,NA
+Peer support group + AD:Yoga group + AD,NA,NA,NA,NA,NA,NA,NA
+Problem solving group:Placebo,NA,NA,NA,NA,NA,NA,NA
+Problem solving individual:Placebo,0.0776926534630289,0.7477525561945493,-1.3878754260260502,1.543260732952108,0.10390155515939811,0.9172474729505288,0.10390155515939811
+Psychoeducation group:Placebo,NA,NA,NA,NA,NA,NA,NA
+Psychoeducation group + AD:Placebo,NA,NA,NA,NA,NA,NA,NA
+Relaxation individual + AD:Placebo,1.135168770568957,1.4384899988755278,-1.6842198193481395,3.9545573604860538,0.7891391469223437,0.4300306839602816,0.7891391469223437
+Relaxation individual + placebo:Placebo,1.113570977315579,1.4116533185244577,-1.6532186856488067,3.8803606402799646,0.7888416813836051,0.4302045446059298,0.7888416813836051
+Self-help:Placebo,NA,NA,NA,NA,NA,NA,NA
+Self-help with support:Placebo,NA,NA,NA,NA,NA,NA,NA
+Sham acupuncture:Placebo,NA,NA,NA,NA,NA,NA,NA
+Short-term psychodynamic psychotherapies individual:Placebo,NA,NA,NA,NA,NA,NA,NA
+Short-term psychodynamic psychotherapies individual + AD:Placebo,NA,NA,NA,NA,NA,NA,NA
+SNRIs:Placebo,-0.06531004045538968,0.15562976995635608,-0.3703387844921013,0.2397187035813219,-0.41965004814763174,0.6747411211775656,-0.41965004814763174
+SSRIs:Placebo,0.04333494576500729,0.1282785729665593,-0.2080864372376423,0.2947563287676569,0.337819050858199,0.7354995525203167,0.337819050858199
+TAU:Placebo,NA,NA,NA,NA,NA,NA,NA
+TCAs:Placebo,0.07498435272593706,0.15851678641415942,-0.23570283959084348,0.3856715450427176,0.47303730047885406,0.6361865677308007,0.47303730047885406
+Trazodone:Placebo,0.06886391529109526,0.456857565052939,-0.8265604582773298,0.9642882888595203,0.15073388416609793,0.8801856429098578,0.15073388416609793
+Waitlist:Placebo,NA,NA,NA,NA,NA,NA,NA
+Yoga group:Placebo,NA,NA,NA,NA,NA,NA,NA
+Yoga group + AD:Placebo,NA,NA,NA,NA,NA,NA,NA
+Problem solving group:Problem solving individual,NA,NA,NA,NA,NA,NA,NA
+Problem solving group:Psychoeducation group,NA,NA,NA,NA,NA,NA,NA
+Problem solving group:Psychoeducation group + AD,NA,NA,NA,NA,NA,NA,NA
+Problem solving group:Relaxation individual + AD,NA,NA,NA,NA,NA,NA,NA
+Problem solving group:Relaxation individual + placebo,NA,NA,NA,NA,NA,NA,NA
+Problem solving group:Self-help,NA,NA,NA,NA,NA,NA,NA
+Problem solving group:Self-help with support,NA,NA,NA,NA,NA,NA,NA
+Problem solving group:Sham acupuncture,NA,NA,NA,NA,NA,NA,NA
+Problem solving group:Short-term psychodynamic psychotherapies individual,NA,NA,NA,NA,NA,NA,NA
+Problem solving group:Short-term psychodynamic psychotherapies individual + AD,NA,NA,NA,NA,NA,NA,NA
+Problem solving group:SNRIs,NA,NA,NA,NA,NA,NA,NA
+Problem solving group:SSRIs,NA,NA,NA,NA,NA,NA,NA
+Problem solving group:TAU,NA,NA,NA,NA,NA,NA,NA
+Problem solving group:TCAs,NA,NA,NA,NA,NA,NA,NA
+Problem solving group:Trazodone,NA,NA,NA,NA,NA,NA,NA
+Problem solving group:Waitlist,NA,NA,NA,NA,NA,NA,NA
+Problem solving group:Yoga group,NA,NA,NA,NA,NA,NA,NA
+Problem solving group:Yoga group + AD,NA,NA,NA,NA,NA,NA,NA
+Problem solving individual:Psychoeducation group,NA,NA,NA,NA,NA,NA,NA
+Problem solving individual:Psychoeducation group + AD,NA,NA,NA,NA,NA,NA,NA
+Problem solving individual:Relaxation individual + AD,NA,NA,NA,NA,NA,NA,NA
+Problem solving individual:Relaxation individual + placebo,NA,NA,NA,NA,NA,NA,NA
+Problem solving individual:Self-help,NA,NA,NA,NA,NA,NA,NA
+Problem solving individual:Self-help with support,NA,NA,NA,NA,NA,NA,NA
+Problem solving individual:Sham acupuncture,NA,NA,NA,NA,NA,NA,NA
+Problem solving individual:Short-term psychodynamic psychotherapies individual,NA,NA,NA,NA,NA,NA,NA
+Problem solving individual:Short-term psychodynamic psychotherapies individual + AD,NA,NA,NA,NA,NA,NA,NA
+Problem solving individual:SNRIs,NA,NA,NA,NA,NA,NA,NA
+Problem solving individual:SSRIs,NA,NA,NA,NA,NA,NA,NA
+Problem solving individual:TAU,NA,NA,NA,NA,NA,NA,NA
+Problem solving individual:TCAs,0.1922769428646095,0.7437211231357839,-1.2653896730232055,1.6499435587524243,0.25853365849541,0.7959950758949706,0.25853365849541
+Problem solving individual:Trazodone,NA,NA,NA,NA,NA,NA,NA
+Problem solving individual:Waitlist,1.5370195588045363,0.7203550843679014,0.12514953736313772,2.948889580245935,2.133697105994946,0.03286758312762219,2.133697105994946
+Problem solving individual:Yoga group,NA,NA,NA,NA,NA,NA,NA
+Problem solving individual:Yoga group + AD,NA,NA,NA,NA,NA,NA,NA
+Psychoeducation group:Psychoeducation group + AD,NA,NA,NA,NA,NA,NA,NA
+Psychoeducation group:Relaxation individual + AD,NA,NA,NA,NA,NA,NA,NA
+Psychoeducation group:Relaxation individual + placebo,NA,NA,NA,NA,NA,NA,NA
+Psychoeducation group:Self-help,NA,NA,NA,NA,NA,NA,NA
+Psychoeducation group:Self-help with support,NA,NA,NA,NA,NA,NA,NA
+Psychoeducation group:Sham acupuncture,NA,NA,NA,NA,NA,NA,NA
+Psychoeducation group:Short-term psychodynamic psychotherapies individual,NA,NA,NA,NA,NA,NA,NA
+Psychoeducation group:Short-term psychodynamic psychotherapies individual + AD,NA,NA,NA,NA,NA,NA,NA
+Psychoeducation group:SNRIs,NA,NA,NA,NA,NA,NA,NA
+Psychoeducation group:SSRIs,NA,NA,NA,NA,NA,NA,NA
+Psychoeducation group:TAU,NA,NA,NA,NA,NA,NA,NA
+Psychoeducation group:TCAs,NA,NA,NA,NA,NA,NA,NA
+Psychoeducation group:Trazodone,NA,NA,NA,NA,NA,NA,NA
+Psychoeducation group:Waitlist,NA,NA,NA,NA,NA,NA,NA
+Psychoeducation group:Yoga group,NA,NA,NA,NA,NA,NA,NA
+Psychoeducation group:Yoga group + AD,NA,NA,NA,NA,NA,NA,NA
+Psychoeducation group + AD:Relaxation individual + AD,NA,NA,NA,NA,NA,NA,NA
+Psychoeducation group + AD:Relaxation individual + placebo,NA,NA,NA,NA,NA,NA,NA
+Psychoeducation group + AD:Self-help,NA,NA,NA,NA,NA,NA,NA
+Psychoeducation group + AD:Self-help with support,NA,NA,NA,NA,NA,NA,NA
+Psychoeducation group + AD:Sham acupuncture,NA,NA,NA,NA,NA,NA,NA
+Psychoeducation group + AD:Short-term psychodynamic psychotherapies individual,NA,NA,NA,NA,NA,NA,NA
+Psychoeducation group + AD:Short-term psychodynamic psychotherapies individual + AD,NA,NA,NA,NA,NA,NA,NA
+Psychoeducation group + AD:SNRIs,NA,NA,NA,NA,NA,NA,NA
+Psychoeducation group + AD:SSRIs,NA,NA,NA,NA,NA,NA,NA
+Psychoeducation group + AD:TAU,NA,NA,NA,NA,NA,NA,NA
+Psychoeducation group + AD:TCAs,NA,NA,NA,NA,NA,NA,NA
+Psychoeducation group + AD:Trazodone,NA,NA,NA,NA,NA,NA,NA
+Psychoeducation group + AD:Waitlist,NA,NA,NA,NA,NA,NA,NA
+Psychoeducation group + AD:Yoga group,NA,NA,NA,NA,NA,NA,NA
+Psychoeducation group + AD:Yoga group + AD,NA,NA,NA,NA,NA,NA,NA
+Relaxation individual + AD:Relaxation individual + placebo,NA,NA,NA,NA,NA,NA,NA
+Relaxation individual + AD:Self-help,NA,NA,NA,NA,NA,NA,NA
+Relaxation individual + AD:Self-help with support,NA,NA,NA,NA,NA,NA,NA
+Relaxation individual + AD:Sham acupuncture,NA,NA,NA,NA,NA,NA,NA
+Relaxation individual + AD:Short-term psychodynamic psychotherapies individual,NA,NA,NA,NA,NA,NA,NA
+Relaxation individual + AD:Short-term psychodynamic psychotherapies individual + AD,NA,NA,NA,NA,NA,NA,NA
+Relaxation individual + AD:SNRIs,NA,NA,NA,NA,NA,NA,NA
+Relaxation individual + AD:SSRIs,NA,NA,NA,NA,NA,NA,NA
+Relaxation individual + AD:TAU,NA,NA,NA,NA,NA,NA,NA
+Relaxation individual + AD:TCAs,-0.8926462790929429,1.3995373554269663,-3.635689090748229,1.850396532562343,-0.6378152577575303,0.5235939462318786,-0.6378152577575303
+Relaxation individual + AD:Trazodone,NA,NA,NA,NA,NA,NA,NA
+Relaxation individual + AD:Waitlist,NA,NA,NA,NA,NA,NA,NA
+Relaxation individual + AD:Yoga group,NA,NA,NA,NA,NA,NA,NA
+Relaxation individual + AD:Yoga group + AD,NA,NA,NA,NA,NA,NA,NA
+Relaxation individual + placebo:Self-help,NA,NA,NA,NA,NA,NA,NA
+Relaxation individual + placebo:Self-help with support,NA,NA,NA,NA,NA,NA,NA
+Relaxation individual + placebo:Sham acupuncture,NA,NA,NA,NA,NA,NA,NA
+Relaxation individual + placebo:Short-term psychodynamic psychotherapies individual,NA,NA,NA,NA,NA,NA,NA
+Relaxation individual + placebo:Short-term psychodynamic psychotherapies individual + AD,NA,NA,NA,NA,NA,NA,NA
+Relaxation individual + placebo:SNRIs,NA,NA,NA,NA,NA,NA,NA
+Relaxation individual + placebo:SSRIs,NA,NA,NA,NA,NA,NA,NA
+Relaxation individual + placebo:TAU,NA,NA,NA,NA,NA,NA,NA
+Relaxation individual + placebo:TCAs,-0.8774602658582119,1.3713839607586575,-3.5653234379210708,1.8104029062046467,-0.6398355901528816,0.5222794918831644,-0.6398355901528816
+Relaxation individual + placebo:Trazodone,NA,NA,NA,NA,NA,NA,NA
+Relaxation individual + placebo:Waitlist,NA,NA,NA,NA,NA,NA,NA
+Relaxation individual + placebo:Yoga group,NA,NA,NA,NA,NA,NA,NA
+Relaxation individual + placebo:Yoga group + AD,NA,NA,NA,NA,NA,NA,NA
+Self-help:Self-help with support,0.18088542906973262,0.7869322426797667,-1.3614734248559435,1.7232442829954087,0.22986150428117855,0.8181993905211246,0.22986150428117855
+Self-help:Sham acupuncture,NA,NA,NA,NA,NA,NA,NA
+Self-help:Short-term psychodynamic psychotherapies individual,NA,NA,NA,NA,NA,NA,NA
+Self-help:Short-term psychodynamic psychotherapies individual + AD,NA,NA,NA,NA,NA,NA,NA
+Self-help:SNRIs,NA,NA,NA,NA,NA,NA,NA
+Self-help:SSRIs,NA,NA,NA,NA,NA,NA,NA
+Self-help:TAU,NA,NA,NA,NA,NA,NA,NA
+Self-help:TCAs,NA,NA,NA,NA,NA,NA,NA
+Self-help:Trazodone,NA,NA,NA,NA,NA,NA,NA
+Self-help:Waitlist,-0.8401316653855747,0.5215576914479377,-1.8623659564833868,0.18210262571223723,-1.610812531693701,0.10722058887590724,-1.610812531693701
+Self-help:Yoga group,NA,NA,NA,NA,NA,NA,NA
+Self-help:Yoga group + AD,NA,NA,NA,NA,NA,NA,NA
+Self-help with support:Sham acupuncture,NA,NA,NA,NA,NA,NA,NA
+Self-help with support:Short-term psychodynamic psychotherapies individual,0.74188781197071485,0.772480634505275,-0.7721464104142728,2.2559220343557023,0.9603966479313064,0.3368556245268968,0.9603966479313064
+Self-help with support:Short-term psychodynamic psychotherapies individual + AD,NA,NA,NA,NA,NA,NA,NA
+Self-help with support:SNRIs,NA,NA,NA,NA,NA,NA,NA
+Self-help with support:SSRIs,NA,NA,NA,NA,NA,NA,NA
+Self-help with support:TAU,NA,NA,NA,NA,NA,NA,NA
+Self-help with support:TCAs,NA,NA,NA,NA,NA,NA,NA
+Self-help with support:Trazodone,NA,NA,NA,NA,NA,NA,NA
+Self-help with support:Waitlist,-0.18989069227870958,0.5508062952824014,-1.2694511934901505,0.8896698089327313,-0.3447504030093766,0.7302820222791228,-0.3447504030093766
+Self-help with support:Yoga group,NA,NA,NA,NA,NA,NA,NA
+Self-help with support:Yoga group + AD,NA,NA,NA,NA,NA,NA,NA
+Sham acupuncture:Short-term psychodynamic psychotherapies individual,NA,NA,NA,NA,NA,NA,NA
+Sham acupuncture:Short-term psychodynamic psychotherapies individual + AD,NA,NA,NA,NA,NA,NA,NA
+Sham acupuncture:SNRIs,NA,NA,NA,NA,NA,NA,NA
+Sham acupuncture:SSRIs,NA,NA,NA,NA,NA,NA,NA
+Sham acupuncture:TAU,NA,NA,NA,NA,NA,NA,NA
+Sham acupuncture:TCAs,NA,NA,NA,NA,NA,NA,NA
+Sham acupuncture:Trazodone,NA,NA,NA,NA,NA,NA,NA
+Sham acupuncture:Waitlist,1.518708984275217,0.8229911342292991,-0.09432399840997818,3.131741966960412,1.8453527882744838,0.0649862361478409,1.8453527882744838
+Sham acupuncture:Yoga group,NA,NA,NA,NA,NA,NA,NA
+Sham acupuncture:Yoga group + AD,NA,NA,NA,NA,NA,NA,NA
+Short-term psychodynamic psychotherapies individual:Short-term psychodynamic psychotherapies individual + AD,NA,NA,NA,NA,NA,NA,NA
+Short-term psychodynamic psychotherapies individual:SNRIs,NA,NA,NA,NA,NA,NA,NA
+Short-term psychodynamic psychotherapies individual:SSRIs,0.3110642953816372,0.7531112989133555,-1.1650067268387183,1.7871353176019926,0.4130389436866287,0.67957808155184,0.4130389436866287
+Short-term psychodynamic psychotherapies individual:TAU,NA,NA,NA,NA,NA,NA,NA
+Short-term psychodynamic psychotherapies individual:TCAs,NA,NA,NA,NA,NA,NA,NA
+Short-term psychodynamic psychotherapies individual:Trazodone,NA,NA,NA,NA,NA,NA,NA
+Short-term psychodynamic psychotherapies individual:Waitlist,NA,NA,NA,NA,NA,NA,NA
+Short-term psychodynamic psychotherapies individual:Yoga group,NA,NA,NA,NA,NA,NA,NA
+Short-term psychodynamic psychotherapies individual:Yoga group + AD,NA,NA,NA,NA,NA,NA,NA
+Short-term psychodynamic psychotherapies individual + AD:SNRIs,NA,NA,NA,NA,NA,NA,NA
+Short-term psychodynamic psychotherapies individual + AD:SSRIs,NA,NA,NA,NA,NA,NA,NA
+Short-term psychodynamic psychotherapies individual + AD:TAU,NA,NA,NA,NA,NA,NA,NA
+Short-term psychodynamic psychotherapies individual + AD:TCAs,NA,NA,NA,NA,NA,NA,NA
+Short-term psychodynamic psychotherapies individual + AD:Trazodone,NA,NA,NA,NA,NA,NA,NA
+Short-term psychodynamic psychotherapies individual + AD:Waitlist,NA,NA,NA,NA,NA,NA,NA
+Short-term psychodynamic psychotherapies individual + AD:Yoga group,NA,NA,NA,NA,NA,NA,NA
+Short-term psychodynamic psychotherapies individual + AD:Yoga group + AD,NA,NA,NA,NA,NA,NA,NA
+SNRIs:SSRIs,-0.2973051780271504,0.15276256640441777,-0.5967143063657177,0.0021039503114168023,-1.9461913021287955,0.051631764339440805,-1.9461913021287955
+SNRIs:TAU,NA,NA,NA,NA,NA,NA,NA
+SNRIs:TCAs,0.19316326682243046,0.2514408075885795,-0.2996516602948508,0.6859781939397117,0.7682256061573515,0.44235316331600194,0.7682256061573515
+SNRIs:Trazodone,-0.07728175055706943,0.4670426127764988,-0.9926684508444933,0.8381049497303544,-0.16547044839793296,0.8685737079433191,-0.16547044839793296
+SNRIs:Waitlist,NA,NA,NA,NA,NA,NA,NA
+SNRIs:Yoga group,NA,NA,NA,NA,NA,NA,NA
+SNRIs:Yoga group + AD,NA,NA,NA,NA,NA,NA,NA
+SSRIs:TAU,0.4113974799116793,0.7244031806404475,-1.0084066644298604,1.831201624253219,0.567912304785798,0.5700945163050717,0.567912304785798
+SSRIs:TCAs,-0.17406361699848732,0.1487395987428286,-0.46558787360937043,0.11746063961239578,-1.1702574060283977,0.24189739728223955,-1.1702574060283977
+SSRIs:Trazodone,0.17252202520888346,0.3490887428876862,-0.5116793382593443,0.8567233886771113,0.49420678473264235,0.6211601486386036,0.49420678473264235
+SSRIs:Waitlist,NA,NA,NA,NA,NA,NA,NA
+SSRIs:Yoga group,NA,NA,NA,NA,NA,NA,NA
+SSRIs:Yoga group + AD,NA,NA,NA,NA,NA,NA,NA
+TAU:TCAs,-0.5508388407516452,0.7056511359025877,-1.9338896527704956,0.8322119712672053,-0.780610719271465,0.4350314852935107,-0.780610719271465
+TAU:Trazodone,NA,NA,NA,NA,NA,NA,NA
+TAU:Waitlist,NA,NA,NA,NA,NA,NA,NA
+TAU:Yoga group,NA,NA,NA,NA,NA,NA,NA
+TAU:Yoga group + AD,NA,NA,NA,NA,NA,NA,NA
+TCAs:Trazodone,-0.49391444824886505,0.49156340086387973,-1.4573610100600944,0.4695321135623643,-1.0047827958323454,0.3150014498094972,-1.0047827958323454
+TCAs:Waitlist,NA,NA,NA,NA,NA,NA,NA
+TCAs:Yoga group,-0.4349137270532773,0.9949640089187052,-2.385007350447528,1.5151798963409735,-0.43711503446835986,0.6620279244739603,-0.43711503446835986
+TCAs:Yoga group + AD,NA,NA,NA,NA,NA,NA,NA
+Trazodone:Waitlist,NA,NA,NA,NA,NA,NA,NA
+Trazodone:Yoga group,NA,NA,NA,NA,NA,NA,NA
+Trazodone:Yoga group + AD,NA,NA,NA,NA,NA,NA,NA
+Waitlist:Yoga group,0.434913727053275,0.9949640089187053,-1.515179896340976,2.385007350447526,0.4371150344683575,0.662027924473962,0.4371150344683575
+Waitlist:Yoga group + AD,NA,NA,NA,NA,NA,NA,NA
+Yoga group:Yoga group + AD,NA,NA,NA,NA,NA,NA,NA

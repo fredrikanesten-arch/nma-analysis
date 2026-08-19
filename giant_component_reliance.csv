@@ -1,0 +1,15 @@
+"removed_node","removed_degree","removed_betweenness","n_components_after_removal","giant_component_size","giant_component_fraction"
+"Any AD",14,0.253199022491114,4,45,0.918367346938776
+"No treatment",12,0.138762933023137,4,46,0.938775510204082
+"SSRIs",20,0.229414245995879,3,47,0.959183673469388
+"Counselling individual + AD",3,0.0450958267922554,2,48,0.979591836734694
+"Waitlist",9,0.078662479810439,2,48,0.979591836734694
+"Acupuncture + AD",1,0,1,49,1
+"Cognitive and cognitive behavioural therapies group + AD",1,0,1,49,1
+"Counselling individual + placebo",1,0,1,49,1
+"Exercise group + AD",1,0,1,49,1
+"Mindfulness or meditation group",1,0,1,49,1
+"Music therapy group",1,0,1,49,1
+"Problem solving group",1,0,1,49,1
+"Psychoeducation group",1,0,1,49,1
+"Yoga group + AD",1,0,1,49,1
