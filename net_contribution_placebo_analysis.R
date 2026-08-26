@@ -1,248 +1,302 @@
 # =============================================================================
-# Net Contribution Analysis: Non-Placebo vs Placebo Comparisons
+# Net Contribution Analysis: ALL Non-Placebo vs Placebo Comparisons
 # =============================================================================
-# This script analyses the net contribution data to summarise which direct
-# comparisons drive each non-placebo vs Placebo network estimate, and
-# produces one stacked bar plot per comparison.
+# Analyses the net contribution data for all 49 treatments vs Placebo.
+# For treatments with a direct network estimate (X:Placebo present in
+# net_contribution_long.csv), all contributing comparisons are used.
+# For indirect-only treatments, the pre-computed top-10 contributions from
+# indirect_only_contribmatrix_top10.csv are used.
 #
 # Input files (in the working directory):
 #   - net_contribution_long.csv
-#   - net_contribution_top10_by_estimate.csv
+#   - indirect_only_contribmatrix_top10.csv
+#   - bayes_relative_effects_vs_placebo_main_labeled.csv
 #
 # Output:
-#   - Console: detailed text summary for each comparison
-#   - PDF: one page per comparison showing the contribution breakdown
+#   - Console: detailed text summary for every comparison (top 5 shown)
+#   - PDF:     one stacked bar chart per comparison (top 5 individually)
 # =============================================================================
 
 library(dplyr)
-library(tidyr)
 library(ggplot2)
 library(stringr)
 library(scales)
 
 # ── 0. Configuration ──────────────────────────────────────────────────────────
 
-TOP_N          <- 10      # Number of top contributors to show individually
-OUTPUT_PDF     <- "net_contribution_placebo_plots.pdf"
-PLACEBO_LABEL  <- "Placebo"
+TOP_N         <- 5        # contributors to show individually in plots/summary
+OUTPUT_PDF    <- "net_contribution_placebo_plots.pdf"
+PLACEBO_LABEL <- "Placebo"
 
 # ── 1. Load data ──────────────────────────────────────────────────────────────
 
-nc_long <- read.csv("net_contribution_long.csv", stringsAsFactors = FALSE)
+nc_long   <- read.csv("net_contribution_long.csv",
+                      stringsAsFactors = FALSE)
+nc_ind    <- read.csv("indirect_only_contribmatrix_top10.csv",
+                      stringsAsFactors = FALSE)
+bayes_eff <- read.csv("bayes_relative_effects_vs_placebo_main_labeled.csv",
+                      sep = ";", stringsAsFactors = FALSE)
 
-# Verify expected columns
 stopifnot(all(c("direct_comparison", "network_estimate", "contribution") %in%
                 names(nc_long)))
+stopifnot(all(c("network_estimate", "direct_comparison_raw",
+                "contribution", "contribution_pct") %in% names(nc_ind)))
+stopifnot(all(c("class", "mean") %in% names(bayes_eff)))
 
-# ── 2. Filter: network estimates where exactly one side is "Placebo" ──────────
+# ── 2. Extract all treatments vs Placebo from the DIRECT estimates ────────────
+
+split_ne <- function(ne) {
+  # network_estimate is "TreatA:TreatB"; split on first colon only
+  list(
+    t1 = str_trim(sub(":.*", "", ne)),
+    t2 = str_trim(sub("^[^:]+:", "", ne))
+  )
+}
 
 nc_long <- nc_long %>%
   mutate(
     treat1 = str_trim(sub(":.*", "", network_estimate)),
-    treat2 = str_trim(sub(".*:", "", network_estimate))
+    treat2 = str_trim(sub("^[^:]+:", "", network_estimate))
   )
 
-placebo_estimates <- nc_long %>%
+direct_placebo <- nc_long %>%
   filter(treat1 == PLACEBO_LABEL | treat2 == PLACEBO_LABEL) %>%
-  # Standardise so Placebo is always treat2 (non-placebo : Placebo)
   mutate(
     non_placebo = if_else(treat1 == PLACEBO_LABEL, treat2, treat1),
-    network_estimate_std = paste0(non_placebo, " : ", PLACEBO_LABEL)
+    # flag whether this row IS the direct X:Placebo comparison
+    is_own_direct = (
+      direct_comparison == paste0(non_placebo, ":", PLACEBO_LABEL) |
+      direct_comparison == paste0(PLACEBO_LABEL, ":", non_placebo)
+    )
   )
 
-comparisons <- sort(unique(placebo_estimates$non_placebo))
+direct_treatments <- unique(direct_placebo$non_placebo)
 
-cat(sprintf("Found %d non-placebo vs Placebo network estimates.\n\n",
-            length(comparisons)))
+# ── 3. Extract indirect-only treatments from the pre-computed top-10 ──────────
 
-# ── 3. Helper: build contribution table for one estimate ───────────────────────
+nc_ind <- nc_ind %>%
+  mutate(
+    treat1 = str_trim(sub(":.*", "", network_estimate)),
+    treat2 = str_trim(sub("^[^:]+:", "", network_estimate))
+  )
 
-build_contrib_table <- function(non_placebo_name) {
-  df <- placebo_estimates %>%
-    filter(non_placebo == non_placebo_name) %>%
-    arrange(desc(contribution))
+indirect_placebo <- nc_ind %>%
+  filter(treat1 == PLACEBO_LABEL | treat2 == PLACEBO_LABEL) %>%
+  mutate(
+    non_placebo = if_else(treat1 == PLACEBO_LABEL, treat2, treat1),
+    direct_comparison = direct_comparison_raw,
+    is_own_direct = FALSE       # by definition all indirect
+  ) %>%
+  select(non_placebo, network_estimate, direct_comparison,
+         contribution, contribution_pct, is_own_direct)
 
-  total  <- sum(df$contribution)
-  df <- df %>%
-    mutate(
-      pct         = contribution / total * 100,
-      cum_pct     = cumsum(pct),
-      # Is this the "direct" comparison for the network estimate?
-      is_direct   = (direct_comparison == network_estimate |
-                     direct_comparison == paste0(non_placebo_name, ":", PLACEBO_LABEL) |
-                     direct_comparison == paste0(PLACEBO_LABEL, ":", non_placebo_name)),
-      rank_in_est = row_number()
+indirect_treatments <- unique(indirect_placebo$non_placebo)
+
+# ── 4. Build ordered list of all 49 treatments (by NMA effect size) ───────────
+
+treat_order <- bayes_eff %>%
+  arrange(desc(mean)) %>%
+  pull(class)
+
+all_treatments <- treat_order[treat_order %in%
+                               c(direct_treatments, indirect_treatments)]
+
+cat(sprintf(
+  "Treatments with direct X:Placebo evidence: %d\n",
+  length(direct_treatments)
+))
+cat(sprintf(
+  "Treatments with indirect-only evidence:    %d\n",
+  length(indirect_treatments)
+))
+cat(sprintf("Total comparisons to analyse:              %d\n\n",
+            length(all_treatments)))
+
+# ── 5. Helper: build contribution table for one treatment ─────────────────────
+
+build_contrib_table <- function(treat_name) {
+  is_indirect <- treat_name %in% indirect_treatments &&
+                 !(treat_name %in% direct_treatments)
+
+  if (!is_indirect) {
+    # Full rows available
+    df <- direct_placebo %>%
+      filter(non_placebo == treat_name) %>%
+      arrange(desc(contribution)) %>%
+      mutate(
+        total       = sum(contribution),
+        pct         = contribution / total * 100,
+        cum_pct     = cumsum(pct),
+        rank_in_est = row_number()
+      )
+    list(
+      df              = df,
+      total           = df$total[1],
+      evidence_type   = "direct + indirect",
+      top10_only      = FALSE
     )
-  list(df = df, total = total)
-}
-
-# ── 4. Text summary ───────────────────────────────────────────────────────────
-
-cat("=======================================================================\n")
-cat("DETAILED SUMMARY: Non-Placebo vs Placebo Net Contributions\n")
-cat("=======================================================================\n\n")
-
-for (comp in comparisons) {
-  res    <- build_contrib_table(comp)
-  df     <- res$df
-  total  <- res$total
-  n_rows <- nrow(df)
-
-  # Identify the direct-evidence row (if any)
-  direct_row <- df %>% filter(is_direct)
-  has_direct <- nrow(direct_row) > 0
-
-  cat(sprintf("-----------------------------------------------------------------------\n"))
-  cat(sprintf("Comparison: %s vs %s\n", comp, PLACEBO_LABEL))
-  cat(sprintf("  Total absolute net contribution: %.4f\n", total))
-  cat(sprintf("  Number of contributing direct comparisons: %d\n", n_rows))
-
-  if (has_direct) {
-    cat(sprintf("  Direct evidence (%s:%s): %.4f (%.1f%% of total)\n",
-                comp, PLACEBO_LABEL,
-                direct_row$contribution[1], direct_row$pct[1]))
   } else {
-    cat("  Direct evidence: NONE (estimate is entirely indirect)\n")
+    # Only top-10 rows available; pct is already computed
+    df <- indirect_placebo %>%
+      filter(non_placebo == treat_name) %>%
+      arrange(desc(contribution)) %>%
+      mutate(
+        pct         = contribution_pct,
+        rank_in_est = row_number()
+      )
+    list(
+      df              = df,
+      total           = NA_real_,   # total not available for indirect-only
+      evidence_type   = "indirect only",
+      top10_only      = TRUE
+    )
   }
-  cat("\n")
+}
 
-  cat(sprintf("  Top %d contributing direct comparisons:\n", min(TOP_N, n_rows)))
-  cat(sprintf("  %-55s %8s %7s\n", "Direct comparison", "Contrib.", "%"))
-  cat(sprintf("  %-55s %8s %7s\n", strrep("-", 55), strrep("-", 8), strrep("-", 7)))
+# ── 6. Text summary ───────────────────────────────────────────────────────────
 
-  top_df <- head(df, TOP_N)
-  for (i in seq_len(nrow(top_df))) {
-    flag <- if (top_df$is_direct[i]) " <-- direct" else ""
-    cat(sprintf("  %-55s %8.4f %6.1f%%%s\n",
-                top_df$direct_comparison[i],
-                top_df$contribution[i],
-                top_df$pct[i],
-                flag))
+cat(strrep("=", 72), "\n")
+cat("SUMMARY: Top 5 contributors to each non-Placebo vs Placebo estimate\n")
+cat("(ordered by NMA posterior mean effect size, largest first)\n")
+cat(strrep("=", 72), "\n\n")
+
+for (treat in all_treatments) {
+  res   <- build_contrib_table(treat)
+  df    <- res$df
+  nma_mean <- bayes_eff$mean[bayes_eff$class == treat]
+
+  cat(strrep("-", 72), "\n")
+  cat(sprintf("%-52s NMA mean = %.3f\n", paste0(treat, " vs Placebo"),
+              nma_mean))
+  cat(sprintf("Evidence type: %s\n", res$evidence_type))
+
+  if (!res$top10_only) {
+    cat(sprintf("Total abs. net contribution: %.4f\n", res$total))
+    has_direct <- any(df$is_own_direct)
+    cat(sprintf("Own direct trial evidence:   %s\n",
+                if (has_direct) {
+                  direct_pct <- df$pct[df$is_own_direct][1]
+                  sprintf("YES (%.1f%% of total)", direct_pct)
+                } else "NO"))
+  } else {
+    cat(sprintf("(Only top-10 pre-computed; top 10 cover %.1f%% of total)\n",
+                sum(df$pct)))
   }
 
-  # Cumulative coverage of top N
-  cum_top <- sum(top_df$pct)
-  cat(sprintf("\n  Top %d comparisons account for %.1f%% of total contribution.\n",
-              min(TOP_N, n_rows), cum_top))
-
-  # How many comparisons needed to reach 80 % / 90 %?
-  for (threshold in c(80, 90)) {
-    n_needed <- which(df$cum_pct >= threshold)[1]
-    cat(sprintf("  %d%% of contribution reached after %d comparisons.\n",
-                threshold, n_needed))
+  cat(sprintf("\nTop %d contributing direct comparisons:\n", min(TOP_N, nrow(df))))
+  cat(sprintf("  %-55s %6s\n", "Direct comparison", "%"))
+  cat(sprintf("  %-55s %6s\n", strrep("-", 55), strrep("-", 6)))
+  for (i in seq_len(min(TOP_N, nrow(df)))) {
+    flag <- if (df$is_own_direct[i]) " <-- DIRECT" else ""
+    cat(sprintf("  %-55s %5.1f%%%s\n",
+                df$direct_comparison[i], df$pct[i], flag))
   }
   cat("\n")
 }
 
-# ── 5. Plots ──────────────────────────────────────────────────────────────────
+# ── 7. Plots ──────────────────────────────────────────────────────────────────
 
-# Colour palette: direct comparison gets a distinct colour, others use
-# a qualitative palette, "Other" is always grey.
+make_plot_data <- function(treat_name) {
+  res <- build_contrib_table(treat_name)
+  df  <- res$df
 
-make_plot_data <- function(non_placebo_name) {
-  res   <- build_contrib_table(non_placebo_name)
-  df    <- res$df
-  total <- res$total
-
-  # Assign group labels: top-N shown individually, rest → "Other"
+  # Assign labels: top-N individually, rest → "Other (remaining)"
+  other_label <- "Other (remaining)"
   df <- df %>%
     mutate(
-      group = if_else(rank_in_est <= TOP_N,
-                      direct_comparison,
-                      "Other")
+      group = if_else(rank_in_est <= TOP_N, direct_comparison, other_label)
     )
 
   grouped <- df %>%
     group_by(group) %>%
     summarise(
-      pct       = sum(pct),
-      is_direct = any(is_direct),
-      min_rank  = min(rank_in_est),
-      .groups   = "drop"
+      pct         = sum(pct),
+      is_own_direct = any(is_own_direct),
+      min_rank    = min(rank_in_est),
+      .groups     = "drop"
     ) %>%
-    arrange(min_rank) %>%
-    # Put "Other" at the end
-    mutate(order = if_else(group == "Other", Inf, as.numeric(min_rank))) %>%
-    arrange(order)
+    mutate(order = if_else(group == other_label, Inf, as.numeric(min_rank))) %>%
+    arrange(order) %>%
+    mutate(group_label = str_wrap(group, width = 38))
 
-  # Wrap long labels
-  grouped <- grouped %>%
-    mutate(group_label = str_wrap(group, width = 40))
-
-  # Factor levels: top-N in descending contribution, Other last
+  # Preserve display order (largest first, Other last)
   grouped$group_label <- factor(grouped$group_label,
                                 levels = rev(grouped$group_label))
-
-  list(data = grouped, total = total)
+  list(data = grouped, evidence_type = res$evidence_type,
+       top10_only = res$top10_only, total = res$total)
 }
 
-# Build a colour palette for up to TOP_N + 1 groups
-# Direct comparison: dark red; top-N: viridis-like; Other: light grey
 make_colours <- function(grouped_df) {
   n      <- nrow(grouped_df)
   labels <- as.character(levels(grouped_df$group_label))
-
-  # Base palette (excluding Other and direct)
   base_pal <- hcl.colors(max(n, 3), palette = "Dark 2")
-
   cols <- setNames(base_pal[seq_len(n)], labels)
 
-  # Override "Other"
-  other_label <- as.character(grouped_df$group_label[grouped_df$group == "Other"])
-  if (length(other_label) > 0)
-    cols[other_label] <- "grey80"
+  # Other → grey
+  other_lbl <- as.character(
+    grouped_df$group_label[grouped_df$group == "Other (remaining)"])
+  if (length(other_lbl) > 0) cols[other_lbl] <- "grey80"
 
-  # Override direct comparison
-  direct_label <- as.character(
-    grouped_df$group_label[grouped_df$is_direct & grouped_df$group != "Other"])
-  if (length(direct_label) > 0)
-    cols[direct_label] <- "#c0392b"   # strong red
+  # Own direct → red
+  direct_lbl <- as.character(
+    grouped_df$group_label[grouped_df$is_own_direct &
+                             grouped_df$group != "Other (remaining)"])
+  if (length(direct_lbl) > 0) cols[direct_lbl] <- "#c0392b"
 
   cols
 }
 
 cat("Generating plots …\n")
 
-pdf(OUTPUT_PDF, width = 11, height = 7)
+pdf(OUTPUT_PDF, width = 12, height = 7)
 
-for (comp in comparisons) {
-  pd  <- make_plot_data(comp)
+for (treat in all_treatments) {
+  nma_mean <- bayes_eff$mean[bayes_eff$class == treat]
+  pd  <- make_plot_data(treat)
   gdf <- pd$data
-
   colours <- make_colours(gdf)
 
-  # One horizontal stacked bar (proportion)
+  total_lbl <- if (!pd$top10_only) {
+    sprintf("Total abs. contribution = %.4f", pd$total)
+  } else {
+    sprintf("Top-10 shown (cover %.1f%% of total)", sum(gdf$pct[gdf$group != "Other (remaining)"]))
+  }
+
+  subtitle_txt <- sprintf(
+    "Evidence type: %s  |  NMA posterior mean = %.3f  |  %s\n%s",
+    pd$evidence_type, nma_mean, total_lbl,
+    "Direct trial evidence highlighted in red (if present)."
+  )
+
   p <- ggplot(gdf, aes(x = 1, y = pct, fill = group_label)) +
-    geom_col(width = 0.6, colour = "white", linewidth = 0.3) +
+    geom_col(width = 0.55, colour = "white", linewidth = 0.25) +
     geom_text(
-      aes(label = if_else(pct >= 1.5,
-                          paste0(round(pct, 1), "%"),
-                          "")),
+      aes(label = if_else(pct >= 2,
+                          paste0(round(pct, 1), "%"), "")),
       position = position_stack(vjust = 0.5),
-      size = 3.2, colour = "white", fontface = "bold"
+      size = 3, colour = "white", fontface = "bold"
     ) +
     coord_flip() +
-    scale_fill_manual(values = colours, name = "Contributing\ndirect comparison") +
+    scale_fill_manual(values = colours,
+                      name = "Contributing\ndirect comparison") +
     scale_y_continuous(labels = percent_format(scale = 1),
                        expand = expansion(mult = c(0, 0.01))) +
     labs(
-      title    = sprintf("Net contribution to: %s vs %s", comp, PLACEBO_LABEL),
-      subtitle = sprintf(
-        "Top %d direct comparisons shown individually (direct evidence in red, if present).\nTotal absolute contribution = %.4f",
-        TOP_N, pd$total),
+      title    = sprintf("%s vs %s", treat, PLACEBO_LABEL),
+      subtitle = subtitle_txt,
       x = NULL,
       y = "% of total net contribution"
     ) +
     theme_minimal(base_size = 11) +
     theme(
-      axis.text.y      = element_blank(),
-      axis.ticks.y     = element_blank(),
+      axis.text.y        = element_blank(),
+      axis.ticks.y       = element_blank(),
       panel.grid.major.y = element_blank(),
-      legend.position  = "right",
-      legend.text      = element_text(size = 7),
-      legend.key.size  = unit(0.45, "cm"),
-      plot.title       = element_text(face = "bold", size = 13),
-      plot.subtitle    = element_text(size = 9, colour = "grey40")
+      legend.position    = "right",
+      legend.text        = element_text(size = 7),
+      legend.key.size    = unit(0.4, "cm"),
+      plot.title         = element_text(face = "bold", size = 13),
+      plot.subtitle      = element_text(size = 8.5, colour = "grey35")
     ) +
     guides(fill = guide_legend(reverse = TRUE, ncol = 1))
 
@@ -251,4 +305,5 @@ for (comp in comparisons) {
 
 dev.off()
 
-cat(sprintf("\nDone. Plots written to '%s'.\n", OUTPUT_PDF))
+cat(sprintf("\nDone. %d plots written to '%s'.\n",
+            length(all_treatments), OUTPUT_PDF))
