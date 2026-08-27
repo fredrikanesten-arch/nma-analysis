@@ -271,7 +271,11 @@ fit_nmr <- function(net, regression_formula = NULL, label = "model") {
     error = function(e) NULL
   )
 
-  dic_val <- tryCatch(dic(fit), error = function(e) NA_real_)
+  dic_val <- tryCatch({
+    d <- dic(fit)
+    # multinma returns an nma_dic object; extract scalar total DIC
+    if (is.numeric(d)) d[[1]] else if (!is.null(d$dic)) d$dic else as.numeric(d)[[1]]
+  }, error = function(e) NA_real_)
 
   list(fit = fit, rel_eff = rel_eff, dic = dic_val, label = label)
 }
@@ -377,8 +381,8 @@ for (vname in names(all_results)) {
 
   # DIC comparison
   dic_tbl <- tibble::tibble(
-    model     = sapply(v_results, function(r) if (!is.null(r)) r$label else NA_character_),
-    DIC       = sapply(v_results, function(r) if (!is.null(r)) r$dic   else NA_real_)
+    model     = vapply(v_results, function(r) if (!is.null(r)) r$label else NA_character_, character(1)),
+    DIC       = vapply(v_results, function(r) if (!is.null(r)) as.numeric(r$dic)[[1]] else NA_real_, numeric(1))
   ) %>%
     filter(!is.na(DIC)) %>%
     mutate(delta_DIC = DIC - min(DIC, na.rm = TRUE)) %>%
