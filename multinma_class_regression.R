@@ -229,13 +229,12 @@ prepare_net <- function(dat_v, variant_label) {
                   n_distinct(dat_class$studyid), nrow(dat_class)))
 
   set_agd_arm(
-    data      = dat_class,
-    study     = studyid,
-    trt       = class,
-    trt_class = class,   # trt and class are identical here (already collapsed to class level)
-    y         = mean_change,
-    se        = sd_change / sqrt(n),
-    trt_ref   = REF_CLASS
+    data    = dat_class,
+    study   = studyid,
+    trt     = class,
+    y       = mean_change,
+    se      = sd_change / sqrt(n),
+    trt_ref = REF_CLASS
   )
 }
 
@@ -248,21 +247,18 @@ fit_nmr <- function(net, regression_formula = NULL, label = "model") {
   fit <- tryCatch(
     nma(
       net,
-      trt_effects        = "random",
-      regression         = regression_formula,
-      # class_interactions = "common": each class gets its own regression slope
-      # (independent slopes per class, which is correct here since trt = class)
-      class_interactions = "common",
-      prior_trt          = normal(scale = 10),
-      prior_het          = half_normal(scale = 0.5),
-      prior_reg          = normal(scale = 1),
-      chains             = CHAINS,
-      iter               = ITER,
-      seed               = SEED,
-      show_messages      = FALSE
+      trt_effects   = "random",
+      regression    = regression_formula,
+      prior_trt     = normal(scale = 10),
+      prior_het     = half_normal(scale = 0.5),
+      prior_reg     = normal(scale = 1),
+      chains        = CHAINS,
+      iter          = ITER,
+      seed          = SEED,
+      show_messages = FALSE
     ),
     error = function(e) {
-      message(sprintf("    [ERROR %s] %s", label, e$message))
+      message(sprintf("    [ERROR %s] %s", label, conditionMessage(e)))
       NULL
     }
   )
@@ -334,7 +330,7 @@ for (vname in names(variants)) {
 
   net_v <- tryCatch(
     prepare_net(variants[[vname]], vname),
-    error = function(e) { message("  [ERROR] ", e$message); NULL }
+    error = function(e) { message("  [ERROR] ", conditionMessage(e)); NULL }
   )
   if (is.null(net_v)) next
 
