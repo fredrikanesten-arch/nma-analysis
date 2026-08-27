@@ -641,3 +641,80 @@ message(sprintf("Arms by data_type (CFB / BF / BIN): %s / %s / %s",
                 sum(nmr_out$data_type == "BIN")))
 message(sprintf("Unmapped treatment codes: %d",
                 sum(is.na(nmr_out$classcode))))
+
+# ------------------------------------------------------------------
+# 13.  Merge sanity checks
+# ------------------------------------------------------------------
+message("\n--- Merge sanity checks ---")
+
+# (a) No duplicate study × arm combinations
+dup_arms <- nmr_out %>%
+  dplyr::count(studyid, arm) %>%
+  dplyr::filter(n > 1)
+if (nrow(dup_arms) == 0) {
+  message("  [OK] No duplicate study × arm combinations")
+} else {
+  message(sprintf("  [WARN] %d duplicate study × arm combinations:", nrow(dup_arms)))
+  print(dup_arms)
+}
+
+# (b) Plausible covariate ranges
+age_range <- range(nmr_studylevel$mean_age, na.rm = TRUE)
+sex_range <- range(nmr_studylevel$pct_female, na.rm = TRUE)
+dur_range <- range(nmr_studylevel$duration_weeks, na.rm = TRUE)
+message(sprintf("  mean_age range    : %.1f – %.1f  (expect ~20–80)", age_range[1], age_range[2]))
+message(sprintf("  pct_female range  : %.1f – %.1f  (expect 0–100)",  sex_range[1], sex_range[2]))
+message(sprintf("  duration_weeks    : %.1f – %.1f  (expect 1–104)",   dur_range[1], dur_range[2]))
+if (age_range[1] < 10 | age_range[2] > 100)
+  message("  [WARN] mean_age outside expected range – check mmc3 parsing")
+if (sex_range[1] < 0 | sex_range[2] > 100)
+  message("  [WARN] pct_female outside 0–100 – check mmc3 parsing")
+
+# (c) Spot-check specific well-known studies (present in both files)
+spot_ids <- c("Blumenthal 2007/Hoffman 2011", "Elkin 1989/Imber 1990", "Kasper 2005a")
+message("\n  Spot-check studies (studyid | country | duration | age | pct_female):")
+spot <- nmr_studylevel %>%
+  dplyr::filter(studyid %in% spot_ids) %>%
+  dplyr::select(studyid, country, duration_weeks, mean_age, pct_female)
+if (nrow(spot) > 0) {
+  for (i in seq_len(nrow(spot))) {
+    message(sprintf("    %-40s | %-8s | %5.1f wk | age %4.1f | sex %4.1f%%",
+                    spot$studyid[i],
+                    ifelse(is.na(spot$country[i]), "NA", spot$country[i]),
+                    ifelse(is.na(spot$duration_weeks[i]), NA_real_, spot$duration_weeks[i]),
+                    ifelse(is.na(spot$mean_age[i]),     NA_real_, spot$mean_age[i]),
+                    ifelse(is.na(spot$pct_female[i]),   NA_real_, spot$pct_female[i])))
+  }
+} else {
+  message("    (none of the spot-check studies found in merged data)")
+}
+
+# (d) Class and treatment code consistency
+class_check <- nmr_out %>%
+  dplyr::distinct(treatment, classcode, class) %>%
+  dplyr::group_by(treatment) %>%
+  dplyr::filter(n_distinct(classcode) > 1 | n_distinct(class) > 1) %>%
+  dplyr::ungroup()
+if (nrow(class_check) == 0) {
+  message("\n  [OK] All treatment codes map to a single class")
+} else {
+  message(sprintf("\n  [WARN] %d treatment codes with inconsistent class mapping:", nrow(class_check)))
+  print(class_check)
+}
+
+# (e) SMD plausibility: flag extreme values
+extreme_smd <- nmr_out %>%
+  # Approximate SMD as mean_change / sd_change (within-arm; used only as sanity signal)
+  dplyr::mutate(approx_smd = abs(mean_change / sd_change)) %>%
+  dplyr::filter(approx_smd > 5)
+if (nrow(extreme_smd) == 0) {
+  message("  [OK] No arms with |mean_change / sd_change| > 5")
+} else {
+  message(sprintf("  [WARN] %d arms with |mean_change/sd_change| > 5 (possible scaling issue):",
+                  nrow(extreme_smd)))
+  print(extreme_smd %>% dplyr::select(studyid, arm, treatment, data_type,
+                                       mean_change, sd_change, approx_smd))
+}
+
+message("\nSanity checks complete.")
+
