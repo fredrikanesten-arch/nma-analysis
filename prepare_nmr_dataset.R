@@ -225,28 +225,31 @@ pivot_to_arms <- function(wide_df, id_col, n_arms_col,
 
 # ------------------------------------------------------------------
 # 3.  Read Block 1 – Change-from-baseline (CFB)
-#     Excel rows 3–152 (skip 1 title row + read 1 header row = skip=1)
-#     n_max = 150 data rows
+#     Excel rows 3–152: skip 2 rows (title + header), read 150 data rows.
+#     Use col_names = FALSE to avoid NA/empty names from blank header cells.
 # ------------------------------------------------------------------
 message("Reading Block 1: CFB format ...")
+
+# Build a full 50-column name vector; unused slots get a generic name
+b1_colnames <- c(
+  "na_arms",
+  paste0("t",     1:5),   # cols 2–6
+  paste0("yCFB",  1:5),   # cols 7–11
+  paste0("sdCFB", 1:5),   # cols 12–16
+  paste0("nCFB",  1:5),   # cols 17–21
+  "hash_col",              # col 22  (#)
+  "studyid",               # col 23
+  paste0("spare_", 24:50) # cols 24–50  (lookup table + blank cells)
+)
 
 b1_raw <- read_excel(
   ms_file,
   sheet     = "MS SMD base-case",
-  skip      = 1,          # skip "DATA" title row; next row is col headers
+  skip      = 2,           # skip title row AND header row
   n_max     = 150,
-  col_names = TRUE,
+  col_names = b1_colnames,
   .name_repair = "minimal"
 )
-
-# Rename columns to predictable names
-# Layout: na[] | t[,1:5] | yCFB[,1:5] | sdCFB[,1:5] | nCFB[,1:5] | # | studyid
-names(b1_raw)[1]       <- "na_arms"
-names(b1_raw)[2:6]     <- paste0("t",   1:5)
-names(b1_raw)[7:11]    <- paste0("yCFB",1:5)
-names(b1_raw)[12:16]   <- paste0("sdCFB",1:5)
-names(b1_raw)[17:21]   <- paste0("nCFB",1:5)
-names(b1_raw)[23]      <- "studyid"   # col 22 (0-indexed) = col 23 (1-indexed)
 
 b1_raw <- b1_raw %>%
   dplyr::filter(
@@ -274,28 +277,32 @@ message(sprintf("  Block 1: %d studies, %d arms", n_distinct(b1_long$studyid), n
 
 # ------------------------------------------------------------------
 # 4.  Read Block 2 – Baseline + Follow-up (B+F)
-#     Excel rows 154–328 (skip 152 rows, then 1 header row, n_max=175)
+#     Excel rows 154–328: skip 153 rows, read 175 data rows.
 # ------------------------------------------------------------------
 message("Reading Block 2: Baseline+Follow-up format ...")
+
+# Layout: na[] | t[1:5] | yB[1:5] | sdB[1:5] | yF[1:5] | sdF[1:5] | n[1:5] | # | studyid
+b2_colnames <- c(
+  "na_arms",
+  paste0("t",   1:5),   # cols 2–6
+  paste0("yB",  1:5),   # cols 7–11
+  paste0("sdB", 1:5),   # cols 12–16
+  paste0("yF",  1:5),   # cols 17–21
+  paste0("sdF", 1:5),   # cols 22–26
+  paste0("n",   1:5),   # cols 27–31
+  "hash_col",           # col 32
+  "studyid",            # col 33
+  paste0("spare_", 34:60)
+)
 
 b2_raw <- read_excel(
   ms_file,
   sheet     = "MS SMD base-case",
-  skip      = 152,        # skip title + Block1 header + Block1 data (152 rows)
+  skip      = 153,        # title + B1 header + B1 data (150) + B2 header = 153
   n_max     = 175,
-  col_names = TRUE,
+  col_names = b2_colnames,
   .name_repair = "minimal"
 )
-
-# Layout: na[] | t[1:5] | yB[1:5] | sdB[1:5] | yF[1:5] | sdF[1:5] | n[1:5] | # | studyid
-names(b2_raw)[1]       <- "na_arms"
-names(b2_raw)[2:6]     <- paste0("t",   1:5)
-names(b2_raw)[7:11]    <- paste0("yB",  1:5)
-names(b2_raw)[12:16]   <- paste0("sdB", 1:5)
-names(b2_raw)[17:21]   <- paste0("yF",  1:5)
-names(b2_raw)[22:26]   <- paste0("sdF", 1:5)
-names(b2_raw)[27:31]   <- paste0("n",   1:5)
-names(b2_raw)[33]      <- "studyid"   # col 33 (1-indexed)
 
 b2_raw <- b2_raw %>%
   dplyr::filter(
@@ -330,28 +337,32 @@ message(sprintf("  Block 2: %d studies, %d arms", n_distinct(b2_long$studyid), n
 
 # ------------------------------------------------------------------
 # 5.  Read Block 3 – Binary response + Baseline (BIN)
-#     Excel rows 331–364 (skip 329 rows, then 1 header, n_max=34)
+#     Excel rows 331–364: skip 330 rows, read 34 data rows.
 # ------------------------------------------------------------------
 message("Reading Block 3: Binary response format ...")
+
+# Layout: na[] | t[1:5] | r[1:5] | n[1:5] | yBR[1:5] | sdBR[1:5] | q | # | studyid
+b3_colnames <- c(
+  "na_arms",
+  paste0("t",    1:5),   # cols 2–6
+  paste0("r",    1:5),   # cols 7–11  (responders)
+  paste0("n",    1:5),   # cols 12–16 (total)
+  paste0("yBR",  1:5),   # cols 17–21 (baseline mean)
+  paste0("sdBR", 1:5),   # cols 22–26 (baseline SD)
+  "q_thresh",            # col 27
+  "hash_col",            # col 28
+  "studyid",             # col 29
+  paste0("spare_", 30:50)
+)
 
 b3_raw <- read_excel(
   ms_file,
   sheet     = "MS SMD base-case",
-  skip      = 329,
+  skip      = 330,        # title + B1 h + B1 data(150) + B2 h + B2 data(175) + B3 h = 330
   n_max     = 34,
-  col_names = TRUE,
+  col_names = b3_colnames,
   .name_repair = "minimal"
 )
-
-# Layout: na[] | t[1:5] | r[1:5] | n[1:5] | yBR[1:5] | sdBR[1:5] | q | # | studyid
-names(b3_raw)[1]       <- "na_arms"
-names(b3_raw)[2:6]     <- paste0("t",    1:5)
-names(b3_raw)[7:11]    <- paste0("r",    1:5)   # responders
-names(b3_raw)[12:16]   <- paste0("n",    1:5)   # total
-names(b3_raw)[17:21]   <- paste0("yBR",  1:5)   # baseline mean
-names(b3_raw)[22:26]   <- paste0("sdBR", 1:5)   # baseline SD
-names(b3_raw)[27]      <- "q_thresh"             # response threshold (proportion)
-names(b3_raw)[29]      <- "studyid"
 
 b3_raw <- b3_raw %>%
   dplyr::filter(
