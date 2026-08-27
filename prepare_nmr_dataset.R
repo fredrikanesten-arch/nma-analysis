@@ -292,7 +292,7 @@ b2_colnames <- c(
   paste0("n",   1:5),   # cols 27–31
   "hash_col",           # col 32
   "studyid",            # col 33
-  paste0("spare_", 34:60)
+  paste0("spare_", 34:50)   # cols 34–50  (50 total to match sheet width)
 )
 
 b2_raw <- read_excel(
@@ -352,7 +352,7 @@ b3_colnames <- c(
   "q_thresh",            # col 27
   "hash_col",            # col 28
   "studyid",             # col 29
-  paste0("spare_", 30:50)
+  paste0("spare_", 30:50)   # cols 30–50  (50 total to match sheet width)
 )
 
 b3_raw <- read_excel(
