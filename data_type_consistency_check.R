@@ -127,6 +127,30 @@ run_nma <- function(dat_subset, label = "") {
   )
   if (is.null(pw)) return(NULL)
 
+  # Check connectivity; restrict to largest component containing REF_CLASS
+  nc <- tryCatch(netconnection(pw), error = function(e) NULL)
+  if (!is.null(nc) && nc$n.subnets > 1) {
+    message(sprintf(
+      "  [INFO %s] Network has %d sub-networks; restricting to component containing '%s'.",
+      label, nc$n.subnets, REF_CLASS
+    ))
+    # Find studies in the component that contains REF_CLASS
+    # netconnection stores study-to-subnet assignment in nc$subnet
+    ref_subnet <- nc$subnet[nc$treat1 == REF_CLASS | nc$treat2 == REF_CLASS]
+    ref_subnet <- unique(ref_subnet)
+    if (length(ref_subnet) == 0) {
+      message(sprintf("  [SKIP %s] Could not locate '%s' in any sub-network.", label, REF_CLASS))
+      return(NULL)
+    }
+    ref_subnet <- ref_subnet[1]
+    keep_studies <- unique(nc$studlab[nc$subnet == ref_subnet])
+    pw <- pw[pw$studlab %in% keep_studies, ]
+    if (nrow(pw) == 0) {
+      message(sprintf("  [SKIP %s] No rows left after filtering to connected component.", label))
+      return(NULL)
+    }
+  }
+
   nma_fit <- tryCatch(
     netmeta(
       TE      = pw$TE,
@@ -242,7 +266,8 @@ if (nrow(nma_compare) > 0) {
     ggplot(aes(x = smd, y = class, colour = data_subset,
                xmin = lower, xmax = upper)) +
     geom_vline(xintercept = 0, linetype = "dashed", colour = "grey40") +
-    geom_errorbarh(height = 0.3, position = position_dodge(0.6)) +
+    geom_errorbar(aes(xmin = lower, xmax = upper),
+                  width = 0.3, position = position_dodge(0.6), orientation = "y") +
     geom_point(size = 2, position = position_dodge(0.6)) +
     scale_colour_manual(
       values = c(CFB_only = "#1a9641", CFB_plus_BF = "#fdae61", ALL = "#d7191c"),
@@ -299,18 +324,22 @@ pw_full <- tryCatch(
 )
 
 if (!is.null(pw_full)) {
-  # Attach data_type to pairwise contrasts (from study-level flag)
-  # Each study belongs to exactly one block, so data_type is study-level
+  # Attach data_type to pairwise contrasts (from study-level flag).
+  # pairwise() drops extra columns, so we join back from the original data.
+  # Each study belongs to exactly one block, so data_type is study-level.
   study_type <- dat %>%
     distinct(studyid, data_type) %>%
-    # If a study appears in multiple types (shouldn't happen), take first
-    group_by(studyid) %>% slice(1) %>% ungroup()
+    group_by(studyid) %>% slice(1) %>% ungroup() %>%
+    rename(study_data_type = data_type)   # avoid name collision with any pw_full column
 
   pw_full <- pw_full %>%
     left_join(study_type, by = c("studlab" = "studyid")) %>%
     mutate(
-      type_BF  = as.integer(data_type == "BF"),
-      type_BIN = as.integer(data_type == "BIN")
+      type_BF  = as.integer(study_data_type == "BF"),
+      type_BIN = as.integer(study_data_type == "BIN"),
+      # Replace NA (studies not matched) with 0 = CFB reference
+      type_BF  = ifelse(is.na(type_BF),  0L, type_BF),
+      type_BIN = ifelse(is.na(type_BIN), 0L, type_BIN)
     )
 
   # Fit metareg (uses metafor internally via netmeta's metareg wrapper,
