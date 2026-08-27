@@ -11,30 +11,53 @@
 # class-level random effects and optional study-level
 # covariates as effect modifiers on the treatment contrasts.
 #
-# MODELS FIT
-# ----------
+# DATASET VARIANTS (informed by data_type_consistency_check.R)
+# ------------------------------------------------------------
+# The BF (Baseline+Followup) block contains ~24 studies with
+# extreme within-arm SMDs caused by yB << yF (i.e. the follow-up
+# score is much larger than baseline, suggesting scale-switching
+# or data-entry issues in those specific studies).  The BIN
+# (Binary) block has a median SMD ~2× more negative than CFB,
+# reflecting strong assumptions in the Furukawa conversion.
+#
+# We run NMR on three variants:
+#
+#   VARIANT A – ALL data (CFB + BF + BIN, no filtering)
+#               Primary pre-specified analysis; most powered.
+#
+#   VARIANT B – BF-winsorised
+#               Within each BF study-arm, approx_smd (= mean_change
+#               / sd_change) is capped at WINSОR_LO / WINSОR_HI
+#               quantiles of the CFB distribution.  mean_change is
+#               rescaled accordingly; sd_change is unchanged.
+#               Advantage: retains all 172 BF studies in the
+#               network while damping outlier influence.
+#               Disadvantage: arbitrary threshold; alters raw data.
+#
+#   VARIANT C – CFB + BF only (no BIN)
+#               Excludes 34 BIN studies whose median SMD is
+#               systematically 2× that of CFB.  Cleaner
+#               methodologically if the Furukawa assumptions are
+#               suspect.  Disadvantage: smaller, potentially
+#               less-connected network.
+#
+# MODELS FIT (per variant)
+# ------------------------
 #  M0 : Base-case NMA (no covariates)
-#  M1 : + duration_weeks  (trial length as effect modifier)
-#  M2 : + mean_age        (patient age)
-#  M3 : + pct_female      (sex distribution, % female)
-#  M4 : + all three simultaneously
-#  (Optionally) M5 : + baseline_mean  (baseline severity)
-#  (Optionally) M6 : + rob_high_any   (overall ROB flag)
+#  M1 : + dur_c        (trial duration, centred)
+#  M2 : + age_c        (mean age, centred)
+#  M3 : + sex_c        (% female, centred)
+#  M4 : + dur_c + age_c + sex_c  (main NMR model)
+#  M5 : + base_c       (baseline severity, centred)
+#  M6 : + rob_flag     (overall ROB flag, binary)
 #
-# NOTE: covariates in multinma NMR are study-level (centred
-# across all studies) and modify treatment contrasts relative
-# to the reference class (Placebo).
-#
-# OUTPUTS (all written to out_dir)
-# ---------------------------------
-#  nma_base_case_summary.csv
-#  nmr_duration_summary.csv
-#  nmr_age_summary.csv
-#  nmr_sex_summary.csv
-#  nmr_all3_summary.csv
-#  model_comparison_dic.csv
-#  covariate_effects_all_models.csv
-#  multinma_class_objects.rds   (fitted model objects)
+# OUTPUTS (all in out_dir / variant subfolder)
+# ---------------------------------------------
+#  bf_outlier_diagnostic.csv
+#  nmr_<label>_rel_eff.csv          (per model)
+#  nmr_covariate_effects_<variant>.csv
+#  nmr_model_comparison_dic_<variant>.csv
+#  multinma_fitted_<variant>.rds
 # ============================================================
 
 library(dplyr)
@@ -43,7 +66,7 @@ library(tidyr)
 library(multinma)   # install via: devtools::install_github("dmphillippo/multinma")
 
 # ------------------------------------------------------------------
-# 0.  Paths
+# 0.  Paths and settings
 # ------------------------------------------------------------------
 base_dir <- "C:/Users/fredr/OneDrive/Desktop/nma_project/mavranezouli/netmeta_class_ms"
 dat_file <- file.path(base_dir, "nmr_dataset_long.csv")
@@ -59,268 +82,346 @@ SEED    <- 20240101L
 # Reference class
 REF_CLASS <- "Placebo"
 
+# Winsorising thresholds for BF arms (applied to approx_smd = mean_change/sd_change)
+# Defined relative to the CFB arm distribution (2.5th and 97.5th percentiles).
+# Change WINSOR_QUANTILE to adjust strictness (e.g. 0.01 for 1st/99th).
+WINSOR_QUANTILE <- 0.025
+
 # ------------------------------------------------------------------
 # 1.  Load data
 # ------------------------------------------------------------------
 message("Loading data ...")
-dat <- read_csv(dat_file, show_col_types = FALSE)
-
-# Keep only arms that have a mapped class and non-missing outcome
-dat <- dat %>%
+dat <- read_csv(dat_file, show_col_types = FALSE) %>%
   filter(
-    !is.na(classcode),
-    !is.na(class),
-    !is.na(n),
-    !is.na(mean_change),
-    !is.na(sd_change),
-    n > 0,
-    sd_change > 0
+    !is.na(classcode), !is.na(class),
+    !is.na(n), !is.na(mean_change), !is.na(sd_change),
+    n > 0, sd_change > 0
   )
 
 message(sprintf("  Loaded: %d studies, %d arms", n_distinct(dat$studyid), nrow(dat)))
+message(sprintf("  Data types: %s",
+  paste(names(table(dat$data_type)),
+        as.integer(table(dat$data_type)), sep = "=", collapse = ", ")))
 
 # ------------------------------------------------------------------
-# 2.  Centre and scale covariates
-#     Centering is done at the study level (one value per study)
-#     using the grand mean across all included studies.
+# 2.  BF outlier diagnostic (informed by consistency check)
+#     approx_smd = mean_change / sd_change (within-arm signal-to-noise)
 # ------------------------------------------------------------------
-study_covs <- dat %>%
-  distinct(studyid, duration_weeks, mean_age, pct_female,
-           baseline_mean, rob_high_any) %>%
-  mutate(
-    # Centre around grand mean (missing → imputed with grand mean, i.e. 0 after centring)
-    dur_c    = duration_weeks - mean(duration_weeks, na.rm = TRUE),
-    age_c    = mean_age       - mean(mean_age,       na.rm = TRUE),
-    sex_c    = pct_female     - mean(pct_female,     na.rm = TRUE),
-    base_c   = baseline_mean  - mean(baseline_mean,  na.rm = TRUE),
-    # Replace NA with 0 (grand-mean imputation; keeps study in the analysis)
-    dur_c    = ifelse(is.na(dur_c),  0, dur_c),
-    age_c    = ifelse(is.na(age_c),  0, age_c),
-    sex_c    = ifelse(is.na(sex_c),  0, sex_c),
-    base_c   = ifelse(is.na(base_c), 0, base_c),
-    rob_flag = ifelse(is.na(rob_high_any), 0L, as.integer(rob_high_any))
-  ) %>%
-  select(studyid, dur_c, age_c, sex_c, base_c, rob_flag)
-
+cfb_smd_lo <- quantile(
+  (dat %>% filter(data_type == "CFB"))$mean_change /
+  (dat %>% filter(data_type == "CFB"))$sd_change,
+  WINSOR_QUANTILE, na.rm = TRUE
+)
+cfb_smd_hi <- quantile(
+  (dat %>% filter(data_type == "CFB"))$mean_change /
+  (dat %>% filter(data_type == "CFB"))$sd_change,
+  1 - WINSOR_QUANTILE, na.rm = TRUE
+)
 message(sprintf(
-  "  Covariate grand-mean centres: duration=%.1f wk, age=%.1f yr, pct_female=%.1f%%",
-  mean(dat$duration_weeks, na.rm = TRUE),
-  mean(dat$mean_age, na.rm = TRUE),
-  mean(dat$pct_female, na.rm = TRUE)
+  "  CFB approx-SMD %.1f%%/%.1f%% quantiles: [%.3f, %.3f]  (winsorising bounds for BF)",
+  WINSOR_QUANTILE * 100, (1 - WINSOR_QUANTILE) * 100,
+  cfb_smd_lo, cfb_smd_hi
 ))
 
-# Merge centred covariates back into arm-level data
-dat <- dat %>%
-  left_join(study_covs, by = "studyid")
+bf_outliers <- dat %>%
+  filter(data_type == "BF") %>%
+  mutate(approx_smd = mean_change / sd_change) %>%
+  filter(approx_smd < cfb_smd_lo | approx_smd > cfb_smd_hi) %>%
+  arrange(approx_smd) %>%
+  select(studyid, arm, treatment, class, data_type,
+         n, mean_change, sd_change, approx_smd)
+
+message(sprintf("  BF arms outside CFB bounds: %d / %d",
+                nrow(bf_outliers), sum(dat$data_type == "BF")))
+
+write_csv(bf_outliers, file.path(out_dir, "bf_outlier_diagnostic.csv"))
+message("  Saved: bf_outlier_diagnostic.csv")
 
 # ------------------------------------------------------------------
-# 3.  Collapse arms within study×class (same as netmeta_class_ms.R)
+# 3.  Build the three dataset variants
 # ------------------------------------------------------------------
-dat_class <- dat %>%
-  group_by(studyid, classcode, class,
-           dur_c, age_c, sex_c, base_c, rob_flag) %>%
-  summarise(
-    n           = sum(n),
-    mean_change = sum(mean_change * n) / sum(n),
-    sd_change   = sqrt(sum((n - 1) * sd_change^2) / sum(n - 1)),
-    .groups     = "drop"
+
+## VARIANT A – all data unchanged
+dat_A <- dat
+
+## VARIANT B – BF arms winsorised
+dat_B <- dat %>%
+  mutate(
+    approx_smd     = mean_change / sd_change,
+    approx_smd_win = pmin(pmax(approx_smd, cfb_smd_lo), cfb_smd_hi),
+    # Rescale mean_change to match winsorised approx_smd (sd_change unchanged)
+    mean_change    = ifelse(
+      data_type == "BF",
+      approx_smd_win * sd_change,
+      mean_change
+    )
   ) %>%
-  group_by(studyid) %>%
-  filter(n_distinct(class) >= 2) %>%
-  ungroup()
+  select(-approx_smd, -approx_smd_win)
 
-stopifnot(REF_CLASS %in% dat_class$class)
-message(sprintf("  After class collapse: %d studies, %d class-arms",
-                n_distinct(dat_class$studyid), nrow(dat_class)))
+n_winsorised <- sum(
+  dat %>% filter(data_type == "BF") %>%
+    mutate(a = mean_change / sd_change) %>%
+    pull(a) < cfb_smd_lo |
+  dat %>% filter(data_type == "BF") %>%
+    mutate(a = mean_change / sd_change) %>%
+    pull(a) > cfb_smd_hi,
+  na.rm = TRUE
+)
+message(sprintf("  Variant B: %d BF arms will have mean_change rescaled", n_winsorised))
 
-# ------------------------------------------------------------------
-# 4.  Build multinma network object
-#     multinma expects arm-based data with columns:
-#       studyid, treatment, y (mean), sd, n
-# ------------------------------------------------------------------
-net <- set_agd_arm(
-  data       = dat_class,
-  study      = studyid,
-  trt        = class,
-  y          = mean_change,
-  se         = sd_change / sqrt(n),
-  # Pass covariates as extra columns for use in regression models
-  trt_ref    = REF_CLASS
+## VARIANT C – exclude BIN studies
+dat_C <- dat %>% filter(data_type != "BIN")
+message(sprintf("  Variant C (no BIN): %d studies, %d arms",
+                n_distinct(dat_C$studyid), nrow(dat_C)))
+
+variants <- list(
+  A_all         = dat_A,
+  B_bf_winsor   = dat_B,
+  C_no_bin      = dat_C
 )
 
 # ------------------------------------------------------------------
-# 5.  Helper: fit a model, extract summary, compute DIC
+# 4.  Helper: prepare a dataset variant for multinma
+#     (centre covariates → collapse to class level → build network)
+# ------------------------------------------------------------------
+prepare_net <- function(dat_v, variant_label) {
+
+  # Centre covariates on the grand mean of THIS variant's studies
+  study_covs <- dat_v %>%
+    distinct(studyid, duration_weeks, mean_age, pct_female,
+             baseline_mean, rob_high_any) %>%
+    mutate(
+      dur_c  = duration_weeks - mean(duration_weeks, na.rm = TRUE),
+      age_c  = mean_age       - mean(mean_age,       na.rm = TRUE),
+      sex_c  = pct_female     - mean(pct_female,     na.rm = TRUE),
+      base_c = baseline_mean  - mean(baseline_mean,  na.rm = TRUE),
+      dur_c  = ifelse(is.na(dur_c),  0, dur_c),
+      age_c  = ifelse(is.na(age_c),  0, age_c),
+      sex_c  = ifelse(is.na(sex_c),  0, sex_c),
+      base_c = ifelse(is.na(base_c), 0, base_c),
+      rob_flag = ifelse(is.na(rob_high_any), 0L, as.integer(rob_high_any))
+    ) %>%
+    select(studyid, dur_c, age_c, sex_c, base_c, rob_flag)
+
+  dat_v <- dat_v %>% left_join(study_covs, by = "studyid")
+
+  # Collapse multiple arms per study×class
+  dat_class <- dat_v %>%
+    group_by(studyid, classcode, class,
+             dur_c, age_c, sex_c, base_c, rob_flag) %>%
+    summarise(
+      n           = sum(n),
+      mean_change = sum(mean_change * n) / sum(n),
+      sd_change   = sqrt(sum((n - 1) * sd_change^2) / sum(n - 1)),
+      .groups     = "drop"
+    ) %>%
+    group_by(studyid) %>%
+    filter(n_distinct(class) >= 2) %>%
+    ungroup()
+
+  if (!REF_CLASS %in% dat_class$class) {
+    stop(sprintf("[%s] Reference class '%s' not found after filtering.",
+                 variant_label, REF_CLASS))
+  }
+
+  message(sprintf("  [%s] %d studies, %d class-arms after collapse",
+                  variant_label,
+                  n_distinct(dat_class$studyid), nrow(dat_class)))
+
+  set_agd_arm(
+    data    = dat_class,
+    study   = studyid,
+    trt     = class,
+    y       = mean_change,
+    se      = sd_change / sqrt(n),
+    trt_ref = REF_CLASS
+  )
+}
+
+# ------------------------------------------------------------------
+# 5.  Helper: fit one NMR model
 # ------------------------------------------------------------------
 fit_nmr <- function(net, regression_formula = NULL, label = "model") {
-  message(sprintf("  Fitting %s ...", label))
+  message(sprintf("    Fitting %s ...", label))
 
-  fit <- nma(
-    net,
-    trt_effects  = "random",
-    regression   = regression_formula,
-    prior_trt    = normal(scale = 10),
-    prior_het    = half_normal(scale = 0.5),
-    prior_reg    = normal(scale = 1),   # vague prior on regression coefficients
-    chains       = CHAINS,
-    iter         = ITER,
-    seed         = SEED,
-    show_messages = FALSE
+  fit <- tryCatch(
+    nma(
+      net,
+      trt_effects   = "random",
+      regression    = regression_formula,
+      prior_trt     = normal(scale = 10),
+      prior_het     = half_normal(scale = 0.5),
+      prior_reg     = normal(scale = 1),
+      chains        = CHAINS,
+      iter          = ITER,
+      seed          = SEED,
+      show_messages = FALSE
+    ),
+    error = function(e) {
+      message(sprintf("    [ERROR %s] %s", label, e$message))
+      NULL
+    }
+  )
+  if (is.null(fit)) return(NULL)
+
+  rel_eff <- tryCatch(
+    relative_effects(fit, trt_ref = REF_CLASS) %>%
+      as.data.frame() %>%
+      mutate(model = label),
+    error = function(e) NULL
   )
 
-  # Summary of relative effects vs Placebo
-  rel_eff <- relative_effects(fit, trt_ref = REF_CLASS) %>%
-    as.data.frame() %>%
-    mutate(model = label)
-
-  # DIC
   dic_val <- tryCatch(dic(fit), error = function(e) NA_real_)
 
   list(fit = fit, rel_eff = rel_eff, dic = dic_val, label = label)
 }
 
 # ------------------------------------------------------------------
-# 6.  Run models
+# 6.  Helper: extract posterior regression coefficients
 # ------------------------------------------------------------------
-message("\nFitting models ...")
-
-results <- list()
-
-# M0 – base case
-results[["M0"]] <- fit_nmr(net, regression_formula = NULL, label = "M0_base")
-
-# M1 – duration
-results[["M1"]] <- fit_nmr(
-  net,
-  regression_formula = ~ dur_c,
-  label = "M1_duration"
-)
-
-# M2 – age
-results[["M2"]] <- fit_nmr(
-  net,
-  regression_formula = ~ age_c,
-  label = "M2_age"
-)
-
-# M3 – sex
-results[["M3"]] <- fit_nmr(
-  net,
-  regression_formula = ~ sex_c,
-  label = "M3_sex"
-)
-
-# M4 – all three simultaneously
-results[["M4"]] <- fit_nmr(
-  net,
-  regression_formula = ~ dur_c + age_c + sex_c,
-  label = "M4_duration_age_sex"
-)
-
-# M5 – baseline severity (optional; comment out if convergence issues)
-results[["M5"]] <- fit_nmr(
-  net,
-  regression_formula = ~ base_c,
-  label = "M5_baseline_severity"
-)
-
-# M6 – ROB flag (optional)
-results[["M6"]] <- fit_nmr(
-  net,
-  regression_formula = ~ rob_flag,
-  label = "M6_rob"
-)
-
-# ------------------------------------------------------------------
-# 7.  Extract and save covariate (regression) effects
-# ------------------------------------------------------------------
-message("\nExtracting covariate effects ...")
-
 extract_reg_coefs <- function(res) {
+  if (is.null(res)) return(NULL)
   fit   <- res$fit
   label <- res$label
-  coef_names <- names(fit$stanfit@sim$samples[[1]])
-  reg_pars  <- grep("^beta\\[", coef_names, value = TRUE)
+
+  # multinma stores regression params as "beta[covariate,treatment]"
+  all_pars <- tryCatch(
+    posterior::as_draws_df(fit),
+    error = function(e) NULL
+  )
+  if (is.null(all_pars)) return(NULL)
+
+  reg_pars <- grep("^beta\\[", names(all_pars), value = TRUE)
   if (length(reg_pars) == 0) return(NULL)
 
-  posterior::as_draws_df(fit$stanfit) %>%
-    select(dplyr::any_of(reg_pars)) %>%
+  all_pars %>%
+    dplyr::select(dplyr::any_of(reg_pars)) %>%
     tidyr::pivot_longer(everything(), names_to = "parameter") %>%
-    group_by(parameter) %>%
-    summarise(
-      mean   = mean(value),
-      sd     = sd(value),
-      q2.5   = quantile(value, 0.025),
-      q50    = quantile(value, 0.50),
-      q97.5  = quantile(value, 0.975),
-      rhat   = posterior::rhat(as.vector(value)),
+    dplyr::group_by(parameter) %>%
+    dplyr::summarise(
+      mean  = mean(value),
+      sd    = sd(value),
+      q2.5  = quantile(value, 0.025),
+      q50   = quantile(value, 0.50),
+      q97.5 = quantile(value, 0.975),
+      rhat  = posterior::rhat(as.vector(value)),
       .groups = "drop"
     ) %>%
-    mutate(model = label)
+    dplyr::mutate(model = label)
 }
 
-coef_table <- dplyr::bind_rows(lapply(results, extract_reg_coefs))
-
 # ------------------------------------------------------------------
-# 8.  Model comparison (DIC)
+# 7.  Run all models across all variants
 # ------------------------------------------------------------------
-dic_table <- tibble::tibble(
-  model       = sapply(results, `[[`, "label"),
-  DIC         = sapply(results, `[[`, "dic"),
-  delta_DIC   = DIC - min(DIC, na.rm = TRUE)
-) %>%
-  arrange(DIC)
-
-# ------------------------------------------------------------------
-# 9.  Combine relative-effect tables
-# ------------------------------------------------------------------
-all_rel_eff <- dplyr::bind_rows(lapply(results, `[[`, "rel_eff"))
-
-# ------------------------------------------------------------------
-# 10.  Save outputs
-# ------------------------------------------------------------------
-message("Saving outputs ...")
-
-write_csv(
-  all_rel_eff,
-  file.path(out_dir, "nmr_relative_effects_all_models.csv")
-)
-write_csv(
-  coef_table,
-  file.path(out_dir, "nmr_covariate_effects.csv")
-)
-write_csv(
-  dic_table,
-  file.path(out_dir, "nmr_model_comparison_dic.csv")
+model_specs <- list(
+  M0 = list(formula = NULL,                         label = "M0_base"),
+  M1 = list(formula = ~ dur_c,                      label = "M1_duration"),
+  M2 = list(formula = ~ age_c,                      label = "M2_age"),
+  M3 = list(formula = ~ sex_c,                      label = "M3_sex"),
+  M4 = list(formula = ~ dur_c + age_c + sex_c,      label = "M4_dur_age_sex"),
+  M5 = list(formula = ~ base_c,                     label = "M5_baseline"),
+  M6 = list(formula = ~ rob_flag,                   label = "M6_rob")
 )
 
-# Save individual model summaries
-for (nm in names(results)) {
-  tryCatch(
-    write_csv(
-      results[[nm]]$rel_eff,
-      file.path(out_dir, paste0("nmr_", results[[nm]]$label, "_rel_eff.csv"))
-    ),
-    error = function(e) message(sprintf("  Could not save %s: %s", nm, e$message))
+all_results <- list()   # all_results[[variant]][[model]]
+
+for (vname in names(variants)) {
+  message(sprintf("\n=== Variant %s ===", vname))
+
+  net_v <- tryCatch(
+    prepare_net(variants[[vname]], vname),
+    error = function(e) { message("  [ERROR] ", e$message); NULL }
   )
+  if (is.null(net_v)) next
+
+  v_results <- list()
+  for (mname in names(model_specs)) {
+    spec <- model_specs[[mname]]
+    full_label <- paste0(vname, "_", spec$label)
+    v_results[[mname]] <- fit_nmr(
+      net_v,
+      regression_formula = spec$formula,
+      label              = full_label
+    )
+  }
+  all_results[[vname]] <- v_results
 }
 
-# Save fitted objects (large; remove to save disk space)
-saveRDS(
-  lapply(results, `[[`, "fit"),
-  file = file.path(out_dir, "multinma_fitted_objects.rds")
-)
+# ------------------------------------------------------------------
+# 8.  Save outputs per variant
+# ------------------------------------------------------------------
+message("\nSaving outputs ...")
+
+for (vname in names(all_results)) {
+  v_results <- all_results[[vname]]
+  vdir <- file.path(out_dir, vname)
+  if (!dir.exists(vdir)) dir.create(vdir)
+
+  # Relative effects (all models combined)
+  rel_all <- dplyr::bind_rows(lapply(v_results, function(r) r$rel_eff))
+  if (nrow(rel_all) > 0)
+    write_csv(rel_all, file.path(vdir, "nmr_relative_effects_all_models.csv"))
+
+  # Per-model relative effects
+  for (mname in names(v_results)) {
+    r <- v_results[[mname]]
+    if (!is.null(r) && !is.null(r$rel_eff))
+      write_csv(r$rel_eff,
+                file.path(vdir, paste0("nmr_", r$label, "_rel_eff.csv")))
+  }
+
+  # Covariate effects
+  coef_tbl <- dplyr::bind_rows(lapply(v_results, extract_reg_coefs))
+  if (!is.null(coef_tbl) && nrow(coef_tbl) > 0)
+    write_csv(coef_tbl, file.path(vdir, "nmr_covariate_effects.csv"))
+
+  # DIC comparison
+  dic_tbl <- tibble::tibble(
+    model     = sapply(v_results, function(r) if (!is.null(r)) r$label else NA_character_),
+    DIC       = sapply(v_results, function(r) if (!is.null(r)) r$dic   else NA_real_)
+  ) %>%
+    filter(!is.na(DIC)) %>%
+    mutate(delta_DIC = DIC - min(DIC, na.rm = TRUE)) %>%
+    arrange(DIC)
+  write_csv(dic_tbl, file.path(vdir, "nmr_model_comparison_dic.csv"))
+
+  # Fitted objects
+  saveRDS(
+    lapply(v_results, function(r) r$fit),
+    file.path(vdir, paste0("multinma_fitted_", vname, ".rds"))
+  )
+
+  message(sprintf("  Saved outputs for variant %s to: %s", vname, vdir))
+}
 
 # ------------------------------------------------------------------
-# 11.  Print summary to console
+# 9.  Cross-variant comparison table
+#     Compares M0 (base NMA) DIC and heterogeneity across variants
 # ------------------------------------------------------------------
-message("\n=== Model comparison (DIC) ===")
-print(as.data.frame(dic_table))
+message("\n=== Cross-variant summary (M0 base NMA) ===")
 
-message("\n=== Covariate effects summary ===")
-if (nrow(coef_table) > 0) {
-  print(as.data.frame(coef_table %>% select(model, parameter, mean, q2.5, q97.5)))
-} else {
-  message("  No regression coefficients extracted (check Stan parameter names).")
+for (vname in names(all_results)) {
+  m0 <- all_results[[vname]][["M0"]]
+  if (!is.null(m0)) {
+    message(sprintf("  %-20s  DIC = %.1f", vname,
+                    ifelse(is.na(m0$dic), NA, m0$dic)))
+  }
+}
+
+# ------------------------------------------------------------------
+# 10.  Print covariate effects for M4 across variants
+# ------------------------------------------------------------------
+message("\n=== M4 covariate effects (dur + age + sex) across variants ===")
+for (vname in names(all_results)) {
+  m4 <- all_results[[vname]][["M4"]]
+  if (!is.null(m4)) {
+    coefs <- extract_reg_coefs(m4)
+    if (!is.null(coefs) && nrow(coefs) > 0) {
+      message(sprintf("  --- %s ---", vname))
+      print(as.data.frame(coefs %>% select(parameter, mean, q2.5, q97.5)))
+    }
+  }
 }
 
 message(sprintf("\nAll outputs written to: %s", out_dir))
+
