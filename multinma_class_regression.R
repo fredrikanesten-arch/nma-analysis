@@ -382,7 +382,12 @@ for (vname in names(all_results)) {
   # DIC comparison
   dic_tbl <- tibble::tibble(
     model     = vapply(v_results, function(r) if (!is.null(r)) r$label else NA_character_, character(1)),
-    DIC       = vapply(v_results, function(r) if (!is.null(r)) as.numeric(r$dic)[[1]] else NA_real_, numeric(1))
+    DIC       = vapply(v_results, function(r) {
+      if (is.null(r)) return(NA_real_)
+      d <- r$dic
+      # d may be: scalar, named numeric, nma_dic object (list), or NA
+      tryCatch(as.numeric(unlist(d))[[1]], error = function(e) NA_real_)
+    }, numeric(1))
   ) %>%
     filter(!is.na(DIC)) %>%
     mutate(delta_DIC = DIC - min(DIC, na.rm = TRUE)) %>%
