@@ -77,6 +77,16 @@ out_dir   <- "C:/Users/fredr/OneDrive/Desktop/nma_project/mavranezouli/netmeta_c
 RHO_BF  <- 0.5   # Block 2 (Baseline + Follow-up)
 RHO_BIN <- 0.5   # Block 3 (Binary response)
 
+# SE-detection thresholds for Block 2 (Baseline + Follow-up)
+# Arms where sd_change < SE_SD_THRESHOLD but sd_change * sqrt(n) falls in the
+# plausible SD range [SE_IMPLIED_SD_LO, SE_IMPLIED_SD_HI] are assumed to have
+# been entered as standard errors rather than standard deviations.
+# sdB and sdF are then multiplied by sqrt(n) before re-computing sd_change.
+# Inspect bf_se_correction_log.csv to verify the corrections make sense.
+SE_SD_THRESHOLD  <- 1.5   # raw sd_change below this is suspicious (on typical 0–52 scale)
+SE_IMPLIED_SD_LO <- 2.5   # implied true SD must be ≥ this to count (filters out genuinely small SDs)
+SE_IMPLIED_SD_HI <- 25    # implied true SD must be ≤ this (upper bound for depression scales)
+
 if (!dir.exists(out_dir)) dir.create(out_dir, recursive = TRUE)
 
 # ------------------------------------------------------------------
@@ -326,12 +336,63 @@ b2_long <- pivot_to_arms(
   n_cols     = paste0("n", 1:5)
 ) %>%
   dplyr::mutate(
+    # ------------------------------------------------------------------
+    # SE-detection and correction
+    # If sdB / sdF are reported as standard errors rather than SDs,
+    # sd_change = sqrt(sdB^2 + sdF^2 - 2*rho*sdB*sdF) will be ~1/sqrt(n)
+    # of the true value, producing approx_smd = mean_change/sd_change
+    # that is sqrt(n) times too large.
+    #
+    # Heuristic: if sd_change (before correction) < SE_SD_THRESHOLD  AND
+    #            sd_change * sqrt(n) is in the plausible SD range
+    #            [SE_IMPLIED_SD_LO, SE_IMPLIED_SD_HI], we assume SE was
+    #            entered instead of SD and multiply sdB, sdF by sqrt(n).
+    #
+    # Thresholds (adjust at section 0 if needed):
+    #   SE_SD_THRESHOLD    = 1.5   (raw sd_change below this is suspicious)
+    #   SE_IMPLIED_SD_LO   = 2.5   (implied true SD must be at least this)
+    #   SE_IMPLIED_SD_HI   = 25    (and at most this; catches HAMD/BDI range)
+    # ------------------------------------------------------------------
+    sd_change_raw = sqrt(sdB^2 + sdF^2 - 2 * RHO_BF * sdB * sdF),
+    implied_sd    = sd_change_raw * sqrt(n),
+    se_suspected  = !is.na(sd_change_raw) & !is.na(n) &
+                    sd_change_raw < SE_SD_THRESHOLD &
+                    implied_sd >= SE_IMPLIED_SD_LO &
+                    implied_sd <= SE_IMPLIED_SD_HI,
+    # Correct: replace sdB/sdF with sdB*sqrt(n), sdF*sqrt(n) for flagged arms
+    sdB_corr = ifelse(se_suspected, sdB * sqrt(n), sdB),
+    sdF_corr = ifelse(se_suspected, sdF * sqrt(n), sdF),
     mean_change = yF - yB,
-    # sd_change with vague-prior correlation rho = RHO_BF
-    sd_change   = sqrt(sdB^2 + sdF^2 - 2 * RHO_BF * sdB * sdF),
+    sd_change   = sqrt(sdB_corr^2 + sdF_corr^2 - 2 * RHO_BF * sdB_corr * sdF_corr),
     data_type   = "BF"
-  ) %>%
-  dplyr::select(-yB, -sdB, -yF, -sdF)
+  )
+
+# Report SE-detection results
+n_se <- sum(b2_long$se_suspected, na.rm = TRUE)
+message(sprintf("  BF SE-detection: %d / %d arms flagged as likely SE-reporters and corrected",
+                n_se, nrow(b2_long)))
+if (n_se > 0) {
+  se_detail <- b2_long %>%
+    dplyr::filter(se_suspected) %>%
+    dplyr::select(studyid, arm, treatment, n,
+                  sdB, sdF, sd_change_raw, implied_sd, sd_change,
+                  mean_change) %>%
+    dplyr::mutate(approx_smd_raw        = mean_change / sd_change_raw,
+                  approx_smd_corrected  = mean_change / sd_change)
+  readr::write_csv(se_detail,
+                   file.path(out_dir, "bf_se_correction_log.csv"))
+  message(sprintf("  Saved: bf_se_correction_log.csv  (inspect to verify corrections)"))
+  message(sprintf("  Approx-SMD range before correction: [%.1f, %.1f]",
+                  min(se_detail$approx_smd_raw, na.rm = TRUE),
+                  max(se_detail$approx_smd_raw, na.rm = TRUE)))
+  message(sprintf("  Approx-SMD range after  correction: [%.1f, %.1f]",
+                  min(se_detail$approx_smd_corrected, na.rm = TRUE),
+                  max(se_detail$approx_smd_corrected, na.rm = TRUE)))
+}
+
+b2_long <- b2_long %>%
+  dplyr::select(-yB, -sdB, -sdF, -sdB_corr, -sdF_corr,
+                -sd_change_raw, -implied_sd, -se_suspected)
 
 message(sprintf("  Block 2: %d studies, %d arms", n_distinct(b2_long$studyid), nrow(b2_long)))
 
