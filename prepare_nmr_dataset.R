@@ -351,8 +351,7 @@ b3_colnames <- c(
   paste0("sdBR", 1:5),   # cols 22–26 (baseline SD)
   "q_thresh",            # col 27
   "hash_col",            # col 28
-  "studyid",             # col 29
-  paste0("spare_", 30:50)   # cols 30–50  (50 total to match sheet width)
+  "studyid"              # col 29  (last column — no spares needed)
 )
 
 b3_raw <- read_excel(
