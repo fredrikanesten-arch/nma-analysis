@@ -412,8 +412,9 @@ message("\n=== Cross-variant summary (M0 base NMA) ===")
 for (vname in names(all_results)) {
   m0 <- all_results[[vname]][["M0"]]
   if (!is.null(m0)) {
-    message(sprintf("  %-20s  DIC = %.1f", vname,
-                    ifelse(is.na(m0$dic), NA, m0$dic)))
+    dic_scalar <- tryCatch(as.numeric(unlist(m0$dic))[[1]], error = function(e) NA_real_)
+    message(sprintf("  %-20s  DIC = %s", vname,
+                    if (is.na(dic_scalar)) "NA" else sprintf("%.1f", dic_scalar)))
   }
 }
 
