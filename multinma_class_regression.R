@@ -228,12 +228,32 @@ prepare_net <- function(dat_v, variant_label) {
                   variant_label,
                   n_distinct(dat_class$studyid), nrow(dat_class)))
 
+  # ------------------------------------------------------------------
+  # Standardise to SMD so that results are on the same scale as the
+  # netmeta NMA (Cohen's d / Hedges' g).
+  #
+  # Within-arm approx SMD = mean_change / sd_change  (Glass's delta
+  # approximation; exact when the SD reflects the pre-post pooled SD).
+  # The approximate SE of an SMD in a single arm is 1/sqrt(n/2),
+  # i.e. sqrt(2/n), which is the standard large-sample approximation
+  # for within-group standardised differences.
+  #
+  # The treatment contrast d[trt vs ref] will then be the difference
+  # of within-arm SMDs — directly comparable to the TE column in your
+  # netmeta data.
+  # ------------------------------------------------------------------
+  dat_class <- dat_class %>%
+    mutate(
+      smd    = mean_change / sd_change,
+      smd_se = sqrt(2 / n)          # approx SE of within-arm SMD
+    )
+
   set_agd_arm(
     data    = dat_class,
     study   = studyid,
     trt     = class,
-    y       = mean_change,
-    se      = sd_change / sqrt(n),
+    y       = smd,
+    se      = smd_se,
     trt_ref = REF_CLASS
   )
 }
