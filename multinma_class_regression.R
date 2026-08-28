@@ -229,12 +229,13 @@ prepare_net <- function(dat_v, variant_label) {
                   n_distinct(dat_class$studyid), nrow(dat_class)))
 
   set_agd_arm(
-    data    = dat_class,
-    study   = studyid,
-    trt     = class,
-    y       = mean_change,
-    se      = sd_change / sqrt(n),
-    trt_ref = REF_CLASS
+    data       = dat_class,
+    study      = studyid,
+    trt        = class,
+    y          = mean_change,
+    se         = sd_change / sqrt(n),
+    trt_ref    = REF_CLASS,
+    covariates = c("dur_c", "age_c", "sex_c", "base_c", "rob_flag")
   )
 }
 
