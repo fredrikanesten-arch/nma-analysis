@@ -229,13 +229,12 @@ prepare_net <- function(dat_v, variant_label) {
                   n_distinct(dat_class$studyid), nrow(dat_class)))
 
   set_agd_arm(
-    data       = dat_class,
-    study      = studyid,
-    trt        = class,
-    y          = mean_change,
-    se         = sd_change / sqrt(n),
-    trt_ref    = REF_CLASS,
-    covariates = c("dur_c", "age_c", "sex_c", "base_c", "rob_flag")
+    data    = dat_class,
+    study   = studyid,
+    trt     = class,
+    y       = mean_change,
+    se      = sd_change / sqrt(n),
+    trt_ref = REF_CLASS
   )
 }
 
@@ -296,7 +295,8 @@ extract_reg_coefs <- function(res) {
   )
   if (is.null(all_pars)) return(NULL)
 
-  reg_pars <- grep("^beta\\[", names(all_pars), value = TRUE)
+  # Accept both "beta[" (older versions) and "beta_trt[" or similar patterns
+  reg_pars <- grep("^beta", names(all_pars), value = TRUE)
   if (length(reg_pars) == 0) return(NULL)
 
   all_pars %>%
@@ -319,13 +319,13 @@ extract_reg_coefs <- function(res) {
 # 7.  Run all models across all variants
 # ------------------------------------------------------------------
 model_specs <- list(
-  M0 = list(formula = NULL,                         label = "M0_base"),
-  M1 = list(formula = ~ dur_c,                      label = "M1_duration"),
-  M2 = list(formula = ~ age_c,                      label = "M2_age"),
-  M3 = list(formula = ~ sex_c,                      label = "M3_sex"),
-  M4 = list(formula = ~ dur_c + age_c + sex_c,      label = "M4_dur_age_sex"),
-  M5 = list(formula = ~ base_c,                     label = "M5_baseline"),
-  M6 = list(formula = ~ rob_flag,                   label = "M6_rob")
+  M0 = list(formula = NULL,                                             label = "M0_base"),
+  M1 = list(formula = ~ .trt:dur_c,                                    label = "M1_duration"),
+  M2 = list(formula = ~ .trt:age_c,                                    label = "M2_age"),
+  M3 = list(formula = ~ .trt:sex_c,                                    label = "M3_sex"),
+  M4 = list(formula = ~ .trt:dur_c + .trt:age_c + .trt:sex_c,         label = "M4_dur_age_sex"),
+  M5 = list(formula = ~ .trt:base_c,                                   label = "M5_baseline"),
+  M6 = list(formula = ~ .trt:rob_flag,                                 label = "M6_rob")
 )
 
 all_results <- list()   # all_results[[variant]][[model]]
