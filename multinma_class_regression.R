@@ -76,7 +76,7 @@ if (!dir.exists(out_dir)) dir.create(out_dir, recursive = TRUE)
 
 # Stan / MCMC settings
 CHAINS  <- 4L
-ITER    <- 2000L   # total iterations per chain (warmup = ITER/2)
+ITER    <- 4000L   # total iterations per chain (warmup = ITER/2); increased for ESS
 SEED    <- 20240101L
 
 # Reference class
@@ -287,12 +287,24 @@ fit_nmr <- function(net, regression_formula = NULL, label = "model") {
   )
   if (is.null(fit)) return(NULL)
 
-  rel_eff <- tryCatch(
-    relative_effects(fit, trt_ref = REF_CLASS) %>%
-      as.data.frame() %>%
-      mutate(model = label),
-    error = function(e) NULL
-  )
+  rel_eff <- tryCatch({
+    # For regression models, evaluate relative effects at covariate mean
+    # (all centred covariates = 0), giving "average study" estimates
+    # comparable to M0.  For M0 (no regression), newdata is not needed.
+    if (is.null(regression_formula)) {
+      re <- relative_effects(fit, trt_ref = REF_CLASS)
+    } else {
+      # Build a single-row newdata at the grand mean (covariates = 0)
+      cov_names <- all.vars(regression_formula)
+      nd <- as.data.frame(setNames(as.list(rep(0, length(cov_names))), cov_names))
+      re <- relative_effects(fit, trt_ref = REF_CLASS,
+                             newdata = nd, study = NULL)
+    }
+    as.data.frame(re) %>% mutate(model = label)
+  }, error = function(e) {
+    message(sprintf("    [WARN rel_eff %s] %s", label, conditionMessage(e)))
+    NULL
+  })
 
   dic_val <- tryCatch({
     d <- dic(fit)
