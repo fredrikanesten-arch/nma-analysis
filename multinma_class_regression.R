@@ -267,15 +267,18 @@ fit_nmr <- function(net, regression_formula = NULL, label = "model") {
   fit <- tryCatch(
     nma(
       net,
-      trt_effects   = "random",
-      regression    = regression_formula,
-      prior_trt     = normal(scale = 10),
-      prior_het     = half_normal(scale = 0.5),
-      prior_reg     = normal(scale = 1),
-      chains        = CHAINS,
-      iter          = ITER,
-      seed          = SEED,
-      show_messages = FALSE
+      trt_effects     = "random",
+      regression      = regression_formula,
+      # Priors tuned for SMD scale (outcome ~N(-1, 1) for active treatments)
+      prior_intercept = normal(scale = 2),    # study baselines on SMD scale
+      prior_trt       = normal(scale = 2),    # treatment effects in SMD units
+      prior_het       = half_normal(scale = 0.5),
+      prior_reg       = normal(scale = 1),    # regression coefficients
+      chains          = CHAINS,
+      iter            = ITER,
+      seed            = SEED,
+      show_messages   = FALSE,
+      control         = list(max_treedepth = 15, adapt_delta = 0.95)
     ),
     error = function(e) {
       message(sprintf("    [ERROR %s] %s", label, conditionMessage(e)))
