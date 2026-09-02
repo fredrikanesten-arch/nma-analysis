@@ -127,7 +127,10 @@ find_non_numeric_values <- function(dat, exclude = c("studyid", "hash")) {
   })
 }
 
-wide_to_long_arms <- function(dat, prefixes, max_arms = 5) {
+wide_to_long_arms <- function(dat,
+                              prefixes,
+                              max_arms = 5,
+                              drop_missing_t = TRUE) {
   long_list <- lapply(seq_len(max_arms), function(k) {
     cols_k <- paste0(prefixes, k)
     out <- dat %>%
@@ -141,8 +144,14 @@ wide_to_long_arms <- function(dat, prefixes, max_arms = 5) {
     out
   })
 
-  bind_rows(long_list) %>%
-    filter(!is.na(t))
+  out <- bind_rows(long_list)
+
+  if (drop_missing_t && "t" %in% prefixes) {
+    out <- out %>%
+      filter(!is.na(t))
+  }
+
+  out
 }
 
 extract_study_rho_lookup <- function(dat, fill_missing_with = NA_real_) {
@@ -191,7 +200,8 @@ attach_arm_or_study_rho <- function(long_dat,
     rho_long <- wide_to_long_arms(
       dat_source,
       prefixes = "rho",
-      max_arms = max_arms
+      max_arms = max_arms,
+      drop_missing_t = FALSE
     ) %>%
       select(studyid, arm, rho)
 
