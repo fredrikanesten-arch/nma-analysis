@@ -27,6 +27,10 @@ OUTPUT_COLUMNS <- c(
   "cutoff"
 )
 
+# Strict-mode assumptions (fixed in this script).
+STRICT_RHO <- 0.2
+STRICT_P_CLIP <- 1e-6
+
 as_num <- function(x) {
   if (is.null(x) || length(x) == 0 || is.na(x) || identical(x, "NA")) return(NA_real_)
   as.numeric(x)
@@ -58,6 +62,11 @@ pooled_sd_from_arms <- function(n, sd) {
   pooled_var <- sum((n - 1) * (sd^2)) / dfree
   if (pooled_var <= 0) stop("Invalid pooled SD variance")
   sqrt(pooled_var)
+}
+
+hedges_j <- function(dfree) {
+  if (is.na(dfree) || dfree <= 1) return(1)
+  1 - (3 / (4 * dfree - 1))
 }
 
 empty_output <- function() {
@@ -112,10 +121,10 @@ parse_cfb_block <- function(df, start_row, end_row) {
       arms[[length(arms) + 1]] <- list(arm = arm, trt = trt, n = n, y = y, sd = sd)
     }
 
-    pooled_sd <- pooled_sd_from_arms(
-      n = vapply(arms, function(a) a$n, numeric(1)),
-      sd = vapply(arms, function(a) a$sd, numeric(1))
-    )
+    arm_n <- vapply(arms, function(a) a$n, numeric(1))
+    arm_sd <- vapply(arms, function(a) a$sd, numeric(1))
+    pooled_sd <- pooled_sd_from_arms(n = arm_n, sd = arm_sd)
+    j <- hedges_j(sum(arm_n) - length(arm_n))
 
     for (a in arms) {
       row <- list(
@@ -124,7 +133,7 @@ parse_cfb_block <- function(df, start_row, end_row) {
         arm = a$arm,
         treatment = a$trt,
         n = a$n,
-        mean_change = a$y / pooled_sd,
+        mean_change = (a$y / pooled_sd) * j,
         sd_change = a$sd / pooled_sd,
         source = "smd",
         y_baseline = NA_real_,
@@ -144,7 +153,7 @@ parse_cfb_block <- function(df, start_row, end_row) {
   out
 }
 
-parse_bf_block <- function(df, start_row, end_row, rho) {
+parse_bf_block <- function(df, start_row, end_row) {
   out <- empty_output()
 
   for (r in start_row:end_row) {
@@ -168,7 +177,7 @@ parse_bf_block <- function(df, start_row, end_row, rho) {
       }
 
       mean_change_raw <- yf - yb
-      var_change <- (sdf^2) + (sdb^2) - (2 * rho * sdf * sdb)
+      var_change <- (sdf^2) + (sdb^2) - (2 * STRICT_RHO * sdf * sdb)
       if (var_change <= 0) {
         stop(sprintf("Non-positive change variance in row %d, arm %d", r, arm))
       }
@@ -181,10 +190,10 @@ parse_bf_block <- function(df, start_row, end_row, rho) {
       )
     }
 
-    pooled_sd <- pooled_sd_from_arms(
-      n = vapply(arms, function(a) a$n, numeric(1)),
-      sd = vapply(arms, function(a) a$sdb, numeric(1))
-    )
+    arm_n <- vapply(arms, function(a) a$n, numeric(1))
+    arm_sd_for_pool <- vapply(arms, function(a) max(a$sdb, a$sdf), numeric(1))
+    pooled_sd <- pooled_sd_from_arms(n = arm_n, sd = arm_sd_for_pool)
+    j <- hedges_j(sum(arm_n) - length(arm_n))
 
     for (a in arms) {
       row <- list(
@@ -193,14 +202,14 @@ parse_bf_block <- function(df, start_row, end_row, rho) {
         arm = a$arm,
         treatment = a$trt,
         n = a$n,
-        mean_change = a$mean_change_raw / pooled_sd,
+        mean_change = (a$mean_change_raw / pooled_sd) * j,
         sd_change = a$sd_change_raw / pooled_sd,
         source = "baseline_followup",
         y_baseline = a$yb,
         sd_baseline = a$sdb,
         y_followup = a$yf,
         sd_followup = a$sdf,
-        r_used = rho,
+        r_used = STRICT_RHO,
         responders = NA_integer_,
         p_response = NA_real_,
         q = NA_real_,
@@ -213,7 +222,7 @@ parse_bf_block <- function(df, start_row, end_row, rho) {
   out
 }
 
-parse_response_block <- function(df, start_row, end_row, rho, p_clip) {
+parse_response_block <- function(df, start_row, end_row) {
   out <- empty_output()
 
   for (r in start_row:end_row) {
@@ -224,7 +233,7 @@ parse_response_block <- function(df, start_row, end_row, rho, p_clip) {
     if (is.na(na) || is.na(studyid) || identical(studyid, "#")) next
     if (is.na(q)) stop(sprintf("Missing q in response row %d", r))
 
-    adj <- sqrt(1 + (1 - q) * (1 - q - 2 * rho))
+    adj <- sqrt(1 + (1 - q) * (1 - q - 2 * STRICT_RHO))
     if (adj <= 0) stop(sprintf("Invalid response adjustment in row %d", r))
 
     arms <- list()
@@ -244,24 +253,26 @@ parse_response_block <- function(df, start_row, end_row, rho, p_clip) {
       }
 
       p <- responders / n
-      p_for_z <- min(max(p, p_clip), 1 - p_clip)
+      p_for_z <- min(max(p, STRICT_P_CLIP), 1 - STRICT_P_CLIP)
       z <- qnorm(p_for_z)
 
+      sd_r <- 4.46 + (0.55 * sdbr)
+      sd_strict <- max(sdbr, sd_r)
       cutoff <- -(q * ybr)
-      mean_change_raw <- -(q * ybr + (z * sdbr * adj))
-      sd_change_raw <- sdbr * adj
+      mean_change_raw <- -(q * ybr + (z * sd_strict * adj))
+      sd_change_raw <- sd_strict * adj
 
       arms[[length(arms) + 1]] <- list(
         arm = arm, trt = trt, n = n, responders = responders, p = p,
-        ybr = ybr, sdbr = sdbr, cutoff = cutoff,
+        ybr = ybr, sdbr = sdbr, sd_strict = sd_strict, cutoff = cutoff,
         mean_change_raw = mean_change_raw, sd_change_raw = sd_change_raw
       )
     }
 
-    pooled_sd <- pooled_sd_from_arms(
-      n = vapply(arms, function(a) a$n, numeric(1)),
-      sd = vapply(arms, function(a) a$sdbr, numeric(1))
-    )
+    arm_n <- vapply(arms, function(a) a$n, numeric(1))
+    arm_sd_for_pool <- vapply(arms, function(a) a$sd_strict, numeric(1))
+    pooled_sd <- pooled_sd_from_arms(n = arm_n, sd = arm_sd_for_pool)
+    j <- hedges_j(sum(arm_n) - length(arm_n))
 
     for (a in arms) {
       row <- list(
@@ -270,7 +281,7 @@ parse_response_block <- function(df, start_row, end_row, rho, p_clip) {
         arm = a$arm,
         treatment = a$trt,
         n = a$n,
-        mean_change = a$mean_change_raw / pooled_sd,
+        mean_change = (a$mean_change_raw / pooled_sd) * j,
         sd_change = a$sd_change_raw / pooled_sd,
         source = "responders",
         y_baseline = a$ybr,
@@ -302,8 +313,8 @@ main <- function() {
 
   args <- commandArgs(trailingOnly = TRUE)
   if (length(args) >= 1 && args[[1]] %in% c("-h", "--help")) {
-    cat("Usage: Rscript build_mmc5_ms_smd_bias_adj_dataset.R [input_xlsx] [output_csv] [sheet] [rho] [p_clip]\n")
-    cat("Defaults: input_xlsx='<base_dir>/clean_data/mmc5.xlsx', output_csv='<base_dir>/binfixed_class_ms/combined_long_mean_change_dataset_ms_smd_bias_adj.csv', sheet='MS SMD bias-adj', rho=0.5, p_clip=1e-6\n")
+    cat("Usage: Rscript build_mmc5_ms_smd_bias_adj_dataset.R [input_xlsx] [output_csv] [sheet]\n")
+    cat("Strict mode defaults: input_xlsx='<base_dir>/clean_data/mmc5.xlsx', output_csv='<base_dir>/binfixed_class_ms/combined_long_mean_change_dataset_ms_smd_bias_adj.csv', sheet='MS SMD bias-adj', rho=0.2, Hedges correction enabled, strict response SD enabled\n")
     return(invisible(NULL))
   }
 
@@ -313,8 +324,6 @@ main <- function() {
   input_xlsx <- if (length(args) >= 1) args[[1]] else default_input_xlsx
   output_csv <- if (length(args) >= 2) args[[2]] else default_output_csv
   sheet <- if (length(args) >= 3) args[[3]] else "MS SMD bias-adj"
-  rho <- if (length(args) >= 4) as.numeric(args[[4]]) else 0.5
-  p_clip <- if (length(args) >= 5) as.numeric(args[[5]]) else 1e-6
 
   if (!file.exists(input_xlsx)) {
     stop(sprintf(
@@ -322,9 +331,6 @@ main <- function() {
       input_xlsx
     ))
   }
-  if (is.na(rho)) stop("rho must be numeric")
-  if (is.na(p_clip) || p_clip <= 0 || p_clip >= 0.5) stop("p_clip must be in (0, 0.5)")
-
   raw <- readxl::read_excel(
     input_xlsx,
     sheet = sheet,
@@ -337,8 +343,8 @@ main <- function() {
   resp_header <- find_header_row(raw, "r[,1]")
 
   cfb <- parse_cfb_block(raw, cfb_header + 1, bf_header - 1)
-  bf <- parse_bf_block(raw, bf_header + 1, resp_header - 1, rho = rho)
-  resp <- parse_response_block(raw, resp_header + 1, nrow(raw), rho = rho, p_clip = p_clip)
+  bf <- parse_bf_block(raw, bf_header + 1, resp_header - 1)
+  resp <- parse_response_block(raw, resp_header + 1, nrow(raw))
 
   out <- rbind(cfb, bf, resp)
   out <- out[, OUTPUT_COLUMNS]
