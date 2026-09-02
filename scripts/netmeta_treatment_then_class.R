@@ -2,14 +2,13 @@ library(dplyr)
 library(readr)
 library(netmeta)
 
-# Usage:
-# Rscript scripts/netmeta_treatment_then_class.R <combined_long_csv> <trt_to_class_csv> <output_dir> [reference_treatment]
-
-args <- commandArgs(trailingOnly = TRUE)
-in_data <- if (length(args) >= 1) args[[1]] else "combined_long_mean_change_dataset_ms_smd_bias_adj.csv"
-in_map <- if (length(args) >= 2) args[[2]] else "trt_to_class_ms.csv"
-out_dir <- if (length(args) >= 3) args[[3]] else "netmeta_treatment_then_class_outputs"
-reference_treatment_arg <- if (length(args) >= 4) args[[4]] else NA_character_
+# Fixed paths requested by user
+base_dir <- "C:/Users/fredr/OneDrive/Desktop/nma_project/mavranezouli"
+in_data  <- file.path(base_dir, "netmeta_class_ms", "combined_long_mean_change_dataset.csv")
+in_map   <- file.path(base_dir, "article_supplements", "trt_to_class_ms.csv")
+out_dir  <- file.path(base_dir, "binfixed_class_ms")
+reference_treatment_arg <- NA_character_
+variance_sharing_map_path <- file.path(base_dir, "article_supplements", "class_variance_sharing_map.csv")
 
 if (!dir.exists(out_dir)) dir.create(out_dir, recursive = TRUE)
 
@@ -35,6 +34,13 @@ extract_vs_ref <- function(mat, ref) {
   if (is.null(mat)) return(NULL)
   if (ref %in% colnames(mat)) {
     return(data.frame(Treatment = rownames(mat), value = as.numeric(mat[, ref]), row.names = NULL))
+  }
+
+  class_key <- function(x) {
+    x <- tolower(trimws(x))
+    x <- gsub("\\s*\\+\\s*ad$", "", x)
+    x <- gsub("\\s*\\+\\s*placebo$", "", x)
+    trimws(x)
   }
   if (ref %in% rownames(mat)) {
     return(data.frame(Treatment = colnames(mat), value = as.numeric(mat[ref, ]), row.names = NULL))
@@ -224,24 +230,88 @@ treatment_vs_ref <- trt_eff %>%
   arrange(classcode, Treatment)
 
 class_vs_ref <- treatment_vs_ref %>%
+  mutate(class_key = class_key(class))
+
+class_base <- treatment_vs_ref %>%
   group_by(classcode, class) %>%
   summarise(
     n_treatments = n_distinct(Treatment),
     N_total_class = sum(N_total_treatment, na.rm = TRUE),
     n_studies_class = sum(n_studies_treatment, na.rm = TRUE),
-    SMD_class_vs_ref = {
-      idx <- which(!is.na(SMD) & !is.na(seTE) & seTE > 0)
-      if (length(idx) == 0) {
-        if (all(Treatment == reference_treatment)) 0 else NA_real_
-      } else {
-        weighted.mean(SMD[idx], w = 1 / (seTE[idx]^2))
-      }
-    },
-    seTE_class_vs_ref = {
-      idx <- which(!is.na(SMD) & !is.na(seTE) & seTE > 0)
-      if (length(idx) == 0) NA_real_ else sqrt(1 / sum(1 / (seTE[idx]^2)))
-    },
     .groups = "drop"
+  ) %>%
+  mutate(class_key = class_key(class))
+
+class_stats <- treatment_vs_ref %>%
+  filter(!is.na(SMD), !is.na(seTE), seTE > 0) %>%
+  group_by(classcode, class) %>%
+  group_modify(~ {
+    w <- 1 / (.x$seTE^2)
+    mu <- weighted.mean(.x$SMD, w = w)
+    k <- nrow(.x)
+    Q <- sum(w * (.x$SMD - mu)^2)
+    C <- sum(w) - (sum(w^2) / sum(w))
+    tau2 <- ifelse(k >= 3 && C > 0, max(0, (Q - (k - 1)) / C), NA_real_)
+    tibble(
+      k_effective = k,
+      w_sum = sum(w),
+      mu = mu,
+      tau2_own = tau2
+    )
+  }) %>%
+  ungroup() %>%
+  mutate(class_key = class_key(class))
+
+tau_pool <- class_stats %>%
+  filter(!is.na(tau2_own)) %>%
+  group_by(class_key) %>%
+  summarise(tau2_pool_key = median(tau2_own), .groups = "drop")
+
+global_tau2 <- class_stats %>%
+  summarise(global_tau2 = median(tau2_own, na.rm = TRUE)) %>%
+  pull(global_tau2)
+if (!is.finite(global_tau2)) global_tau2 <- 0
+
+share_map <- NULL
+if (file.exists(variance_sharing_map_path)) {
+  share_map <- read_csv_robust(variance_sharing_map_path) %>%
+    transmute(class = as.character(class), donor_class = as.character(donor_class)) %>%
+    mutate(class_key = class_key(class), donor_key = class_key(donor_class))
+}
+
+class_tau <- class_base %>%
+  left_join(class_stats %>% select(classcode, class, k_effective, w_sum, mu, tau2_own, class_key), by = c("classcode", "class", "class_key")) %>%
+  left_join(tau_pool, by = "class_key")
+
+if (!is.null(share_map)) {
+  donor_tau <- class_stats %>%
+    select(class, class_key, donor_tau2 = tau2_own) %>%
+    filter(!is.na(donor_tau2))
+  class_tau <- class_tau %>%
+    left_join(share_map %>% select(class, donor_key), by = "class") %>%
+    left_join(donor_tau %>% select(donor_key = class_key, donor_tau2), by = "donor_key")
+} else {
+  class_tau <- class_tau %>% mutate(donor_tau2 = NA_real_)
+}
+
+class_tau <- class_tau %>%
+  mutate(
+    tau2_used = case_when(
+      !is.na(tau2_own) & n_treatments >= 3 ~ tau2_own,
+      n_treatments <= 2 & !is.na(donor_tau2) ~ donor_tau2,
+      n_treatments <= 2 & !is.na(tau2_pool_key) ~ tau2_pool_key,
+      n_treatments <= 2 ~ global_tau2,
+      TRUE ~ ifelse(is.na(tau2_own), global_tau2, tau2_own)
+    ),
+    tau2_source = case_when(
+      !is.na(tau2_own) & n_treatments >= 3 ~ "own_class",
+      n_treatments <= 2 & !is.na(donor_tau2) ~ "explicit_donor_class",
+      n_treatments <= 2 & !is.na(tau2_pool_key) ~ "shared_by_class_key",
+      n_treatments <= 2 ~ "global_pool",
+      TRUE ~ "fallback"
+    ),
+    SMD_class_vs_ref = ifelse(is.na(mu), NA_real_, mu),
+    seTE_class_vs_ref = ifelse(!is.na(w_sum) & w_sum > 0, sqrt((1 / w_sum) + pmax(tau2_used, 0)), NA_real_)
   ) %>%
   mutate(
     lower_CI = ifelse(!is.na(seTE_class_vs_ref), SMD_class_vs_ref - 1.96 * seTE_class_vs_ref, NA_real_),
@@ -251,8 +321,15 @@ class_vs_ref <- treatment_vs_ref %>%
   ) %>%
   arrange(classcode)
 
+class_vs_ref <- class_tau %>%
+  select(classcode, class, n_treatments, N_total_class, n_studies_class,
+         SMD_class_vs_ref, seTE_class_vs_ref, lower_CI, upper_CI, z, p_value,
+         tau2_own, tau2_used, tau2_source)
+
 write_csv(treatment_vs_ref, file.path(out_dir, "nma_treatment_level_vs_reference.csv"))
 write_csv(class_vs_ref, file.path(out_dir, "nma_class_level_aggregated_from_treatments.csv"))
+write_csv(class_tau %>% select(classcode, class, n_treatments, k_effective, tau2_own, tau2_used, tau2_source),
+          file.path(out_dir, "class_variance_sharing_audit.csv"))
 write_csv(as.data.frame(pw), file.path(out_dir, "pairwise_treatment_level.csv"))
 
 saveRDS(
@@ -273,3 +350,4 @@ saveRDS(
 
 message("Done. Reference treatment: ", reference_treatment)
 message("Outputs written to: ", normalizePath(out_dir))
+message("Variance sharing map used: ", ifelse(file.exists(variance_sharing_map_path), variance_sharing_map_path, "no explicit map (auto/global pooling)"))
