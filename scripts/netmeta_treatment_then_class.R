@@ -117,10 +117,14 @@ dat_kept <- dat_audit %>%
 collapsed_treatment <- dat_kept %>%
   group_by(studyid, treatment_label, classcode, class) %>%
   summarise(
-    n = sum(n),
-    mean_change = sum(mean_change * n) / sum(n),
-    sd_change = pool_arm_sd(n, mean_change, sd_change),
+    n_total = sum(n),
+    mean_change_total = sum(mean_change * n) / sum(n),
+    sd_change = pool_arm_sd(n = n, mean = mean_change, sd = sd_change),
     .groups = "drop"
+  ) %>%
+  rename(
+    n = n_total,
+    mean_change = mean_change_total
   )
 
 study_level_after_collapse <- collapsed_treatment %>%
