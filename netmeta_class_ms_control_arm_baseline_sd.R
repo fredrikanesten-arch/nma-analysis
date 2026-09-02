@@ -74,10 +74,10 @@ collapse_same_class <- function(dat) {
 }
 
 main <- function() {
-  base_dir <- "/home/runner/work/nma-analysis/nma-analysis"
-  default_in_data <- file.path(base_dir, "combined_long_mean_change_dataset_ms_smd_bias_adj.csv")
-  default_in_map <- file.path(base_dir, "trt_to_class_ms.csv")
-  default_out_dir <- base_dir
+  base_dir <- "C:/Users/fredr/OneDrive/Desktop/nma_project/mavranezouli"
+  default_in_data <- file.path(base_dir, "binfixed_class_ms", "combined_long_mean_change_dataset_ms_smd_bias_adj.csv")
+  default_in_map <- file.path(base_dir, "clean_data", "trt_to_class_ms.csv")
+  default_out_dir <- file.path(base_dir, "binfixed_class_ms")
   
   args <- commandArgs(trailingOnly = TRUE)
   if (length(args) >= 1 && args[[1]] %in% c("-h", "--help")) {
