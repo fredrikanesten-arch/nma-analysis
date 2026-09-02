@@ -14,9 +14,11 @@ if (!dir.exists(out_dir)) dir.create(out_dir, recursive = TRUE)
 
 reference_class <- "Placebo"
 chains <- 4
-iter <- 4000
-warmup <- 2000
+iter <- 8000
+warmup <- 4000
 seed <- 20260902
+adapt_delta <- 0.99
+max_treedepth <- 15
 
 read_csv_robust <- function(path) {
   dat_csv <- tryCatch(readr::read_csv(path, show_col_types = FALSE), error = function(e) NULL)
@@ -255,15 +257,43 @@ fit <- multinma::nma(
   class_effects = "exchangeable",
   likelihood = "normal",
   link = "identity",
+  prior_intercept = multinma::normal(location = 0, scale = 10),
+  prior_trt = multinma::normal(location = 0, scale = 5),
+  prior_het = multinma::half_normal(scale = 1),
+  prior_class_mean = multinma::normal(location = 0, scale = 5),
+  prior_class_sd = multinma::half_normal(scale = 1),
   chains = chains,
   iter = iter,
   warmup = warmup,
-  seed = seed
+  seed = seed,
+  adapt_delta = adapt_delta,
+  max_treedepth = max_treedepth
 )
 
 rel <- multinma::relative_effects(fit, trt_ref = reference_treatment)
-rel_sum <- multinma::posterior_summary(rel) %>% as.data.frame()
-rel_sum$Treatment <- rownames(rel_sum)
+rel_sum <- tryCatch(
+  as.data.frame(summary(rel)),
+  error = function(e) {
+    stop(
+      "Could not summarize relative effects with summary(). ",
+      "Please check multinma version and object structure. Original error: ", e$message
+    )
+  }
+)
+if (!("Treatment" %in% names(rel_sum))) {
+  rel_sum$Treatment <- rownames(rel_sum)
+}
+if (!("mean" %in% names(rel_sum))) {
+  mean_col <- intersect(c("mean", "Mean", "Estimate", "estimate", "median", "Median"), names(rel_sum))[1]
+  if (!is.na(mean_col)) rel_sum <- rel_sum %>% rename(mean = all_of(mean_col))
+}
+if (!("sd" %in% names(rel_sum))) {
+  sd_col <- intersect(c("sd", "SD", "Est.Error", "est.error", "se", "SE"), names(rel_sum))[1]
+  if (!is.na(sd_col)) rel_sum <- rel_sum %>% rename(sd = all_of(sd_col))
+}
+if (!all(c("mean", "sd") %in% names(rel_sum))) {
+  stop("Could not identify mean/sd columns in relative effects summary.")
+}
 rownames(rel_sum) <- NULL
 
 treatment_n <- arm_dat_nma %>%
@@ -294,6 +324,8 @@ write_csv(class_vs_ref, file.path(out_dir, "multinma_class_summary_from_treatmen
 
 fit_sum <- capture.output(print(multinma::summary(fit)))
 writeLines(fit_sum, con = file.path(out_dir, "multinma_model_summary.txt"))
+diag_sum <- capture.output(print(summary(fit)))
+writeLines(diag_sum, con = file.path(out_dir, "multinma_sampling_diagnostics.txt"))
 
 saveRDS(
   list(
