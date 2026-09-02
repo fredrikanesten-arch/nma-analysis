@@ -102,13 +102,98 @@ trt_map <- trt_map %>%
     class = as.character(class)
   )
 
-# Keep one deterministic mapping row per treatment (first non-missing class tuple).
-trt_map_dedup <- trt_map %>%
+# Keep one deterministic mapping row per treatment from in_map (first non-missing class tuple).
+trt_map_primary <- trt_map %>%
   filter(!is.na(trtcode), !is.na(classcode), !is.na(class), nzchar(class)) %>%
   arrange(trtcode, classcode, class) %>%
   group_by(trtcode) %>%
   slice(1) %>%
   ungroup()
+
+# Hard-coded fallback mapping (used only when a treatment is unmapped in in_map).
+trt_map_fallback <- data.frame(trtcode = 1:99) %>%
+  mutate(
+    classcode = case_when(
+      trtcode == 1 ~ 1, trtcode == 2 ~ 2, trtcode == 3 ~ 3, trtcode == 4 ~ 4, trtcode == 5 ~ 5,
+      trtcode == 6 ~ 6, trtcode == 7 ~ 7, trtcode %in% c(8, 9) ~ 8,
+      trtcode %in% c(10, 11, 12, 13) ~ 9, trtcode == 14 ~ 10, trtcode == 15 ~ 11, trtcode == 16 ~ 12,
+      trtcode == 17 ~ 13, trtcode == 18 ~ 14, trtcode == 19 ~ 15,
+      trtcode %in% c(20, 21, 22, 23) ~ 16, trtcode %in% c(24, 25, 26, 27) ~ 17,
+      trtcode %in% c(28, 29) ~ 18, trtcode == 30 ~ 19, trtcode == 31 ~ 20, trtcode == 32 ~ 21,
+      trtcode == 33 ~ 22, trtcode %in% c(34, 35) ~ 23, trtcode == 36 ~ 24, trtcode == 37 ~ 25,
+      trtcode == 38 ~ 26, trtcode %in% c(39, 40, 41, 42, 43, 44) ~ 27,
+      trtcode %in% c(45, 46, 47, 48, 49, 50) ~ 28, trtcode %in% c(51, 52) ~ 29,
+      trtcode == 53 ~ 30, trtcode %in% c(54, 55, 56) ~ 31, trtcode %in% c(57, 58, 59) ~ 32,
+      trtcode %in% c(60, 61, 62) ~ 33, trtcode %in% c(63, 64) ~ 34, trtcode == 65 ~ 35,
+      trtcode == 66 ~ 36, trtcode %in% c(67, 68) ~ 37,
+      trtcode %in% c(69, 70, 71, 72, 73, 74, 75) ~ 38, trtcode == 76 ~ 39,
+      trtcode %in% c(77, 78) ~ 40, trtcode %in% c(79, 80, 81) ~ 41, trtcode %in% c(82, 83) ~ 42,
+      trtcode == 84 ~ 43, trtcode == 85 ~ 44, trtcode == 86 ~ 45,
+      trtcode %in% c(87, 88, 89) ~ 46, trtcode %in% c(90, 91) ~ 47, trtcode == 92 ~ 48,
+      trtcode %in% c(93, 94, 95, 96, 97) ~ 49, trtcode %in% c(98, 99) ~ 50,
+      TRUE ~ NA_real_
+    ),
+    class = case_when(
+      trtcode == 1 ~ "Placebo",
+      trtcode == 2 ~ "Attention placebo",
+      trtcode == 3 ~ "No treatment",
+      trtcode == 4 ~ "Waitlist",
+      trtcode == 5 ~ "TAU",
+      trtcode == 6 ~ "Mirtazapine",
+      trtcode == 7 ~ "Trazodone",
+      trtcode %in% c(8, 9) ~ "Behavioural therapies individual",
+      trtcode %in% c(10, 11, 12, 13) ~ "Cognitive and cognitive behavioural therapies individual",
+      trtcode == 14 ~ "Cognitive and cognitive behavioural therapies group",
+      trtcode == 15 ~ "Problem solving individual",
+      trtcode == 16 ~ "Problem solving group",
+      trtcode == 17 ~ "Counselling individual",
+      trtcode == 18 ~ "Interpersonal psychotherapy (IPT) individual",
+      trtcode == 19 ~ "Psychoeducation group",
+      trtcode %in% c(20, 21, 22, 23) ~ "Self-help",
+      trtcode %in% c(24, 25, 26, 27) ~ "Self-help with support",
+      trtcode %in% c(28, 29) ~ "Short-term psychodynamic psychotherapies individual",
+      trtcode == 30 ~ "Music therapy group",
+      trtcode == 31 ~ "Mindfulness or meditation group",
+      trtcode == 32 ~ "Peer support group",
+      trtcode == 33 ~ "Any psychotherapy",
+      trtcode %in% c(34, 35) ~ "Cognitive and cognitive behavioural therapies individual + placebo",
+      trtcode == 36 ~ "Interpersonal psychotherapy (IPT) individual + placebo",
+      trtcode == 37 ~ "Counselling individual + placebo",
+      trtcode == 38 ~ "Relaxation individual + placebo",
+      trtcode %in% c(39, 40, 41, 42, 43, 44) ~ "SSRIs",
+      trtcode %in% c(45, 46, 47, 48, 49, 50) ~ "TCAs",
+      trtcode %in% c(51, 52) ~ "SNRIs",
+      trtcode == 53 ~ "Any AD",
+      trtcode %in% c(54, 55, 56) ~ "Sham acupuncture",
+      trtcode %in% c(57, 58, 59) ~ "Acupuncture",
+      trtcode %in% c(60, 61, 62) ~ "Exercise individual",
+      trtcode %in% c(63, 64) ~ "Exercise group",
+      trtcode == 65 ~ "Yoga group",
+      trtcode == 66 ~ "Light therapy",
+      trtcode %in% c(67, 68) ~ "Behavioural therapies individual + AD",
+      trtcode %in% c(69, 70, 71, 72, 73, 74, 75) ~ "Cognitive and cognitive behavioural therapies individual + AD",
+      trtcode == 76 ~ "Cognitive and cognitive behavioural therapies group + AD",
+      trtcode %in% c(77, 78) ~ "Interpersonal psychotherapy (IPT) individual + AD",
+      trtcode %in% c(79, 80, 81) ~ "Counselling individual + AD",
+      trtcode %in% c(82, 83) ~ "Short-term psychodynamic psychotherapies individual + AD",
+      trtcode == 84 ~ "Psychoeducation group + AD",
+      trtcode == 85 ~ "Peer support group + AD",
+      trtcode == 86 ~ "Relaxation individual + AD",
+      trtcode %in% c(87, 88, 89) ~ "Exercise individual + AD",
+      trtcode %in% c(90, 91) ~ "Exercise group + AD",
+      trtcode == 92 ~ "Yoga group + AD",
+      trtcode %in% c(93, 94, 95, 96, 97) ~ "Acupuncture + AD",
+      trtcode %in% c(98, 99) ~ "Light therapy + AD",
+      TRUE ~ NA_character_
+    )
+  ) %>%
+  filter(!is.na(classcode), !is.na(class), nzchar(class))
+
+# Final mapping: in_map first, fallback only for trtcodes missing in in_map.
+trt_map_dedup <- bind_rows(
+  trt_map_primary,
+  trt_map_fallback %>% anti_join(trt_map_primary %>% select(trtcode), by = "trtcode")
+)
 
 # -----------------------------
 # 3. Join + keep analyzable rows
