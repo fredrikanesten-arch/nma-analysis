@@ -4,8 +4,8 @@ library(netmeta)
 
 # Fixed paths requested by user
 base_dir <- "C:/Users/fredr/OneDrive/Desktop/nma_project/mavranezouli"
-in_data  <- file.path(base_dir, "netmeta_class_ms", "combined_long_mean_change_dataset.csv")
-in_map   <- file.path(base_dir, "article_supplements", "trt_to_class_ms.csv")
+in_data  <- file.path(base_dir, "binfixed_class_ms", "combined_long_mean_change_dataset_ms_smd_bias_adj.csv")
+in_map   <- file.path(base_dir, "clean_data", "trt_to_class_ms.csv")
 out_dir  <- file.path(base_dir, "binfixed_class_ms")
 reference_treatment_arg <- NA_character_
 variance_sharing_map_path <- file.path(base_dir, "article_supplements", "class_variance_sharing_map.csv")
