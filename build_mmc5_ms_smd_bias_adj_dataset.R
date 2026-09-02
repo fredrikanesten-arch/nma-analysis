@@ -292,16 +292,24 @@ parse_response_block <- function(df, start_row, end_row, rho, p_clip) {
 
 main <- function() {
   args <- commandArgs(trailingOnly = TRUE)
-  if (length(args) < 1) {
-    stop("Usage: Rscript build_mmc5_ms_smd_bias_adj_dataset.R <input_xlsx> [output_csv] [sheet] [rho] [p_clip]")
+  if (length(args) >= 1 && args[[1]] %in% c("-h", "--help")) {
+    cat("Usage: Rscript build_mmc5_ms_smd_bias_adj_dataset.R [input_xlsx] [output_csv] [sheet] [rho] [p_clip]\n")
+    cat("Defaults: input_xlsx='mmc5.xlsx', output_csv='combined_long_mean_change_dataset_ms_smd_bias_adj.csv', sheet='MS SMD bias-adj', rho=0.5, p_clip=1e-6\n")
+    return(invisible(NULL))
   }
 
-  input_xlsx <- args[[1]]
+  input_xlsx <- if (length(args) >= 1) args[[1]] else "mmc5.xlsx"
   output_csv <- if (length(args) >= 2) args[[2]] else "combined_long_mean_change_dataset_ms_smd_bias_adj.csv"
   sheet <- if (length(args) >= 3) args[[3]] else "MS SMD bias-adj"
   rho <- if (length(args) >= 4) as.numeric(args[[4]]) else 0.5
   p_clip <- if (length(args) >= 5) as.numeric(args[[5]]) else 1e-6
 
+  if (!file.exists(input_xlsx)) {
+    stop(sprintf(
+      "Input workbook not found: %s\nEither pass the path explicitly as the first argument or run from a directory containing mmc5.xlsx.",
+      input_xlsx
+    ))
+  }
   if (is.na(rho)) stop("rho must be numeric")
   if (is.na(p_clip) || p_clip <= 0 || p_clip >= 0.5) stop("p_clip must be in (0, 0.5)")
 
