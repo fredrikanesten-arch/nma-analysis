@@ -35,17 +35,17 @@ extract_vs_ref <- function(mat, ref) {
   if (ref %in% colnames(mat)) {
     return(data.frame(Treatment = rownames(mat), value = as.numeric(mat[, ref]), row.names = NULL))
   }
-
-  class_key <- function(x) {
-    x <- tolower(trimws(x))
-    x <- gsub("\\s*\\+\\s*ad$", "", x)
-    x <- gsub("\\s*\\+\\s*placebo$", "", x)
-    trimws(x)
-  }
   if (ref %in% rownames(mat)) {
     return(data.frame(Treatment = colnames(mat), value = as.numeric(mat[ref, ]), row.names = NULL))
   }
   stop("Reference treatment not found in matrix dimnames.")
+}
+
+class_key <- function(x) {
+  x <- tolower(trimws(x))
+  x <- gsub("\\s*\\+\\s*ad$", "", x)
+  x <- gsub("\\s*\\+\\s*placebo$", "", x)
+  trimws(x)
 }
 
 dat <- read_csv_robust(in_data)
@@ -228,9 +228,6 @@ treatment_vs_ref <- trt_eff %>%
     p_value = ifelse(!is.na(z), 2 * stats::pnorm(-abs(z)), NA_real_)
   ) %>%
   arrange(classcode, Treatment)
-
-class_vs_ref <- treatment_vs_ref %>%
-  mutate(class_key = class_key(class))
 
 class_base <- treatment_vs_ref %>%
   group_by(classcode, class) %>%
