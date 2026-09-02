@@ -213,15 +213,27 @@ arm_dat <- dat_kept %>%
   )
 
 write_csv(arm_dat, file.path(out_dir, "multinma_treatment_level_arms.csv"))
-write_csv(
-  arm_dat %>% group_by(studyid) %>% summarise(n_treatments = n_distinct(treatment_label), .groups = "drop"),
-  file.path(out_dir, "multinma_study_treatment_counts.csv")
-)
+study_trt_counts <- arm_dat %>%
+  group_by(studyid) %>%
+  summarise(n_treatments = n_distinct(treatment_label), .groups = "drop")
 
-if (!reference_class %in% arm_dat$class) {
+write_csv(study_trt_counts, file.path(out_dir, "multinma_study_treatment_counts.csv"))
+
+single_arm_studies <- study_trt_counts %>%
+  filter(n_treatments < 2)
+write_csv(single_arm_studies, file.path(out_dir, "multinma_single_arm_studies_dropped.csv"))
+
+arm_dat_nma <- arm_dat %>%
+  filter(studyid %in% (study_trt_counts %>% filter(n_treatments >= 2) %>% pull(studyid)))
+
+if (nrow(arm_dat_nma) == 0) {
+  stop("No multi-arm studies available after removing single-arm studies.")
+}
+
+if (!reference_class %in% arm_dat_nma$class) {
   stop("Reference class not present in retained data: ", reference_class)
 }
-reference_treatment <- arm_dat %>%
+reference_treatment <- arm_dat_nma %>%
   filter(class == reference_class) %>%
   arrange(treatment_label) %>%
   pull(treatment_label) %>%
@@ -229,7 +241,7 @@ reference_treatment <- arm_dat %>%
   .[[1]]
 
 network <- multinma::set_agd_arm(
-  arm_dat,
+  arm_dat_nma,
   study = studyid,
   trt = treatment_label,
   y = mean_change,
@@ -254,7 +266,7 @@ rel_sum <- multinma::posterior_summary(rel) %>% as.data.frame()
 rel_sum$Treatment <- rownames(rel_sum)
 rownames(rel_sum) <- NULL
 
-treatment_n <- arm_dat %>%
+treatment_n <- arm_dat_nma %>%
   group_by(treatment_label, class) %>%
   summarise(N_total_treatment = sum(n), n_studies_treatment = n_distinct(studyid), .groups = "drop") %>%
   rename(Treatment = treatment_label)
@@ -285,6 +297,10 @@ writeLines(fit_sum, con = file.path(out_dir, "multinma_model_summary.txt"))
 
 saveRDS(
   list(
+    arm_dat = arm_dat,
+    arm_dat_nma = arm_dat_nma,
+    study_treatment_counts = study_trt_counts,
+    single_arm_studies = single_arm_studies,
     network = network,
     fit = fit,
     rel = rel,
