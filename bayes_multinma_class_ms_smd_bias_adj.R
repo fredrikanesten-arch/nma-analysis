@@ -220,7 +220,9 @@ network <- multinma::set_agd_arm(
   study = studyid,
   trt = class,
   y = mean_change,
-  se = se_change
+  se = se_change,
+  sample_size = n,
+  trt_ref = "Placebo"
 )
 
 fit <- multinma::nma(
@@ -235,7 +237,6 @@ fit <- multinma::nma(
   chains = 4,
   seed = 20260903,
   adapt_delta = 0.95,
-  max_treedepth = 12,
   refresh = 100
 )
 
