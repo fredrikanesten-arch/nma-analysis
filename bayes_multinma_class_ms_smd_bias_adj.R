@@ -7,6 +7,9 @@ if (!requireNamespace("readr", quietly = TRUE)) {
 if (!requireNamespace("multinma", quietly = TRUE)) {
   stop("Package 'multinma' is required. Install with: install.packages('multinma')")
 }
+if (!requireNamespace("tibble", quietly = TRUE)) {
+  stop("Package 'tibble' is required. Install with: install.packages('tibble')")
+}
 
 library(dplyr)
 library(readr)
@@ -202,6 +205,9 @@ collapsed_class <- dat_class %>%
   mutate(
     se_change = sd_change / sqrt(n)
   ) %>%
+  mutate(
+    class = stats::relevel(factor(class), ref = "Placebo")
+  ) %>%
   filter(is.finite(se_change), se_change > 0)
 
 stopifnot("Placebo" %in% collapsed_class$class)
@@ -221,10 +227,15 @@ fit <- multinma::nma(
   network,
   trt_effects = "random",
   consistency = "consistency",
-  iter = 4000,
-  warmup = 2000,
+  prior_intercept = multinma::normal(location = 0, scale = 10),
+  prior_trt = multinma::normal(location = 0, scale = 5),
+  prior_het = multinma::half_normal(scale = 1),
+  iter = 8000,
+  warmup = 4000,
   chains = 4,
   seed = 20260903,
+  adapt_delta = 0.95,
+  max_treedepth = 12,
   refresh = 0
 )
 
@@ -233,31 +244,80 @@ fit <- multinma::nma(
 # -----------------------------
 extract_vs_placebo <- function(fit, collapsed_class, ref = "Placebo", digits = 3) {
   rel <- multinma::relative_effects(fit, trt_ref = ref)
-  rel_sum <- as.data.frame(summary(rel))
-  rel_sum <- tibble::as_tibble(rel_sum)
+  rel_sum <- summary(rel)
+  rel_df <- as.data.frame(rel_sum, stringsAsFactors = FALSE)
+
+  if (nrow(rel_df) == 0) {
+    stop("relative_effects() summary returned no rows.")
+  }
+
+  # If treatment labels are only in row names, carry them into a column
+  if (!("Treatment" %in% names(rel_df))) {
+    rn <- rownames(rel_df)
+    if (!is.null(rn) && length(rn) == nrow(rel_df) && any(nzchar(rn))) {
+      rel_df$Treatment <- rn
+    }
+  }
 
   n_tbl <- collapsed_class %>%
     group_by(class) %>%
     summarise(N = sum(n, na.rm = TRUE), .groups = "drop")
 
-  # Try to support common multinma summary column names
-  trt_col <- intersect(c("trt", "treatment", "class"), names(rel_sum))[1]
-  mean_col <- intersect(c("mean", "Estimate", "estimate"), names(rel_sum))[1]
-  lcl_col <- grep("^2\\.5%$|^lcl$|lower", names(rel_sum), value = TRUE, ignore.case = TRUE)[1]
-  ucl_col <- grep("^97\\.5%$|^ucl$|upper", names(rel_sum), value = TRUE, ignore.case = TRUE)[1]
+  # Detect treatment and summary columns robustly
+  name_lc <- tolower(names(rel_df))
+  trt_idx <- match(TRUE, name_lc %in% c("trt", "treatment", "class", "parameter", "contrast", "comparison"))
+  trt_col <- if (!is.na(trt_idx)) names(rel_df)[trt_idx] else if ("Treatment" %in% names(rel_df)) "Treatment" else NA_character_
+
+  mean_idx <- match(TRUE, name_lc %in% c("mean", "estimate", "est", "median"))
+  mean_col <- if (!is.na(mean_idx)) names(rel_df)[mean_idx] else NA_character_
+
+  lcl_col <- grep("^2\\.5%$|^q2\\.5$|^lcl$|lower", names(rel_df), value = TRUE, ignore.case = TRUE)[1]
+  ucl_col <- grep("^97\\.5%$|^q97\\.5$|^ucl$|upper", names(rel_df), value = TRUE, ignore.case = TRUE)[1]
 
   if (any(is.na(c(trt_col, mean_col, lcl_col, ucl_col)))) {
-    stop("Could not detect expected columns in relative_effects() summary output.")
+    # Try fallback using quantile-like percentage columns
+    pct_cols <- grep("%", names(rel_df), value = TRUE)
+    if (length(pct_cols) >= 2) {
+      extract_pct <- function(x) suppressWarnings(as.numeric(gsub("[^0-9\\.]", "", x)))
+      pct_vals <- vapply(pct_cols, extract_pct, numeric(1))
+      if (all(is.finite(pct_vals))) {
+        lcl_col <- pct_cols[which.min(abs(pct_vals - 2.5))]
+        ucl_col <- pct_cols[which.min(abs(pct_vals - 97.5))]
+      }
+    }
+    if (is.na(mean_col)) {
+      num_cols <- names(rel_df)[vapply(rel_df, is.numeric, logical(1))]
+      num_cols <- setdiff(num_cols, c(lcl_col, ucl_col))
+      if (length(num_cols) >= 1) mean_col <- num_cols[1]
+    }
+    if (is.na(trt_col) && "Treatment" %in% names(rel_df)) trt_col <- "Treatment"
   }
 
-  out <- rel_sum %>%
+  if (any(is.na(c(trt_col, mean_col, lcl_col, ucl_col)))) {
+    stop(
+      "Could not detect expected columns in relative_effects() summary output. Found columns: ",
+      paste(names(rel_df), collapse = ", ")
+    )
+  }
+
+  out <- rel_df %>%
     transmute(
-      Treatment = .data[[trt_col]],
+      Treatment = as.character(.data[[trt_col]]),
       SMD = as.numeric(.data[[mean_col]]),
       `lower CrI` = as.numeric(.data[[lcl_col]]),
       `upper CrI` = as.numeric(.data[[ucl_col]])
     ) %>%
-    right_join(tibble::tibble(Treatment = sort(unique(collapsed_class$class))), by = "Treatment") %>%
+    mutate(
+      Treatment = gsub("^d\\[", "", Treatment),
+      Treatment = gsub("\\]$", "", Treatment),
+      Treatment = gsub(paste0(",\\s*", ref, "$"), "", Treatment),
+      Treatment = gsub(paste0("^", ref, "\\s*:"), "", Treatment),
+      Treatment = gsub(paste0("^", ref, "\\s+vs\\s+"), "", Treatment)
+    ) %>%
+    right_join(
+      tibble::tibble(Treatment = sort(unique(as.character(collapsed_class$class)))),
+      by = "Treatment"
+    ) %>%
     mutate(
       SMD = ifelse(Treatment == ref & is.na(SMD), 0, SMD),
       `lower CrI` = ifelse(Treatment == ref & is.na(`lower CrI`), 0, `lower CrI`),
