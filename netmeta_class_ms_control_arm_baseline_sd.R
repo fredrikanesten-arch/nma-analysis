@@ -365,10 +365,13 @@ run_variant <- function(dat_std, variant_name, mode, reference_group, out_dir,
 }
 
 main <- function() {
+  # -----------------------------
+  # 0. Paths
+  # -----------------------------
   base_dir <- "C:/Users/fredr/OneDrive/Desktop/nma_project/mavranezouli"
-  default_in_data <- file.path(base_dir, "binfixed_class_ms", "combined_long_mean_change_dataset_ms_smd_bias_adj.csv")
-  default_in_map <- file.path(base_dir, "clean_data", "trt_to_class_ms.csv")
-  default_out_dir <- file.path(base_dir, "binfixed_class_ms")
+  in_data <- file.path(base_dir, "binfixed_class_ms", "combined_long_mean_change_dataset_ms_smd_bias_adj.csv")
+  in_map <- file.path(base_dir, "clean_data", "trt_to_class_ms.csv")
+  out_dir <- file.path(base_dir, "binfixed_class_ms")
 
   args <- commandArgs(trailingOnly = TRUE)
   if (length(args) >= 1 && args[[1]] %in% c("-h", "--help")) {
@@ -379,9 +382,9 @@ main <- function() {
     return(invisible(NULL))
   }
 
-  in_data <- if (length(args) >= 1) args[[1]] else default_in_data
-  in_map <- if (length(args) >= 2) args[[2]] else default_in_map
-  out_dir <- if (length(args) >= 3) args[[3]] else default_out_dir
+  in_data <- if (length(args) >= 1) args[[1]] else in_data
+  in_map <- if (length(args) >= 2) args[[2]] else in_map
+  out_dir <- if (length(args) >= 3) args[[3]] else out_dir
   reference_group <- if (length(args) >= 4) args[[4]] else "Placebo"
   fallback_mode <- if (length(args) >= 5) args[[5]] else "drop"
   run_mode <- if (length(args) >= 6) args[[6]] else "multi"
