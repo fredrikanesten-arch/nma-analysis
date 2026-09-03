@@ -236,7 +236,7 @@ fit <- multinma::nma(
   seed = 20260903,
   adapt_delta = 0.95,
   max_treedepth = 12,
-  refresh = 0
+  refresh = 100
 )
 
 # -----------------------------
