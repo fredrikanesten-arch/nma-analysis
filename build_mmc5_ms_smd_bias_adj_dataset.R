@@ -256,7 +256,7 @@ parse_response_block <- function(df, start_row, end_row) {
       p_response <- responders / n
       z <- qnorm(clip_p(p_response))
 
-      sd_rule <- max(sdbr, 4.46 + 0.55 * sdbr)
+      sd_rule <- sdbr
       cutoff <- -(q * ybr)
       mean_change_raw <- -(q * ybr + z * sd_rule * sd_multiplier)
       sd_change_raw <- sd_rule * sd_multiplier
@@ -269,7 +269,7 @@ parse_response_block <- function(df, start_row, end_row) {
     }
 
     arm_n <- vapply(arms, function(a) a$n, numeric(1))
-    arm_sd_for_pool <- vapply(arms, function(a) a$sd_rule, numeric(1))
+    arm_sd_for_pool <- vapply(arms, function(a) a$sd_change_raw, numeric(1))
     pooled_sd <- pooled_sd_from_arms(n = arm_n, sd = arm_sd_for_pool)
     j <- hedges_j(sum(arm_n) - length(arm_n))
 
