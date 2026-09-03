@@ -21,16 +21,26 @@ derive_arm_flags <- function(source_chr) {
 }
 
 main <- function() {
+  # -----------------------------
+  # 0. Paths
+  # -----------------------------
+  base_dir <- "C:/Users/fredr/OneDrive/Desktop/nma_project/mavranezouli"
+  default_in_data <- file.path(base_dir, "netmeta_class_ms", "combined_long_mean_change_dataset.csv")
+  default_in_map <- file.path(base_dir, "article_supplements", "trt_to_class_ms.csv")
+  default_out_dir <- file.path(base_dir, "binfixed_class_ms")
+
   args <- commandArgs(trailingOnly = TRUE)
   if (length(args) >= 1 && args[[1]] %in% c("-h", "--help")) {
-    cat("Usage: Rscript build_mmc5_ms_smd_bias_adj_dataset.R [input_csv] [mapping_csv] [output_csv]\n")
+    cat("Usage: Rscript build_mmc5_ms_smd_bias_adj_dataset.R [input_csv] [mapping_csv] [output_dir]\n")
     cat("Adds class mapping + treatment-level + bridge eligibility flags to long dataset.\n")
     return(invisible(NULL))
   }
 
-  in_data <- if (length(args) >= 1) args[[1]] else "combined_long_mean_change_dataset.csv"
-  in_map <- if (length(args) >= 2) args[[2]] else "trt_to_class_ms.csv"
-  out_csv <- if (length(args) >= 3) args[[3]] else "combined_long_mean_change_dataset_ms_smd_bias_adj.csv"
+  in_data <- if (length(args) >= 1) args[[1]] else default_in_data
+  in_map <- if (length(args) >= 2) args[[2]] else default_in_map
+  out_dir <- if (length(args) >= 3) args[[3]] else default_out_dir
+  if (!dir.exists(out_dir)) dir.create(out_dir, recursive = TRUE)
+  out_csv <- file.path(out_dir, "combined_long_mean_change_dataset_ms_smd_bias_adj.csv")
 
   if (!file.exists(in_data)) stop("Input data not found: ", in_data)
   if (!file.exists(in_map)) stop("Mapping file not found: ", in_map)
