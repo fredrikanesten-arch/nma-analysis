@@ -301,16 +301,23 @@ parse_response_block <- function(df, start_row, end_row) {
 }
 
 main <- function() {
+  base_dir <- "C:/Users/fredr/OneDrive/Desktop/nma_project/mavranezouli"
+  out_dir <- file.path(base_dir, "binfixed_class_ms")
+  if (!dir.exists(out_dir)) dir.create(out_dir, recursive = TRUE)
+
   args <- commandArgs(trailingOnly = TRUE)
   if (length(args) >= 1 && args[[1]] %in% c("-h", "--help")) {
     cat("Usage: Rscript build_mmc5_ms_smd_bias_adj_dataset.R [input_xlsx] [output_csv] [sheet]\n")
-    cat("Defaults: input_xlsx='mmc5.xlsx', output_csv='combined_long_mean_change_dataset_ms_smd_bias_adj.csv', sheet='MS SMD bias-adj'\n")
+    cat("Defaults: input_xlsx='<base_dir>/article_supplements/mmc5.xlsx', output_csv='<base_dir>/binfixed_class_ms/combined_long_mean_change_dataset_ms_smd_bias_adj.csv', sheet='MS SMD bias-adj'\n")
     cat("Strict assumptions: rho=0.2, response conversion uses q, strict responder SD rule, pooled SD standardization, Hedges correction\n")
     return(invisible(NULL))
   }
 
-  input_xlsx <- if (length(args) >= 1) args[[1]] else "mmc5.xlsx"
-  output_csv <- if (length(args) >= 2) args[[2]] else "combined_long_mean_change_dataset_ms_smd_bias_adj.csv"
+  default_input_xlsx <- file.path(base_dir, "article_supplements", "mmc5.xlsx")
+  default_output_csv <- file.path(out_dir, "combined_long_mean_change_dataset_ms_smd_bias_adj.csv")
+
+  input_xlsx <- if (length(args) >= 1) args[[1]] else default_input_xlsx
+  output_csv <- if (length(args) >= 2) args[[2]] else default_output_csv
   sheet <- if (length(args) >= 3) args[[3]] else "MS SMD bias-adj"
 
   if (!file.exists(input_xlsx)) {
