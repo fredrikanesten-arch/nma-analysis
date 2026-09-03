@@ -56,14 +56,18 @@ main <- function() {
   miss_map <- setdiff(req_map, names(trt_map))
   if (length(miss_map) > 0) stop("Mapping file missing columns: ", paste(miss_map, collapse = ", "))
 
+  label_from_treatment_label <- if ("treatment_label" %in% names(trt_map)) as.character(trt_map$treatment_label) else rep(NA_character_, nrow(trt_map))
+  label_from_trtname <- if ("trtname" %in% names(trt_map)) as.character(trt_map$trtname) else rep(NA_character_, nrow(trt_map))
+  label_from_name <- if ("name" %in% names(trt_map)) as.character(trt_map$name) else rep(NA_character_, nrow(trt_map))
+
   map_clean <- trt_map %>%
     transmute(
       treatment = suppressWarnings(as.numeric(trtcode)),
       class = as.character(class),
       treatment_label = dplyr::coalesce(
-        dplyr::if_else("treatment_label" %in% names(trt_map), as.character(trt_map$treatment_label), NA_character_),
-        dplyr::if_else("trtname" %in% names(trt_map), as.character(trt_map$trtname), NA_character_),
-        dplyr::if_else("name" %in% names(trt_map), as.character(trt_map$name), NA_character_)
+        label_from_treatment_label,
+        label_from_trtname,
+        label_from_name
       )
     ) %>%
     filter(!is.na(treatment), !is.na(class), nzchar(class)) %>%
