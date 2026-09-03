@@ -294,27 +294,74 @@ extract_vs_placebo <- function(fit, collapsed_class, ref = "Placebo", digits = 3
     if (is.na(trt_col) && "Treatment" %in% names(rel_df)) trt_col <- "Treatment"
   }
 
-  if (any(is.na(c(trt_col, mean_col, lcl_col, ucl_col)))) {
+  parsed_rel <- NULL
+
+  if (!any(is.na(c(trt_col, mean_col, lcl_col, ucl_col)))) {
+    parsed_rel <- rel_df %>%
+      transmute(
+        Treatment = as.character(.data[[trt_col]]),
+        SMD = as.numeric(.data[[mean_col]]),
+        `lower CrI` = as.numeric(.data[[lcl_col]]),
+        `upper CrI` = as.numeric(.data[[ucl_col]])
+      )
+  } else {
+    # Fallback A: long-format posterior output with Treatment + Freq
+    rel_raw_df <- as.data.frame(rel, stringsAsFactors = FALSE)
+    if (all(c("Treatment", "Freq") %in% names(rel_raw_df)) && is.numeric(rel_raw_df$Freq)) {
+      parsed_rel <- rel_raw_df %>%
+        group_by(Treatment) %>%
+        summarise(
+          SMD = mean(Freq, na.rm = TRUE),
+          `lower CrI` = as.numeric(stats::quantile(Freq, probs = 0.025, na.rm = TRUE)),
+          `upper CrI` = as.numeric(stats::quantile(Freq, probs = 0.975, na.rm = TRUE)),
+          .groups = "drop"
+        )
+    } else if (all(c("Var2", "Freq") %in% names(rel_raw_df)) && is.numeric(rel_raw_df$Freq)) {
+      parsed_rel <- rel_raw_df %>%
+        mutate(Treatment = as.character(Var2)) %>%
+        group_by(Treatment) %>%
+        summarise(
+          SMD = mean(Freq, na.rm = TRUE),
+          `lower CrI` = as.numeric(stats::quantile(Freq, probs = 0.025, na.rm = TRUE)),
+          `upper CrI` = as.numeric(stats::quantile(Freq, probs = 0.975, na.rm = TRUE)),
+          .groups = "drop"
+        )
+    } else {
+      # Fallback B: wide posterior draws (one numeric column per treatment contrast)
+      num_cols <- names(rel_raw_df)[vapply(rel_raw_df, is.numeric, logical(1))]
+      num_cols <- setdiff(num_cols, c(".chain", ".iteration", ".draw", "chain", "iteration", "draw"))
+      if (length(num_cols) > 0) {
+        parsed_rel <- dplyr::bind_rows(lapply(num_cols, function(col) {
+          x <- rel_raw_df[[col]]
+          tibble::tibble(
+            Treatment = col,
+            SMD = mean(x, na.rm = TRUE),
+            `lower CrI` = as.numeric(stats::quantile(x, probs = 0.025, na.rm = TRUE)),
+            `upper CrI` = as.numeric(stats::quantile(x, probs = 0.975, na.rm = TRUE))
+          )
+        }))
+      }
+    }
+  }
+
+  if (is.null(parsed_rel) || nrow(parsed_rel) == 0) {
     stop(
       "Could not detect expected columns in relative_effects() summary output. Found columns: ",
       paste(names(rel_df), collapse = ", ")
     )
   }
 
-  out <- rel_df %>%
-    transmute(
-      Treatment = as.character(.data[[trt_col]]),
-      SMD = as.numeric(.data[[mean_col]]),
-      `lower CrI` = as.numeric(.data[[lcl_col]]),
-      `upper CrI` = as.numeric(.data[[ucl_col]])
-    ) %>%
+  out <- parsed_rel %>%
     mutate(
+      Treatment = as.character(Treatment),
       Treatment = gsub("^d\\[", "", Treatment),
       Treatment = gsub("\\]$", "", Treatment),
       Treatment = gsub(paste0(",\\s*", ref, "$"), "", Treatment),
       Treatment = gsub(paste0("^", ref, "\\s*:"), "", Treatment),
-      Treatment = gsub(paste0("^", ref, "\\s+vs\\s+"), "", Treatment)
+      Treatment = gsub(paste0("^", ref, "\\s+vs\\s+"), "", Treatment),
+      Treatment = trimws(Treatment)
     ) %>%
+    filter(Treatment %in% as.character(unique(collapsed_class$class))) %>%
     right_join(
       tibble::tibble(Treatment = sort(unique(as.character(collapsed_class$class)))),
       by = "Treatment"
@@ -324,7 +371,7 @@ extract_vs_placebo <- function(fit, collapsed_class, ref = "Placebo", digits = 3
       `lower CrI` = ifelse(Treatment == ref & is.na(`lower CrI`), 0, `lower CrI`),
       `upper CrI` = ifelse(Treatment == ref & is.na(`upper CrI`), 0, `upper CrI`)
     ) %>%
-    left_join(n_tbl %>% rename(Treatment = class), by = "Treatment") %>%
+    left_join(n_tbl %>% mutate(class = as.character(class)) %>% rename(Treatment = class), by = "Treatment") %>%
     mutate(
       `SMD vs Placebo (mean, 95% CrI)` = ifelse(
         is.na(SMD),
