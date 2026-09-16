@@ -339,6 +339,43 @@ build_audit_row <- function(sheet_name, block_index, row_index, study_id, mmc3_s
   )
 }
 
+empty_flagged_frame <- function() {
+  data.frame(
+    sheet_name = character(),
+    block_index = integer(),
+    worksheet_row = integer(),
+    study_id = character(),
+    matched_sheet = character(),
+    replaced_treat_columns = character(),
+    performance_bias = character(),
+    detection_bias = character(),
+    arms = character(),
+    original_treat_code = integer(),
+    replacement_treat_code = integer(),
+    stringsAsFactors = FALSE
+  )
+}
+
+empty_audit_frame <- function() {
+  data.frame(
+    sheet_name = character(),
+    block_index = integer(),
+    worksheet_row = integer(),
+    study_id = character(),
+    matched_sheet = character(),
+    treat_columns_with_code_1 = character(),
+    performance_bias = character(),
+    detection_bias = character(),
+    has_pill_placebo_arm = logical(),
+    has_nonpharmacological_component = logical(),
+    has_blinding_issue = logical(),
+    status = character(),
+    reason = character(),
+    arms = character(),
+    stringsAsFactors = FALSE
+  )
+}
+
 collect_reclassification_results <- function(mmc5_path, mmc3_records, sheet_name, mmc3_sheet_name) {
   workbook <- openxlsx::loadWorkbook(mmc5_path)
   raw_sheet <- read_raw_sheet(mmc5_path, sheet_name)
@@ -460,14 +497,14 @@ collect_reclassification_results <- function(mmc5_path, mmc3_records, sheet_name
 
   list(
     workbook = workbook,
-    flagged = bind_rows(flagged_rows),
-    audit = bind_rows(audit_rows)
+    flagged = bind_rows(flagged_rows, empty_flagged_frame()),
+    audit = bind_rows(audit_rows, empty_audit_frame())
   )
 }
 
-bind_rows <- function(rows) {
+bind_rows <- function(rows, empty_frame) {
   if (length(rows) == 0) {
-    return(data.frame(stringsAsFactors = FALSE))
+    return(empty_frame)
   }
   do.call(rbind, rows)
 }
@@ -478,8 +515,13 @@ update_lookup <- function(lookup_path, output_path) {
   if (!"trtcode" %in% names(lookup)) {
     names(lookup)[[1]] <- sub("^\\ufeff", "", names(lookup)[[1]])
   }
-  if (!"trtcode" %in% names(lookup)) {
-    stop(sprintf("Lookup file %s must contain a trtcode column.", lookup_path), call. = FALSE)
+  required_columns <- c("trtcode", "trt", "classcode", "class")
+  missing_columns <- required_columns[!required_columns %in% names(lookup)]
+  if (length(missing_columns) > 0) {
+    stop(
+      sprintf("Lookup file %s is missing required columns: %s", lookup_path, paste(missing_columns, collapse = ", ")),
+      call. = FALSE
+    )
   }
 
   has_partial_placebo <- any(as.character(lookup$trtcode) == as.character(PARTIAL_PLACEBO_CODE))
@@ -504,11 +546,15 @@ write_reports <- function(results, output_dir, mmc5_path, lookup_path, sheet_nam
   review_output <- file.path(output_dir, sprintf("manual_review_partial_placebo_%s.csv", gsub(" ", "_", sheet_name)))
   lookup_output <- file.path(output_dir, sprintf("%s_partial_placebo.csv", tools::file_path_sans_ext(basename(lookup_path))))
 
-  openxlsx::saveWorkbook(results$workbook, workbook_output, overwrite = TRUE)
-  utils::write.csv(results$flagged, flagged_output, row.names = FALSE, quote = TRUE, na = "")
-  review_rows <- results$audit[results$audit$status != "reclassified", , drop = FALSE]
-  utils::write.csv(review_rows, review_output, row.names = FALSE, quote = TRUE, na = "")
   update_lookup(lookup_path, lookup_output)
+  utils::write.csv(results$flagged, flagged_output, row.names = FALSE, quote = TRUE, na = "")
+  if (nrow(results$audit) == 0) {
+    review_rows <- results$audit
+  } else {
+    review_rows <- results$audit[results$audit$status != "reclassified", , drop = FALSE]
+  }
+  utils::write.csv(review_rows, review_output, row.names = FALSE, quote = TRUE, na = "")
+  openxlsx::saveWorkbook(results$workbook, workbook_output, overwrite = TRUE)
 
   list(
     workbook_output = workbook_output,
@@ -530,6 +576,7 @@ main <- function(args = commandArgs(trailingOnly = TRUE)) {
   message(sprintf("Resolved mmc5 sheet: %s", sheet_name))
   message(sprintf("Matched mmc3 sheet: %s", mmc3_sheet_name))
   message(sprintf("Flagged studies: %d", nrow(results$flagged)))
+  message(sprintf("Manual review rows: %d", nrow(results$audit[results$audit$status != "reclassified", , drop = FALSE])))
   if (nrow(results$flagged) > 0) {
     for (row_index in seq_len(nrow(results$flagged))) {
       message(sprintf(

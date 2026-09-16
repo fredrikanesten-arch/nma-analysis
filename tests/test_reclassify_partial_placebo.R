@@ -47,6 +47,15 @@ make_manual_review_workbook <- function(path) {
   openxlsx::saveWorkbook(wb, path, overwrite = TRUE)
 }
 
+make_no_audit_workbook <- function(path) {
+  wb <- openxlsx::createWorkbook()
+  openxlsx::addWorksheet(wb, "MS SMD bias-adj")
+  headers <- c("na[]", "t[,1]", "t[,2]", "studyid")
+  openxlsx::writeData(wb, "MS SMD bias-adj", t(headers), startRow = 1, startCol = 1, colNames = FALSE)
+  openxlsx::writeData(wb, "MS SMD bias-adj", t(c(2, 42, 43, "S1")), startRow = 2, startCol = 1, colNames = FALSE)
+  openxlsx::saveWorkbook(wb, path, overwrite = TRUE)
+}
+
 make_test_lookup <- function(path) {
   writeLines(
     c(
@@ -138,8 +147,28 @@ test_collect_reclassification_manual_review_branches <- function() {
   })
 }
 
+test_write_reports_with_empty_audit <- function() {
+  withr_tempdir(function(temp_dir) {
+    mmc5_path <- file.path(temp_dir, "mmc5_fixed.xlsx")
+    lookup_path <- file.path(temp_dir, "trt_to_class_ms.csv")
+    make_no_audit_workbook(mmc5_path)
+    make_test_lookup(lookup_path)
+    empty_results <- list(
+      workbook = openxlsx::loadWorkbook(mmc5_path),
+      flagged = empty_flagged_frame(),
+      audit = empty_audit_frame()
+    )
+
+    outputs <- write_reports(empty_results, file.path(temp_dir, "outputs"), mmc5_path, lookup_path, "MS SMD bias-adj")
+    review <- read.csv(outputs$review_output, stringsAsFactors = FALSE)
+
+    assert_true(nrow(review) == 0, "Expected empty manual review report when no placebo-coded rows were audited.")
+  })
+}
+
 test_should_flag()
 test_collect_reclassification_results()
 test_write_reports()
 test_collect_reclassification_manual_review_branches()
+test_write_reports_with_empty_audit()
 cat("All R placebo reclassification tests passed.\n")
