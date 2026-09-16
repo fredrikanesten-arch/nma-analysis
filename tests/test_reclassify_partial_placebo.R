@@ -32,6 +32,21 @@ make_test_workbook <- function(path) {
   openxlsx::saveWorkbook(wb, path, overwrite = TRUE)
 }
 
+make_manual_review_workbook <- function(path) {
+  wb <- openxlsx::createWorkbook()
+  openxlsx::addWorksheet(wb, "MS SMD bias-adj")
+  headers <- c("na[]", "t[,1]", "t[,2]", "t[,3]", "t[,4]", "t[,5]", "studyid")
+  openxlsx::writeData(wb, "MS SMD bias-adj", t(headers), startRow = 1, startCol = 1, colNames = FALSE)
+  rows <- list(
+    c(2, 1, 42, NA, NA, NA, NA),
+    c(2, 1, 42, NA, NA, NA, "S4")
+  )
+  for (idx in seq_along(rows)) {
+    openxlsx::writeData(wb, "MS SMD bias-adj", t(rows[[idx]]), startRow = idx + 1, startCol = 1, colNames = FALSE)
+  }
+  openxlsx::saveWorkbook(wb, path, overwrite = TRUE)
+}
+
 make_test_lookup <- function(path) {
   writeLines(
     c(
@@ -110,7 +125,21 @@ test_write_reports <- function() {
   })
 }
 
+test_collect_reclassification_manual_review_branches <- function() {
+  withr_tempdir(function(temp_dir) {
+    mmc5_path <- file.path(temp_dir, "mmc5_fixed.xlsx")
+    make_manual_review_workbook(mmc5_path)
+    mmc3_records <- list()
+
+    results <- collect_reclassification_results(mmc5_path, mmc3_records, "MS SMD bias-adj", "MS depression-included studies")
+    assert_true(nrow(results$flagged) == 0, "Expected no flagged rows for manual-review-only workbook.")
+    assert_true(identical(results$audit$status, c("manual_review", "manual_review")), "Expected both audit rows to require manual review.")
+    assert_true(identical(results$audit$reason, c("missing_study_id_in_mmc5", "study_not_found_in_mmc3")), "Expected audit reasons for missing study ID and missing mmc3 match.")
+  })
+}
+
 test_should_flag()
 test_collect_reclassification_results()
 test_write_reports()
+test_collect_reclassification_manual_review_branches()
 cat("All R placebo reclassification tests passed.\n")

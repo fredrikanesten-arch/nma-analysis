@@ -328,9 +328,9 @@ collect_reclassification_results <- function(mmc5_path, mmc3_records, sheet_name
 
   for (block in target_blocks) {
     column_map <- block$column_map
-    treat_names <- sprintf("t[,%d]", 1:5)
-    treat_names <- treat_names[treat_names %in% names(column_map)]
-    treat_columns <- unname(column_map[treat_names])
+    treat_column_names <- sprintf("t[,%d]", 1:5)
+    treat_column_names <- treat_column_names[treat_column_names %in% names(column_map)]
+    treat_columns <- unname(column_map[treat_column_names])
     study_column <- unname(column_map[["studyid"]])
     if (length(treat_columns) == 0 || length(study_column) == 0 || is.na(study_column)) {
       next
@@ -338,7 +338,7 @@ collect_reclassification_results <- function(mmc5_path, mmc3_records, sheet_name
 
     for (row_index in seq.int(block$start_row, block$end_row)) {
       row_codes <- vapply(treat_columns, function(column_index) as_numeric_code(raw_sheet[[column_index]][[row_index]]), numeric(1))
-      placebo_columns <- treat_names[!is.na(row_codes) & row_codes == PLACEBO_CODE]
+      placebo_columns <- treat_column_names[!is.na(row_codes) & row_codes == PLACEBO_CODE]
       if (length(placebo_columns) == 0) {
         next
       }
