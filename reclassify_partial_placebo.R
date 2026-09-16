@@ -413,8 +413,34 @@ collect_reclassification_results <- function(mmc5_path, mmc3_records, sheet_name
     treat_column_names <- sprintf("t[,%d]", 1:5)
     treat_column_names <- treat_column_names[treat_column_names %in% names(column_map)]
     treat_columns <- unname(column_map[treat_column_names])
-    study_column <- unname(column_map[["studyid"]])
-    if (length(treat_columns) == 0 || length(study_column) == 0 || is.na(study_column)) {
+    study_column <- if ("studyid" %in% names(column_map)) unname(column_map[["studyid"]]) else NA_integer_
+    if (length(treat_columns) == 0) {
+      next
+    }
+    if (length(study_column) == 0 || is.na(study_column)) {
+      for (row_index in seq.int(block$start_row, block$end_row)) {
+        row_codes <- vapply(treat_columns, function(column_index) as_numeric_code(raw_sheet[[column_index]][[row_index]]), numeric(1))
+        placebo_columns <- treat_column_names[!is.na(row_codes) & row_codes == PLACEBO_CODE]
+        if (length(placebo_columns) == 0) {
+          next
+        }
+        audit_rows[[length(audit_rows) + 1]] <- build_audit_row(
+          sheet_name = sheet_name,
+          block_index = block$block_index,
+          row_index = row_index,
+          study_id = NA_character_,
+          mmc3_sheet_name = mmc3_sheet_name,
+          placebo_columns = placebo_columns,
+          performance_bias = NA_character_,
+          detection_bias = NA_character_,
+          has_pill_placebo_arm = NA,
+          has_nonpharmacological_component = NA,
+          has_blinding_issue_value = NA,
+          status = "manual_review",
+          reason = "missing_studyid_column_in_block",
+          arms = NA_character_
+        )
+      }
       next
     }
 
@@ -536,7 +562,10 @@ bind_rows <- function(rows, empty_frame) {
 
 default_lookup_path <- function(base_dir, sheet_name) {
   preferred_lookup <- if (startsWith(sheet_name, "LS")) file.path(base_dir, "trt_to_class_ls.csv") else file.path(base_dir, "trt_to_class_ms.csv")
-  if (startsWith(sheet_name, "LS") && !file.exists(preferred_lookup)) {
+  if (!file.exists(preferred_lookup)) {
+    if (!startsWith(sheet_name, "LS")) {
+      stop(sprintf("Expected lookup file was not found: %s. Supply --lookup explicitly.", preferred_lookup), call. = FALSE)
+    }
     stop(sprintf("Expected LS lookup file was not found: %s. Supply --lookup explicitly.", preferred_lookup), call. = FALSE)
   }
   preferred_lookup

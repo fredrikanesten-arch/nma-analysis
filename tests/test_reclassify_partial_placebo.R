@@ -66,6 +66,15 @@ make_shifted_header_workbook <- function(path) {
   openxlsx::saveWorkbook(wb, path, overwrite = TRUE)
 }
 
+make_missing_studyid_workbook <- function(path) {
+  wb <- openxlsx::createWorkbook()
+  openxlsx::addWorksheet(wb, "MS SMD bias-adj")
+  headers <- c("na[]", "t[,1]", "t[,2]")
+  openxlsx::writeData(wb, "MS SMD bias-adj", t(headers), startRow = 1, startCol = 1, colNames = FALSE)
+  openxlsx::writeData(wb, "MS SMD bias-adj", t(c(2, 1, 42)), startRow = 2, startCol = 1, colNames = FALSE)
+  openxlsx::saveWorkbook(wb, path, overwrite = TRUE)
+}
+
 make_test_lookup <- function(path) {
   writeLines(
     c(
@@ -272,6 +281,18 @@ test_collect_reclassification_with_shifted_header <- function() {
   })
 }
 
+test_collect_reclassification_without_studyid_column <- function() {
+  withr_tempdir(function(temp_dir) {
+    mmc5_path <- file.path(temp_dir, "mmc5_fixed.xlsx")
+    make_missing_studyid_workbook(mmc5_path)
+
+    results <- collect_reclassification_results(mmc5_path, list(), "MS SMD bias-adj", "MS depression-included studies")
+
+    assert_true(nrow(results$flagged) == 0, "Expected no flagged rows when studyid column is missing.")
+    assert_true(identical(results$audit$reason, "missing_studyid_column_in_block"), "Expected missing-studyid blocks to be sent to manual review.")
+  })
+}
+
 test_should_flag()
 test_infer_and_resolve_ls_sheet()
 test_load_study_sheet_resolves_ls_alias()
@@ -282,4 +303,5 @@ test_write_reports_with_empty_audit()
 test_update_lookup_does_not_duplicate_partial_placebo()
 test_write_reports_sanitizes_sheet_name()
 test_collect_reclassification_with_shifted_header()
+test_collect_reclassification_without_studyid_column()
 cat("All R placebo reclassification tests passed.\n")
