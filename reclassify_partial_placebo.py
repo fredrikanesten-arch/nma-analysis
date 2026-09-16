@@ -64,28 +64,6 @@ NONPHARMA_KEYWORDS = (
     "website",
     "yoga",
 )
-PHARMA_KEYWORDS = (
-    "ad",
-    "amitriptyline",
-    "citalopram",
-    "clomipramine",
-    "duloxetine",
-    "escitalopram",
-    "fluoxetine",
-    "imipramine",
-    "lofepramine",
-    "mirtazapine",
-    "nortriptyline",
-    "paroxetine",
-    "sertraline",
-    "snri",
-    "ssri",
-    "tca",
-    "trazodone",
-    "venlafaxine",
-)
-
-
 @dataclass
 class StudyRecord:
     study_id: str
@@ -270,11 +248,6 @@ def is_nonpharmacological_component(component: str) -> bool:
     return any(keyword in lowered for keyword in NONPHARMA_KEYWORDS)
 
 
-def is_pharmacological_component(component: str) -> bool:
-    lowered = normalize(component)
-    return any(keyword in lowered for keyword in PHARMA_KEYWORDS)
-
-
 def study_has_nonpharmacological_component(study: StudyRecord) -> bool:
     for arm in study.arms.values():
         if arm is None:
@@ -298,6 +271,10 @@ def should_flag(study: StudyRecord) -> bool:
         or normalize(study.detection_bias) != "low risk"
     )
     return has_pill_placebo and has_nonpharma and has_blinding_issue
+
+
+def pill_placebo_arm_count(study: StudyRecord) -> int:
+    return sum(1 for arm in study.arms.values() if arm is not None and normalize(arm) == "pill placebo")
 
 
 def recode_sheet(
@@ -331,6 +308,14 @@ def recode_sheet(
             study = mmc3_studies.get(study_key)
             if study is None or not should_flag(study):
                 continue
+            placebo_positions_in_row = [position for position, column in treat_column_pairs if worksheet.cell(row, column).value == PLACEBO_CODE]
+            expected_placebo_count = pill_placebo_arm_count(study)
+            if len(placebo_positions_in_row) != expected_placebo_count:
+                raise CliError(
+                    f"Study '{study.study_id}' on sheet '{sheet_name}' row {row} has "
+                    f"{len(placebo_positions_in_row)} treatment entries coded as {PLACEBO_CODE}, "
+                    f"but mmc3 shows {expected_placebo_count} Pill placebo arm(s)."
+                )
             changed = False
             changed_columns: list[str] = []
             for position, column in treat_column_pairs:

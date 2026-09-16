@@ -158,6 +158,40 @@ class RecodingTests(unittest.TestCase):
             self.assertEqual([study.study_id for study in flagged], ["S1", "S3"])
             self.assertEqual(flagged[1].replaced_treat_columns, ["t[,1]", "t[,2]"])
 
+    def test_recode_sheet_rejects_placebo_count_mismatch(self):
+        workbook = Workbook()
+        sheet = workbook.active
+        sheet.title = "MS SMD bias-adj"
+        headers = ["na[]", "t[,1]", "t[,2]", "studyid"]
+        for column, value in enumerate(headers, start=1):
+            sheet.cell(1, column).value = value
+        sheet.cell(2, 1).value = 2
+        sheet.cell(2, 2).value = 1
+        sheet.cell(2, 3).value = 1
+        sheet.cell(2, 4).value = "S1"
+
+        studies = {
+            "S1": module.StudyRecord(
+                study_id="S1",
+                arms={1: "Pill placebo", 2: "Bright light therapy", 3: None, 4: None, 5: None},
+                performance_bias="High risk",
+                detection_bias="Low risk",
+            )
+        }
+
+        with tempfile.TemporaryDirectory() as temp_dir:
+            workbook_path = Path(temp_dir) / "mmc5_fixed.xlsx"
+            workbook.save(workbook_path)
+
+            with self.assertRaises(module.CliError):
+                module.recode_sheet(
+                    workbook,
+                    workbook_path,
+                    studies,
+                    "MS SMD bias-adj",
+                    "MS depression-included studies",
+                )
+
 
 if __name__ == "__main__":
     unittest.main()
