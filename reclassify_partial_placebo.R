@@ -45,7 +45,6 @@ NONPHARMA_KEYWORDS <- c(
   "relaxation",
   "self-help",
   "supportive",
-  "therapy",
   "website",
   "yoga"
 )
@@ -154,7 +153,7 @@ parse_args <- function(args = commandArgs(trailingOnly = TRUE)) {
     } else {
       name <- substring(token, 3)
       index <- index + 1
-      if (index > length(args)) {
+      if (index > length(args) || startsWith(args[[index]], "--")) {
         stop(sprintf("Missing value for --%s.", name), call. = FALSE)
       }
       value <- args[[index]]
@@ -224,7 +223,7 @@ load_study_sheet <- function(path, sheet_name) {
   detection_column <- canonical_map[[make.names("Blinding of outcome assessment (detection bias)", unique = TRUE)]]
   arm_columns <- vapply(
     make.names(ARM_COLUMNS, unique = TRUE),
-    function(name) canonical_map[[name]] %||% NA_character_,
+    function(name) if (name %in% names(canonical_map)) canonical_map[[name]] else NA_character_,
     character(1)
   )
 

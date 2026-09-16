@@ -106,6 +106,28 @@ test_infer_and_resolve_ls_sheet <- function() {
   assert_true(resolved == "LS depression -included studies", "Expected LS sheet resolution to fall back to the workbook's actual sheet name.")
 }
 
+test_load_study_sheet_resolves_ls_alias <- function() {
+  withr_tempdir(function(temp_dir) {
+    workbook_path <- file.path(temp_dir, "mmc3_included_studies.xlsx")
+    wb <- openxlsx::createWorkbook()
+    openxlsx::addWorksheet(wb, "LS depression -included studies")
+    sheet_data <- data.frame(
+      "Study ID" = "LS1",
+      "Arm 1 intervention" = "Pill placebo",
+      "Arm 2 intervention" = "Bright light therapy",
+      "Blinding of participants and personnel (performance bias)" = "High risk",
+      "Blinding of outcome assessment (detection bias)" = "Low risk",
+      check.names = FALSE
+    )
+    openxlsx::writeData(wb, "LS depression -included studies", sheet_data)
+    openxlsx::saveWorkbook(wb, workbook_path, overwrite = TRUE)
+
+    records <- load_study_sheet(workbook_path, "LS depression-included studies")
+
+    assert_true(identical(records$LS1$study_id, "LS1"), "Expected LS alias resolution to load the study sheet.")
+  })
+}
+
 test_collect_reclassification_results <- function() {
   withr_tempdir(function(temp_dir) {
     mmc5_path <- file.path(temp_dir, "mmc5_fixed.xlsx")
@@ -208,6 +230,7 @@ test_update_lookup_does_not_duplicate_partial_placebo <- function() {
 
 test_should_flag()
 test_infer_and_resolve_ls_sheet()
+test_load_study_sheet_resolves_ls_alias()
 test_collect_reclassification_results()
 test_write_reports()
 test_collect_reclassification_manual_review_branches()
