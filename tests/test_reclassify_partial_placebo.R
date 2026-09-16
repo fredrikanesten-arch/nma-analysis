@@ -57,6 +57,15 @@ make_no_audit_workbook <- function(path) {
   openxlsx::saveWorkbook(wb, path, overwrite = TRUE)
 }
 
+make_shifted_header_workbook <- function(path) {
+  wb <- openxlsx::createWorkbook()
+  openxlsx::addWorksheet(wb, "MS SMD bias-adj")
+  headers <- c(NA, "na[]", "t[,1]", "t[,2]", "t[,3]", "t[,4]", "t[,5]", "studyid")
+  openxlsx::writeData(wb, "MS SMD bias-adj", t(headers), startRow = 1, startCol = 1, colNames = FALSE)
+  openxlsx::writeData(wb, "MS SMD bias-adj", t(c(NA, 2, 1, 42, NA, NA, NA, "S1")), startRow = 2, startCol = 1, colNames = FALSE)
+  openxlsx::saveWorkbook(wb, path, overwrite = TRUE)
+}
+
 make_test_lookup <- function(path) {
   writeLines(
     c(
@@ -249,6 +258,20 @@ test_write_reports_sanitizes_sheet_name <- function() {
   })
 }
 
+test_collect_reclassification_with_shifted_header <- function() {
+  withr_tempdir(function(temp_dir) {
+    mmc5_path <- file.path(temp_dir, "mmc5_fixed.xlsx")
+    make_shifted_header_workbook(mmc5_path)
+    mmc3_records <- list(
+      S1 = list(study_id = "S1", arms = c("Pill placebo", "Bright light therapy", NA, NA, NA), performance_bias = "High risk", detection_bias = "Low risk")
+    )
+
+    results <- collect_reclassification_results(mmc5_path, mmc3_records, "MS SMD bias-adj", "MS depression-included studies")
+
+    assert_true(identical(results$flagged$study_id, "S1"), "Expected shifted block headers still to be detected and reclassified.")
+  })
+}
+
 test_should_flag()
 test_infer_and_resolve_ls_sheet()
 test_load_study_sheet_resolves_ls_alias()
@@ -258,4 +281,5 @@ test_collect_reclassification_manual_review_branches()
 test_write_reports_with_empty_audit()
 test_update_lookup_does_not_duplicate_partial_placebo()
 test_write_reports_sanitizes_sheet_name()
+test_collect_reclassification_with_shifted_header()
 cat("All R placebo reclassification tests passed.\n")

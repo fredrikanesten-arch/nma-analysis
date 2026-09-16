@@ -277,7 +277,10 @@ read_raw_sheet <- function(path, sheet_name) {
 }
 
 find_block_headers <- function(raw_sheet) {
-  which(vapply(raw_sheet[[1]], function(value) identical(as.character(value), "na[]"), logical(1)))
+  which(vapply(seq_len(nrow(raw_sheet)), function(row_index) {
+    values <- unlist(raw_sheet[row_index, , drop = TRUE], use.names = FALSE)
+    any(vapply(values, function(value) identical(as.character(value), "na[]"), logical(1)))
+  }, logical(1)))
 }
 
 build_column_map <- function(raw_sheet, header_row) {
@@ -601,7 +604,7 @@ main <- function(args = commandArgs(trailingOnly = TRUE)) {
   sheet_name <- options$sheet
   mmc3_sheet_name <- options$mmc3_sheet %||% infer_mmc3_sheet(sheet_name)
   study_sheet <- load_study_sheet(options$mmc3, mmc3_sheet_name)
-  lookup_path <- options$lookup %||% default_lookup_path(dirname(options$mmc5), sheet_name)
+  lookup_path <- options$lookup %||% default_lookup_path(options$input_dir, sheet_name)
   results <- collect_reclassification_results(options$mmc5, study_sheet$records, sheet_name, study_sheet$sheet_name)
   outputs <- write_reports(results, options$output_dir, options$mmc5, lookup_path, sheet_name)
 
