@@ -139,13 +139,18 @@ test_write_reports <- function() {
 test_collect_reclassification_manual_review_branches <- function() {
   withr_tempdir(function(temp_dir) {
     mmc5_path <- file.path(temp_dir, "mmc5_fixed.xlsx")
+    lookup_path <- file.path(temp_dir, "trt_to_class_ms.csv")
     make_manual_review_workbook(mmc5_path)
+    make_test_lookup(lookup_path)
     mmc3_records <- list()
 
     results <- collect_reclassification_results(mmc5_path, mmc3_records, "MS SMD bias-adj", "MS depression-included studies")
+    outputs <- write_reports(results, file.path(temp_dir, "outputs"), mmc5_path, lookup_path, "MS SMD bias-adj")
+    review <- read.csv(outputs$review_output, stringsAsFactors = FALSE)
     assert_true(nrow(results$flagged) == 0, "Expected no flagged rows for manual-review-only workbook.")
     assert_true(identical(results$audit$status, c("manual_review", "manual_review")), "Expected both audit rows to require manual review.")
     assert_true(identical(results$audit$reason, c("missing_study_id_in_mmc5", "study_not_found_in_mmc3")), "Expected audit reasons for missing study ID and missing mmc3 match.")
+    assert_true(identical(review$reason, c("missing_study_id_in_mmc5", "study_not_found_in_mmc3")), "Expected manual review CSV to preserve manual-review audit rows.")
   })
 }
 

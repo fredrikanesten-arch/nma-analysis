@@ -10,6 +10,9 @@ PLACEBO_CLASS_CODE <- 1
 PLACEBO_CLASS_NAME <- "Placebo"
 ARM_COLUMNS <- sprintf("Arm %d intervention", 1:5)
 CONTROL_ARMS <- c("pill placebo", "attention placebo", "no treatment", "waitlist", "tau")
+# Heuristic list of non-pharmacological intervention terms used to identify
+# placebo comparisons that may need partial-placebo reclassification; extend
+# this list when new non-drug intervention labels appear in the source workbooks.
 NONPHARMA_KEYWORDS <- c(
   "acupuncture",
   "attentional bias",
@@ -55,11 +58,18 @@ normalize_string <- function(value) {
 }
 
 is_blank_cell <- function(value) {
-  normalize_string(value) %in% c("", "na")
+  if (length(value) == 0 || is.na(value)) {
+    return(TRUE)
+  }
+  identical(trimws(as.character(value)), "")
+}
+
+is_placeholder_missing <- function(value) {
+  is_blank_cell(value) || identical(normalize_string(value), "na")
 }
 
 as_numeric_code <- function(value) {
-  if (is_blank_cell(value)) {
+  if (is_placeholder_missing(value)) {
     return(NA_real_)
   }
   suppressWarnings(as.numeric(value))
@@ -205,7 +215,7 @@ load_study_sheet <- function(path, sheet_name) {
   records <- list()
   for (row_index in seq_len(nrow(study_df))) {
     study_id <- trimws(as.character(study_df[[study_id_column]][[row_index]]))
-    if (!nzchar(study_id) || identical(normalize_string(study_id), "na")) {
+    if (!nzchar(study_id)) {
       next
     }
 
@@ -404,7 +414,7 @@ collect_reclassification_results <- function(mmc5_path, mmc3_records, sheet_name
       }
 
       study_id <- trimws(as.character(raw_sheet[[study_column]][[row_index]] %||% ""))
-      if (!nzchar(study_id) || identical(normalize_string(study_id), "na")) {
+      if (!nzchar(study_id) || is_placeholder_missing(study_id)) {
         audit_rows[[length(audit_rows) + 1]] <- build_audit_row(
           sheet_name = sheet_name,
           block_index = block$block_index,
