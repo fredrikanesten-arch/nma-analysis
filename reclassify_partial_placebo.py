@@ -18,6 +18,11 @@ DEFAULT_SHEET = "MS SMD bias-adj"
 DEFAULT_SHEET_ALIASES = {
     "MD SMD bias-adj": "MS SMD bias-adj",
 }
+MMC3_SHEET_ALIASES = {
+    "LS depression -included studies": "LS depression -included studies",
+    "LS depression-included studies": "LS depression -included studies",
+    "MS depression-included studies": "MS depression-included studies",
+}
 PLACEBO_CODE = 1
 PARTIAL_PLACEBO_CODE = 100
 PARTIAL_PLACEBO_NAME = "Partial placebo"
@@ -143,6 +148,7 @@ def load_study_sheet(path: Path, sheet_name: str) -> dict[str, StudyRecord]:
             str(worksheet.cell(row, column).value).strip()
             for column in arm_cols
             if worksheet.cell(row, column).value is not None
+            and normalize(str(worksheet.cell(row, column).value)) != "na"
         ]
         studies[str(study_id).strip()] = StudyRecord(
             study_id=str(study_id).strip(),
@@ -168,9 +174,9 @@ def resolve_mmc5_sheet(workbook, requested_sheet: str) -> str:
 def infer_mmc3_sheet(mmc5_sheet_name: str) -> str:
     prefix = mmc5_sheet_name.split(" ", 1)[0]
     if prefix == "MS":
-        return "MS depression-included studies"
+        return MMC3_SHEET_ALIASES["MS depression-included studies"]
     if prefix == "LS":
-        return "LS depression -included studies"
+        return MMC3_SHEET_ALIASES["LS depression -included studies"]
     raise CliError(f"Unable to infer the mmc3 sheet for mmc5 sheet '{mmc5_sheet_name}'.")
 
 
@@ -221,7 +227,10 @@ def should_flag(study: StudyRecord) -> bool:
     normalized_arms = [normalize(arm) for arm in study.arms]
     has_pill_placebo = "pill placebo" in normalized_arms
     has_nonpharma = any(is_nonpharmacological_arm(arm) for arm in study.arms)
-    has_blinding_issue = normalize(study.performance_bias) != "low risk"
+    has_blinding_issue = (
+        normalize(study.performance_bias) != "low risk"
+        or normalize(study.detection_bias) != "low risk"
+    )
     return has_pill_placebo and has_nonpharma and has_blinding_issue
 
 
@@ -282,6 +291,7 @@ def write_flag_report(path: Path, flagged: list[FlaggedStudy]) -> None:
                 "original_treat_code",
                 "replacement_treat_code",
             ],
+            quoting=csv.QUOTE_ALL,
         )
         writer.writeheader()
         for study in flagged:
@@ -306,20 +316,23 @@ def update_lookup(source_path: Path, destination_path: Path) -> None:
         reader = csv.DictReader(handle, delimiter=";")
         rows = list(reader)
         fieldnames = [name.lstrip("\ufeff") for name in (reader.fieldnames or [])]
-    if fieldnames is None:
+    if not fieldnames:
         raise CliError(f"Unable to read header row from {source_path}.")
     if rows:
         rows = [{key.lstrip("\ufeff"): value for key, value in row.items()} for row in rows]
     has_partial_placebo = any(row.get("trtcode") == str(PARTIAL_PLACEBO_CODE) for row in rows)
     if not has_partial_placebo:
-        rows.append(
-            {
-                "trtcode": str(PARTIAL_PLACEBO_CODE),
-                "trt": PARTIAL_PLACEBO_NAME,
-                "classcode": str(PLACEBO_CLASS_CODE),
-                "class": PLACEBO_CLASS_NAME,
-            }
-        )
+        partial_placebo_row = {field: "" for field in fieldnames}
+        values = {
+            "trtcode": str(PARTIAL_PLACEBO_CODE),
+            "trt": PARTIAL_PLACEBO_NAME,
+            "classcode": str(PLACEBO_CLASS_CODE),
+            "class": PLACEBO_CLASS_NAME,
+        }
+        for field in fieldnames:
+            if field in values:
+                partial_placebo_row[field] = values[field]
+        rows.append(partial_placebo_row)
     with destination_path.open("w", newline="", encoding="utf-8") as handle:
         writer = csv.DictWriter(handle, fieldnames=fieldnames, delimiter=";")
         writer.writeheader()
@@ -345,10 +358,12 @@ def main() -> int:
         mmc5_path = ensure_local_file(args.mmc5, "mmc5_fixed.xlsx", tmpdir)
         mmc3_path = ensure_local_file(args.mmc3, "mmc3_included_studies.xlsx", tmpdir)
         lookup_path = ensure_local_file(args.lookup, "trt_to_class_ms.csv", tmpdir)
-        mmc5_sheet_name = args.sheet
-        resolved_mmc3_sheet = infer_mmc3_sheet(DEFAULT_SHEET_ALIASES.get(mmc5_sheet_name, mmc5_sheet_name) if mmc5_sheet_name not in [None, ""] else DEFAULT_SHEET)
+        mmc5_sheet_name = args.sheet or DEFAULT_SHEET
+        mmc5_workbook = load_workbook(mmc5_path, data_only=True)
+        resolved_sheet = resolve_mmc5_sheet(mmc5_workbook, mmc5_sheet_name)
+        resolved_mmc3_sheet = infer_mmc3_sheet(resolved_sheet)
         mmc3_studies = load_study_sheet(mmc3_path, resolved_mmc3_sheet)
-        recoded_workbook, flagged, resolved_sheet = recode_sheet(mmc5_path, mmc3_studies, mmc5_sheet_name)
+        recoded_workbook, flagged, resolved_sheet = recode_sheet(mmc5_path, mmc3_studies, resolved_sheet)
         report_path = tmpdir / f"flagged_partial_placebo_{resolved_sheet.replace(' ', '_')}.csv"
         write_flag_report(report_path, flagged)
         lookup_out_path = tmpdir / f"{lookup_path.stem}_partial_placebo{lookup_path.suffix}"

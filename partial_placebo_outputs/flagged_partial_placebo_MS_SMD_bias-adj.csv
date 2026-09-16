@@ -1,6 +1,6 @@
-sheet_name,block_index,worksheet_row,study_id,matched_sheet,performance_bias,detection_bias,arms,original_treat_code,replacement_treat_code
-MS SMD bias-adj,1,7,Lam 2016,MS depression-included studies,Unclear risk,Low risk,Bright light therapy | Fluoxetine | Bright light therapy + fluoxetine | Pill placebo | NA,1,100
-MS SMD bias-adj,1,10,Blumenthal 2007/Hoffman 2011,MS depression-included studies,High risk,Low risk,Supervised high intensity exercise group | Unsupervised high intensity exercise individual | Sertraline | Pill placebo | NA,1,100
-MS SMD bias-adj,2,154,Wilson 1982,MS depression-included studies,High risk,Unclear risk,Behavioural activation (BA) individual + amitriptyline | Progressive muscle relaxation individual + amitriptyline | Amitriptyline | Progressive muscle relaxation individual + pill placebo | Pill placebo,1,100
-MS SMD bias-adj,2,157,Elkin 1989/Imber 1990,MS depression-included studies,High risk,Unclear risk,CBT individual (15 sessions or over) | Interpersonal psychotherapy (IPT) individual | Imipramine | Pill placebo | NA,1,100
-MS SMD bias-adj,2,163,Mynors-Wallis 1995,MS depression-included studies,High risk,Low risk,Problem solving individual | Amitriptyline | Pill placebo | NA | NA,1,100
+"sheet_name","block_index","worksheet_row","study_id","matched_sheet","performance_bias","detection_bias","arms","original_treat_code","replacement_treat_code"
+"MS SMD bias-adj","1","7","Lam 2016","MS depression-included studies","Unclear risk","Low risk","Bright light therapy | Fluoxetine | Bright light therapy + fluoxetine | Pill placebo","1","100"
+"MS SMD bias-adj","1","10","Blumenthal 2007/Hoffman 2011","MS depression-included studies","High risk","Low risk","Supervised high intensity exercise group | Unsupervised high intensity exercise individual | Sertraline | Pill placebo","1","100"
+"MS SMD bias-adj","2","154","Wilson 1982","MS depression-included studies","High risk","Unclear risk","Behavioural activation (BA) individual + amitriptyline | Progressive muscle relaxation individual + amitriptyline | Amitriptyline | Progressive muscle relaxation individual + pill placebo | Pill placebo","1","100"
+"MS SMD bias-adj","2","157","Elkin 1989/Imber 1990","MS depression-included studies","High risk","Unclear risk","CBT individual (15 sessions or over) | Interpersonal psychotherapy (IPT) individual | Imipramine | Pill placebo","1","100"
+"MS SMD bias-adj","2","163","Mynors-Wallis 1995","MS depression-included studies","High risk","Low risk","Problem solving individual | Amitriptyline | Pill placebo","1","100"
