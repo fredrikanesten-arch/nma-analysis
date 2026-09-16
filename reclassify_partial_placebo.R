@@ -109,9 +109,24 @@ infer_mmc3_sheet <- function(mmc5_sheet) {
     return("MS depression-included studies")
   }
   if (identical(prefix, "LS")) {
-    return("LS depression -included studies")
+    return("LS depression-included studies")
   }
   stop(sprintf("Cannot infer mmc3 sheet from '%s'. Supply --mmc3-sheet.", mmc5_sheet), call. = FALSE)
+}
+
+resolve_mmc3_sheet_name <- function(available_sheets, requested_sheet) {
+  aliases <- c(
+    "LS depression-included studies" = "LS depression -included studies",
+    "LS depression -included studies" = "LS depression-included studies"
+  )
+  if (requested_sheet %in% available_sheets) {
+    return(requested_sheet)
+  }
+  alias <- aliases[[requested_sheet]]
+  if (!is.null(alias) && alias %in% available_sheets) {
+    return(alias)
+  }
+  requested_sheet
 }
 
 parse_args <- function(args = commandArgs(trailingOnly = TRUE)) {
@@ -178,6 +193,7 @@ assert_file_exists <- function(path) {
 load_study_sheet <- function(path, sheet_name) {
   assert_file_exists(path)
   available_sheets <- openxlsx::getSheetNames(path)
+  sheet_name <- resolve_mmc3_sheet_name(available_sheets, sheet_name)
   if (!sheet_name %in% available_sheets) {
     stop(sprintf("Sheet '%s' not found in %s.", sheet_name, path), call. = FALSE)
   }
@@ -244,7 +260,7 @@ load_study_sheet <- function(path, sheet_name) {
 }
 
 `%||%` <- function(left, right) {
-  if (is.null(left) || length(left) == 0 || is.na(left)) right else left
+  if (is.null(left) || length(left) == 0 || (length(left) == 1 && is.na(left))) right else left
 }
 
 read_raw_sheet <- function(path, sheet_name) {

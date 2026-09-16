@@ -68,6 +68,18 @@ make_test_lookup <- function(path) {
   )
 }
 
+make_lookup_with_partial_placebo <- function(path) {
+  writeLines(
+    c(
+      "trtcode;trt;classcode;class",
+      "1;Pill placebo;1;Placebo",
+      "100;Partial placebo;1;Placebo"
+    ),
+    con = path,
+    useBytes = TRUE
+  )
+}
+
 test_should_flag <- function() {
   flagged <- list(
     study_id = "flagged",
@@ -84,6 +96,14 @@ test_should_flag <- function() {
 
   assert_true(study_status(flagged)$status == "reclassified", "Expected flagged study to be reclassified.")
   assert_true(study_status(not_flagged)$status != "reclassified", "Expected pharmacological-only study not to be reclassified.")
+}
+
+test_infer_and_resolve_ls_sheet <- function() {
+  inferred <- infer_mmc3_sheet("LS SMD bias-adj")
+  resolved <- resolve_mmc3_sheet_name(c("LS depression -included studies"), inferred)
+
+  assert_true(inferred == "LS depression-included studies", "Expected LS inference to use the standard sheet title.")
+  assert_true(resolved == "LS depression -included studies", "Expected LS sheet resolution to fall back to the workbook's actual sheet name.")
 }
 
 test_collect_reclassification_results <- function() {
@@ -173,9 +193,24 @@ test_write_reports_with_empty_audit <- function() {
   })
 }
 
+test_update_lookup_does_not_duplicate_partial_placebo <- function() {
+  withr_tempdir(function(temp_dir) {
+    lookup_path <- file.path(temp_dir, "trt_to_class_ms.csv")
+    output_path <- file.path(temp_dir, "trt_to_class_ms_partial_placebo.csv")
+    make_lookup_with_partial_placebo(lookup_path)
+
+    update_lookup(lookup_path, output_path)
+    lookup <- read.csv2(output_path, stringsAsFactors = FALSE)
+
+    assert_true(sum(as.character(lookup$trtcode) == as.character(PARTIAL_PLACEBO_CODE)) == 1, "Expected Partial placebo row not to be duplicated.")
+  })
+}
+
 test_should_flag()
+test_infer_and_resolve_ls_sheet()
 test_collect_reclassification_results()
 test_write_reports()
 test_collect_reclassification_manual_review_branches()
 test_write_reports_with_empty_audit()
+test_update_lookup_does_not_duplicate_partial_placebo()
 cat("All R placebo reclassification tests passed.\n")
