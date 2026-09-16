@@ -49,6 +49,10 @@ NONPHARMA_KEYWORDS <- c(
   "yoga"
 )
 
+`%||%` <- function(left, right) {
+  if (is.null(left) || length(left) == 0 || (length(left) == 1 && is.na(left))) right else left
+}
+
 normalize_string <- function(value) {
   if (length(value) == 0 || is.na(value)) {
     return("")
@@ -256,10 +260,6 @@ load_study_sheet <- function(path, sheet_name) {
   }
 
   records
-}
-
-`%||%` <- function(left, right) {
-  if (is.null(left) || length(left) == 0 || (length(left) == 1 && is.na(left))) right else left
 }
 
 read_raw_sheet <- function(path, sheet_name) {

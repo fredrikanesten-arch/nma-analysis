@@ -1,5 +1,6 @@
 script_args <- commandArgs(trailingOnly = FALSE)
-test_file <- sub("^--file=", "", grep("^--file=", script_args, value = TRUE)[1])
+file_args <- grep("^--file=", script_args, value = TRUE)
+test_file <- if (length(file_args) > 0) sub("^--file=", "", file_args[[1]]) else file.path(getwd(), "tests", "test_reclassify_partial_placebo.R")
 repo_root <- dirname(dirname(normalizePath(test_file)))
 source(file.path(repo_root, "reclassify_partial_placebo.R"))
 
