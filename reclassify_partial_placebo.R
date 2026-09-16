@@ -319,6 +319,26 @@ study_status <- function(study_record) {
   list(status = "reclassified", reason = "reclassified", pill_placebo = pill_placebo, nonpharma = nonpharma, blinding_issue = blinding_issue)
 }
 
+build_audit_row <- function(sheet_name, block_index, row_index, study_id, mmc3_sheet_name, placebo_columns, performance_bias, detection_bias, has_pill_placebo_arm, has_nonpharmacological_component, has_blinding_issue_value, status, reason, arms) {
+  data.frame(
+    sheet_name = sheet_name,
+    block_index = block_index,
+    worksheet_row = row_index,
+    study_id = study_id,
+    matched_sheet = mmc3_sheet_name,
+    treat_columns_with_code_1 = paste(placebo_columns, collapse = " | "),
+    performance_bias = performance_bias,
+    detection_bias = detection_bias,
+    has_pill_placebo_arm = has_pill_placebo_arm,
+    has_nonpharmacological_component = has_nonpharmacological_component,
+    has_blinding_issue = has_blinding_issue_value,
+    status = status,
+    reason = reason,
+    arms = arms,
+    stringsAsFactors = FALSE
+  )
+}
+
 collect_reclassification_results <- function(mmc5_path, mmc3_records, sheet_name, mmc3_sheet_name) {
   workbook <- openxlsx::loadWorkbook(mmc5_path)
   raw_sheet <- read_raw_sheet(mmc5_path, sheet_name)
@@ -345,44 +365,42 @@ collect_reclassification_results <- function(mmc5_path, mmc3_records, sheet_name
 
       study_id <- trimws(as.character(raw_sheet[[study_column]][[row_index]] %||% ""))
       if (!nzchar(study_id) || identical(normalize_string(study_id), "na")) {
-        audit_rows[[length(audit_rows) + 1]] <- data.frame(
+        audit_rows[[length(audit_rows) + 1]] <- build_audit_row(
           sheet_name = sheet_name,
           block_index = block$block_index,
-          worksheet_row = row_index,
+          row_index = row_index,
           study_id = NA_character_,
-          matched_sheet = mmc3_sheet_name,
-          treat_columns_with_code_1 = paste(placebo_columns, collapse = " | "),
+          mmc3_sheet_name = mmc3_sheet_name,
+          placebo_columns = placebo_columns,
           performance_bias = NA_character_,
           detection_bias = NA_character_,
           has_pill_placebo_arm = NA,
           has_nonpharmacological_component = NA,
-          has_blinding_issue = NA,
+          has_blinding_issue_value = NA,
           status = "manual_review",
           reason = "missing_study_id_in_mmc5",
-          arms = NA_character_,
-          stringsAsFactors = FALSE
+          arms = NA_character_
         )
         next
       }
 
       study_record <- mmc3_records[[study_id]]
       if (is.null(study_record)) {
-        audit_rows[[length(audit_rows) + 1]] <- data.frame(
+        audit_rows[[length(audit_rows) + 1]] <- build_audit_row(
           sheet_name = sheet_name,
           block_index = block$block_index,
-          worksheet_row = row_index,
+          row_index = row_index,
           study_id = study_id,
-          matched_sheet = mmc3_sheet_name,
-          treat_columns_with_code_1 = paste(placebo_columns, collapse = " | "),
+          mmc3_sheet_name = mmc3_sheet_name,
+          placebo_columns = placebo_columns,
           performance_bias = NA_character_,
           detection_bias = NA_character_,
           has_pill_placebo_arm = NA,
           has_nonpharmacological_component = NA,
-          has_blinding_issue = NA,
+          has_blinding_issue_value = NA,
           status = "manual_review",
           reason = "study_not_found_in_mmc3",
-          arms = NA_character_,
-          stringsAsFactors = FALSE
+          arms = NA_character_
         )
         next
       }
@@ -390,22 +408,21 @@ collect_reclassification_results <- function(mmc5_path, mmc3_records, sheet_name
       current_status <- study_status(study_record)
       arms_text <- paste(study_record$arms[!vapply(study_record$arms, is_blank_cell, logical(1))], collapse = " | ")
 
-      audit_rows[[length(audit_rows) + 1]] <- data.frame(
+      audit_rows[[length(audit_rows) + 1]] <- build_audit_row(
         sheet_name = sheet_name,
         block_index = block$block_index,
-        worksheet_row = row_index,
+        row_index = row_index,
         study_id = study_id,
-        matched_sheet = mmc3_sheet_name,
-        treat_columns_with_code_1 = paste(placebo_columns, collapse = " | "),
+        mmc3_sheet_name = mmc3_sheet_name,
+        placebo_columns = placebo_columns,
         performance_bias = study_record$performance_bias,
         detection_bias = study_record$detection_bias,
         has_pill_placebo_arm = current_status$pill_placebo,
         has_nonpharmacological_component = current_status$nonpharma,
-        has_blinding_issue = current_status$blinding_issue,
+        has_blinding_issue_value = current_status$blinding_issue,
         status = current_status$status,
         reason = current_status$reason,
-        arms = arms_text,
-        stringsAsFactors = FALSE
+        arms = arms_text
       )
 
       if (current_status$status != "reclassified") {
