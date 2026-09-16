@@ -467,8 +467,8 @@ update_lookup <- function(lookup_path, output_path) {
 
   has_partial_placebo <- any(as.character(lookup$trtcode) == as.character(PARTIAL_PLACEBO_CODE))
   if (!has_partial_placebo) {
-    partial_row <- lookup[1, , drop = FALSE]
-    partial_row[1, ] <- ""
+    partial_row <- stats::setNames(as.list(rep("", ncol(lookup))), names(lookup))
+    partial_row <- as.data.frame(partial_row, stringsAsFactors = FALSE)
     partial_row$trtcode <- as.character(PARTIAL_PLACEBO_CODE)
     partial_row$trt <- PARTIAL_PLACEBO_NAME
     partial_row$classcode <- as.character(PLACEBO_CLASS_CODE)

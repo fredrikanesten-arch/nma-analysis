@@ -1,4 +1,7 @@
-source("/home/runner/work/nma-analysis/nma-analysis/reclassify_partial_placebo.R")
+script_args <- commandArgs(trailingOnly = FALSE)
+test_file <- sub("^--file=", "", grep("^--file=", script_args, value = TRUE)[1])
+repo_root <- dirname(dirname(normalizePath(test_file)))
+source(file.path(repo_root, "reclassify_partial_placebo.R"))
 
 assert_true <- function(condition, message) {
   if (!isTRUE(condition)) {
@@ -97,11 +100,13 @@ test_write_reports <- function() {
     results <- collect_reclassification_results(mmc5_path, mmc3_records, "MS SMD bias-adj", "MS depression-included studies")
     outputs <- write_reports(results, file.path(temp_dir, "outputs"), mmc5_path, lookup_path, "MS SMD bias-adj")
     lookup <- read.csv2(outputs$lookup_output, stringsAsFactors = FALSE)
+    flagged <- read.csv(outputs$flagged_output, stringsAsFactors = FALSE)
     review <- read.csv(outputs$review_output, stringsAsFactors = FALSE)
 
     assert_true(file.exists(outputs$workbook_output), "Expected recoded workbook to be written.")
     assert_true(any(as.character(lookup$trtcode) == as.character(PARTIAL_PLACEBO_CODE)), "Expected updated lookup to include Partial placebo.")
-    assert_true(nrow(review) >= 1, "Expected a manual review report for non-reclassified rows.")
+    assert_true(identical(flagged$study_id, c("S1", "S3")), "Expected flagged report to contain only reclassified studies.")
+    assert_true(identical(review$study_id, "S2"), "Expected manual review report to contain only non-reclassified placebo-coded studies.")
   })
 }
 
