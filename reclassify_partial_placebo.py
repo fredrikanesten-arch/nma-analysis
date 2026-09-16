@@ -111,6 +111,10 @@ def parse_args() -> argparse.Namespace:
         ),
     )
     parser.add_argument(
+        "--mmc3-sheet",
+        help="Optional override for the mmc3 sheet name; defaults to the sheet inferred from the resolved mmc5 sheet.",
+    )
+    parser.add_argument(
         "--output-dir",
         default="partial_placebo_outputs",
         help="Directory for the flagged-study report, recoded workbook, and updated lookup CSV.",
@@ -361,7 +365,7 @@ def main() -> int:
         mmc5_sheet_name = args.sheet or DEFAULT_SHEET
         mmc5_workbook = load_workbook(mmc5_path, data_only=True)
         resolved_sheet = resolve_mmc5_sheet(mmc5_workbook, mmc5_sheet_name)
-        resolved_mmc3_sheet = infer_mmc3_sheet(resolved_sheet)
+        resolved_mmc3_sheet = args.mmc3_sheet or infer_mmc3_sheet(resolved_sheet)
         mmc3_studies = load_study_sheet(mmc3_path, resolved_mmc3_sheet)
         recoded_workbook, flagged, resolved_sheet = recode_sheet(mmc5_path, mmc3_studies, resolved_sheet)
         report_path = tmpdir / f"flagged_partial_placebo_{resolved_sheet.replace(' ', '_')}.csv"
