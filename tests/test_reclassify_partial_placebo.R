@@ -230,6 +230,25 @@ test_update_lookup_does_not_duplicate_partial_placebo <- function() {
   })
 }
 
+test_write_reports_sanitizes_sheet_name <- function() {
+  withr_tempdir(function(temp_dir) {
+    mmc5_path <- file.path(temp_dir, "mmc5_fixed.xlsx")
+    lookup_path <- file.path(temp_dir, "trt_to_class_ms.csv")
+    make_no_audit_workbook(mmc5_path)
+    make_test_lookup(lookup_path)
+    empty_results <- list(
+      workbook = openxlsx::loadWorkbook(mmc5_path),
+      flagged = empty_flagged_frame(),
+      audit = empty_audit_frame()
+    )
+
+    outputs <- write_reports(empty_results, file.path(temp_dir, "outputs"), mmc5_path, lookup_path, "MS/\\SMD bias-adj")
+
+    assert_true(file.exists(outputs$flagged_output), "Expected flagged output to be written for sanitized sheet names.")
+    assert_true(!grepl("[/\\\\]", basename(outputs$flagged_output)), "Expected output filename to remove path separators from sheet names.")
+  })
+}
+
 test_should_flag()
 test_infer_and_resolve_ls_sheet()
 test_load_study_sheet_resolves_ls_alias()
@@ -238,4 +257,5 @@ test_write_reports()
 test_collect_reclassification_manual_review_branches()
 test_write_reports_with_empty_audit()
 test_update_lookup_does_not_duplicate_partial_placebo()
+test_write_reports_sanitizes_sheet_name()
 cat("All R placebo reclassification tests passed.\n")

@@ -531,10 +531,12 @@ bind_rows <- function(rows, empty_frame) {
   do.call(rbind, rows)
 }
 
-default_lookup_path <- function(input_dir, sheet_name) {
-  preferred_lookup <- if (startsWith(sheet_name, "LS")) file.path(input_dir, "trt_to_class_ls.csv") else file.path(input_dir, "trt_to_class_ms.csv")
-  fallback_lookup <- file.path(input_dir, "trt_to_class_ms.csv")
-  if (startsWith(sheet_name, "LS") && !file.exists(preferred_lookup)) fallback_lookup else preferred_lookup
+default_lookup_path <- function(base_dir, sheet_name) {
+  preferred_lookup <- if (startsWith(sheet_name, "LS")) file.path(base_dir, "trt_to_class_ls.csv") else file.path(base_dir, "trt_to_class_ms.csv")
+  if (startsWith(sheet_name, "LS") && !file.exists(preferred_lookup)) {
+    stop(sprintf("Expected LS lookup file was not found: %s. Supply --lookup explicitly.", preferred_lookup), call. = FALSE)
+  }
+  preferred_lookup
 }
 
 update_lookup <- function(lookup_path, output_path) {
@@ -569,10 +571,11 @@ update_lookup <- function(lookup_path, output_path) {
 
 write_reports <- function(results, output_dir, mmc5_path, lookup_path, sheet_name) {
   dir.create(output_dir, recursive = TRUE, showWarnings = FALSE)
+  safe_sheet_name <- gsub("[/\\\\:*?\"<>|]", "_", sheet_name)
 
   workbook_output <- file.path(output_dir, sprintf("%s_partial_placebo.xlsx", tools::file_path_sans_ext(basename(mmc5_path))))
-  flagged_output <- file.path(output_dir, sprintf("flagged_partial_placebo_%s.csv", gsub(" ", "_", sheet_name)))
-  review_output <- file.path(output_dir, sprintf("manual_review_partial_placebo_%s.csv", gsub(" ", "_", sheet_name)))
+  flagged_output <- file.path(output_dir, sprintf("flagged_partial_placebo_%s.csv", gsub(" ", "_", safe_sheet_name)))
+  review_output <- file.path(output_dir, sprintf("manual_review_partial_placebo_%s.csv", gsub(" ", "_", safe_sheet_name)))
   lookup_output <- file.path(output_dir, sprintf("%s_partial_placebo.csv", tools::file_path_sans_ext(basename(lookup_path))))
 
   update_lookup(lookup_path, lookup_output)
@@ -598,7 +601,7 @@ main <- function(args = commandArgs(trailingOnly = TRUE)) {
   sheet_name <- options$sheet
   mmc3_sheet_name <- options$mmc3_sheet %||% infer_mmc3_sheet(sheet_name)
   study_sheet <- load_study_sheet(options$mmc3, mmc3_sheet_name)
-  lookup_path <- options$lookup %||% default_lookup_path(options$input_dir, sheet_name)
+  lookup_path <- options$lookup %||% default_lookup_path(dirname(options$mmc5), sheet_name)
   results <- collect_reclassification_results(options$mmc5, study_sheet$records, sheet_name, study_sheet$sheet_name)
   outputs <- write_reports(results, options$output_dir, options$mmc5, lookup_path, sheet_name)
 
