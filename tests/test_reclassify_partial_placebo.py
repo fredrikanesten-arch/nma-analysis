@@ -75,5 +75,89 @@ class SheetResolutionTests(unittest.TestCase):
             module.infer_mmc3_sheet("MD SMD bias-adj")
 
 
+class RecodingTests(unittest.TestCase):
+    def test_should_flag_requires_placebo_nonpharma_and_blinding_issue(self):
+        flagged = module.StudyRecord(
+            study_id="flagged",
+            arms={1: "Pill placebo", 2: "Bright light therapy", 3: None, 4: None, 5: None},
+            performance_bias="Unclear risk",
+            detection_bias="Low risk",
+        )
+        not_flagged = module.StudyRecord(
+            study_id="not_flagged",
+            arms={1: "Pill placebo", 2: "Fluoxetine", 3: None, 4: None, 5: None},
+            performance_bias="Low risk",
+            detection_bias="Low risk",
+        )
+
+        self.assertTrue(module.should_flag(flagged))
+        self.assertFalse(module.should_flag(not_flagged))
+
+    def test_recode_sheet_updates_only_flagged_rows_and_tracks_columns(self):
+        workbook = Workbook()
+        sheet = workbook.active
+        sheet.title = "MS SMD bias-adj"
+        headers = ["na[]", "t[,1]", "t[,2]", "t[,3]", "t[,4]", "t[,5]", "studyid"]
+        for column, value in enumerate(headers, start=1):
+            sheet.cell(1, column).value = value
+        sheet.cell(2, 1).value = 2
+        sheet.cell(2, 2).value = 1
+        sheet.cell(2, 3).value = 42
+        sheet.cell(2, 7).value = "S1"
+        sheet.cell(3, 1).value = 2
+        sheet.cell(3, 2).value = 1
+        sheet.cell(3, 3).value = 42
+        sheet.cell(3, 7).value = "S2"
+        sheet.cell(4, 1).value = 3
+        sheet.cell(4, 2).value = 1
+        sheet.cell(4, 3).value = 1
+        sheet.cell(4, 4).value = 42
+        sheet.cell(4, 7).value = "S3"
+
+        studies = {
+            "S1": module.StudyRecord(
+                study_id="S1",
+                arms={1: "Pill placebo", 2: "Bright light therapy", 3: None, 4: None, 5: None},
+                performance_bias="High risk",
+                detection_bias="Low risk",
+            ),
+            "S2": module.StudyRecord(
+                study_id="S2",
+                arms={1: "Pill placebo", 2: "Fluoxetine", 3: None, 4: None, 5: None},
+                performance_bias="Low risk",
+                detection_bias="Low risk",
+            ),
+            "S3": module.StudyRecord(
+                study_id="S3",
+                arms={1: "Pill placebo", 2: "Pill placebo", 3: "Bright light therapy", 4: None, 5: None},
+                performance_bias="High risk",
+                detection_bias="Low risk",
+            ),
+        }
+
+        with tempfile.TemporaryDirectory() as temp_dir:
+            workbook_path = Path(temp_dir) / "mmc5_fixed.xlsx"
+            workbook.save(workbook_path)
+
+            recoded_path, flagged, _ = module.recode_sheet(
+                workbook,
+                workbook_path,
+                studies,
+                "MS SMD bias-adj",
+                "MS depression-included studies",
+            )
+
+            recoded = Workbook()
+            self.assertTrue(recoded_path.exists())
+            recoded = module.load_workbook(recoded_path)
+            recoded_sheet = recoded["MS SMD bias-adj"]
+            self.assertEqual(recoded_sheet.cell(2, 2).value, module.PARTIAL_PLACEBO_CODE)
+            self.assertEqual(recoded_sheet.cell(3, 2).value, module.PLACEBO_CODE)
+            self.assertEqual(recoded_sheet.cell(4, 2).value, module.PARTIAL_PLACEBO_CODE)
+            self.assertEqual(recoded_sheet.cell(4, 3).value, module.PARTIAL_PLACEBO_CODE)
+            self.assertEqual([study.study_id for study in flagged], ["S1", "S3"])
+            self.assertEqual(flagged[1].replaced_treat_columns, ["t[,1]", "t[,2]"])
+
+
 if __name__ == "__main__":
     unittest.main()

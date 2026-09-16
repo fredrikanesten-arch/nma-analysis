@@ -64,12 +64,32 @@ NONPHARMA_KEYWORDS = (
     "website",
     "yoga",
 )
+PHARMA_KEYWORDS = (
+    "ad",
+    "amitriptyline",
+    "citalopram",
+    "clomipramine",
+    "duloxetine",
+    "escitalopram",
+    "fluoxetine",
+    "imipramine",
+    "lofepramine",
+    "mirtazapine",
+    "nortriptyline",
+    "paroxetine",
+    "sertraline",
+    "snri",
+    "ssri",
+    "tca",
+    "trazodone",
+    "venlafaxine",
+)
 
 
 @dataclass
 class StudyRecord:
     study_id: str
-    arms: list[str]
+    arms: dict[int, str | None]
     performance_bias: str
     detection_bias: str
 
@@ -163,12 +183,15 @@ def load_study_sheet(path: Path, sheet_name: str) -> dict[str, StudyRecord]:
         study_id = worksheet.cell(row, study_id_col).value
         if study_id is None:
             continue
-        arms = [
-            str(worksheet.cell(row, column).value).strip()
-            for column in arm_cols
-            if worksheet.cell(row, column).value is not None
-            and normalize(str(worksheet.cell(row, column).value)) != "na"
-        ]
+        arms = {
+            index: (
+                None
+                if worksheet.cell(row, column).value is None
+                or normalize(str(worksheet.cell(row, column).value)) == "na"
+                else str(worksheet.cell(row, column).value).strip()
+            )
+            for index, column in enumerate(arm_cols, start=1)
+        }
         studies[str(study_id).strip()] = StudyRecord(
             study_id=str(study_id).strip(),
             arms=arms,
@@ -232,17 +255,44 @@ def normalize(text: str) -> str:
     return " ".join(text.lower().split())
 
 
-def is_nonpharmacological_arm(arm: str) -> bool:
-    lowered = normalize(arm)
+def split_arm_components(arm: str) -> list[str]:
+    return [component.strip() for component in arm.split("+") if component.strip()]
+
+
+def is_control_component(component: str) -> bool:
+    return normalize(component) in CONTROL_ARMS
+
+
+def is_nonpharmacological_component(component: str) -> bool:
+    lowered = normalize(component)
     if lowered in CONTROL_ARMS:
         return False
     return any(keyword in lowered for keyword in NONPHARMA_KEYWORDS)
 
 
+def is_pharmacological_component(component: str) -> bool:
+    lowered = normalize(component)
+    return any(keyword in lowered for keyword in PHARMA_KEYWORDS)
+
+
+def study_has_nonpharmacological_component(study: StudyRecord) -> bool:
+    for arm in study.arms.values():
+        if arm is None:
+            continue
+        components = split_arm_components(arm)
+        if any(is_nonpharmacological_component(component) for component in components):
+            return True
+    return False
+
+
+def study_arms_list(study: StudyRecord) -> list[str]:
+    return [arm for _, arm in sorted(study.arms.items()) if arm is not None]
+
+
 def should_flag(study: StudyRecord) -> bool:
-    normalized_arms = [normalize(arm) for arm in study.arms]
+    normalized_arms = [normalize(arm) for arm in study_arms_list(study)]
     has_pill_placebo = "pill placebo" in normalized_arms
-    has_nonpharma = any(is_nonpharmacological_arm(arm) for arm in study.arms)
+    has_nonpharma = study_has_nonpharmacological_component(study)
     has_blinding_issue = (
         normalize(study.performance_bias) != "low risk"
         or normalize(study.detection_bias) != "low risk"
@@ -300,7 +350,7 @@ def recode_sheet(
                     replaced_treat_columns=changed_columns,
                     performance_bias=study.performance_bias,
                     detection_bias=study.detection_bias,
-                    arms=study.arms,
+                    arms=study_arms_list(study),
                 )
             )
     recoded_path = mmc5_path.with_name(f"{mmc5_path.stem}_partial_placebo{mmc5_path.suffix}")
