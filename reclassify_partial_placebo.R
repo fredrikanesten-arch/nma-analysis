@@ -143,6 +143,7 @@ parse_args <- function(args = commandArgs(trailingOnly = TRUE)) {
     index <- index + 1
   }
 
+  default_lookup_name <- if (startsWith(options$sheet, "LS")) "trt_to_class_ls.csv" else "trt_to_class_ms.csv"
   if (is.null(options$mmc5)) {
     options$mmc5 <- file.path(options$input_dir, "mmc5_fixed.xlsx")
   }
@@ -150,7 +151,9 @@ parse_args <- function(args = commandArgs(trailingOnly = TRUE)) {
     options$mmc3 <- file.path(options$input_dir, "mmc3_included_studies.xlsx")
   }
   if (is.null(options$lookup)) {
-    options$lookup <- file.path(options$input_dir, "trt_to_class_ms.csv")
+    preferred_lookup <- file.path(options$input_dir, default_lookup_name)
+    fallback_lookup <- file.path(options$input_dir, "trt_to_class_ms.csv")
+    options$lookup <- if (file.exists(preferred_lookup) || !startsWith(options$sheet, "LS")) preferred_lookup else fallback_lookup
   }
 
   options
@@ -516,6 +519,7 @@ update_lookup <- function(lookup_path, output_path) {
     names(lookup)[[1]] <- sub("^\\ufeff", "", names(lookup)[[1]])
   }
   required_columns <- c("trtcode", "trt", "classcode", "class")
+  names(lookup) <- sub("^\\ufeff", "", names(lookup))
   missing_columns <- required_columns[!required_columns %in% names(lookup)]
   if (length(missing_columns) > 0) {
     stop(

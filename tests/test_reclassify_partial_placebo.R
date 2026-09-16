@@ -106,6 +106,8 @@ test_collect_reclassification_results <- function() {
     assert_true(recoded[[2]][[4]] == PARTIAL_PLACEBO_CODE, "Expected first S3 placebo code to be rewritten.")
     assert_true(recoded[[3]][[4]] == PARTIAL_PLACEBO_CODE, "Expected second S3 placebo code to be rewritten.")
     assert_true(identical(results$flagged$study_id, c("S1", "S3")), "Expected S1 and S3 to be flagged.")
+    assert_true(identical(results$audit$study_id, c("S1", "S2", "S3")), "Expected audit output for all placebo-coded rows.")
+    assert_true(identical(results$audit$reason, c("reclassified", "no_nonpharmacological_component_detected", "reclassified")), "Expected audit reasons to capture the non-reclassified S2 branch.")
   })
 }
 
