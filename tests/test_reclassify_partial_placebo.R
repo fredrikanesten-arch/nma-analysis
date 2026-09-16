@@ -123,9 +123,10 @@ test_load_study_sheet_resolves_ls_alias <- function() {
     openxlsx::writeData(wb, "LS depression -included studies", sheet_data)
     openxlsx::saveWorkbook(wb, workbook_path, overwrite = TRUE)
 
-    records <- load_study_sheet(workbook_path, "LS depression-included studies")
+    study_sheet <- load_study_sheet(workbook_path, "LS depression-included studies")
 
-    assert_true(identical(records$LS1$study_id, "LS1"), "Expected LS alias resolution to load the study sheet.")
+    assert_true(identical(study_sheet$sheet_name, "LS depression -included studies"), "Expected LS alias resolution to surface the actual workbook sheet name.")
+    assert_true(identical(study_sheet$records$LS1$study_id, "LS1"), "Expected LS alias resolution to load the study sheet.")
   })
 }
 

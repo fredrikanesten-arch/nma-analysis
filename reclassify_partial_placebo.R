@@ -171,17 +171,11 @@ parse_args <- function(args = commandArgs(trailingOnly = TRUE)) {
     index <- index + 1
   }
 
-  default_lookup_name <- if (startsWith(options$sheet, "LS")) "trt_to_class_ls.csv" else "trt_to_class_ms.csv"
   if (is.null(options$mmc5)) {
     options$mmc5 <- file.path(options$input_dir, "mmc5_fixed.xlsx")
   }
   if (is.null(options$mmc3)) {
     options$mmc3 <- file.path(options$input_dir, "mmc3_included_studies.xlsx")
-  }
-  if (is.null(options$lookup)) {
-    preferred_lookup <- file.path(options$input_dir, default_lookup_name)
-    fallback_lookup <- file.path(options$input_dir, "trt_to_class_ms.csv")
-    options$lookup <- if (file.exists(preferred_lookup) || !startsWith(options$sheet, "LS")) preferred_lookup else fallback_lookup
   }
 
   options
@@ -259,7 +253,7 @@ load_study_sheet <- function(path, sheet_name) {
     )
   }
 
-  records
+  list(records = records, sheet_name = sheet_name)
 }
 
 read_raw_sheet <- function(path, sheet_name) {
@@ -537,6 +531,12 @@ bind_rows <- function(rows, empty_frame) {
   do.call(rbind, rows)
 }
 
+default_lookup_path <- function(input_dir, sheet_name) {
+  preferred_lookup <- if (startsWith(sheet_name, "LS")) file.path(input_dir, "trt_to_class_ls.csv") else file.path(input_dir, "trt_to_class_ms.csv")
+  fallback_lookup <- file.path(input_dir, "trt_to_class_ms.csv")
+  if (startsWith(sheet_name, "LS") && !file.exists(preferred_lookup)) fallback_lookup else preferred_lookup
+}
+
 update_lookup <- function(lookup_path, output_path) {
   assert_file_exists(lookup_path)
   lookup <- utils::read.csv2(lookup_path, stringsAsFactors = FALSE, fileEncoding = "UTF-8-BOM")
@@ -597,13 +597,13 @@ main <- function(args = commandArgs(trailingOnly = TRUE)) {
   options <- parse_args(args)
   sheet_name <- options$sheet
   mmc3_sheet_name <- options$mmc3_sheet %||% infer_mmc3_sheet(sheet_name)
-
-  mmc3_records <- load_study_sheet(options$mmc3, mmc3_sheet_name)
-  results <- collect_reclassification_results(options$mmc5, mmc3_records, sheet_name, mmc3_sheet_name)
-  outputs <- write_reports(results, options$output_dir, options$mmc5, options$lookup, sheet_name)
+  study_sheet <- load_study_sheet(options$mmc3, mmc3_sheet_name)
+  lookup_path <- options$lookup %||% default_lookup_path(options$input_dir, sheet_name)
+  results <- collect_reclassification_results(options$mmc5, study_sheet$records, sheet_name, study_sheet$sheet_name)
+  outputs <- write_reports(results, options$output_dir, options$mmc5, lookup_path, sheet_name)
 
   message(sprintf("Resolved mmc5 sheet: %s", sheet_name))
-  message(sprintf("Matched mmc3 sheet: %s", mmc3_sheet_name))
+  message(sprintf("Matched mmc3 sheet: %s", study_sheet$sheet_name))
   message(sprintf("Flagged studies: %d", nrow(results$flagged)))
   message(sprintf("Manual review rows: %d", nrow(results$audit[results$audit$status != "reclassified", , drop = FALSE])))
   if (nrow(results$flagged) > 0) {
