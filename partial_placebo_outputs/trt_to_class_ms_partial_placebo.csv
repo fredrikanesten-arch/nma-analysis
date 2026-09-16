@@ -1,0 +1,101 @@
+trtcode;trt;classcode;class
+1;Pill placebo;1;Placebo
+2;Attention placebo;2;Attention placebo
+3;No treatment;3;No treatment
+4;Waitlist;4;Waitlist
+5;TAU;5;TAU
+6;Mirtazapine;6;Mirtazapine
+7;Trazodone;7;Trazodone
+8;Behavioural activation (BA) individual;8;Behavioural therapies individual
+9;Behavioural therapy (Lewinsohn 1976) individual;;
+10;CBT individual (15 sessions or over);9;Cognitive and cognitive behavioural therapies individual
+11;CBT individual (under 15 sessions);;
+12;Dialectical behavioural therapy (DBT) individual;;
+13;Third-wave cognitive therapy individual;;
+14;CBT group (under 15 sessions);10;Cognitive and cognitive behavioural therapies group
+15;Problem solving individual;11;Problem solving individual
+16;Problem solving group;12;Problem solving group
+17;Non-directive/supportive/person-centred counselling;13;Counselling individual
+18;Interpersonal psychotherapy (IPT) individual;14;Interpersonal psychotherapy (IPT) individual
+19;Psychoeducational group programme;15;Psychoeducation group
+20;Cognitive bibliotherapy;16;Self-help
+21;Computerised-CBT (CCBT);;
+22;Computerised attentional bias modification;;
+23;Mindfulness meditation CD;;
+24;Cognitive bibliotherapy with support;17;Self-help with support
+25;Computerised-CBT (CCBT) with support;;
+26;Mindfulness meditation CD with support;;
+27;Relaxation training CD with support;;
+28;Dynamic interpersonal therapy (DIT) individual;18;Short-term psychodynamic psychotherapies individual
+29;Short-term psychodynamic psychotherapy individual;;
+30;Music therapy group;19;Music therapy group
+31;Mindfulness-based cognitive therapy (MBCT) group;20;Mindfulness or meditation group
+32;Peer support group;21;Peer support group
+33;Any psychotherapy;22;Any psychotherapy
+34;CBT individual (15 sessions or over) + pill placebo;23;Cognitive and cognitive behavioural therapies individual + placebo
+35;CBT individual (under 15 sessions) + pill placebo;;
+36;Interpersonal psychotherapy (IPT) individual + pill placebo;24;Interpersonal psychotherapy (IPT) individual + placebo
+37;Non-directive/supportive/person-centred counselling + pill placebo;25;Counselling individual + placebo
+38;Progressive muscle relaxation individual + pill placebo;26;Relaxation individual + placebo
+39;Any SSRI;27;SSRIs
+40;Citalopram;;
+41;Escitalopram;;
+42;Fluoxetine;;
+43;Paroxetine;;
+44;Sertraline;;
+45;Amitriptyline;28;TCAs
+46;Any TCA;;
+47;Clomipramine;;
+48;Imipramine;;
+49;Lofepramine;;
+50;Nortriptyline;;
+51;Duloxetine;29;SNRIs
+52;Venlafaxine;;
+53;Any AD;30;Any AD
+54;Inactive laser acupuncture;31;Sham acupuncture
+55;Sham electrostimulation at non-specific points with no current;;
+56;Traditional non-specific point acupuncture;;
+57;Electroacupuncture;32;Acupuncture
+58;Laser acupuncture;;
+59;Traditional acupuncture;;
+60;Supervised high intensity exercise individual;33;Exercise individual
+61;Supervised low intensity exercise individual;;
+62;Unsupervised high intensity exercise individual;;
+63;Supervised high intensity exercise group;34;Exercise group
+64;Supervised low intensity exercise group;;
+65;Yoga group;35;Yoga group
+66;Bright light therapy;36;Light therapy
+67;Behavioural activation (BA) individual + amitriptyline;37;Behavioural therapies individual + AD
+68;Behavioural activation (BA) individual + any AD;;
+69;CBT individual (15 sessions or over) + any AD;38;Cognitive and cognitive behavioural therapies individual + AD
+70;CBT individual (15 sessions or over) + any SSRI;;
+71;CBT individual (15 sessions or over) + imipramine;;
+72;CBT individual (15 sessions or over) + nortriptyline;;
+73;CBT individual (under 15 sessions) + escitalopram;;
+74;CBT individual (under 15 sessions) + sertraline;;
+75;Third-wave cognitive therapy individual + any AD;;
+76;CBT group (under 15 sessions) + any AD;39;Cognitive and cognitive behavioural therapies group + AD
+77;Interpersonal counselling individual + venlafaxine;40;Interpersonal psychotherapy (IPT) individual + AD
+78;Interpersonal psychotherapy (IPT) individual + any AD;;
+79;Non-directive/supportive/person-centred counselling + any AD;41;Counselling individual + AD
+80;Non-directive/supportive/person-centred counselling + any SSRI;;
+81;Non-directive/supportive/person-centred counselling + fluoxetine;;
+82;Short-term psychodynamic psychotherapy individual + any AD;42;Short-term psychodynamic psychotherapies individual + AD
+83;Short-term psychodynamic psychotherapy individual + any SSRI;;
+84;Psychoeducational group programme + any AD;43;Psychoeducation group + AD
+85;Peer support group + any AD;44;Peer support group + AD
+86;Progressive muscle relaxation individual + amitriptyline;45;Relaxation individual + AD
+87;Supervised high intensity exercise individual + any AD;46;Exercise individual + AD
+88;Supervised high intensity exercise individual + sertraline;;
+89;Supervised low intensity exercise individual + any AD;;
+90;Supervised high intensity exercise group + sertraline;47;Exercise group + AD
+91;Supervised low intensity exercise group + sertraline;;
+92;Yoga group + any AD;48;Yoga group + AD
+93;Electroacupuncture + any SSRI;49;Acupuncture + AD
+94;Electroacupuncture + fluoxetine;;
+95;Electroacupuncture + paroxetine;;
+96;Traditional acupuncture + any SSRI;;
+97;Traditional acupuncture + paroxetine;;
+98;Bright light therapy + fluoxetine;50;Light therapy + AD
+99;Bright light therapy + venlafaxine;;
+100;Partial placebo;1;Placebo
