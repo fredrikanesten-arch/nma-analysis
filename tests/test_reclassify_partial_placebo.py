@@ -4,6 +4,7 @@ from pathlib import Path
 from unittest.mock import patch
 
 import reclassify_partial_placebo as module
+from openpyxl import Workbook
 
 
 class EnsureLocalFileTests(unittest.TestCase):
@@ -41,6 +42,37 @@ class EnsureLocalFileTests(unittest.TestCase):
             tmpdir = Path(temp_dir)
             with self.assertRaises(module.CliError):
                 module.ensure_local_file("https://example.com/mmc5_fixed.xlsx", "mmc5_fixed.xlsx", tmpdir)
+
+
+class SheetResolutionTests(unittest.TestCase):
+    def test_resolve_mmc5_sheet_returns_exact_match(self):
+        workbook = Workbook()
+        workbook.active.title = "MS SMD bias-adj"
+
+        resolved = module.resolve_mmc5_sheet(workbook, "MS SMD bias-adj")
+
+        self.assertEqual(resolved, "MS SMD bias-adj")
+
+    def test_resolve_mmc5_sheet_rejects_missing_sheet(self):
+        workbook = Workbook()
+        workbook.active.title = "MS SMD bias-adj"
+
+        with self.assertRaises(module.CliError):
+            module.resolve_mmc5_sheet(workbook, "MD SMD bias-adj")
+
+    def test_infer_mmc3_sheet_supports_ms_and_ls(self):
+        self.assertEqual(
+            module.infer_mmc3_sheet("MS SMD bias-adj"),
+            "MS depression-included studies",
+        )
+        self.assertEqual(
+            module.infer_mmc3_sheet("LS SMD bias-adj"),
+            "LS depression -included studies",
+        )
+
+    def test_infer_mmc3_sheet_rejects_unknown_prefix(self):
+        with self.assertRaises(module.CliError):
+            module.infer_mmc3_sheet("MD SMD bias-adj")
 
 
 if __name__ == "__main__":

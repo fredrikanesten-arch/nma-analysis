@@ -16,9 +16,6 @@ from openpyxl import load_workbook
 
 DEFAULT_BASE_URL = "https://raw.githubusercontent.com/fredrikanesten-arch/placebo-reclassification/main"
 DEFAULT_SHEET = "MS SMD bias-adj"
-DEFAULT_SHEET_ALIASES = {
-    "MD SMD bias-adj": "MS SMD bias-adj",
-}
 MMC3_SHEET_ALIASES = {
     "LS depression -included studies": "LS depression -included studies",
     "LS depression-included studies": "LS depression -included studies",
@@ -84,6 +81,7 @@ class FlaggedStudy:
     worksheet_row: int
     study_id: str
     matched_sheet: str
+    replaced_treat_columns: list[str]
     performance_bias: str
     detection_bias: str
     arms: list[str]
@@ -107,8 +105,7 @@ def parse_args() -> argparse.Namespace:
         "--sheet",
         default=DEFAULT_SHEET,
         help=(
-            "Target mmc5 sheet. If the exact name is not found, known aliases such as "
-            f"'MD SMD bias-adj' -> '{DEFAULT_SHEET}' are resolved automatically."
+            "Target mmc5 sheet."
         ),
     )
     parser.add_argument(
@@ -184,9 +181,6 @@ def load_study_sheet(path: Path, sheet_name: str) -> dict[str, StudyRecord]:
 def resolve_mmc5_sheet(workbook, requested_sheet: str) -> str:
     if requested_sheet in workbook.sheetnames:
         return requested_sheet
-    alias = DEFAULT_SHEET_ALIASES.get(requested_sheet)
-    if alias and alias in workbook.sheetnames:
-        return alias
     raise CliError(
         f"Sheet '{requested_sheet}' was not found in mmc5 workbook. "
         f"Available sheets include: {', '.join(workbook.sheetnames)}"
@@ -256,15 +250,13 @@ def should_flag(study: StudyRecord) -> bool:
     return has_pill_placebo and has_nonpharma and has_blinding_issue
 
 
-def pill_placebo_positions(study: StudyRecord) -> set[int]:
-    return {
-        index
-        for index, arm in enumerate(study.arms, start=1)
-        if normalize(arm) == "pill placebo"
-    }
-
-
-def recode_sheet(workbook, mmc5_path: Path, mmc3_studies: dict[str, StudyRecord], requested_sheet: str) -> tuple[Path, list[FlaggedStudy], str]:
+def recode_sheet(
+    workbook,
+    mmc5_path: Path,
+    mmc3_studies: dict[str, StudyRecord],
+    requested_sheet: str,
+    mmc3_sheet_name: str,
+) -> tuple[Path, list[FlaggedStudy], str]:
     sheet_name = resolve_mmc5_sheet(workbook, requested_sheet)
     worksheet = workbook[sheet_name]
     flagged: list[FlaggedStudy] = []
@@ -289,17 +281,23 @@ def recode_sheet(workbook, mmc5_path: Path, mmc3_studies: dict[str, StudyRecord]
             study = mmc3_studies.get(study_key)
             if study is None or not should_flag(study):
                 continue
-            placebo_positions = pill_placebo_positions(study)
+            changed = False
+            changed_columns: list[str] = []
             for position, column in treat_column_pairs:
-                if position in placebo_positions and worksheet.cell(row, column).value == PLACEBO_CODE:
+                if worksheet.cell(row, column).value == PLACEBO_CODE:
                     worksheet.cell(row, column).value = PARTIAL_PLACEBO_CODE
+                    changed = True
+                    changed_columns.append(f"t[,{position}]")
+            if not changed:
+                continue
             flagged.append(
                 FlaggedStudy(
                     sheet_name=sheet_name,
                     block_index=block_index,
                     worksheet_row=row,
                     study_id=study.study_id,
-                    matched_sheet=infer_mmc3_sheet(sheet_name),
+                    matched_sheet=mmc3_sheet_name,
+                    replaced_treat_columns=changed_columns,
                     performance_bias=study.performance_bias,
                     detection_bias=study.detection_bias,
                     arms=study.arms,
@@ -320,6 +318,7 @@ def write_flag_report(path: Path, flagged: list[FlaggedStudy]) -> None:
                 "worksheet_row",
                 "study_id",
                 "matched_sheet",
+                "replaced_treat_columns",
                 "performance_bias",
                 "detection_bias",
                 "arms",
@@ -337,6 +336,7 @@ def write_flag_report(path: Path, flagged: list[FlaggedStudy]) -> None:
                     "worksheet_row": study.worksheet_row,
                     "study_id": study.study_id,
                     "matched_sheet": study.matched_sheet,
+                    "replaced_treat_columns": " | ".join(study.replaced_treat_columns),
                     "performance_bias": study.performance_bias,
                     "detection_bias": study.detection_bias,
                     "arms": " | ".join(study.arms),
@@ -398,7 +398,13 @@ def main() -> int:
         resolved_sheet = resolve_mmc5_sheet(mmc5_workbook, mmc5_sheet_name)
         resolved_mmc3_sheet = args.mmc3_sheet or infer_mmc3_sheet(resolved_sheet)
         mmc3_studies = load_study_sheet(mmc3_path, resolved_mmc3_sheet)
-        recoded_workbook, flagged, resolved_sheet = recode_sheet(mmc5_workbook, mmc5_path, mmc3_studies, resolved_sheet)
+        recoded_workbook, flagged, resolved_sheet = recode_sheet(
+            mmc5_workbook,
+            mmc5_path,
+            mmc3_studies,
+            resolved_sheet,
+            resolved_mmc3_sheet,
+        )
         report_path = tmpdir / f"flagged_partial_placebo_{resolved_sheet.replace(' ', '_')}.csv"
         write_flag_report(report_path, flagged)
         lookup_out_path = tmpdir / f"{lookup_path.stem}_partial_placebo{lookup_path.suffix}"
