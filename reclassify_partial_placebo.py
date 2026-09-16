@@ -7,6 +7,7 @@ import shutil
 import sys
 import tempfile
 import urllib.request
+from urllib.parse import urlparse
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Iterable
@@ -126,6 +127,13 @@ def ensure_local_file(source: str | None, default_name: str, tmpdir: Path) -> Pa
     if source is None:
         source = f"{DEFAULT_BASE_URL}/{default_name}"
     if source.startswith(("http://", "https://")):
+        parsed = urlparse(source)
+        expected_prefix = f"/fredrikanesten-arch/placebo-reclassification/main/{default_name}"
+        if parsed.netloc != "raw.githubusercontent.com" or not parsed.path.endswith(expected_prefix):
+            raise CliError(
+                "Remote inputs must come from raw.githubusercontent.com/fredrikanesten-arch/"
+                f"placebo-reclassification/main/{default_name} or be supplied as local files."
+            )
         destination = tmpdir / default_name
         urllib.request.urlretrieve(source, destination)
         return destination
@@ -139,6 +147,16 @@ def load_study_sheet(path: Path, sheet_name: str) -> dict[str, StudyRecord]:
     worksheet = workbook[sheet_name]
     headers = [worksheet.cell(1, column).value for column in range(1, worksheet.max_column + 1)]
     column_map = {header: index + 1 for index, header in enumerate(headers) if header}
+    required_columns = [
+        "Study ID",
+        "Blinding of participants and personnel (performance bias)",
+        "Blinding of outcome assessment (detection bias)",
+    ]
+    missing_columns = [name for name in required_columns if name not in column_map]
+    if missing_columns:
+        raise CliError(
+            f"Sheet '{sheet_name}' in {path} is missing required columns: {', '.join(missing_columns)}"
+        )
     study_id_col = column_map["Study ID"]
     perf_col = column_map["Blinding of participants and personnel (performance bias)"]
     det_col = column_map["Blinding of outcome assessment (detection bias)"]
@@ -238,13 +256,25 @@ def should_flag(study: StudyRecord) -> bool:
     return has_pill_placebo and has_nonpharma and has_blinding_issue
 
 
-def recode_sheet(mmc5_path: Path, mmc3_studies: dict[str, StudyRecord], requested_sheet: str) -> tuple[Path, list[FlaggedStudy], str]:
-    workbook = load_workbook(mmc5_path)
+def pill_placebo_positions(study: StudyRecord) -> set[int]:
+    return {
+        index
+        for index, arm in enumerate(study.arms, start=1)
+        if normalize(arm) == "pill placebo"
+    }
+
+
+def recode_sheet(workbook, mmc5_path: Path, mmc3_studies: dict[str, StudyRecord], requested_sheet: str) -> tuple[Path, list[FlaggedStudy], str]:
     sheet_name = resolve_mmc5_sheet(workbook, requested_sheet)
     worksheet = workbook[sheet_name]
     flagged: list[FlaggedStudy] = []
     for block_index, start_row, end_row, column_map in iter_non_responder_blocks(worksheet):
-        treat_columns = [column_map[name] for name in [f"t[,{idx}]" for idx in range(1, 6)] if name in column_map]
+        treat_column_pairs = [
+            (idx, column_map[name])
+            for idx, name in enumerate([f"t[,{idx}]" for idx in range(1, 6)], start=1)
+            if name in column_map
+        ]
+        treat_columns = [column for _, column in treat_column_pairs]
         study_id_column = column_map.get("studyid")
         if not treat_columns or study_id_column is None:
             continue
@@ -259,8 +289,9 @@ def recode_sheet(mmc5_path: Path, mmc3_studies: dict[str, StudyRecord], requeste
             study = mmc3_studies.get(study_key)
             if study is None or not should_flag(study):
                 continue
-            for column in treat_columns:
-                if worksheet.cell(row, column).value == PLACEBO_CODE:
+            placebo_positions = pill_placebo_positions(study)
+            for position, column in treat_column_pairs:
+                if position in placebo_positions and worksheet.cell(row, column).value == PLACEBO_CODE:
                     worksheet.cell(row, column).value = PARTIAL_PLACEBO_CODE
             flagged.append(
                 FlaggedStudy(
@@ -363,11 +394,11 @@ def main() -> int:
         mmc3_path = ensure_local_file(args.mmc3, "mmc3_included_studies.xlsx", tmpdir)
         lookup_path = ensure_local_file(args.lookup, "trt_to_class_ms.csv", tmpdir)
         mmc5_sheet_name = args.sheet or DEFAULT_SHEET
-        mmc5_workbook = load_workbook(mmc5_path, data_only=True)
+        mmc5_workbook = load_workbook(mmc5_path)
         resolved_sheet = resolve_mmc5_sheet(mmc5_workbook, mmc5_sheet_name)
         resolved_mmc3_sheet = args.mmc3_sheet or infer_mmc3_sheet(resolved_sheet)
         mmc3_studies = load_study_sheet(mmc3_path, resolved_mmc3_sheet)
-        recoded_workbook, flagged, resolved_sheet = recode_sheet(mmc5_path, mmc3_studies, resolved_sheet)
+        recoded_workbook, flagged, resolved_sheet = recode_sheet(mmc5_workbook, mmc5_path, mmc3_studies, resolved_sheet)
         report_path = tmpdir / f"flagged_partial_placebo_{resolved_sheet.replace(' ', '_')}.csv"
         write_flag_report(report_path, flagged)
         lookup_out_path = tmpdir / f"{lookup_path.stem}_partial_placebo{lookup_path.suffix}"
