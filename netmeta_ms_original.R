@@ -77,7 +77,7 @@ if (
 block_starts <- c(cfb_header, bf_header, resp_header) + 1L
 block_ends <- c(bf_header - 1L, resp_header - 1L, nrow(raw))
 
-study_id_columns <- c(26, 37, 33)
+study_id_columns <- c(26, 37, 31)
 sources <- c("change_from_baseline", "baseline_followup", "responders")
 
 # -----------------------------
@@ -163,7 +163,6 @@ for (block in 1:3) {
 
 if (length(output_rows) == 0) stop("No usable study arms found.")
 
-# Build a fresh dataset from the extracted rows on every run.
 arm_data <- bind_rows(output_rows)
 
 unmapped_treatments <- setdiff(arm_data$treatment, trt_map$treatment)
@@ -191,7 +190,6 @@ if (nrow(multiple_sources) > 0) {
 # -----------------------------
 # Preserve the original pooling rules:
 # unweighted means, within-arm pooled SDs, and averaged responder counts.
-# Sample size is calculated last so earlier expressions use the arm sizes.
 pooled_treatment <- arm_data %>%
   group_by(source, study_id, treatment) %>%
   summarise(
@@ -280,7 +278,7 @@ if (!reference_code %in% analysis_data$classcode) {
 # -----------------------------
 # 8) Create comparisons and retain the Placebo-connected network
 # -----------------------------
-pairwise_data <- meta::pairwise(
+pairwise_data <- pairwise(
   treat = analysis_data$classcode,
   mean = analysis_data$mean_change,
   sd = analysis_data$sd_change,
